@@ -3,7 +3,9 @@
 </script>
 
 <template>
-  <router-view />
+  <hl-config-provider :locale="zhCn">
+    <router-view />
+  </hl-config-provider>
 </template>
 
 <style>
