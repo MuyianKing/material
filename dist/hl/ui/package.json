@@ -1,0 +1,18 @@
+{
+  "name": "@hl/ui",
+  "type": "module",
+  "version": "0.0.2",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@iconify/vue": "^4.1.2",
+    "@multiavatar/multiavatar": "^1.0.7",
+    "wavesurfer.js": "^7.8.0"
+  },
+  "devDependencies": {
+
+  }
+}

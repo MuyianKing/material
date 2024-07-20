@@ -1,0 +1,125 @@
+<script setup>
+import { getSuffix, getType } from '@hl/utils/es/file'
+import { closeLoading, error, loading } from '@hl/utils/es/message'
+import WavesurferComp from '../wavesurfer/Index.vue'
+import IconComp from '../icon/Index.vue'
+
+const props = defineProps({
+  file: {
+    type: Object,
+    default() {
+      return null
+    },
+  },
+  noDownload: {
+    type: Boolean,
+    default: false,
+  },
+  card: {
+    type: Boolean,
+    default: false,
+  },
+  height: {
+    type: String,
+    default: 'auto',
+  },
+  width: {
+    type: String,
+    default: '300px',
+  },
+})
+function previewFileUrl() { }
+function downloadFile() { }
+
+const wavesurfer_src = ref('')
+
+function handleDownload() {
+  if ((getType(props.file.name) || getType(props.file.path)) === 'audio') {
+    nextTick(() => {
+      wavesurfer_src.value = previewFileUrl(props.file.path, props.file.prefix)
+    })
+    return
+  }
+
+  if (props.noDownload) {
+    return
+  }
+
+  try {
+    loading('正在打开文件...')
+    downloadFile(props.file)
+  } catch (e) {
+    error(e, '打开文件失败')
+  } finally {
+    closeLoading()
+  }
+}
+
+const _style = computed(() => {
+  return {
+    height: props.height,
+    width: props.width,
+  }
+})
+
+const icon_map = {
+  audio: 'vscode-icons:folder-type-audio-opened',
+  xls: 'vscode-icons:file-type-excel',
+  xlsx: 'vscode-icons:file-type-excel',
+  ppt: 'vscode-icons:file-type-powerpoint',
+  pptx: 'vscode-icons:file-type-powerpoint',
+  file: 'vscode-icons:file-type-word',
+}
+
+const icon_comp = computed(() => {
+  return icon_map[getSuffix(props.file?.name)] || icon_map[getType(props.file?.name)]
+})
+</script>
+
+<template>
+  <template v-if="file && file.name">
+    <div v-if="card" class="card-item" :style="_style" v-bind="$attrs" @click="handleDownload">
+      <div class="flex-1-0 card-top">
+        <icon-comp :icon="icon_comp" size="40" />
+      </div>
+      <div class="line-clamp-1 card-file-name" :title="file.name">
+        {{ file.name }}
+      </div>
+    </div>
+
+    <span v-else v-bind="$attrs" class="file-item" @click="handleDownload">
+      {{ file.name }}
+    </span>
+    <wavesurfer-comp v-model="wavesurfer_src" v-bind="$attrs" />
+  </template>
+</template>
+
+<style lang="scss" scoped>
+.file-item {
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+.card-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-primary);
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: var(--el-color-primary-light-9);
+
+  .card-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card-file-name {
+    width: 100%;
+    text-align: center;
+    line-height: 26px;
+  }
+}
+</style>

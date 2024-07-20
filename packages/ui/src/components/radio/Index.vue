@@ -1,0 +1,72 @@
+<script setup name="HlRadio">
+import { ElRadioGroup,ElRadio } from "element-plus"
+
+const props = defineProps({
+  options: {
+    type: Array,
+    default() {
+      return []
+    },
+  },
+  modelValue: {
+    type: [String, Number, Boolean],
+    default() {
+      return ''
+    },
+  },
+  empty: {
+    type: Boolean,
+    default() {
+      return false
+    },
+  },
+  // 每个选项是否一行显示
+  line: {
+    type: Boolean,
+    default: false,
+  },
+})
+
+const emits = defineEmits(['update:modelValue', 'change'])
+
+function change(val) {
+  emits('update:modelValue', val)
+  emits('change', val)
+}
+
+function click(item) {
+  if (!props.empty)
+    return
+
+  const value = props.modelValue
+  setTimeout(() => {
+    if (value === item.value) {
+      emits('update:modelValue', 0)
+    }
+  })
+}
+</script>
+
+<template>
+  <el-radio-group :model-value="modelValue" :class="{ 'line-item': line }" @change="change">
+    <el-radio v-for="item in options" :key="item.value" :value="item.value" @click="click(item)">
+      {{ item.label }}
+    </el-radio>
+  </el-radio-group>
+</template>
+
+<style lang="scss" scoped>
+.line-item {
+  width: 100%;
+
+  .el-radio {
+    width: 100%;
+    margin-right: 0;
+
+    .el-radio__label {
+      white-space: break-spaces;
+      line-height: 20px;
+    }
+  }
+}
+</style>
