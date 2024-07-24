@@ -13,7 +13,8 @@
     "wavesurfer.js": "^7.8.0"
   },
   "devDependencies": {
-    "@hl/utils": "^0.0.2",
+    "@hl/utils": "^0.0.3",
+    "@hl/hooks": "workspace:*",
     "@vueuse/core": "^10.11.0",
     "dayjs": "^1.11.12",
     "element-plus": "^2.7.7",

@@ -1,5 +1,5 @@
 <script name="DeviceSelect" setup>
-import useSelect from '@hooks/select'
+import { useSelect } from '@hl/hooks'
 import { getUserList, getUserListWithEachOrgJob } from '../../server/user'
 
 const props = defineProps({

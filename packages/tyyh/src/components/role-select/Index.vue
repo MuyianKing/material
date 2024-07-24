@@ -1,5 +1,5 @@
 <script setup>
-import useSelect from '@hooks/select'
+import { useSelect } from '@hl/hooks'
 import { getList } from '../../server/role'
 
 const props = defineProps({

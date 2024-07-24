@@ -1,4 +1,4 @@
-import { addPrefixToUrls } from '@hl/utils/api'
+import { addPrefixToUrls } from '../utils/api'
 
 export default addPrefixToUrls('/tyyh/api', {
   user: '/user',

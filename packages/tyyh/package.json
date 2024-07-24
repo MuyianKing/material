@@ -1,5 +1,5 @@
 {
-  "name": "@hl/ui",
+  "name": "@hl/tyyh",
   "type": "module",
   "version": "0.0.2",
   "private": true,
@@ -7,12 +7,12 @@
     "dev": "vite",
     "build": "vite build"
   },
-  "dependencies": {
-  },
   "devDependencies": {
+    "@hl/hooks": "workspace:*",
     "@hl/ui": "workspace:*",
-    "@hl/utils": "^0.0.2",
+    "@hl/utils": "^0.0.3",
     "@vueuse/core": "^10.11.0",
+    "axios": "^1.7.2",
     "dayjs": "^1.11.12",
     "element-plus": "^2.7.7",
     "lodash-es": "^4.17.21",

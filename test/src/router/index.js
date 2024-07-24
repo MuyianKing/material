@@ -44,6 +44,13 @@ const router = createRouter({
         title: '其他',
       },
     },
+    {
+      path: '/tyyh',
+      component: () => import('@views/tyyh/Index.vue'),
+      meta: {
+        title: '统一用户',
+      },
+    },
   ],
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {

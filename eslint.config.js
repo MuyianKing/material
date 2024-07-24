@@ -36,6 +36,7 @@ export default antfu({
     globals: {
       BMapGLLib: true,
       BMapGL: true,
+      hl: true,
     },
   },
 }, ...compat.config({

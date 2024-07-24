@@ -1,5 +1,5 @@
 <script setup name="ProjectSelect">
-import useSelect from '@hooks/select'
+import { useSelect } from '@hl/hooks'
 import { getList } from '../../server/project'
 
 const props = defineProps({

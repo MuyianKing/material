@@ -1,5 +1,5 @@
 <script setup>
-import { HlDropdownCascader } from '@hl/ui'
+import { HlDropdownCascader } from '@hl/ui/src/components'
 import { getList } from '../../server/organization'
 
 const props = defineProps({

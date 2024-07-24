@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@hl/tyyh": "workspace:*",
     "@hl/ui": "workspace:*",
     "@hl/utils": "^0.0.2",
     "@iconify/vue": "^4.1.2",
