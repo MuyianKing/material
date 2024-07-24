@@ -23,7 +23,7 @@ export default defineConfig({
           exports: 'named',
           preserveModules: true,
           preserveModulesRoot: 'src/components',
-          dir: '../../dist/hl/ui',
+          dir: './dist/hl/ui',
           entryFileNames: '[name].js',
           assetFileNames: '[name][extname]',
         },
