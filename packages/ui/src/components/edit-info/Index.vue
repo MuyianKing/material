@@ -1,5 +1,6 @@
 <script setup>
-import {ElInput} from "element-plus"
+import { ElInput } from 'element-plus'
+import 'element-plus/es/components/input/style/css'
 
 const props = defineProps({
   modelValue: {

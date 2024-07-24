@@ -1,8 +1,7 @@
 <script setup name="HlPreviewImg">
 // import { previewFileUrl } from '@hl/utils/file'
-import { ElImage } from "element-plus"
-
-function previewFileUrl() { }
+import { ElImage } from 'element-plus'
+import 'element-plus/es/components/image/style/css'
 
 const props = defineProps({
   src: {
@@ -36,6 +35,8 @@ const props = defineProps({
     default: '100px',
   },
 })
+
+function previewFileUrl() { }
 
 // 查看地址
 const prev_src = computed(() => {

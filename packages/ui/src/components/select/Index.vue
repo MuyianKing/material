@@ -1,5 +1,8 @@
 <script setup name="HlSelect">
-import { ElSelect, ElOption, ElOptionGroup } from "element-plus"
+import { ElOption, ElOptionGroup, ElSelect } from 'element-plus'
+import 'element-plus/es/components/option/style/css'
+import 'element-plus/es/components/option-group/style/css'
+import 'element-plus/es/components/select/style/css'
 
 const props = defineProps({
   options: {

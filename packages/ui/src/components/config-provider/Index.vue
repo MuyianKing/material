@@ -1,25 +1,23 @@
 <script setup>
 const props = defineProps({
+  /**
+   * upload_url: 上传文件接口地址,
+   * icon_serlect_url: 图标选择组件接口地址,
+   * getUserStore：获取用户信息
+   */
   customConfig: {
     type: Object,
     required: true,
   },
 })
 
-// 监听配置变化，在全局挂载变量
-watch(() => props.customConfig, (config) => {
-  window.HL_UI_CONFIG = {
-    // 上传文件接口地址
-    upload_url: config.upload_url || '',
-
-    // 图标选择组件接口地址
-    icon_serlect_url: config.icon_serlect_url || '',
-  }
-})
+provide('GLOBAL_CUSTOM_CONFIG', props.customConfig)
 </script>
 
 <template>
-  <el-config-provider />
+  <el-config-provider>
+    <slot />
+  </el-config-provider>
 </template>
 
 <style lang='scss' scoped></style>

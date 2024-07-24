@@ -1,5 +1,6 @@
 <script setup>
 import { getMimeType, getSuffix } from '@hl/utils/es/file'
+import { confirm } from '@hl/utils/es/message'
 import { getAcceptType } from '../hooks/index'
 import IconComp from '../../icon/Index.vue'
 
@@ -57,7 +58,7 @@ function selectMedia(e) {
   file_input_ref.value.value = null
 
   if (accept_type.value !== '*/*' && !accept_type.value.includes(getMimeType(getSuffix(file.name))?.[0] || '')) {
-    hl.message.confirm('请不要自行选择【所有文件】，上传指定类型外的文件', {
+    confirm('请不要自行选择【所有文件】，上传指定类型外的文件', {
       type: 'warning',
       buttonSize: 'large',
       confirmButtonText: '我已知晓',

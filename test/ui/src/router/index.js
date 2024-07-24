@@ -24,10 +24,24 @@ const router = createRouter({
       },
     },
     {
+      path: '/select',
+      component: () => import('@comp/Select.vue'),
+      meta: {
+        title: '选择',
+      },
+    },
+    {
+      path: '/date',
+      component: () => import('@comp/Date.vue'),
+      meta: {
+        title: '时间日期',
+      },
+    },
+    {
       path: '/others',
       component: () => import('@comp/Others.vue'),
       meta: {
-        title: '按钮',
+        title: '其他',
       },
     },
   ],

@@ -1,6 +1,7 @@
 <script setup name="HlEditButton">
+import { ElTooltip } from 'element-plus'
 import IconComp from '../icon/Index.vue'
-import { ElTooltip } from "element-plus"
+import 'element-plus/es/components/tooltip/style/css'
 
 const emits = defineEmits(['click'])
 

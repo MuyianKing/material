@@ -8,7 +8,11 @@ defineProps({
 </script>
 
 <template>
-  <span class="id-card">{{ idCard }}</span>
+  <span class="id-card">
+    <slot>
+      {{ idCard }}
+    </slot>
+  </span>
 </template>
 
 <style lang="scss" scoped>

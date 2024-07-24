@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "lint": "lint-staged",
-    "build:ui": "vite build --config ./packages/ui/vite.config.js & copy .\\packages\\ui\\package.json .\\dist\\hl\\ui"
+    "build:ui": "vite build  --emptyOutDir --config ./packages/ui/vite.config.js & copy .\\packages\\ui\\package.json .\\dist\\hl\\ui"
   },
   "dependencies": {
     "@hl/utils": "^0.0.2",

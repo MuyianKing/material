@@ -1,5 +1,7 @@
 <script setup name="HlDateRange">
-import { ElDatePicker } from "element-plus"
+import { ElDatePicker } from 'element-plus'
+import 'element-plus/es/components/date-picker/style/css'
+import dayjs from 'dayjs'
 
 const props = defineProps({
   // 类型：同el-date

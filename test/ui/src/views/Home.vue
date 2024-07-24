@@ -3,6 +3,12 @@ const list = [{
   label: '按钮',
   route: '/button',
 }, {
+  label: '选择',
+  route: '/select',
+}, {
+  label: '时间日期',
+  route: '/date',
+}, {
   label: '其他',
   route: '/others',
 }]

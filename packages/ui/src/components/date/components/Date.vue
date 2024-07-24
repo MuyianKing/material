@@ -1,5 +1,6 @@
 <script setup name="HlDate">
-import { ElDatePicker } from "element-plus"
+import { ElDatePicker } from 'element-plus'
+import 'element-plus/es/components/date-picker/style/css'
 
 const props = defineProps({
   type: {

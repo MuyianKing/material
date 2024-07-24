@@ -63,7 +63,7 @@ defineExpose({
 </script>
 
 <template>
-  <div v-show="show" class="context-menu" :style="_style">
+  <div v-show="show" class="context-menu" :style="_style" @click.stop>
     <div class="arrow" />
 
     <render-menu-item ref="render_ref" :options="options" @selected="handleSelected" />

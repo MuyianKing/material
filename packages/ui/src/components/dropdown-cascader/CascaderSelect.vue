@@ -3,6 +3,9 @@ import { getLabelByVal } from '@hl/utils/es/common'
 import { cloneDeep } from 'lodash-es'
 import { ElCascaderPanel, ElDropdown, ElInput } from 'element-plus'
 import { HlIcon } from '../icon'
+import 'element-plus/es/components/cascader-panel/style/css'
+import 'element-plus/es/components/dropdown/style/css'
+import 'element-plus/es/components/input/style/css'
 
 const props = defineProps({
   // 待选项

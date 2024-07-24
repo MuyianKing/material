@@ -1,9 +1,9 @@
 <script setup>
-
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
 </script>
 
 <template>
-  <hl-config-provider :locale="zhCn">
+  <hl-config-provider :locale="zhCn" :custom-config="{}">
     <router-view />
   </hl-config-provider>
 </template>

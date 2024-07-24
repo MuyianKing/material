@@ -1,6 +1,9 @@
 <script setup name="HlFormDialog">
+import { ElButton, ElForm } from 'element-plus'
+import { error, success, warning } from '@hl/utils/es/message'
 import DialogComp from '../dialog/Index.vue'
-import { ElForm, ElButton } from "element-plus"
+import 'element-plus/es/components/button/style/css'
+import 'element-plus/es/components/form/style/css'
 
 const props = defineProps({
   // 显示隐藏弹框
@@ -60,11 +63,11 @@ const props = defineProps({
 const emits = defineEmits(['update:modelValue', 'error', 'success', 'refresh', 'submit'])
 
 // 保存
-const loading = ref(false)
+const _loading = ref(false)
 const form_ref = ref()
 function submit() {
   if (!props.model) {
-    hl.message.warning('hl-form-dialog组件未设置model属性')
+    warning('hl-form-dialog组件未设置model属性')
     return
   }
 
@@ -72,17 +75,17 @@ function submit() {
     if (valid) {
       const fun = props.server
       if (fun && typeof fun === 'function') {
-        loading.value = true
+        _loading.value = true
         fun(props.model).then((data) => {
-          hl.message.success('保存成功')
+          success('保存成功')
           emits('success', data)
           emits('refresh')
           close()
         }).catch((e) => {
-          hl.message.error(e, '保存失败')
+          error(e, '保存失败')
           emits('error')
         }).finally(() => {
-          loading.value = false
+          _loading.value = false
         })
       } else {
         emits('submit')
@@ -108,7 +111,7 @@ defineExpose({
     </el-form>
     <template #footer>
       <slot name="footer" :submit="submit">
-        <el-button type="primary" :loading="loading" @click="submit">
+        <el-button type="primary" :loading="_loading" @click="submit">
           {{ submitText }}
         </el-button>
       </slot>

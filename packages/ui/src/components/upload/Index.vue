@@ -1,5 +1,6 @@
 <script setup>
 import { AUDIO_SUFFIX, FILE_SUFFIX } from '@hl/utils/es/file'
+import { guid } from '@hl/utils/es/common'
 import { error } from '@hl/utils/es/message'
 import TriggerComp from './components/Trigger.vue'
 import PreviewComp from './components/Preview.vue'
@@ -73,7 +74,7 @@ const props = defineProps({
 
 const emits = defineEmits(['upload-start', 'upload-finish'])
 
-function uploadFile() {}
+function uploadFile() { }
 
 const slots = useSlots()
 
@@ -105,7 +106,7 @@ function handleReupload(row) {
 // 选择文件后
 async function handleSelect(file) {
   let new_file = {
-    id: hl.common.guid(),
+    id: guid(),
     name: file.name,
     path: URL.createObjectURL(file),
   }

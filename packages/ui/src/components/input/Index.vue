@@ -1,5 +1,8 @@
 <script setup>
-import { ElInput, ElPopover } from "element-plus"
+import { ElInput, ElPopover } from 'element-plus'
+import 'element-plus/es/components/input/style/css'
+import 'element-plus/es/components/popover/style/css'
+
 const props = defineProps({
   // 提示信息,不填取 请输入+父组件的label属性值
   placeholder: {

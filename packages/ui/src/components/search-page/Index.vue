@@ -1,5 +1,6 @@
 <script setup name="SearchPage">
-import {ElForm} from "element-plus"
+import { ElForm } from 'element-plus'
+import 'element-plus/es/components/form/style/css'
 
 const props = defineProps({
   formSize: {
@@ -74,7 +75,7 @@ onMounted(() => {
     padding: 5px;
     position: relative;
 
-    &> :deep(*) {
+    & > :deep(*) {
       margin: 5px;
     }
   }
@@ -100,7 +101,7 @@ onMounted(() => {
     height: 32px;
     overflow: hidden;
 
-    &>.button-wrapper {
+    & > .button-wrapper {
       position: absolute;
       bottom: 10px;
       right: 0;

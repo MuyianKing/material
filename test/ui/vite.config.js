@@ -6,6 +6,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import postcssPresetEnv from 'postcss-preset-env'
 import postcssFlexbugsFixes from 'postcss-flexbugs-fixes'
 import tailwindcss from 'tailwindcss'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 import useAlias from './alias.config'
 
 const { alias_map } = useAlias()
@@ -13,6 +14,7 @@ const { alias_map } = useAlias()
 export default defineConfig({
   plugins: [
     vue(),
+    vueJsx(),
     AutoImport({
       resolvers: [ElementPlusResolver()],
       imports: [

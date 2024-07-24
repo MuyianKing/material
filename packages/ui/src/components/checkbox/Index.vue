@@ -1,5 +1,7 @@
 <script name="HlRadio" setup>
-import { ElCheckboxGroup, ElCheckbox } from "element-plus"
+import { ElCheckbox, ElCheckboxGroup } from 'element-plus'
+import 'element-plus/es/components/checkbox/style/css'
+import 'element-plus/es/components/checkbox-group/style/css'
 
 const props = defineProps({
   options: {

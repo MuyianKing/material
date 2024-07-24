@@ -1,5 +1,6 @@
 <script name="HlDialog" setup>
-import { ElDialog } from "element-plus"
+import { ElDialog } from 'element-plus'
+import 'element-plus/es/components/dialog/style/css'
 
 const props = defineProps({
   closeOnClickModal: {
