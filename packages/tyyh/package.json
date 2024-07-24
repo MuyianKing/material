@@ -1,0 +1,17 @@
+{
+  "name": "@hl/ui",
+  "type": "module",
+  "version": "0.0.2",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@hl/ui": "workspace:*",
+    "@hl/utils": "workspace:*"
+  },
+  "devDependencies": {
+
+  }
+}
