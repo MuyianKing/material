@@ -25,13 +25,7 @@ export default ({ mode }) => {
 
   // 插件
   const plugins = [
-    vue({
-      template: {
-        compilerOptions: {
-          isCustomElement: tag => tag.startsWith('micro-app'),
-        },
-      },
-    }),
+    vue(),
     vueJsx(),
     VueSetupExtend(),
     ElementPlus(),

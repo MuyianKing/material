@@ -179,7 +179,6 @@ const _label = computed(() => {
 }
 
 .dropdown-label {
-  color: white;
   cursor: pointer;
   line-height: normal;
 }

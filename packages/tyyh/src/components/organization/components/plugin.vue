@@ -1,5 +1,5 @@
 <script setup>
-import { getList } from '../../server/organization'
+import { getList } from '../../../server/organization'
 
 const emits = defineEmits(['change'])
 

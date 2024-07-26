@@ -1,7 +1,7 @@
 <script setup>
 import { cloneDeep } from 'lodash-es'
 import { getOrgInfo, getTreeList } from '../../server/organization'
-import http from '../../hooks/request'
+import http from '../../utils/request'
 
 const props = defineProps({
   modelValue: {
@@ -36,7 +36,7 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  // 组件类型 cascader-级联  tree-select-树形选择
+  // 组件类型 cascader-级联  tree-树形选择  dropdown-下拉
   comp: {
     type: String,
     default: 'cascader',
@@ -60,6 +60,10 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
+  filterable:{
+    type:Boolean,
+    default:true
+  }
 })
 
 const emits = defineEmits(['update:modelValue', 'update:label'])
@@ -242,8 +246,9 @@ onMounted(() => {
 
 <template>
   <template v-if="!readonly">
-    <el-cascader v-if="comp !== 'tree-select'" v-bind="$attrs" ref="cascader_ref" :model-value="modelValue" clearable :options="data_list" :props="_props" filterable @change="handleChange" />
-    <el-tree-select v-else v-bind="$attrs" ref="cascader_ref" :model-value="modelValue" check-strictly clearable :data="data_list" :multiple="_props.multiple" :props="_props" filterable @change="handleChange" />
+    <el-cascader v-if="comp === 'cascader'" v-bind="$attrs" ref="cascader_ref" :model-value="modelValue" clearable :options="data_list" :props="_props" :filterable @change="handleChange" />
+    <hl-dropdown-cascader v-else-if="comp === 'dropdown'" v-bind="$attrs" :cascader-props="_props" :has-search="filterable" :options="data_list" />
+    <el-tree-select v-else v-bind="$attrs" ref="cascader_ref" :model-value="modelValue" check-strictly clearable :data="data_list" :multiple="_props.multiple" :props="_props" :filterable @change="handleChange" />
   </template>
   <div v-else v-bind="$attrs">
     <span v-for="item in orgs" :key="item.id" class="m-2">{{ item.organization_nick }}</span>

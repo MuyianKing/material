@@ -1,4 +1,4 @@
-import http from '../hooks/request'
+import http from '../utils/request'
 import api from '../api'
 
 export function getUserList(params) {

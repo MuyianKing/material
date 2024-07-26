@@ -14,6 +14,7 @@ import pinia from '@/pinia'
 import router from '@/router'
 import App from '@/App.vue'
 import { ICONIFY_API, BASE_URL } from "./utils/app"
+import http from "./utils/request"
 
 addAPIProvider('', {
   resources: [BASE_URL + ICONIFY_API],
@@ -29,6 +30,7 @@ window.hl = {
   file,
   common,
   api,
+  http,
   // 变量备份
   variables: { ...variables },
 }

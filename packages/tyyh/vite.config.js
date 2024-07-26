@@ -12,6 +12,7 @@ export default defineConfig({
         'vue',
         '@hl/utils',
         '@hl/ui',
+        '@hl/hooks',
         '@vueuse/core',
         'dayjs',
         'lodash-es',
@@ -21,7 +22,7 @@ export default defineConfig({
           format: 'es',
           exports: 'named',
           preserveModules: true,
-          preserveModulesRoot: 'src/components',
+          preserveModulesRoot: 'packages/tyyh',
           dir: './dist/hl/tyyh',
           entryFileNames: '[name].js',
           assetFileNames: '[name][extname]',
@@ -29,7 +30,7 @@ export default defineConfig({
       ],
     },
     lib: {
-      entry: resolve(__dirname, './src/components/index.js'),
+      entry: resolve(__dirname, './index.js'),
     },
   },
   plugins: [

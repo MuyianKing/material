@@ -13,17 +13,20 @@ export default defineConfig({
         'vue',
         'element-plus',
         '@hl/utils',
-        '@iconify/vue',
+        "@hl/hooks",
         '@vueuse/core',
         'dayjs',
         'lodash-es',
+        'validator',
+        'js-cookie',
+        'nanoid'
       ],
       output: [
         {
           format: 'es',
           exports: 'named',
           preserveModules: true,
-          preserveModulesRoot: 'src/components',
+          preserveModulesRoot: 'packages/ui',
           dir: './dist/hl/ui',
           entryFileNames: '[name].js',
           assetFileNames: '[name][extname]',

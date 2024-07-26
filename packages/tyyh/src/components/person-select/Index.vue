@@ -1,44 +1,28 @@
-<script name="DeviceSelect" setup>
-import { useSelect } from '@hl/hooks'
+<script setup>
 import { getUserList, getUserListWithEachOrgJob } from '../../server/user'
 
 const props = defineProps({
-  modelValue: {
-    type: [String, Array],
-    default: '',
+  // 待选项
+  options: {
+    type: Array,
+    default: null,
   },
-  placeholder: {
-    type: String,
-    default: '请选择',
+  // 接口
+  server: {
+    type: Function,
+    default: null,
   },
   // 多选
   multiple: {
     type: Boolean,
     default: false,
   },
-  // 显示全部
-  all: {
+  // 展开
+  expand: {
     type: Boolean,
     default: false,
   },
-  // 显示清除图标
-  clearable: {
-    type: Boolean,
-    default: true,
-  },
-  // 禁用
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
-  extendParams: {
-    type: Object,
-    default() {
-      return {}
-    },
-  },
-  // 是否包含下级部门人员
-  hasNext: {
+  required: {
     type: Boolean,
     default: false,
   },
@@ -47,53 +31,93 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  idKey: {
+    type: String,
+    default: 'id_card',
+  },
   organizationId: {
-    type: [Number, String, Array],
+    type: String,
     default: '',
   },
-  customData: {
-    type: Function,
-    default: null,
+  // 是否包含下级部门人员
+  hasNext: {
+    type: Boolean,
+    default: false,
   },
 })
 
-const emits = defineEmits(['update:modelValue', 'change'])
-
-const params = {
-  ...props.extendParams,
-  query: '',
-  sub_organization: props.hasNext ? 1 : 0,
+const _options = ref([])
+const loading = ref(false)
+let has_more = false
+const query = {
+  page: 1,
+  limit: 10,
 }
-
-async function getList(query) {
-  const result = await getUserList(query)
-  if (props.customData && typeof props.customData === 'function') {
-    return props.customData(result)
-  }
-  return result
-}
-
-const { select_value, dataList, loadmore, selected_list, commonFilter, query, handleSelChange } = useSelect(props, emits, props.orgJobIdcard ? getUserListWithEachOrgJob : getList, {
-  params,
-  need_selected_list: true,
-  key: 'id_card',
-  format_config: {
-    id_key: 'id_card',
-    extend_keys: ['organization', 'police_id'],
-  },
-})
-
-function handleChange(val) {
-  handleSelChange(val)
-  nextTick(() => {
-    const new_data = []
-    for (const key in selected_list) {
-      if (selected_list[key]) {
-        new_data.push(selected_list[key])
+async function getData() {
+  try {
+    if (props.options) {
+      _options.value = props.options
+    } else {
+      loading.value = true
+      if (props.expand) {
+        query.limit = 10000
       }
+
+      const { data, count } = await getApi()(query)
+      if (query.page === 1) {
+        _options.value = []
+      }
+
+      formatData(data).forEach((item) => {
+        _options.value.push(item)
+      })
+
+      has_more = _options.value.length < count
+      loading.value = false
     }
-    emits('change', new_data)
+  } catch (e) {
+    hl.message.error(e, '获取下拉数据出错')
+  }
+}
+
+/**
+ * 获取请求方法
+ * @returns {(function(*): *)|*|(function(*): Promise<*>)} 方法
+ */
+function getApi() {
+  if (props.server) {
+    return props.server
+  }
+
+  if (props.orgJobIdcard) {
+    return getUserListWithEachOrgJob
+  } else {
+    return getUserList
+  }
+}
+
+function formatData(data) {
+  return data.map((item) => {
+    return {
+      label: item.name,
+      value: item[props.idKey],
+    }
   })
+}
+
+watchEffect(() => {
+  if (props.options || props.server) {
+    getData()
+  }
+})
+
+const value = defineModel()
+
+function handleMore() {
+  if (has_more) {
+    query.page++
+    getData()
+  }
 }
 
 // 自定义搜索
@@ -104,23 +128,38 @@ function filter(val) {
 
   // 设置请求的参数
   query.query = val
-  commonFilter()
+  query.page = 1
+  getData()
 }
 
-watch(() => props.organizationId, (val) => {
-  query.organization_id = Array.isArray(val) ? val?.join(',') : val
+watch([() => props.organizationId, () => props.hasNext], () => {
+  query.organization_id = props.organizationId
+  query.sub_organization = props.hasNext ? 1 : 0
   query.page = 1
-  commonFilter()
+  getData()
+})
+
+onMounted(() => {
+  getData()
+})
+
+watchEffect(() => {
+  if (props.multiple) {
+    if (!Array.isArray(value.value)) {
+      value.value = value.value ? [value.value] : []
+    }
+  } else {
+    value.value = ''
+  }
 })
 </script>
 
 <template>
-  <el-select v-model="select_value" :clearable :disabled :multiple :placeholder :remote-method="filter" automatic-dropdown filterable remote remote-show-suffix @change="handleChange">
-    <div v-loadmore="loadmore">
-      <el-option v-if="all" value="">
-        全部
-      </el-option>
-      <el-option v-for="item in dataList" :key="item.id" :label="item.name" :value="item.id" />
-    </div>
-  </el-select>
+  <hl-radio v-if="expand && !multiple" v-model="value" :options="_options" :empty="!required" v-bind="$attrs" />
+  <hl-checkbox v-else-if="expand && multiple" v-model="value" :options="_options" v-bind="$attrs" />
+  <hl-select v-else v-model="value" :options="_options" v-bind="$attrs" :multiple :loading :remote-method="filter" remote @bottom="handleMore" />
 </template>
+
+<style scoped lang="scss">
+
+</style>

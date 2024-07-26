@@ -85,7 +85,7 @@ export class Http {
       // 认证失败：直接跳到登录
       if (+resp_error.errno === 401) {
         let url = `#/login?msg=${encodeURIComponent(resp_error.error)}`
-        const user = window.hl.getUserInfo()
+        const user = useUserStore()
         // 八小时内未操作直接跳到登录不提示登录过期：这里解决的是关闭页面
         if (!user || (Date.now() - user.token_expire > 4 * 60 * 60 * 1000)) {
           url = `#/login`
@@ -131,8 +131,7 @@ export class Http {
     if (options.headers['Content-Type'].startsWith('application/json')) {
       params = JSON.stringify(params)
     }
-
-    console.log(url);
+    
     return this.instance.post(url, params, options)
   }
 

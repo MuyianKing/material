@@ -1,5 +1,5 @@
 <script setup>
-import OrganizationTree from '../organization-tree/Index.vue'
+import OrganizationTree from '../organization/components/plugin.vue'
 import { getList } from '../../server/person'
 
 const props = defineProps({
@@ -20,7 +20,7 @@ const props = defineProps({
   // 多选
   multiple: {
     type: Boolean,
-    default: true,
+    default: false,
   },
   // 人员类型 0民警（默认），1仅辅警，2全部
   personType: {
@@ -84,7 +84,7 @@ let first = false
 
 function getData() {
   getList({
-    organization_id: organization_id || hl.getUserInfo().organization.lsdw,
+    organization_id: organization_id || useUserStore().organization.lsdw,
     sub_organization: 1,
     have_fujing: props.personType,
   }).then((res) => {
@@ -408,6 +408,7 @@ onMounted(() => {
   flex-wrap: wrap;
   min-height: calc(var(--el-input-height, 32px) - 2px);
   align-items: center;
+  background-color: #fff;
 
   .input {
     flex: 1;

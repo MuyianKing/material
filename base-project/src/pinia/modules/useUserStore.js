@@ -8,7 +8,7 @@ export default defineStore('user', {
     id_card: '',
     phone: '',
     status: '',
-    image: '',
+    image_url: '',
     token: '',
     token_expire: 0,
     role_id: [],

@@ -1,9 +1,9 @@
 <script setup>
-const user = hl.getUserInfo()
+const user = useUserStore()
 </script>
 
 <template>
-  <hl-avatar :size="34" fit="cover" :src="user.img">
+  <hl-avatar :size="34" fit="cover" :src="user.image_url">
     <template #error>
       <div class="text-avatar">
         {{ user.name.substring(user.name.length - 2) }}
