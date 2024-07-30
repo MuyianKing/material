@@ -1,7 +1,4 @@
 import antfu from '@antfu/eslint-config'
-import { FlatCompat } from '@eslint/eslintrc'
-
-const compat = new FlatCompat()
 
 export default antfu({
   formatters: true,
@@ -39,8 +36,4 @@ export default antfu({
       hl: true,
     },
   },
-}, ...compat.config({
-  extends: [
-    './.eslintrc-auto-import.json',
-  ],
-}))
+})

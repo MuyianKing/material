@@ -1,3 +1,5 @@
+import {ref} from "vue"
+
 /**
  * 分页列表查询
  * @param server

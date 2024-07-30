@@ -6,7 +6,9 @@
   "scripts": {
     "lint": "lint-staged",
     "build:ui": "vite build  --emptyOutDir --config ./packages/ui/vite.config.js & copy .\\packages\\ui\\package.json .\\dist\\hl\\ui",
-    "build:tyyh": "vite build  --emptyOutDir --config ./packages/tyyh/vite.config.js & copy .\\packages\\tyyh\\package.json .\\dist\\hl\\tyyh"
+    "build:tyyh": "vite build  --emptyOutDir --config ./packages/tyyh/vite.config.js & copy .\\packages\\tyyh\\package.json .\\dist\\hl\\tyyh",
+    "build:hooks": "vite build  --emptyOutDir --config ./packages/hooks/vite.config.js & copy .\\packages\\hooks\\package.json .\\dist\\hl\\hooks",
+    "build:utils": "vite build  --emptyOutDir --config ./packages/utils/vite.config.js & copy .\\packages\\utils\\package.json .\\dist\\hl\\utils"
   },
   "dependencies": {
   },
@@ -19,7 +21,7 @@
     "@vitejs/plugin-vue-jsx": "^4.0.0",
     "autoprefixer": "^10.4.19",
     "cz-git": "^1.9.4",
-    "eslint": "9.7.0",
+    "eslint": "8.57.0",
     "eslint-plugin-format": "^0.1.2",
     "lint-staged": "^15.2.7",
     "postcss": "^8.4.40",

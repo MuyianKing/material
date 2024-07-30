@@ -1,8 +1,7 @@
-import http from '../utils/request'
 import api from '../api'
 
 export function getUserList(params) {
-  return http.post(api.user, {
+  return hl.http.post(api.user, {
     ...params,
     opt: 'user_get_v_0_0_2',
   })
@@ -18,7 +17,7 @@ export async function getUserListWithEachOrgJob(params) {
   id_card_list = id_card_list.map(item => item.split('/'))
   id_card_list = id_card_list.map(item => item[item.length - 1] || '')
 
-  const result = await http.post(api.user, {
+  const result = await hl.http.post(api.user, {
     ...params,
     id_card: id_card_list.filter(item => item).join(','),
     opt: 'user_get_v_0_0_2',

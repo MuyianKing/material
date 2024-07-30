@@ -1,4 +1,6 @@
 <script setup name="HlTable">
+import { useEventListener } from "@vueuse/core"
+
 import EditHeader from './EditHeader.vue'
 import ScrollBar from './ScrollBar.vue'
 

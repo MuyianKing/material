@@ -1,13 +1,13 @@
 {
   "name": "@hl/tyyh",
   "type": "module",
-  "version": "0.0.2-bate1",
+  "version": "0.0.2-bate5",
   "scripts": {
     "dev": "vite",
     "build": "vite build"
   },
   "dependencies": {
-    "@hl/ui": "workspace:*",
+    "@hl/ui": "0.0.2-bate8",
     "@hl/utils": "^0.0.4",
     "@vueuse/core": "^10.11.0",
     "axios": "^1.7.2",

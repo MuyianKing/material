@@ -1,7 +1,6 @@
 <script setup>
 import { cloneDeep } from 'lodash-es'
 import { getOrgInfo, getTreeList } from '../../server/organization'
-import http from '../../utils/request'
 
 const props = defineProps({
   modelValue: {
@@ -94,7 +93,7 @@ async function getData() {
     try {
       let data = []
       if (props.url) {
-        data = await http.post(props.url)
+        data = await hl.http.post(props.url)
       } else {
         data = await getTreeList({
           need_top: props.needTop ? 1 : 0,

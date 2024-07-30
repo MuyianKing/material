@@ -50,7 +50,7 @@ export default ({ mode }) => {
       resolvers: [ElementPlusResolver()],
       imports: ['vue', 'pinia', 'vue-router', '@vueuse/core'],
       eslintrc: {
-        enabled: true,
+        enabled: false,
       },
       dirs: [
         './src/pinia/modules',
@@ -70,7 +70,7 @@ export default ({ mode }) => {
               return {
                 importName: name,
                 from: 'hlui',
-                path: `@hl/ui/src/components/index.js`,
+                path: `@hl/ui/src/index.js`,
               }
             }
           },

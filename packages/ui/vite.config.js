@@ -10,16 +10,18 @@ export default defineConfig({
     rollupOptions: {
       preserveEntrySignatures: 'strict',
       external: [
+        /^@hl\//,
         'vue',
-        'element-plus',
-        '@hl/utils',
-        "@hl/hooks",
+        /^element-plus/,
         '@vueuse/core',
         'dayjs',
         'lodash-es',
         'validator',
         'js-cookie',
-        'nanoid'
+        'nanoid',
+        '@iconify/vue',
+        /^@multiavatar\/multiavatar/,
+        /^wavesurfer/
       ],
       output: [
         {
@@ -34,16 +36,13 @@ export default defineConfig({
       ],
     },
     lib: {
-      entry: resolve(__dirname, './src/components/index.js'),
+      entry: resolve(__dirname, './index.js'),
     },
   },
   plugins: [
     vue(),
     vueJsx(),
     AutoImport({
-      imports: [
-        'vue',
-      ],
       eslintrc: {
         enabled: true,
       },

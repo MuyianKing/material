@@ -1,4 +1,3 @@
-import http from '../utils/request'
 import api from '../api'
 
 /**
@@ -6,7 +5,7 @@ import api from '../api'
  * @param {*} params
  */
 export async function getList(params) {
-  const result = await http.post(api.user, {
+  const result = await hl.http.post(api.user, {
     opt: 'user_get_v_0_0_2',
     ...params,
   })
@@ -16,7 +15,7 @@ export async function getList(params) {
 
 // 获取角色用户
 export function getUserRole(params) {
-  return http.post(api.user, {
+  return hl.http.post(api.user, {
     opt: 'user_role',
     ...params,
   })

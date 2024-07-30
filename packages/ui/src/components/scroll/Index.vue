@@ -1,4 +1,6 @@
 <script setup>
+import { useEventListener } from "@vueuse/core"
+
 const props = defineProps({
   // 是否开启自动滚动
   auto: {

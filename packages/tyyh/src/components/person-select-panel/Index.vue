@@ -2,6 +2,7 @@
 import OrganizationTree from '../organization/components/plugin.vue'
 import { getList } from '../../server/person'
 
+
 const props = defineProps({
   modelValue: {
     type: Array,
@@ -84,7 +85,7 @@ let first = false
 
 function getData() {
   getList({
-    organization_id: organization_id || useUserStore().organization.lsdw,
+    organization_id: organization_id || hl.getUserInfo().organization.lsdw,
     sub_organization: 1,
     have_fujing: props.personType,
   }).then((res) => {

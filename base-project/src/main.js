@@ -9,7 +9,6 @@ import * as file from '@utils/file'
 import * as common from '@utils/common'
 import directions from '@directions'
 import api from '@api'
-
 import pinia from '@/pinia'
 import router from '@/router'
 import App from '@/App.vue'
@@ -19,6 +18,7 @@ import http from "./utils/request"
 addAPIProvider('', {
   resources: [BASE_URL + ICONIFY_API],
 })
+
 disableCache('local')
 enableCache('session')
 

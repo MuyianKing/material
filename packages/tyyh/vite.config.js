@@ -10,9 +10,7 @@ export default defineConfig({
       preserveEntrySignatures: 'strict',
       external: [
         'vue',
-        '@hl/utils',
-        '@hl/ui',
-        '@hl/hooks',
+        /^@hl\//,
         '@vueuse/core',
         'dayjs',
         'lodash-es',

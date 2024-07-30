@@ -1,5 +1,5 @@
 <script setup>
-const user = useUserStore()
+const user = hl.getUserInfo()
 </script>
 
 <template>

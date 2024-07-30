@@ -1,4 +1,3 @@
-import http from '../utils/request'
 import api from '../api'
 
 /**
@@ -6,7 +5,7 @@ import api from '../api'
  * @param {*} params
  */
 export async function getList(params) {
-  return http.post(api.org, {
+  return hl.http.post(api.org, {
     opt: 'organization_tree',
     ...params,
   })
@@ -17,7 +16,7 @@ export async function getList(params) {
  * @param {string} ids
  */
 export async function getOrgInfo(ids) {
-  const result = await http.post(api.org, {
+  const result = await hl.http.post(api.org, {
     opt: 'organization_list',
     organization_id: ids,
   })
@@ -34,7 +33,7 @@ export async function getOrgInfo(ids) {
  * @param {*} params
  */
 export async function getTreeList(params = {}) {
-  return http.post(api.org, {
+  return hl.http.post(api.org, {
     opt: 'organization_tree',
     need_top: 0,
     ...params,

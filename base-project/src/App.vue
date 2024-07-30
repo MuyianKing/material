@@ -2,12 +2,16 @@
 import { ElConfigProvider } from 'element-plus'
 import zhCn from 'element-plus/es/locale/lang/zh-cn'
 
+const customConfig = {
+
+}
+
 </script>
 
 <template>
-  <el-config-provider :locale="zhCn">
+  <hl-config-provider :locale="zhCn" :custom-config>
     <router-view />
-  </el-config-provider>
+  </hl-config-provider>
 </template>
 
 <style lang="scss">
