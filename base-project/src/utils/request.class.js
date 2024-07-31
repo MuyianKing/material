@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { readBlobAsJSON } from '@utils/file'
 import { isTruth } from '@utils/common'
+import useUserStore from '@pinia/useUserStore.js'
 
 class RespError extends Error {
   constructor(error) {
@@ -130,7 +131,7 @@ export class Http {
     if (options.headers['Content-Type'].startsWith('application/json')) {
       params = JSON.stringify(params)
     }
-    
+
     return this.instance.post(url, params, options)
   }
 

@@ -1,4 +1,6 @@
 <script setup>
+import { ref } from 'vue'
+
 const file = ref(null)
 </script>
 

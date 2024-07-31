@@ -1,5 +1,6 @@
-import { BASE_URL } from "@app"
-import {getBlobFromUrl,download} from "@utils/file"
+import { BASE_URL } from '@app'
+import { download, getBlobFromUrl } from '@utils/file'
+import useUserStore from '@pinia/useUserStore.js'
 
 /**
  * 获取文件预览地址

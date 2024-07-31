@@ -15,7 +15,7 @@ export const menuList = [
       title: '统一用户',
       icon: 'clarity:users-solid',
     },
-    children:[
+    children: [
       {
         path: 'person',
         component: () => import('@views/tyyh/Person.vue'),
@@ -39,9 +39,9 @@ export const menuList = [
           title: '其他',
           icon: 'material-symbols:other-admission-rounded',
         },
-      }
-    ]
-  }
+      },
+    ],
+  },
 ]
 
 export default [{
@@ -61,5 +61,5 @@ export default [{
   component: Layout,
   redirect: '/home',
   name: 'admin',
-  children: menuList
-},]
+  children: menuList,
+}]

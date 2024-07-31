@@ -1,3 +1,5 @@
+import useUserStore from '@pinia/useUserStore.js'
+
 // 当页面进入可视区域后调用binding绑定的方法
 function removeEl(el) {
   el._parentNode = el.parentNode

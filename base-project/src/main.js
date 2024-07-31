@@ -9,11 +9,13 @@ import * as file from '@utils/file'
 import * as common from '@utils/common'
 import directions from '@directions'
 import api from '@api'
+import useDynamicRoutesStore from '@pinia/useDynamicRoutesStore.js'
+import useThemeStore from '@pinia/useThemeStore.js'
+import { BASE_URL, ICONIFY_API } from './utils/app'
+import http from './utils/request'
 import pinia from '@/pinia'
 import router from '@/router'
 import App from '@/App.vue'
-import { ICONIFY_API, BASE_URL } from "./utils/app"
-import http from "./utils/request"
 
 addAPIProvider('', {
   resources: [BASE_URL + ICONIFY_API],

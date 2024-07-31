@@ -3,6 +3,8 @@ import HlTags from '@layout/Tags.vue'
 import HlTheme from '@layout/theme/Index.vue'
 import { exitFullScreen, openFullScreen } from '@utils/dom'
 import { logout } from '@server/user'
+import useUserStore from '@pinia/useUserStore.js'
+import { useRouter } from 'vue-router'
 
 const user = useUserStore()
 
