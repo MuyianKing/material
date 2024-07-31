@@ -1,0 +1,14 @@
+<script setup>
+import { no_yes } from '../../../default/index'
+
+const value = defineModel()
+</script>
+
+<template>
+  <hl-form-item label="已读即签收">
+    <hl-radio v-model="value" :options="no_yes" />
+  </hl-form-item>
+</template>
+
+<style lang='scss' scoped>
+</style>

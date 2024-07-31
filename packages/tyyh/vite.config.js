@@ -1,7 +1,6 @@
 import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import AutoImport from 'unplugin-auto-import/vite'
 
 export default defineConfig({
   build: {
@@ -14,7 +13,7 @@ export default defineConfig({
         '@vueuse/core',
         'dayjs',
         'lodash-es',
-        /^element-plus/
+        /^element-plus/,
       ],
       output: [
         {
@@ -34,13 +33,5 @@ export default defineConfig({
   },
   plugins: [
     vue(),
-    AutoImport({
-      imports: [
-        'vue',
-      ],
-      eslintrc: {
-        enabled: true,
-      },
-    }),
   ],
 })

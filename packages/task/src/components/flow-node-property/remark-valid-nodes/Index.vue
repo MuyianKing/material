@@ -1,0 +1,16 @@
+<script setup>
+import useFlowStore from '../../../pinia/modules/useFlowStore'
+
+const value = defineModel()
+
+const { all_can_link_nodes } = storeToRefs(useFlowStore())
+</script>
+
+<template>
+  <hl-form-item label="生效节点">
+    <hl-select v-model="value" :options="all_can_link_nodes" multiple placeholder="不选全程生效" />
+  </hl-form-item>
+</template>
+
+<style lang='scss' scoped>
+</style>

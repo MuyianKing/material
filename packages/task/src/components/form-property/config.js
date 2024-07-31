@@ -1,0 +1,242 @@
+// 所有属性组件
+export const property_list = [{
+  field: 'label',
+  key: 'FormPropertyLabel',
+  type: 'base',
+}, {
+  field: 'label_width',
+  key: 'FormPropertyLabelWidth',
+  type: 'base',
+}, {
+  field: 'label_id',
+  key: 'FormPropertyLabelId',
+  type: 'base',
+}, {
+  field: 'iframe_url',
+  key: 'FormPropertyIframeUrl',
+  type: 'base',
+}, {
+  field: 'token',
+  key: 'FormPropertyToken',
+  type: 'base',
+}, {
+  field: 'align',
+  key: 'FormPropertyAlign',
+  type: 'base',
+}, {
+  field: 'placeholder',
+  key: 'FormPropertyPlaceholder',
+  type: 'base',
+}, {
+  field: 'guide',
+  key: 'FormPropertyGuide',
+  type: 'base',
+}, {
+  field: 'columns',
+  key: 'FormPropertyColumns',
+  type: 'base',
+}, {
+  field: 'date_format',
+  key: 'FormPropertyDateFormat',
+  type: 'date',
+  value_type: 'all',
+}, {
+  field: 'date_type',
+  key: 'FormPropertyDateType',
+  type: 'date',
+}, {
+  field: 'divider_style',
+  key: 'FormPropertyDividerStyle',
+  type: 'base',
+}, {
+  field: 'expand',
+  key: 'FormPropertyExpand',
+  type: 'base',
+}, {
+  field: 'expand_multiple',
+  key: 'FormPropertyExpandMultiple',
+  type: 'base',
+  value_type: 'all',
+}, {
+  field: 'one_line',
+  key: 'FormPropertyOneLine',
+  type: 'base',
+  value_type: 'all',
+}, {
+  field: 'format',
+  key: 'FormPropertyFormat',
+  type: 'base',
+}, {
+  field: 'multiple',
+  key: 'FormPropertyMultiple',
+  type: 'base',
+}, {
+  field: 'outer_field',
+  key: 'FormPropertyOuter',
+  type: 'other',
+}, {
+  field: 'is_range',
+  key: 'FormPropertyRange',
+  type: 'date',
+}, {
+  field: 'required',
+  key: 'FormPropertyRequired',
+  type: 'base',
+}, {
+  field: 'status',
+  key: 'FormPropertyStatus',
+  type: 'base',
+}, {
+  field: 'source_type',
+  key: 'FormPropertySourceType',
+  type: 'source',
+  value_type: 'all',
+}, {
+  field: 'options',
+  key: 'FormPropertyOptions',
+  type: 'source',
+}, {
+  field: 'show',
+  key: 'FormPropertyControlShow',
+  type: 'show',
+}, {
+  field: 'maxmin',
+  key: 'FormPropertyMaxminLength',
+  type: 'base',
+  value_type: 'all',
+}, {
+  field: 'rows',
+  key: 'FormPropertyRows',
+  type: 'base',
+}, {
+  field: 'upload_type',
+  key: 'FormPropertyUploadType',
+  type: 'base',
+}, {
+  field: 'upload_suffix',
+  key: 'FormPropertyUploadSuffix',
+  type: 'base',
+}, {
+  field: 'upload_multiple',
+  key: 'FormPropertyUploadMultiple',
+  type: 'base',
+}, {
+  field: 'upload_minmax',
+  key: 'FormPropertyUploadMinmax',
+  type: 'base',
+  value_type: 'all',
+}, {
+  field: 'default_value',
+  key: 'FormPropertyDefaultValue',
+  type: 'default',
+}, {
+  field: 'phone_type',
+  key: 'FormPropertyPhoneType',
+  type: 'phone',
+}, {
+  field: 'text_color',
+  key: 'FormPropertyTextColor',
+  type: 'base',
+}, {
+  field: 'bg_color',
+  key: 'FormPropertyBgColor',
+  type: 'base',
+}, {
+  field: 'font_size',
+  key: 'FormPropertyFontSize',
+  type: 'base',
+}, {
+  field: 'font_weight',
+  key: 'FormPropertyFontWeight',
+  type: 'base',
+}, {
+  field: 'font_italic',
+  key: 'FormPropertyFontItalic',
+  type: 'base',
+}, {
+  field: 'text_indent',
+  key: 'FormPropertyTextIndent',
+  type: 'base',
+}, {
+  field: 'padding',
+  key: 'FormPropertyPadding',
+  type: 'base',
+}, {
+  field: 'data_range',
+  key: 'FormPropertyDataRange',
+  type: 'org',
+}, {
+  field: 'show_type',
+  key: 'FormPropertyShowType',
+  type: 'org',
+}, {
+  field: 'check_strictly',
+  key: 'FormPropertyCheckStrictly',
+  type: 'org',
+}, {
+  field: 'all_data',
+  key: 'FormPropertyAllData',
+  type: 'org',
+}, {
+  field: 'org_url',
+  key: 'FormPropertyOrgUrl',
+  type: 'org',
+}, {
+  field: 'keep_level',
+  key: 'FormPropertyKeepLevel',
+  type: 'org',
+}, {
+  field: 'mult_task',
+  key: 'FormPropertyMultTask',
+  type: 'org',
+}, {
+  field: 'clearable',
+  key: 'FormPropertyClearable',
+  type: 'base',
+}, {
+  field: 'person_has_next',
+  key: 'FormPropertyPersonHasNext',
+  type: 'person',
+}, {
+  field: 'person_id_key',
+  key: 'FormPropertyPersonIdKey',
+  type: 'person',
+}, {
+  field: 'person_link_org',
+  key: 'FormPropertyPersonLinkOrg',
+  type: 'person',
+}, {
+  field: 'person_data',
+  key: 'FormPropertyPersonSelect',
+  type: 'person',
+}]
+
+// 组件分类
+export const type_list = [{
+  label: '基础配置',
+  key: 'base',
+}, {
+  label: '数据源配置',
+  key: 'source',
+}, {
+  label: '单位配置',
+  key: 'org',
+}, {
+  label: '人员配置',
+  key: 'person',
+}, {
+  label: '时间格式',
+  key: 'date',
+}, {
+  label: '手机端配置',
+  key: 'phone',
+}, {
+  label: '默认值',
+  key: 'default',
+}, {
+  label: '显示控制',
+  key: 'show',
+}, {
+  label: '其他',
+  key: 'other',
+}]

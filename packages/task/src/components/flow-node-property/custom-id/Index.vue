@@ -1,0 +1,12 @@
+<script setup>
+const value = defineModel()
+</script>
+
+<template>
+  <hl-form-item label="节点ID">
+    <hl-input v-model="value" />
+  </hl-form-item>
+</template>
+
+<style lang='scss' scoped>
+</style>

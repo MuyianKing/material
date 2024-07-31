@@ -1,0 +1,220 @@
+export const property_list = [{
+  field: 'title',
+  key: 'FlowNodePropertyName',
+  type: 'base',
+}, {
+  field: 'custom_id',
+  key: 'FlowNodePropertyCustomId',
+  type: 'base',
+}, {
+  field: 'custom_user',
+  key: 'FlowNodePropertyCustomUser',
+  type: 'user',
+}, {
+  field: 'handler',
+  key: 'FlowNodePropertyHandler',
+  type: 'user',
+}, {
+  field: 'copyer',
+  key: 'FlowNodePropertyCopyer',
+  type: 'user',
+}, {
+  field: 'helper',
+  key: 'FlowNodePropertyHelper',
+  type: 'user',
+}, {
+  field: 'other_node',
+  key: 'FlowNodePropertyOtherNode',
+  type: 'user',
+}, {
+  field: 'sign',
+  key: 'FlowNodePropertySign',
+  type: 'base',
+}, {
+  field: 'read_is_sign',
+  key: 'FlowNodePropertyReadSign',
+  type: 'base',
+}, {
+  field: 're_delivery',
+  key: 'FlowNodePropertyStartBackAction',
+  type: 'base',
+}, {
+  field: 'valid_nodes',
+  key: 'FlowNodePropertyRemarkValidNodes',
+  type: 'base',
+}, {
+  field: 'pass_label',
+  key: 'FlowNodePropertyApprove',
+  type: 'approve',
+  value_type: 'all',
+}, {
+  field: 'remark',
+  key: 'FlowNodePropertyRemark',
+  type: 'remark',
+}, {
+  field: 'form_id',
+  key: 'FlowNodePropertyForm',
+  type: 'form',
+}, {
+  field: 'notice_type',
+  key: 'FlowNodePropertyNoticeType',
+  type: 'notice',
+}, {
+  field: 'notice_message',
+  key: 'FlowNodePropertyNoticeContent',
+  type: 'notice',
+  value_type: 'all',
+}, {
+  field: 'project_id',
+  key: 'FlowNodePropertyNoticeProject',
+  type: 'notice',
+}, {
+  field: 'notice_user',
+  key: 'FlowNodePropertyRemarkNoticeUser',
+  type: 'notice',
+}, {
+  field: 'notice_handler',
+  key: 'FlowNodePropertyRemarkNoticeHandler',
+  type: 'notice',
+}, {
+  field: 'notice_node',
+  key: 'FlowNodePropertyRemarkNoticeNode',
+  type: 'notice',
+}, {
+  field: 'multiple_works',
+  key: 'FlowNodePropertyMultipleWorks',
+  type: 'handle',
+}, {
+  field: 'first_value',
+  key: 'FlowNodePropertyFirstHandle',
+  type: 'handle',
+  value_type: 'all',
+}, {
+  field: 'second_value',
+  key: 'FlowNodePropertySecondHandle',
+  type: 'handle',
+  value_type: 'all',
+}, {
+  field: 'is_has_pass',
+  key: 'FlowNodePropertyIsHasPass',
+  type: 'handle',
+}, {
+  field: 'pass_holiday',
+  key: 'FlowNodePropertyPassHoliday',
+  type: 'handle',
+}, {
+  field: 'near_type',
+  key: 'FlowNodePropertyNearNotice',
+  type: 'near_notice_config',
+}, {
+  field: 'near_unit',
+  key: 'FlowNodePropertyNearType',
+  type: 'near_notice_config',
+  value_type: 'all',
+}, {
+  field: 'near_notice_time',
+  key: 'FlowNodePropertyNearNoticeTime',
+  type: 'near_notice_config',
+  value_type: 'all',
+}, {
+  field: 'near_message',
+  key: 'FlowNodePropertyNearNoticeContent',
+  type: 'near_notice_config',
+  value_type: 'all',
+}, {
+  field: 'expired_type',
+  key: 'FlowNodePropertyExpiredType',
+  type: 'expired_notice_config',
+}, {
+  field: 'expired_message',
+  key: 'FlowNodePropertyExpiredNoticeContent',
+  type: 'expired_notice_config',
+  value_type: 'all',
+}, {
+  field: 'cc_type',
+  key: 'FlowNodePropertyCcNoticeType',
+  type: 'cc_notice_config',
+}, {
+  field: 'cc_message',
+  key: 'FlowNodePropertyCcNoticeContent',
+  type: 'cc_notice_config',
+  value_type: 'all',
+}, {
+  field: 'send_org',
+  key: 'FlowNodePropertySendOrg',
+  type: 'user',
+}, {
+  field: 'send_role',
+  key: 'FlowNodePropertySendRole',
+  type: 'user',
+}, {
+  field: 'zp_enable',
+  key: 'FlowNodePropertyZp',
+  type: 'zp',
+}, {
+  field: 'zp_sp_enable',
+  key: 'FlowNodePropertyZpApprove',
+  type: 'zp',
+}, {
+  field: 'zp_sp_type',
+  key: 'FlowNodePropertyZpApprovePerson',
+  type: 'zp',
+}, {
+  field: 'zp_sp_handler',
+  key: 'FlowNodePropertyZpApproveHandler',
+  type: 'zp',
+}, {
+  field: 'zp_sp_notice_type',
+  key: 'FlowNodePropertyZpNoticeType',
+  type: 'zp',
+}, {
+  field: 'zp_sp_notice_message',
+  key: 'FlowNodePropertyZpNoticeContent',
+  type: 'zp',
+  value_type: 'all',
+}, {
+  field: 'zp_sp_refuse_notice_type',
+  key: 'FlowNodePropertyZpRefreshNoticeType',
+  type: 'zp',
+}, {
+  field: 'zp_sp_refuse_notice_message',
+  key: 'FlowNodePropertyZpRefreshNoticeContent',
+  type: 'zp',
+  value_type: 'all',
+}]
+
+// 组件分类
+export const type_list = [{
+  label: '基础配置',
+  key: 'base',
+}, {
+  label: '人员配置',
+  key: 'user',
+}, {
+  label: '审批配置',
+  key: 'approve',
+}, {
+  label: '转派配置',
+  key: 'zp',
+}, {
+  label: '消息通知',
+  key: 'notice',
+}, {
+  label: '抄送通知',
+  key: 'cc_notice_config',
+}, {
+  label: '临期通知',
+  key: 'near_notice_config',
+}, {
+  label: '过期通知',
+  key: 'expired_notice_config',
+}, {
+  label: '处置配置',
+  key: 'handle',
+}, {
+  label: '',
+  key: 'remark',
+}, {
+  label: '关联表单',
+  key: 'form',
+}]

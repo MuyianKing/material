@@ -1,35 +1,35 @@
-import { defineConfig } from "vite";
 import { resolve } from 'node:path'
+import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 
 export default defineConfig({
   plugins: [
     vue(),
-    vueJsx()
+    vueJsx(),
   ],
   build: {
     lib: {
       entry: resolve(__dirname, './index.js'),
-      formats: ["es"],
+      formats: ['es'],
     },
     rollupOptions: {
       external: [
-        "lodash-es",
+        'lodash-es',
         /^@hl\//,
-        "vue",
+        'vue',
         /^element-plus/,
-        "@hl/ui",
-        "@vueuse/core"
+        '@hl/ui',
+        '@vueuse/core',
       ],
       output: {
         preserveModules: true,
         preserveModulesRoot: 'packages/hooks',
-        entryFileNames: "[name].js",
+        entryFileNames: '[name].js',
         dir: './dist/hl/hooks',
-        exports: "named",
-        format: "es"
+        exports: 'named',
+        format: 'es',
       },
     },
   },
-});
+})

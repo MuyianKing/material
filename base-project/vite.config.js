@@ -1,9 +1,5 @@
 import process from 'node:process'
 import vue from '@vitejs/plugin-vue'
-import VueSetupExtend from 'vite-plugin-vue-setup-extend'
-import AutoImport from 'unplugin-auto-import/vite'
-import Components from 'unplugin-vue-components/vite'
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import legacy from 'vite-plugin-legacy-swc'
 import tailwindcss from 'tailwindcss'
 import postcssPresetEnv from 'postcss-preset-env'
@@ -27,7 +23,6 @@ export default ({ mode }) => {
   const plugins = [
     vue(),
     vueJsx(),
-    VueSetupExtend(),
     ElementPlus(),
     // 图片压缩
     viteImagemin({
@@ -45,34 +40,6 @@ export default ({ mode }) => {
         quality: [0.8, 0.9],
         speed: 4,
       },
-    }),
-    AutoImport({
-      resolvers: [ElementPlusResolver()],
-      imports: ['vue', 'pinia', 'vue-router', '@vueuse/core'],
-      eslintrc: {
-        enabled: false,
-      },
-      dirs: [
-        './src/pinia/modules',
-      ],
-      dts: true,
-    }),
-    Components({
-      directoryAsNamespace: true,
-      resolvers: [
-        ElementPlusResolver({
-          importStyle: 'sass',
-        }),
-        (componentName) => {
-          if (componentName.startsWith('Hl')) {
-            return {
-              name: componentName,
-              from: '@hl/ui',
-            }
-          }
-        },
-      ],
-      dts: true,
     }),
     visualizer({
       emitFile: false,
