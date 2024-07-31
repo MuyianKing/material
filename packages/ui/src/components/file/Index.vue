@@ -1,6 +1,7 @@
 <script setup>
 import { getSuffix, getType } from '@hl/utils/es/file'
 import { closeLoading, error, loading } from '@hl/utils/es/message'
+import { computed, inject, nextTick, ref } from 'vue'
 import WavesurferComp from '../wavesurfer/Index.vue'
 import IconComp from '../icon/Index.vue'
 
@@ -28,8 +29,8 @@ const props = defineProps({
     default: '300px',
   },
 })
-function previewFileUrl() { }
-function downloadFile() { }
+
+const { previewFileUrl, downloadFile } = inject('GLOBAL_CUSTOM_CONFIG')
 
 const wavesurfer_src = ref('')
 

@@ -1,22 +1,22 @@
 {
   "name": "@hl/ui",
   "type": "module",
-  "version": "0.0.2-bate10",
+  "version": "0.3.3",
   "scripts": {
     "dev": "vite",
     "build": "vite build"
   },
   "dependencies": {
+    "@hl/hooks": "^0.3.0",
+    "@hl/utils": "^0.3.0",
     "@iconify/vue": "^4.1.2",
     "@multiavatar/multiavatar": "^1.0.7",
-    "wavesurfer.js": "^7.8.0",
-    "@hl/utils": "^0.0.5",
-    "@hl/hooks": "^0.0.3",
     "@vueuse/core": "^10.11.0",
     "dayjs": "^1.11.12",
     "element-plus": "^2.7.7",
     "lodash-es": "^4.17.21",
-    "vue": "^3.4.33"
+    "vue": "^3.4.33",
+    "wavesurfer.js": "^7.8.0"
   },
   "devDependencies": {
   }

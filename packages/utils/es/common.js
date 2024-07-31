@@ -1,4 +1,5 @@
 import { nanoid } from 'nanoid'
+import { useUrlSearchParams } from '@vueuse/core'
 
 // 默认分页大小
 export const pageSize = 20
@@ -30,7 +31,7 @@ export function someInArray(someArray, arr) {
 }
 
 export function guid(len = 16) {
-  return nanoid(len).replace('-', '_')
+  return nanoid(len).replace(/-/g, '_')
 }
 
 export function getLabelByVal(array, val, config = {}) {

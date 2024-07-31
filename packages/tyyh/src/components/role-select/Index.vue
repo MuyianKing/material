@@ -1,6 +1,9 @@
 <script setup>
 import { useSelect } from '@hl/hooks'
+import { ElOption, ElSelect } from 'element-plus'
 import { getList } from '../../server/role'
+import 'element-plus/es/components/select/style/css'
+import 'element-plus/es/components/option/style/css'
 
 const props = defineProps({
   modelValue: {

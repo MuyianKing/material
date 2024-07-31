@@ -2,7 +2,7 @@
 import multiavatar from '@multiavatar/multiavatar/esm'
 import { ElAvatar } from 'element-plus'
 import 'element-plus/es/components/avatar/style/css'
-import { computed } from "vue"
+import { computed, ref } from 'vue'
 
 const props = defineProps({
   src: {
@@ -48,4 +48,8 @@ const _style = computed(() => {
   </el-avatar>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.hl-ui-zw {
+  color: red;
+}
+</style>

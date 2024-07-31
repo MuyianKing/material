@@ -1,12 +1,17 @@
-<script setup name="HlTable">
-import { useEventListener } from "@vueuse/core"
+<script setup>
+import { useDebounceFn, useEventListener } from '@vueuse/core'
 
+import { computed, nextTick, onActivated, onMounted, onUnmounted, provide, ref, useSlots, watch } from 'vue'
 import EditHeader from './EditHeader.vue'
 import ScrollBar from './ScrollBar.vue'
 
 import TableStore from './table-store'
 import TableHead from './table-head'
 import TableBody from './table-body'
+
+defineOptions({
+  name: 'HlTable',
+})
 
 const props = defineProps({
   data: {
@@ -297,8 +302,9 @@ function setBodyerScroll() {
     const val = props.lightLine
 
     let height = 0
-    for (let i = 0; i < val && i < trs.length; i++)
+    for (let i = 0; i < val && i < trs.length; i++) {
       height += trs[i].clientHeight
+    }
 
     const tbodyer = table.querySelector('.body-wrapper')
     tbodyer.scrollTop = height
@@ -526,15 +532,24 @@ defineExpose({
 </script>
 
 <template>
-  <div :id="tableId" class="hl-table" :class="{ 'hl-table-border': border, 'nowrap': nowrap && !refresh_layout }" :style="{ height: data.length === 0 ? '100%' : '' }">
+  <div :id="tableId" class="hl-table" :class="{ 'hl-table-border': border, 'nowrap': nowrap && !refresh_layout }"
+       :style="{ height: data.length === 0 ? '100%' : '' }"
+  >
     <!-- 隐藏列: slot里容纳table-column -->
     <div class="hidden-columns">
       <slot />
     </div>
-    <table-head v-if="store.columns.filter((column) => column.label).length > 0" :exclude-checked="excludeChecked" :check-all="checkAll" :select @span-click="handleSpanClick" @change-check-all="changeCheckAll" />
+    <table-head v-if="store.columns.filter((column) => column.label).length > 0" :exclude-checked="excludeChecked"
+                :check-all="checkAll" :select @span-click="handleSpanClick" @change-check-all="changeCheckAll"
+    />
 
-    <div class="body-wrapper" :style="{ maxHeight }" @mouseenter="scroll_bar_active = data.length > 0 && true" @mouseleave="scroll_bar_active = fasle" @scroll="handleScroll">
-      <table-body v-show="!(data.length === 0 && hasEmptySlot)" v-model:check="check" v-model:excludeChecked="excludeChecked" :hover="hover" :active-index="activeIndex" :select :row-key="rowKey" :empty-text="emptyText" :row-class="rowClass" :tooltip-effect="tooltipEffect" @row-click="handleRowClick">
+    <div class="body-wrapper" :style="{ maxHeight }" @mouseenter="scroll_bar_active = data.length > 0 && true"
+         @mouseleave="scroll_bar_active = fasle" @scroll="handleScroll"
+    >
+      <table-body v-show="!(data.length === 0 && hasEmptySlot)" v-model:check="check"
+                  v-model:excludeChecked="excludeChecked" :hover="hover" :active-index="activeIndex" :select :row-key="rowKey"
+                  :empty-text="emptyText" :row-class="rowClass" :tooltip-effect="tooltipEffect" @row-click="handleRowClick"
+      >
         <template v-if="slots.extend" #extend="{ row }">
           <slot name="extend" :row="row" />
         </template>
@@ -553,8 +568,6 @@ defineExpose({
 
 <style lang="scss" scoped>
 @import './scss/table.scss';
-@import './scss/tbody.scss';
-@import './scss/thead.scss';
 
 .hl-table {
   max-height: 100%;
@@ -593,12 +606,14 @@ defineExpose({
 }
 
 .nowrap {
-  :deep(.hl-table-td) {
-    white-space: nowrap;
+  :deep(table) {
+    .hl-table-td {
+      white-space: nowrap;
+    }
   }
 }
 
-:deep(.hl-table-checkbox) {
+.hl-table-checkbox {
   width: 60px;
   min-width: 60px;
   max-width: 60px;
@@ -610,7 +625,7 @@ defineExpose({
 }
 
 .hl-table-border {
-  :deep(.hl-table-header) {
+  .hl-table-header {
     border-top: v-bind(borderWidth) solid v-bind(borderColor);
   }
 
@@ -627,5 +642,22 @@ defineExpose({
   .hl-table-no-data {
     border-bottom: v-bind(borderWidth) solid v-bind(borderColor);
   }
+}
+
+:deep(.hl-table-body) {
+  .hl-table-tr:hover {
+    td {
+      background-color: #ebeef5 !important;
+    }
+  }
+
+  .hl-table-tr.active {
+    background-color: #ebeef5;
+  }
+}
+
+:deep(.hl-table-td-div) {
+  display: flex;
+  align-items: center;
 }
 </style>

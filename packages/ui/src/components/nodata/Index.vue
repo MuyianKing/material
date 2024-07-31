@@ -1,4 +1,5 @@
 <script setup name="HlNoData">
+import { computed } from 'vue'
 import img from '../assets/img/no-data.png'
 
 const props = defineProps({

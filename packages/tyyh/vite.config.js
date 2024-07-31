@@ -14,6 +14,7 @@ export default defineConfig({
         '@vueuse/core',
         'dayjs',
         'lodash-es',
+        /^element-plus/
       ],
       output: [
         {

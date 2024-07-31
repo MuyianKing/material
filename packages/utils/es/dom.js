@@ -94,6 +94,52 @@ export function getDpi() {
  */
 export function getPxBymm(num) {
   const dpi = getDpi()
-  console.log(dpi)
   return dpi / 25.4 * num
+}
+
+/**
+ * mm=>pt
+ * @param {number} num
+ */
+export function getPtBymm(num) {
+  return getPtByPx(getPxBymm(num))
+}
+
+/**
+ * px=>pt
+ * @param {number} num
+ */
+export function getPtByPx(num) {
+  return num / (getDpi() / 72)
+}
+
+/**
+ * px=>mm
+ * @param {number} num
+ */
+export function getMmByPx(num) {
+  return num / (getDpi() / 25.4)
+}
+
+/**
+ * 单位转换
+ * @param {number} num 转换的值
+ * @param {string} from px pt mm
+ * @param {string} to px pt mm
+ */
+export function translateUnit(num, from, to) {
+  const translator = `${from}_${to}`
+
+  switch (translator) {
+    case 'mm_px':
+      return getPxBymm(num)
+    case 'mm_pt':
+      return getPtBymm(num)
+    case 'px_pt':
+      return getPtByPx(num)
+    case 'px_mm':
+      return getMmByPx(num)
+    default:
+      break
+  }
 }

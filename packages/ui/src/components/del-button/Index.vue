@@ -1,6 +1,7 @@
 <script setup>
-import { ElPopover } from 'element-plus'
+import { ElButton, ElPopover } from 'element-plus'
 import 'element-plus/es/components/popover/style/css'
+import { ref } from 'vue'
 import ButtonComp from '../button/Index.vue'
 
 const props = defineProps({

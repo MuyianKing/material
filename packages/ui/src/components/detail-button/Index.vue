@@ -17,4 +17,8 @@ defineProps({
   <button-comp icon="icon-park-outline:find" :text="text" :show-icon="icon" button-type="icon" />
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.hl-ui-zw {
+  color: red;
+}
+</style>

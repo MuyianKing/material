@@ -2,6 +2,7 @@
 import { getLabelByVal } from '@hl/utils/es/common'
 import { cloneDeep } from 'lodash-es'
 import { ElCascaderPanel, ElDropdown, ElInput } from 'element-plus'
+import { computed, nextTick, ref } from 'vue'
 import { HlIcon } from '../icon'
 import 'element-plus/es/components/cascader-panel/style/css'
 import 'element-plus/es/components/dropdown/style/css'
@@ -122,14 +123,18 @@ const _label = computed(() => {
   <el-dropdown trigger="click" @visible-change="val => { arrowStatus = val }">
     <div :class="{ 'active-label': activeStatus }" class="flex items-center dropdown-label">
       <span>{{ _label }}</span>
-      <hl-icon v-if="!noArrow" :class="{ 'deg-180': arrowStatus }" class="arrow-icon ml-1" icon="iconamoon:arrow-down-2-thin" />
+      <hl-icon v-if="!noArrow" :class="{ 'deg-180': arrowStatus }" class="arrow-icon ml-1"
+               icon="iconamoon:arrow-down-2-thin"
+      />
     </div>
     <template #dropdown>
       <div :class="{ 'p-2': hasSearch }" class="flex flex-col">
         <div v-if="hasSearch" class="mb-2">
           <el-input v-model="searchKey" placeholder="请输入关键字快速搜索" />
         </div>
-        <el-cascader-panel ref="cascaderPanelRef" v-model="model" :options="_options" :props="cascaderPropsConfig" style="width: fit-content" @change="handleChange" />
+        <el-cascader-panel ref="cascaderPanelRef" v-model="model" :options="_options" :props="cascaderPropsConfig"
+                           style="width: fit-content" @change="handleChange"
+        />
       </div>
     </template>
   </el-dropdown>

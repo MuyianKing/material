@@ -1,11 +1,15 @@
 <script setup>
-import { ElConfigProvider } from 'element-plus'
 import zhCn from 'element-plus/es/locale/lang/zh-cn'
+import { uploadFile } from '@server/file'
+import { downloadFile, previewFileUrl } from 'utils/file'
+import { getIcons } from '@server/icon'
 
 const customConfig = {
-
+  uploadFile,
+  previewFileUrl,
+  downloadFile,
+  getIcons,
 }
-
 </script>
 
 <template>

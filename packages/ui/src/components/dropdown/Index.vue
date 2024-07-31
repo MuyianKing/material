@@ -1,6 +1,7 @@
 <script setup>
 import { getLabelByVal } from '@hl/utils/es/common'
-import { ElCheckbox, ElCheckboxGroup, ElDropdown, ElDropdownItem, ElDropdownMenu, ElScrollbar } from 'element-plus'
+import { ElCheckbox, ElCheckboxGroup, ElDropdown, ElDropdownItem, ElDropdownMenu, ElInput, ElScrollbar } from 'element-plus'
+import { computed, nextTick, ref, watch } from 'vue'
 import { HlIcon } from '../icon'
 
 import 'element-plus/es/components/checkbox/style/css'
@@ -142,18 +143,24 @@ const _label = computed(() => {
   <el-dropdown trigger="click" @visible-change="val => { arrowStatus = val }">
     <div :class="{ 'active-label': activeStatus }" class="flex items-center dropdown-label">
       <span>{{ _label }}</span>
-      <hl-icon v-if="!noArrow" :class="{ 'deg-180': arrowStatus }" class="arrow-icon ml-1" icon="iconamoon:arrow-down-2-thin" />
+      <hl-icon v-if="!noArrow" :class="{ 'deg-180': arrowStatus }" class="arrow-icon ml-1"
+               icon="iconamoon:arrow-down-2-thin"
+      />
     </div>
     <template #dropdown>
       <div class="flex flex-col">
         <div v-if="hasSearch" class="px-2 pt-2">
-          <el-input v-model="searchKey" class="w-full flex-1" clearable placeholder="请输入关键字快速搜索" @input="multipleAllValue = false" />
+          <el-input v-model="searchKey" class="w-full flex-1" clearable placeholder="请输入关键字快速搜索"
+                    @input="multipleAllValue = false"
+          />
         </div>
         <el-scrollbar class="py-1" max-height="280">
           <div v-if="multiple" class="px-4">
             <el-checkbox v-if="!noAll" v-model="multipleAllValue" class="mr-0" label="全部" @change="allChecked" />
             <el-checkbox-group :model-value="_value" class="flex flex-col">
-              <el-checkbox v-for="item in _options" :key="item.value" :disabled="item.disabled" :label="item.label" :value="item.value" class="mr-0" @click="handleSingleChange(item)" />
+              <el-checkbox v-for="item in _options" :key="item.value" :disabled="item.disabled" :label="item.label"
+                           :value="item.value" class="mr-0" @click="handleSingleChange(item)"
+              />
             </el-checkbox-group>
           </div>
           <template v-else>
@@ -161,7 +168,9 @@ const _label = computed(() => {
               <el-dropdown-item v-if="!noAll" @click="handleSingleChange('')">
                 全部
               </el-dropdown-item>
-              <el-dropdown-item v-for="item in _options" :key="item.value" :class="{ active: item.value === model }" @click="handleSingleChange(item.value)">
+              <el-dropdown-item v-for="item in _options" :key="item.value" :class="{ active: item.value === model }"
+                                @click="handleSingleChange(item.value)"
+              >
                 {{ item.label }}
               </el-dropdown-item>
             </el-dropdown-menu>

@@ -1,9 +1,15 @@
 import { isOverflow } from '@hl/utils/es/dom'
-// eslint-disable-next-line no-unused-vars
 import { ElCheckbox, ElTooltip } from 'element-plus'
+import 'element-plus/es/components/checkbox/style/css'
+import 'element-plus/es/components/tooltip/style/css'
+import { computed, inject, ref } from 'vue'
 
 export default {
   name: 'HlTableBody',
+  components: {
+    ElCheckbox,
+    ElTooltip,
+  },
   props: {
     hover: {
       type: String,

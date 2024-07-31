@@ -1,6 +1,7 @@
 <script setup name="HlChart">
 import echartsUtil from '@hl/utils/es/echarts.util'
-import { guid } from "@hl/utils/es/common"
+import { guid } from '@hl/utils/es/common'
+import { nextTick, onActivated, watch } from 'vue'
 
 const props = defineProps({
   option: {
@@ -73,4 +74,8 @@ defineExpose({
   <div :id="id" :style="{ width, height }" />
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.hl-ui-zw {
+  color: red;
+}
+</style>

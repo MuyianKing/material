@@ -1,4 +1,6 @@
 <script setup>
+import { inject, nextTick, onMounted, useSlots } from 'vue'
+
 const context_item_renders = inject('context_item_renders')
 
 // 没有插槽的渲染函数
@@ -19,4 +21,8 @@ onMounted(() => {
   <div />
 </template>
 
-<style lang='scss' scoped></style>
+<style lang="scss" scoped>
+.hl-ui-zw {
+  color: red;
+}
+</style>

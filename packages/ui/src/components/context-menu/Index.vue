@@ -1,6 +1,7 @@
 <script setup>
+import { useEventListener, useMouse } from '@vueuse/core'
+import { nextTick, provide, ref } from 'vue'
 import RenderMenuItem from './RenderMenuItem.jsx'
-import { useMouse,useEventListener } from "@vueuse/core"
 
 const props = defineProps({
   options: {

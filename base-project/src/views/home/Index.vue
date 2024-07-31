@@ -1,11 +1,9 @@
 <script setup>
-import { WEB_NAME } from "../../utils/app";
-
+const file = ref(null)
 </script>
+
 <template>
-  <div class="w-full h-full leading-[150px] text-center">
-    <h1>{{ WEB_NAME }}</h1>
-  </div>
+  <hl-upload v-model="file" type="image" trigger-type="card" />
 </template>
 
 <style lang='scss' scoped></style>

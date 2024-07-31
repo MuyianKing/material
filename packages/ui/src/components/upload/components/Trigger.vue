@@ -1,6 +1,7 @@
 <script setup>
 import { getMimeType, getSuffix } from '@hl/utils/es/file'
 import { confirm } from '@hl/utils/es/message'
+import { computed, ref, useSlots } from 'vue'
 import { getAcceptType } from '../hooks/index'
 import IconComp from '../../icon/Index.vue'
 
@@ -84,7 +85,9 @@ defineExpose({
 </script>
 
 <template>
-  <div v-if="show_add" v-bind="$attrs" class="cursor-pointer normal-trigger" :class="{ 'trigger-item': triggerType === 'card', 'w-full': triggerType === 'line' }" @click="triggerAdd">
+  <div v-if="show_add" v-bind="$attrs" class="cursor-pointer normal-trigger trigger-comp"
+       :class="{ 'trigger-item': triggerType === 'card', 'w-full': triggerType === 'line' }" @click="triggerAdd"
+  >
     <slot name="trigger" />
 
     <template v-if="!slots.trigger">
@@ -101,29 +104,5 @@ defineExpose({
 </template>
 
 <style lang='scss' scoped>
-.trigger-item {
-  width: 100px !important;
-  height: 100px;
-  border: 1px solid #ddd;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 5px;
-}
 
-.normal-trigger {
-  width: fit-content;
-}
-
-.upload-icon {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-}
-
-.upload-icon:hover {
-  color: var(--color-primary);
-  text-decoration: underline;
-}
 </style>

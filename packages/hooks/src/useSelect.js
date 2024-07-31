@@ -1,8 +1,6 @@
-import {
-  cloneDeep,
-  concat,
-} from 'lodash-es'
+import { cloneDeep, concat } from 'lodash-es'
 import { error } from '@hl/utils/es/message'
+import { reactive, ref, watch } from 'vue'
 
 export default function (props, emits, apiSelect, config = {}) {
   const select_value = ref('')
@@ -79,7 +77,8 @@ export default function (props, emits, apiSelect, config = {}) {
     }
   }
 
-  const formatData = data => commonFormatData(data, config.format_config || {})
+  const formatData = data =>
+    commonFormatData(data, config.format_config || {})
 
   // 格式化数据
   const commonFormatData = (data, keys = {}) => {
@@ -119,18 +118,25 @@ export default function (props, emits, apiSelect, config = {}) {
 
   // 搜索
   const search = () => {
-    apiSelect(query).then((data) => {
-      hasMore = data.count > query.limit * query.page
+    apiSelect(query)
+      .then((data) => {
+        hasMore = data.count > query.limit * query.page
 
-      dataList.value = concat(dataList.value, filterData(formatData(data.data)))
-    }).catch((e) => {
-      error(e)
-    })
+        dataList.value = concat(
+          dataList.value,
+          filterData(formatData(data.data)),
+        )
+      })
+      .catch((e) => {
+        error(e)
+      })
   }
 
   // 搜索
   const commonFilter = () => {
-    document.getElementsByClassName('el-scrollbar__view el-select-dropdown__list').scrollTop = 0
+    document.getElementsByClassName(
+      'el-scrollbar__view el-select-dropdown__list',
+    ).scrollTop = 0
     dataList.value = []
     query.page = 1
     search()
@@ -181,15 +187,19 @@ export default function (props, emits, apiSelect, config = {}) {
     emits('update:modelValue', return_data)
   }
 
-  watch(() => props.modelValue, () => {
-    if (value_change_type !== 'self') {
-      commonInit()
-    }
-    // 默认外部更新数据
-    value_change_type = 'outer'
-  }, {
-    immediate: true,
-  })
+  watch(
+    () => props.modelValue,
+    () => {
+      if (value_change_type !== 'self') {
+        commonInit()
+      }
+      // 默认外部更新数据
+      value_change_type = 'outer'
+    },
+    {
+      immediate: true,
+    },
+  )
 
   return {
     select_value,

@@ -1,7 +1,9 @@
 <script setup name="HlPreviewImg">
-// import { previewFileUrl } from '@hl/utils/file'
-import { ElImage } from 'element-plus'
+import { ElImage, vLoading } from 'element-plus'
 import 'element-plus/es/components/image/style/css'
+import 'element-plus/es/components/loading/style/css'
+
+import { computed, inject } from 'vue'
 
 const props = defineProps({
   src: {
@@ -36,7 +38,7 @@ const props = defineProps({
   },
 })
 
-function previewFileUrl() { }
+const { previewFileUrl } = inject('GLOBAL_CUSTOM_CONFIG')
 
 // 查看地址
 const prev_src = computed(() => {

@@ -1,10 +1,15 @@
-<script setup name="HlTableColumn">
+<script setup>
 import storage from '@hl/utils/es/storage'
 import { guid } from '@hl/utils/es/common'
+import { getCurrentInstance, h, inject, onMounted, useSlots } from 'vue'
 import TimeParser from '../time/Index.vue'
 import IdCard from '../id-card/Index.vue'
 import TelParser from '../tel/Index.vue'
 import PreviewComp from '../preview/Index.vue'
+
+defineOptions({
+  name: 'HlTableColumn',
+})
 
 const props = defineProps({
   type: {
@@ -128,7 +133,7 @@ function init() {
 
   // 判断父组件是否是hl-table
   function isHlTable(parentVNode, parentNum = 1) {
-    if ((parentVNode.type.__name || parentVNode.type.name) !== 'HlTable') {
+    if (parentVNode.type.name !== 'HlTable') {
       if (parentNum > 3) {
         throw new Error('请将hl-table-column放在hl-table中')
       } else {
@@ -137,10 +142,8 @@ function init() {
     }
     return parentVNode
   }
+
   parent = isHlTable(parent)
-  // if ((parent.type.__name || parent.type.name) !== 'HlTable') {
-  //   throw new Error('请将hl-table-column放在hl-table中')
-  // }
 
   const config = storage.get(store.value.storageKey) || []
 
@@ -175,3 +178,9 @@ onMounted(() => {
 <template>
   <div :id="uuid" />
 </template>
+
+<style lang="scss" scoped>
+.hl-ui-zw {
+  color: red;
+}
+</style>

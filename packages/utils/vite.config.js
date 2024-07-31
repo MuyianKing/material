@@ -1,36 +1,37 @@
-import { defineConfig } from "vite";
 import { resolve } from 'node:path'
+import { defineConfig } from 'vite'
 
 export default defineConfig({
   plugins: [],
   resolve: {
-    alias: {
-    },
+    alias: {},
   },
   build: {
     lib: {
       entry: resolve(__dirname, './index.js'),
-      formats: ["es"],
+      formats: ['es'],
     },
     rollupOptions: {
       external: [
-        "lodash-es",
+        'lodash-es',
+        '@vueuse/core',
         /^@hl\//,
-        "vue",
-        "element-plus",
+        'vue',
+        'element-plus',
         /^element-plus/,
-        "nanoid",
+        'nanoid',
         /^echarts/,
-        "js-cookie",
-        /^validator/
+        'js-cookie',
+        /^validator/,
+        'dayjs',
       ],
       output: {
         preserveModules: true,
-        entryFileNames: "[name].js",
+        entryFileNames: '[name].js',
         dir: './dist/hl/utils',
-        exports: "named",
-        format: "es"
+        exports: 'named',
+        format: 'es',
       },
     },
   },
-});
+})

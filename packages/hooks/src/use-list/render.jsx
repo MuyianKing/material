@@ -1,7 +1,8 @@
-import HlSearchPage from '../search-page/Index.vue';
-import HlPage from '../page/Index.vue';
-import HlSearchButton from '../search-button/Index.vue';
-import HlAddButton from '../add-button/Index.vue';
+import { HlSearchPage, HlPage, HlSearchButton, HlAddButton } from '@hl/ui';
+import "@hl/ui/src/components/search-page/Index.css"
+import "@hl/ui/src/components/search-button/Index.css"
+import "@hl/ui/src/components/add-button/Index.css"
+import "@hl/ui/src/components/page/Index.css"
 
 export default {
   name: 'HlListPageRender',
@@ -41,9 +42,9 @@ export default {
       type: Boolean,
       default: false
     },
-    pageConfig:{
-      type:Object,
-      default:null
+    pageConfig: {
+      type: Object,
+      default: null
     }
   },
   setup(props, { slots, emit }) {
@@ -73,7 +74,7 @@ export default {
     }
 
     // 分页
-    const default_slots = [() => <HlPage modelValue={props.query.page}  size={props.query.limit} sizes={props.pageConfig?.sizes} count={props.tableData.count || 0} onUpdate:modelValue={(val) => emit('updatePage', val)} onUpdate:size={(val) => emit('updateSize', val)} onChange={props.getData} />];
+    const default_slots = [() => <HlPage modelValue={props.query.page} size={props.query.limit} sizes={props.pageConfig?.sizes} count={props.tableData.count || 0} onUpdate:modelValue={(val) => emit('updatePage', val)} onUpdate:size={(val) => emit('updateSize', val)} onChange={props.getData} />];
     if (slots.default) {
       default_slots.push(slots.default);
     }
@@ -82,7 +83,7 @@ export default {
       <HlSearchPage class="list-page" loading={props._loading?.value}>
         {{
           header: () => header.map((slot) => (typeof slot === 'function' ? slot() : slot)),
-          button:() => button.map((slot) => (typeof slot === 'function' ? slot() : slot)),
+          button: () => button.map((slot) => (typeof slot === 'function' ? slot() : slot)),
           table: () => (slots.table ? slots.table() : ''),
           default: () => default_slots.map((slot) => (typeof slot === 'function' ? slot() : slot))
         }}

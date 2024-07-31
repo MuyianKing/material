@@ -11,6 +11,7 @@
     "build:utils": "vite build  --emptyOutDir --config ./packages/utils/vite.config.js & copy .\\packages\\utils\\package.json .\\dist\\hl\\utils"
   },
   "dependencies": {
+    "vue": "^3.4.34"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.23.2",

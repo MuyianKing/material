@@ -19,7 +19,6 @@ function closeTags(index) {
     const item = tagsList.value[index] || tagsList.value[index - 1]
     if (item) {
       if (delItem.path === route.fullPath) {
-        console.log(item)
         router.push(item.path)
       }
     } else {

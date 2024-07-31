@@ -1,5 +1,7 @@
 import { pageSize } from '@hl/utils/es/common'
-import { useRequest } from '@hl/hooks'
+import { h, nextTick, onMounted, reactive } from 'vue'
+import { useDebounceFn } from '@vueuse/core'
+import useRequest from '../useRequest.js'
 import render from './render.jsx'
 
 // 条件
@@ -16,17 +18,20 @@ const page_query = reactive({
  * @param {Function} params.onEnd 获取数据结束后执行的方法
  * @param {Function} params.autoSearch mounted后自动请求数据
  */
-export default function HlListPage({ query = {}, server = null, data_extend_keys = [], onEnd = null, autoSearch = true, pageConfig = null }) {
+export default function HlListPage({
+  query = {},
+  server = null,
+  data_extend_keys = [],
+  onEnd = null,
+  autoSearch = true,
+  pageConfig = null,
+}) {
   const query_ref = reactive({
     ...page_query,
     ...query,
   })
 
-  const {
-    loading,
-    list_data,
-    getList,
-  } = useRequest(server)
+  const { loading, list_data, getList } = useRequest(server)
 
   // 获取数据
   async function getData(opt = {}) {
@@ -87,5 +92,3 @@ export default function HlListPage({ query = {}, server = null, data_extend_keys
     loading,
   }
 }
-
-export const useListPage = HlListPage

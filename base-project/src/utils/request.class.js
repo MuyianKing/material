@@ -114,7 +114,6 @@ export class Http {
   }
 
   post(url, params, options) {
-
     params = params || {}
     options = options || {}
     options.headers = options.headers || {}

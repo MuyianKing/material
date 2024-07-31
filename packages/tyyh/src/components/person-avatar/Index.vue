@@ -1,4 +1,6 @@
 <script setup>
+import { HlAvatar } from '@hl/ui'
+
 const user = hl.getUserInfo()
 </script>
 

@@ -16,6 +16,8 @@ const alias_path = [
   ['@layout', './src/layout'],
   ['@directions', './src/directions'],
   ['@utils', '@hl/utils/es'],
+  ['utils', './src/utils'],
+  ['@app', './src/utils/app'],
 ]
 
 export default function useAlias() {

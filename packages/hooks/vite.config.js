@@ -1,12 +1,13 @@
 import { defineConfig } from "vite";
 import { resolve } from 'node:path'
+import vue from '@vitejs/plugin-vue'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 
 export default defineConfig({
-  plugins: [],
-  resolve: {
-    alias: {
-    },
-  },
+  plugins: [
+    vue(),
+    vueJsx()
+  ],
   build: {
     lib: {
       entry: resolve(__dirname, './index.js'),
@@ -17,7 +18,9 @@ export default defineConfig({
         "lodash-es",
         /^@hl\//,
         "vue",
-        "element-plus"
+        /^element-plus/,
+        "@hl/ui",
+        "@vueuse/core"
       ],
       output: {
         preserveModules: true,

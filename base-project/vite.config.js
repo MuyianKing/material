@@ -63,17 +63,13 @@ export default ({ mode }) => {
         ElementPlusResolver({
           importStyle: 'sass',
         }),
-        {
-          type: 'component',
-          resolve: (name) => {
-            if (name.startsWith('Hl')) {
-              return {
-                importName: name,
-                from: 'hlui',
-                path: `@hl/ui/src/index.js`,
-              }
+        (componentName) => {
+          if (componentName.startsWith('Hl')) {
+            return {
+              name: componentName,
+              from: '@hl/ui',
             }
-          },
+          }
         },
       ],
       dts: true,

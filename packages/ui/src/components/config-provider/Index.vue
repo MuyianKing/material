@@ -1,4 +1,8 @@
 <script setup>
+import { ElConfigProvider } from 'element-plus'
+
+import { provide } from 'vue'
+
 const props = defineProps({
   /**
    * upload_url: 上传文件接口地址,
@@ -20,4 +24,8 @@ provide('GLOBAL_CUSTOM_CONFIG', props.customConfig)
   </el-config-provider>
 </template>
 
-<style lang='scss' scoped></style>
+<style lang="scss" scoped>
+.hl-ui-zw {
+  color: red;
+}
+</style>

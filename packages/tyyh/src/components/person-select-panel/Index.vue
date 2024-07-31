@@ -1,7 +1,12 @@
 <script setup>
+import { computed, onMounted, reactive, ref, watch } from 'vue'
+import { ElButton, ElCheckbox, ElInput, ElTag } from 'element-plus'
 import OrganizationTree from '../organization/components/plugin.vue'
 import { getList } from '../../server/person'
-
+import 'element-plus/es/components/tag/style/css'
+import 'element-plus/es/components/input/style/css'
+import 'element-plus/es/components/checkbox/style/css'
+import 'element-plus/es/components/button/style/css'
 
 const props = defineProps({
   modelValue: {
@@ -245,6 +250,7 @@ const person_list_filter = computed(() => {
       return !item.selected && filter_flg
     })
   } catch (error) {
+    console.log('tyyh.person-select-panel', error)
     return []
   }
 })
@@ -363,7 +369,9 @@ onMounted(() => {
               </div>
             </div>
             <div v-bottom="handleSelectedBottom" class="list-wrapper">
-              <el-tag v-for="(user, index) in select_users_comp" :key="user[idKey]" class="selected-tag" closable size="large" @close="delUser(index)">
+              <el-tag v-for="(user, index) in select_users_comp" :key="user[idKey]" class="selected-tag" closable
+                      size="large" @close="delUser(index)"
+              >
                 {{ user.name }} _ {{ user.org_job }}
               </el-tag>
             </div>
@@ -375,7 +383,9 @@ onMounted(() => {
           <div class="select-options">
             <div v-bottom="handleBottom" class="options">
               <template v-if="person_list_comp.length">
-                <div v-for="person in person_list_comp" :key="person[idKey]" class="person-item" @click="handleSelect(person)">
+                <div v-for="person in person_list_comp" :key="person[idKey]" class="person-item"
+                     @click="handleSelect(person)"
+                >
                   {{ person.name }} _ {{ person.org_job }}
                 </div>
               </template>

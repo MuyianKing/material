@@ -1,7 +1,8 @@
 <script setup>
 import { ElInput } from 'element-plus'
 import 'element-plus/es/components/input/style/css'
-import { useDebounceFn } from "@vueuse/core"
+import { useDebounceFn } from '@vueuse/core'
+import { nextTick, reactive, ref } from 'vue'
 
 const props = defineProps({
   modelValue: {
@@ -74,8 +75,12 @@ const handleBlur = useDebounceFn(() => {
 </script>
 
 <template>
-  <div class="cell-item" :class="{ 'cursor-pointer': editable }" :style="{ width, textAlign: align }" @dblclick="handleDblclick">
-    <el-input v-if="rowValue.editing" ref="input_ref" v-model="input_val" :placeholder="placeholder" @blur="handleBlur" @change="handleBlur" />
+  <div class="cell-item" :class="{ 'cursor-pointer': editable }" :style="{ width, textAlign: align }"
+       @dblclick="handleDblclick"
+  >
+    <el-input v-if="rowValue.editing" ref="input_ref" v-model="input_val" :placeholder="placeholder" @blur="handleBlur"
+              @change="handleBlur"
+    />
     <template v-else>
       <span v-if="modelValue !== ''">{{ modelValue }}</span>
       <span v-else>{{ placeholder }}</span>

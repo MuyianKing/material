@@ -1,14 +1,14 @@
 {
   "name": "@hl/tyyh",
   "type": "module",
-  "version": "0.0.2-bate5",
+  "version": "0.3.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build"
   },
   "dependencies": {
-    "@hl/ui": "0.0.2-bate8",
-    "@hl/utils": "^0.0.4",
+    "@hl/ui": "^0.3.0",
+    "@hl/utils": "^0.3.0",
     "@vueuse/core": "^10.11.0",
     "axios": "^1.7.2",
     "dayjs": "^1.11.12",

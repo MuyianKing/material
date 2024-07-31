@@ -1,6 +1,7 @@
 <script setup name="HlIcon">
 import { Icon } from '@iconify/vue'
 import { getCanUseValue } from '@hl/utils/es/common'
+import { computed } from 'vue'
 
 const props = defineProps({
   size: {

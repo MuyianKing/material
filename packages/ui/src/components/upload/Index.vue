@@ -2,6 +2,7 @@
 import { AUDIO_SUFFIX, FILE_SUFFIX } from '@hl/utils/es/file'
 import { guid } from '@hl/utils/es/common'
 import { error } from '@hl/utils/es/message'
+import { computed, inject, nextTick, provide, ref, useSlots } from 'vue'
 import TriggerComp from './components/Trigger.vue'
 import PreviewComp from './components/Preview.vue'
 import UploadProgress from './components/Progress.vue'
@@ -64,17 +65,13 @@ const props = defineProps({
   // 触发区域样式：card-卡片  line-一行
   triggerType: {
     type: String,
-    default: 'line',
-  },
-  uploadFile: {
-    type: Function,
-    default: null,
+    default: 'card',
   },
 })
 
 const emits = defineEmits(['upload-start', 'upload-finish'])
 
-function uploadFile() { }
+const { uploadFile } = inject('GLOBAL_CUSTOM_CONFIG')
 
 const slots = useSlots()
 
@@ -278,6 +275,87 @@ const margin = computed(() => props.multiple ? '5px' : '')
   color: #555;
 }
 
+// -------------触发组件-----------
+:deep(.trigger-comp) {
+  &.trigger-item {
+    width: 100px !important;
+    height: 100px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+  }
+
+  &.normal-trigger {
+    width: fit-content;
+  }
+
+  .upload-icon {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
+  .upload-icon:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+}
+
+// -------------预览-----------------
+:deep(.preview-wrapper) {
+  position: relative;
+  border-radius: 5px;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+
+  .file-list-wrapper {
+    padding: 5px 0;
+  }
+
+  .file-list-wrapper:hover {
+    padding: 10px;
+  }
+
+  .delete-wrapper {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    right: 0;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    user-select: none;
+    border-radius: 5px;
+
+    & > svg:hover {
+      cursor: pointer;
+      color: var(--color-primary);
+    }
+  }
+
+  &:hover {
+    .delete-wrapper {
+      display: flex;
+    }
+  }
+
+  img {
+    border-radius: 5px;
+  }
+
+  .hl-preview-video {
+    border-radius: 5px;
+  }
+}
+
+// ---------------------
 .flex-style {
   display: flex;
   flex-wrap: wrap;

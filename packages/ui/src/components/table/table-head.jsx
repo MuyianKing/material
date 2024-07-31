@@ -1,9 +1,12 @@
-import './scss/thead.scss'
-// eslint-disable-next-line no-unused-vars,unused-imports/no-unused-imports
 import { ElCheckbox } from 'element-plus'
+import 'element-plus/es/components/checkbox/style/css'
+
+import { computed, inject, watch } from 'vue'
 
 export default {
-  name: 'HlTableHead',
+  components: {
+    ElCheckbox,
+  },
   props: {
     // 开启选择
     select: {
@@ -53,12 +56,12 @@ export default {
         <thead>
           <tr className="hl-table-tr">
             {
-            (props.select) && (
-              <th className="hl-table-td hl-table-th hl-table-checkbox">
-                <ElCheckbox size="large" modelValue={props.checkAll} onChange={changeCheckAll} />
-              </th>
-            )
-          }
+              (props.select) && (
+                <th className="hl-table-td hl-table-th hl-table-checkbox">
+                  <ElCheckbox size="large" modelValue={props.checkAll} onChange={changeCheckAll} />
+                </th>
+              )
+            }
             {columns.value.filter(column => column.show).map((column, index) => (
               <th
                 class={`hl-table-td hl-table-th ${column.className}`}
@@ -72,9 +75,9 @@ export default {
                   {column.renderHeader
                     ? column.renderHeader()
                     : (
-                      <span style={{ verticalAlign: 'middle', textAlign: column.style.textAlign }}>
-                        {column.label}
-                      </span>
+                        <span style={{ verticalAlign: 'middle', textAlign: column.style.textAlign }}>
+                          {column.label}
+                        </span>
                       )}
                 </div>
               </th>

@@ -1,7 +1,5 @@
 import { AUDIO_SUFFIX, FILE_SUFFIX, IMAGE_SUFFIX, VIDEO_SUFFIX, getMimeType } from '@hl/utils/es/file'
 
-function previewFileUrl() {}
-
 const type_map = {
   image: IMAGE_SUFFIX,
   video: VIDEO_SUFFIX,
@@ -55,7 +53,7 @@ export function getAllType(type, suffix) {
  * @param {*} files 新文件
  * @param {Ref} file_list_ref
  */
-export function comp_file_list(files, file_list_ref) {
+export function comp_file_list(files, file_list_ref,previewFileUrl) {
   files.forEach((file, index) => {
     const new_file = {
       uuid: file.uuid,

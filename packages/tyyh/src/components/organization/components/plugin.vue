@@ -1,6 +1,11 @@
 <script setup>
+import { useDebounceFn } from '@vueuse/core'
+import { nextTick, onMounted, reactive, ref } from 'vue'
+import { ElButton, ElTree, vLoading } from 'element-plus'
 import { getList } from '../../../server/organization'
-import { useDebounceFn } from "@vueuse/core"
+import 'element-plus/es/components/loading/style/css'
+import 'element-plus/es/components/tree/style/css'
+import 'element-plus/es/components/button/style/css'
 
 const emits = defineEmits(['change'])
 
@@ -104,7 +109,10 @@ defineExpose({
       </el-button>
     </div>
 
-    <el-tree ref="treeRef" v-loading="loading" :data="tree_data" :default-expanded-keys="default_expanded_keys" :expand-on-click-node="false" :props="_defaultProps" class="tree-body" empty-text="未获取到组织机构" node-key="organization_id" render-after-expand @node-click="handleClick" />
+    <el-tree ref="treeRef" v-loading="loading" :data="tree_data" :default-expanded-keys="default_expanded_keys"
+             :expand-on-click-node="false" :props="_defaultProps" class="tree-body" empty-text="未获取到组织机构"
+             node-key="organization_id" render-after-expand @node-click="handleClick"
+    />
   </div>
 </template>
 

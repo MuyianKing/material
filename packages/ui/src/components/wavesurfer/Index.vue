@@ -2,6 +2,7 @@
 import WaveSurfer from 'wavesurfer.js'
 import Hover from 'wavesurfer.js/dist/plugins/hover.esm.js'
 import { closeLoading, error, loading } from '@hl/utils/es/message'
+import { nextTick, ref, watch } from 'vue'
 import IconComp from '../icon/Index.vue'
 
 const src = defineModel({
@@ -38,7 +39,6 @@ watch(src, () => {
       })
 
       wavesurfer.on('ready', () => {
-        console.log('ready')
         closeLoading()
       })
 

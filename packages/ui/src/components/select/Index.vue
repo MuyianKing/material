@@ -1,8 +1,11 @@
 <script setup name="HlSelect">
-import { ElOption, ElOptionGroup, ElSelect } from 'element-plus'
+import { ElOption, ElOptionGroup, ElSelect,vLoading } from 'element-plus'
 import 'element-plus/es/components/option/style/css'
 import 'element-plus/es/components/option-group/style/css'
 import 'element-plus/es/components/select/style/css'
+import 'element-plus/es/components/loading/style/css'
+
+import { computed, getCurrentInstance } from "vue"
 
 const props = defineProps({
   options: {

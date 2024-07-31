@@ -1,5 +1,8 @@
 <script setup>
+import { computed, onMounted, ref } from 'vue'
+import { ElCascader } from 'element-plus'
 import { getList } from '../../server/job'
+import 'element-plus/es/components/cascader/style/css'
 
 const props = defineProps({
   modelValue: {

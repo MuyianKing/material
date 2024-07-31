@@ -41,3 +41,9 @@ function confirm() {
     </template>
   </el-popconfirm>
 </template>
+
+<style lang="scss" scoped>
+.hl-ui-zw {
+  color: red;
+}
+</style>

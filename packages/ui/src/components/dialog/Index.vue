@@ -1,6 +1,7 @@
 <script name="HlDialog" setup>
 import { ElDialog } from 'element-plus'
 import 'element-plus/es/components/dialog/style/css'
+import { computed, nextTick, ref, useAttrs, useSlots, watch } from 'vue'
 
 const props = defineProps({
   closeOnClickModal: {
@@ -90,7 +91,9 @@ defineExpose({
 </script>
 
 <template>
-  <el-dialog ref="dialog_ref" :close-on-click-modal="closeOnClickModal" :destroy-on-close="destroyOnClose" :style="dialog_style" append-to-body class="hl-custome-dialog">
+  <el-dialog ref="dialog_ref" :close-on-click-modal="closeOnClickModal" :destroy-on-close="destroyOnClose"
+             :style="dialog_style" append-to-body class="hl-custome-dialog"
+  >
     <slot />
 
     <template v-if="slots.footer" #footer>

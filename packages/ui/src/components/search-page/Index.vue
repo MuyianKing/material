@@ -1,6 +1,8 @@
 <script setup name="SearchPage">
-import { ElForm } from 'element-plus'
+import { ElForm, vLoading } from 'element-plus'
+import 'element-plus/es/components/image/style/css'
 import 'element-plus/es/components/form/style/css'
+import { nextTick, onMounted, ref } from 'vue'
 
 const props = defineProps({
   formSize: {

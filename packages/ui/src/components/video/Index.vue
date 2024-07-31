@@ -1,6 +1,6 @@
 <script setup>
-// import { previewFileUrl } from '@hl/utils/file'
 import { openFullScreen } from '@hl/utils/es/dom'
+import { computed, inject } from 'vue'
 
 const props = defineProps({
   src: {
@@ -35,7 +35,7 @@ const props = defineProps({
   },
 })
 
-function previewFileUrl() {}
+const { previewFileUrl } = inject('GLOBAL_CUSTOM_CONFIG')
 
 // 查看地址
 const prev_src = computed(() => {
@@ -72,7 +72,9 @@ const _style = computed(() => {
 
 <template>
   <div class="hl-preview-video" :style="_style">
-    <video v-if="prev_src" class="w-full h-full" :controls="controls && !noPreview" :src="prev_src" :style="{ objectFit: fit }" title="单击播放暂停，双击全屏播放" @click="handlePlay" @dblclick="handleFull" />
+    <video v-if="prev_src" class="w-full h-full" :controls="controls && !noPreview" :src="prev_src"
+           :style="{ objectFit: fit }" title="单击播放暂停，双击全屏播放" @click="handlePlay" @dblclick="handleFull"
+    />
     <slot />
   </div>
 </template>

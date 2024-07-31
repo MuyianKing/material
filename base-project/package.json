@@ -11,10 +11,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@hl/hooks": "workspace:*",
-    "@hl/tyyh": "workspace:*",
+    "@hl/hooks": "^0.2.4",
+    "@hl/tyyh": "^0.2.4",
     "@hl/ui": "workspace:*",
-    "@hl/utils": "0.0.4",
+    "@hl/utils": "^0.2.2",
     "@vueuse/core": "^10.11.0",
     "axios": "^1.7.2",
     "dayjs": "^1.11.11",

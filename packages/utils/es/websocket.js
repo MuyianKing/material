@@ -1,3 +1,4 @@
+import dayjs from 'dayjs'
 import { isTruth } from './common'
 
 export default class Socket {
@@ -97,7 +98,7 @@ export default class Socket {
         }
       } catch (error) {
         // 普通的消息
-        console.log('res', res)
+        console.log('res', error, res)
       }
     }
   }
