@@ -1,3 +1,7 @@
+import { useUserStore } from '@pinia/useUserStore'
+import { useTagsStore } from '@pinia/useTagsStore'
+import { useDynamicRoutesStore } from '@pinia/useDynamicRoutesStore'
+
 /**
  * 清除用户数据
  */

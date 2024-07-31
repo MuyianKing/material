@@ -1,6 +1,9 @@
 <script setup>
 defineProps({
-  title: "",
+  title: {
+    type: String,
+    default: '',
+  },
 })
 </script>
 
@@ -8,7 +11,7 @@ defineProps({
   <div class="test-comp-wrapper">
     <hl-block-title :title />
     <div class="pt-2 pl-4">
-      <slot></slot>
+      <slot />
     </div>
   </div>
 </template>
