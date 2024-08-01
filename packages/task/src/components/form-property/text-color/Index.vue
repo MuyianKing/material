@@ -2,6 +2,7 @@
 import { HlFormItem } from '@hl/ui'
 import { ElColorPicker } from 'element-plus'
 import 'element-plus/es/components/color-picker/style/css'
+import '@hl/ui/src/components/form-item/Index.css'
 
 const value = defineModel()
 </script>

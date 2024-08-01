@@ -4,6 +4,10 @@ import { HlButton, HlDate, HlFormDialog, HlFormItem } from '@hl/ui'
 import dayjs from 'dayjs'
 
 import { startTask } from '../../../../server/task'
+import '@hl/ui/src/components/button/Index.css'
+import '@hl/ui/src/components/date/Index.css'
+import '@hl/ui/src/components/form-dialog/Index.css'
+import '@hl/ui/src/components/form-item/Index.css'
 
 const props = defineProps({
   tasks: Array,
@@ -56,6 +60,4 @@ function submit() {
   </hl-form-dialog>
 </template>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

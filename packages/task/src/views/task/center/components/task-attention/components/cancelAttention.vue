@@ -5,6 +5,7 @@ import { ElButton, ElPopover } from 'element-plus'
 
 import 'element-plus/es/components/popover/style/css'
 import 'element-plus/es/components/button/style/css'
+import '@hl/ui/src/components/icon/Index.css'
 
 defineProps({
   icon: {

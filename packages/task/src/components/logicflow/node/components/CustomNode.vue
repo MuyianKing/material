@@ -10,6 +10,8 @@ import useFlowStore from '../../../../../../../packages/task/src/pinia/modules/u
 import 'element-plus/es/components/button/style/css'
 import 'element-plus/es/components/text/style/css'
 
+import '@hl/ui/src/components/icon/Index.css'
+
 const props = defineProps({
   type: {
     type: String,
@@ -109,7 +111,7 @@ $border-radius: 5px;
     color: gray;
   }
 
-  & > svg {
+  &>svg {
     font-size: 22px;
     color: gray;
     margin-left: 5px;

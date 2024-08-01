@@ -16,6 +16,15 @@ import ExcludePerson from './components/ExcludePerson.vue'
 import InputWrapper from './components/InputWrapper.vue'
 import 'element-plus/es/components/loading/style/css'
 
+import '@hl/ui/src/components/button/Index.css'
+import '@hl/ui/src/components/dialog/Index.css'
+import '@hl/ui/src/components/form-item/Index.css'
+import '@hl/ui/src/components/icon/Index.css'
+import '@hl/ui/src/components/page/Index.css'
+import '@hl/ui/src/components/question-icon/Index.css'
+import '@hl/ui/src/components/search-page/Index.css'
+import '@hl/ui/src/components/select/Index.css'
+
 const props = defineProps({
   title: {
     type: String,
@@ -174,7 +183,8 @@ watch(show, (val) => {
 
 <template>
   <div class="w-full">
-    <input-wrapper :readonly="readonly" :disabled="disabled" :placeholder="placeholder" :data="table_data.data" :form-user="query_model.form_user" @click="handleOpen" />
+    <input-wrapper :readonly="readonly" :disabled="disabled" :placeholder="placeholder" :data="table_data.data"
+      :form-user="query_model.form_user" @click="handleOpen" />
     <hl-dialog v-model="show" :title="title" width="90%" top="30">
       <hl-search-page label-width="100px">
         <template #header>
@@ -182,20 +192,25 @@ watch(show, (val) => {
             <org-type-select v-model="query_model.dwcjs" class="w-full" :disabled="disabled || readonly" />
           </hl-form-item>
           <hl-form-item label="角色" class="w-half">
-            <role-select v-model="query_model.roles" multiple :max-collapse-tags="2" collapse-tags collapse-tags-tooltip :disabled="disabled || readonly" />
+            <role-select v-model="query_model.roles" multiple :max-collapse-tags="2" collapse-tags collapse-tags-tooltip
+              :disabled="disabled || readonly" />
           </hl-form-item>
           <hl-form-item label="圈层" class="w-half">
-            <circle-select v-model="query_model.circles" multiple :max-collapse-tags="2" collapse-tags collapse-tags-tooltip :disabled="disabled || readonly" />
+            <circle-select v-model="query_model.circles" multiple :max-collapse-tags="2" collapse-tags
+              collapse-tags-tooltip :disabled="disabled || readonly" />
           </hl-form-item>
           <hl-form-item label="职务" class="w-half">
-            <job-cascader v-model="query_model.jobs" multiple class="w-full" :max-collapse-tags="16" collapse-tags collapse-tags-tooltip :disabled="disabled || readonly" />
+            <job-cascader v-model="query_model.jobs" multiple class="w-full" :max-collapse-tags="16" collapse-tags
+              collapse-tags-tooltip :disabled="disabled || readonly" />
           </hl-form-item>
           <hl-form-item label="单位" class="w-half">
-            <organization v-model="query_model.organizations" class="w-full" multiple collapse-tags collapse-tags-tooltip :max-collapse-tags="8" :disabled="disabled || readonly" />
+            <organization v-model="query_model.organizations" class="w-full" multiple collapse-tags
+              collapse-tags-tooltip :max-collapse-tags="8" :disabled="disabled || readonly" />
           </hl-form-item>
           <hl-form-item label="补充人员" class="w-full">
             <div class="flex w-full items-center">
-              <person-select-panel v-model="query_model.id_cards" max-height="64px" class="flex-1" :disabled="disabled || readonly" />
+              <person-select-panel v-model="query_model.id_cards" max-height="64px" class="flex-1"
+                :disabled="disabled || readonly" />
               <ElTooltip>
                 <hl-icon icon="mingcute:question-fill" class="tooltip-item" />
                 <template #content>
@@ -206,7 +221,8 @@ watch(show, (val) => {
           </hl-form-item>
           <hl-form-item v-if="formConfig && formConfig.length > 0" label="表单内联系人" class="w-half">
             <div class="flex w-full items-center">
-              <task-flow-node-outer v-model="query_model.form_user" :form-config="formConfig" multiple type="form_user" />
+              <task-flow-node-outer v-model="query_model.form_user" :form-config="formConfig" multiple
+                type="form_user" />
               <ElTooltip>
                 <hl-icon icon="mingcute:question-fill" class="tooltip-item" />
                 <template #content>

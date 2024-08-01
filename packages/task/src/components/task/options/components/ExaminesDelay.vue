@@ -8,6 +8,11 @@ import { examinesApplyFor } from '../../../../default/task'
 import 'element-plus/es/components/button/style/css'
 import 'element-plus/es/components/link/style/css'
 
+import '@hl/ui/src/components/select/Index.css'
+import '@hl/ui/src/components/form-dialog/Index.css'
+import '@hl/ui/src/components/form-item/Index.css'
+import '@hl/ui/src/components/input/Index.css'
+
 const props = defineProps({
   taskId: {
     type: [String, Number],
@@ -35,13 +40,15 @@ watch(show_detail, (val) => {
   <el-button v-if="button" v-bind="$attrs" type="success" @click="show_detail = true">
     审批呈请延长
   </el-button>
-  <el-link v-else :underline="false" class="m-1 whitespace-nowrap" type="success" v-bind="$attrs" @click="show_detail = true">
+  <el-link v-else :underline="false" class="m-1 whitespace-nowrap" type="success" v-bind="$attrs"
+    @click="show_detail = true">
     <slot>
       审批呈请延长
     </slot>
   </el-link>
 
-  <hl-form-dialog v-model="show_detail" title="审批呈请延长" :model="form" :server="examinesDelayTask" @refresh="$emit('refresh-one')">
+  <hl-form-dialog v-model="show_detail" title="审批呈请延长" :model="form" :server="examinesDelayTask"
+    @refresh="$emit('refresh-one')">
     <hl-form-item label="审批结果" required prop="result">
       <hl-select v-model="form.result" :options="examinesApplyFor" />
     </hl-form-item>

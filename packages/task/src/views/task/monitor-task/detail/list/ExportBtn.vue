@@ -1,6 +1,7 @@
 <script setup>
 import { HlExportButton } from '@hl/ui'
 import { exportDetail } from '../../../../../server/infoGroup'
+import '@hl/ui/src/components/export-button/Index.css'
 
 const props = defineProps({
   query: {
@@ -25,6 +26,4 @@ function handleExport() {
   <hl-export-button @click="handleExport" />
 </template>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

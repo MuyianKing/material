@@ -1,6 +1,9 @@
 <script setup>
 import { HlFormItem, HlInput } from '@hl/ui'
 
+import '@hl/ui/src/components/form-item/Index.css'
+import '@hl/ui/src/components/input/Index.css'
+
 const value = defineModel()
 </script>
 
@@ -14,5 +17,4 @@ const value = defineModel()
   </hl-form-item>
 </template>
 
-<style lang='scss' scoped>
-</style>
+<style lang='scss' scoped></style>

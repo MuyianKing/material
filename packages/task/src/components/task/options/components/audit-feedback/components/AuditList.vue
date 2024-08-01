@@ -7,6 +7,11 @@ import Detail from './Detail.vue'
 import Audit from './Audit.vue'
 import 'element-plus/es/components/loading/style/css'
 
+import '@hl/ui/src/components/dialog/Index.css'
+import '@hl/ui/src/components/search-page/Index.css'
+import '@hl/ui/src/components/table/Index.css'
+import '@hl/ui/src/components/table-column/Index.css'
+
 const props = defineProps({
   taskId: {
     type: [String, Number],
@@ -63,6 +68,4 @@ function refresh() {
   </hl-dialog>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

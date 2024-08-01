@@ -2,6 +2,8 @@
 import { HlFormItem } from '@hl/ui'
 import ComplexControlSelect from '../../person-complex-select/Index.vue'
 
+import '@hl/ui/src/components/form-item/Index.css'
+
 const model = defineModel()
 </script>
 
@@ -11,6 +13,4 @@ const model = defineModel()
   </hl-form-item>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

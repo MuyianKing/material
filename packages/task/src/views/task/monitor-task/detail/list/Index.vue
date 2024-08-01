@@ -16,6 +16,11 @@ import ExportBtn from './ExportBtn.vue'
 import 'element-plus/es/components/loading/style/css'
 import 'element-plus/es/components/table/style/css'
 import 'element-plus/es/components/table-column/style/css'
+import '@hl/ui/src/components/form-item/Index.css'
+import '@hl/ui/src/components/preview/Index.css'
+import '@hl/ui/src/components/search-button/Index.css'
+import '@hl/ui/src/components/select/Index.css'
+import '@hl/ui/src/components/time/Index.css'
 
 const route = useRoute()
 const info_group_id = route.params.id

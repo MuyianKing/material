@@ -8,6 +8,7 @@ import DropdownComp from './components/Dropdown.vue'
 import DateComp from './components/Date.vue'
 
 import 'element-plus/es/components/popover/style/css'
+import '@hl/ui/src/components/icon/Index.css'
 
 const props = defineProps({
   config: {

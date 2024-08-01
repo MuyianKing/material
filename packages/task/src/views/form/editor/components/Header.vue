@@ -3,6 +3,9 @@ import { inject, ref } from 'vue'
 import { HlButton, HlEditInfo, HlIcon } from '@hl/ui'
 import PreviewDialog from '../../preview/PreviewDialog.vue'
 import { saveFormConfig } from '../../../../server/form'
+import '@hl/ui/src/components/button/Index.css'
+import '@hl/ui/src/components/edit-info/Index.css'
+import '@hl/ui/src/components/icon/Index.css'
 
 const { form_config, form_field_list, id } = toRefs(inject('editor_store'))
 
@@ -37,7 +40,7 @@ function handleSave() {
       </hl-button>
     </div>
 
-    <preview-dialog v-model="show_preview" :config="{ form_config, form_field_list }" />
+    <preview-dialog v-model="show_preview" :config="{ form_config,form_field_list }" />
   </div>
 </template>
 

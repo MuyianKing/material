@@ -1,5 +1,6 @@
 <script setup>
 import { HlIcon } from '@hl/ui'
+import '@hl/ui/src/components/icon/Index.css'
 
 defineProps({
   config: {

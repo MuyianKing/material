@@ -4,6 +4,8 @@ import { reactive, ref } from 'vue'
 import { uploadCreateTask } from '../../../server/task'
 import ConfirmUploadTask from './ConfirmUploadTask.vue'
 import StartTask from './StartUploadTask.vue'
+import '@hl/ui/src/components/export-button/Index.css'
+import '@hl/ui/src/components/upload/Index.css'
 
 const props = defineProps({
   configUuid: {
@@ -110,8 +112,10 @@ function refresh() {
   </hl-upload>
 
   <template v-if="isDialog">
-    <confirm-upload-task v-model="show" v-model:query="query" :data="data" :loading="uploadLoading" @confirmed="handleConfirmed" @change-page="getData" />
-    <start-task v-if="start_config.show" v-model="start_config.show" :group-id="start_config.group_id" @submit="refresh" />
+    <confirm-upload-task v-model="show" v-model:query="query" :data="data" :loading="uploadLoading"
+      @confirmed="handleConfirmed" @change-page="getData" />
+    <start-task v-if="start_config.show" v-model="start_config.show" :group-id="start_config.group_id"
+      @submit="refresh" />
   </template>
 </template>
 

@@ -4,6 +4,8 @@ import { HlFormDialog, HlFormItem } from '@hl/ui'
 
 import { PersonSelectPanel } from '@hl/tyyh'
 import { taskDeploy } from '../../../../../server/task'
+import '@hl/ui/src/components/form-dialog/Index.css'
+import '@hl/ui/src/components/form-item/Index.css'
 
 const props = defineProps({
   modelValue: {
@@ -54,13 +56,12 @@ watch(() => props.modelValue, (val) => {
 </script>
 
 <template>
-  <hl-form-dialog :model="addForm" :model-value="modelValue" label-width="100px" title="添加人员" top="190px" width="700" @close="handleClose" @submit="onSubmit">
+  <hl-form-dialog :model="addForm" :model-value="modelValue" label-width="100px" title="添加人员" top="190px" width="700"
+    @close="handleClose" @submit="onSubmit">
     <hl-form-item label="添加的人员" prop="id_card" required>
       <person-select-panel v-model="addForm.id_card" />
     </hl-form-item>
   </hl-form-dialog>
 </template>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

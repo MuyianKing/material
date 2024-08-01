@@ -4,6 +4,8 @@ import { HlButton, HlFormDialog } from '@hl/ui'
 
 import FieldTree from '../FieldTree.vue'
 import { getHeader, setHeader } from '../../../../../../server/infoGroup'
+import '@hl/ui/src/components/button/Index.css'
+import '@hl/ui/src/components/form-dialog/Index.css'
 
 const props = defineProps({
   infoGroupId: {

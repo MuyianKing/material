@@ -8,6 +8,9 @@ import { refreshTableRow } from '../../../../utils'
 import SelectionStart from '../components/SelectionStart.vue'
 import DeleteButtun from '../components/DeleteButton.vue'
 import TaskTable from '../components/TaskTable.vue'
+import '@hl/ui/src/components/date/Index.css'
+import '@hl/ui/src/components/form-item/Index.css'
+import '@hl/ui/src/components/input/Index.css'
 
 const props = defineProps({
   groupId: {

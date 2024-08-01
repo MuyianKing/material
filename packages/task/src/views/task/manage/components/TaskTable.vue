@@ -6,6 +6,9 @@ import TaskStatus from '../../../../components/task/Status.vue'
 import TaskOpt from '../../../../components/task/options/Index.vue'
 import HandlePerson from '../my-manage/deploy/HandlePerson.vue'
 import FlowList from './FlowList.vue'
+import '@hl/ui/src/components/table/Index.css'
+import '@hl/ui/src/components/table-column/Index.css'
+import '@hl/ui/src/components/time/Index.css'
 
 defineProps({
   data: {
@@ -52,7 +55,8 @@ function refresh(type, row) {
 </script>
 
 <template>
-  <hl-table v-model:check="selected_task_ids" v-model:check-all="check_all" :data="data" row-key="task_id" select v-bind="$attrs">
+  <hl-table v-model:check="selected_task_ids" v-model:check-all="check_all" :data="data" row-key="task_id" select
+    v-bind="$attrs">
     <hl-table-column label="序号" prop="index" style="white-space: nowrap;" width="60" />
     <hl-table-column label="任务名称" prop="config_name" width="200" />
     <hl-table-column label="任务标题" prop="title" width="200" />
@@ -68,7 +72,7 @@ function refresh(type, row) {
     </hl-table-column>
     <hl-table-column label="流程" prop="work_starttime" width="200" no-tip>
       <template #default="{ row }">
-        <flow-list :data="row.persons || []" click-cell @cell-click="handleFlowClick($event, row)" />
+        <flow-list :data="row.persons || []" click-cell @cell-click="handleFlowClick($event,row)" />
       </template>
     </hl-table-column>
     <hl-table-column label="状态" prop="status">
@@ -78,7 +82,7 @@ function refresh(type, row) {
     </hl-table-column>
     <hl-table-column label="操作" width="200">
       <template #default="{ row }">
-        <task-opt :task="row" @refresh="refresh($event, row)" @refresh-one="refresh($event, row)" />
+        <task-opt :task="row" @refresh="refresh($event,row)" @refresh-one="refresh($event,row)" />
       </template>
     </hl-table-column>
   </hl-table>
@@ -86,6 +90,4 @@ function refresh(type, row) {
   <handle-person v-model="handle_person_visible" :data="handle_person_data" @refresh="refresh('refresh')" />
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

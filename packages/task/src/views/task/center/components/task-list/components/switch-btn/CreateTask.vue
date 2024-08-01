@@ -9,6 +9,7 @@ import TaskPublish from '../../../../../publish/Index.vue'
 import 'element-plus/es/components/dropdown/style/css'
 import 'element-plus/es/components/link/style/css'
 import 'element-plus/es/components/tree/style/css'
+import '@hl/ui/src/components/icon/Index.css'
 
 const task_temp_list = ref([])
 async function getTaskTemplate() {

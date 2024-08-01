@@ -7,6 +7,10 @@ import DelayModel from '../../../../model/task/delay'
 
 import 'element-plus/es/components/button/style/css'
 import 'element-plus/es/components/link/style/css'
+import '@hl/ui/src/components/date/Index.css'
+import '@hl/ui/src/components/form-dialog/Index.css'
+import '@hl/ui/src/components/form-item/Index.css'
+import '@hl/ui/src/components/input/Index.css'
 
 const props = defineProps({
   task: {

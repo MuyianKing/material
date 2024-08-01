@@ -2,6 +2,7 @@
 import { provide, ref } from 'vue'
 import { HlDialog } from '@hl/ui'
 import PreviewTemplate from './Template.vue'
+import '@hl/ui/src/components/dialog/Index.css'
 
 defineProps({
   config: {

@@ -11,6 +11,13 @@ import { clone } from './deepCopy'
 import 'element-plus/es/components/tag/style/css'
 import 'element-plus/es/components/form/style/css'
 
+import '@hl/ui/src/components/button/Index.css'
+import '@hl/ui/src/components/dialog/Index.css'
+import '@hl/ui/src/components/form-item/Index.css'
+import '@hl/ui/src/components/icon/Index.css'
+import '@hl/ui/src/components/question-icon/Index.css'
+import '@hl/ui/src/components/select/Index.css'
+
 defineProps({
   title: {
     type: String,
@@ -99,11 +106,12 @@ function handleClose() {
 <template>
   <div class="w-full">
     <input-wrapper :readonly="readonly" :disabled="disabled" :placeholder="placeholder" @click="handleOpen">
-      <span v-for="person in query.slice(0, 30)" :key="person.id" class="person-item">{{ getLabelByVal(user_level_default, person.type) }}</span>
+      <span v-for="person in query.slice(0,30)" :key="person.id" class="person-item">{{
+        getLabelByVal(user_level_default,person.type) }}</span>
 
       <template #readonly>
-        <el-tag v-for="person in query.slice(0, 10)" :key="person.id" type="primary" class="mx-1">
-          {{ getLabelByVal(user_level_default, person.type) }}
+        <el-tag v-for="person in query.slice(0,10)" :key="person.id" type="primary" class="mx-1">
+          {{ getLabelByVal(user_level_default,person.type) }}
         </el-tag>
       </template>
     </input-wrapper>
@@ -111,7 +119,7 @@ function handleClose() {
     <hl-dialog v-model="show" :title="title" width="700px" top="30" @close="handleClose">
       <div class="level">
         <el-form ref="formRef" :model="query_model">
-          <div v-for="(item, index) in query_model" :key="item.data" class="card">
+          <div v-for="(item,index) in query_model" :key="item.data" class="card">
             <div class="delete-button">
               <hl-icon icon="line-md:menu-to-close-transition" size="20" color="red" @click="handleDelete(index)" />
             </div>
@@ -123,7 +131,8 @@ function handleClose() {
               </hl-question-icon>
             </hl-form-item>
             <hl-form-item label="层级人员" :prop="`[${index}].data`" required>
-              <complex-control-select v-model="item.data" :title="`${getLabelByVal(user_level_default, item.type) || '层级'}人员`" />
+              <complex-control-select v-model="item.data"
+                :title="`${getLabelByVal(user_level_default,item.type) || '层级'}人员`" />
             </hl-form-item>
           </div>
         </el-form>

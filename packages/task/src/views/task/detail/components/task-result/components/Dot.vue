@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import { HlIcon } from '@hl/ui'
 
 import variables from '@style/theme.module.scss'
+import '@hl/ui/src/components/icon/Index.css'
 
 const props = defineProps({
   data: {

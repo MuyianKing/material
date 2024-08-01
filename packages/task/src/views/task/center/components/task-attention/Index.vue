@@ -7,6 +7,8 @@ import { cancelTask, getTaskSubscriptionList } from '../../../../../server/bench
 import { getQuery } from '../../../../../hooks/task'
 import TaskSubscription from './components/TaskSubscription.vue'
 import CancelAttention from './components/cancelAttention.vue'
+import '@hl/ui/src/components/table/Index.css'
+import '@hl/ui/src/components/table-column/Index.css'
 
 const emits = defineEmits(['search'])
 const taskData = ref([])

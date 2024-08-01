@@ -5,6 +5,8 @@ import { HlButton, HlFormDialog } from '@hl/ui'
 import { setHeadersParams } from '../../../../server/task'
 import { getHeader } from '../../../../server/infoGroup'
 import FieldTree from '../../all-task/components/FieldTree.vue'
+import '@hl/ui/src/components/button/Index.css'
+import '@hl/ui/src/components/form-dialog/Index.css'
 
 const emits = defineEmits(['refresh'])
 

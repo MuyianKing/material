@@ -4,6 +4,7 @@ import { HlButton } from '@hl/ui'
 import PreviewDialog from '../../preview/PreviewDialog.vue'
 import { saveFormConfig } from '../../../../server/form'
 import { validateForm } from '../../../../hooks/form'
+import '@hl/ui/src/components/button/Index.css'
 
 const props = defineProps({
   // 是否是开始节点

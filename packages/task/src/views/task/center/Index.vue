@@ -6,6 +6,7 @@ import TaskMine from './components/task-mine/Index.vue'
 import TaskBar from './components/task-bar/Index.vue'
 import TaskList from './components/task-list/Index.vue'
 import TaskAttention from './components/task-attention/Index.vue'
+import '@hl/ui/src/components/icon/Index.css'
 
 const my_task_ref = ref()
 
@@ -86,12 +87,12 @@ $left_width: 440px;
   }
 }
 
-.task-layout > div {
+.task-layout>div {
   min-height: 0;
   margin-bottom: 10px;
 }
 
-.task-layout > div:last-child {
+.task-layout>div:last-child {
   margin-bottom: 0;
 }
 

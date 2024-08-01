@@ -2,6 +2,7 @@
 import { HlIcon } from '@hl/ui'
 import { ElTag } from 'element-plus'
 import 'element-plus/es/components/tag/style/css'
+import '@hl/ui/src/components/icon/Index.css'
 
 defineProps({
   disabled: {
@@ -35,7 +36,7 @@ defineEmits(['click'])
       <div class="line-clamp-1 flex-1">
         <slot>
           <span v-for="person in formUser" :key="person.value" class="person-item">{{ person.label }}</span>
-          <span v-for="person in data.slice(0, 30)" :key="person.id_card" class="person-item">{{ person.name }}</span>
+          <span v-for="person in data.slice(0,30)" :key="person.id_card" class="person-item">{{ person.name }}</span>
           <span v-if="data.length === 0 && formUser.length === 0" class="flex-1">{{ placeholder || "请选择人员" }}</span>
         </slot>
       </div>
@@ -43,7 +44,7 @@ defineEmits(['click'])
     </div>
     <div v-else>
       <slot name="readonly">
-        <el-tag v-for="person in data.slice(0, 10)" :key="person.id" type="primary" class="mx-1">
+        <el-tag v-for="person in data.slice(0,10)" :key="person.id" type="primary" class="mx-1">
           {{ person.name }}
         </el-tag>
       </slot>
@@ -60,8 +61,7 @@ defineEmits(['click'])
   width: 100%;
   padding: 1px 11px;
   height: 32px;
-  box-shadow: 0 0 0 1px var(--el-input-border-color, var(--el-border-color))
-    inset;
+  box-shadow: 0 0 0 1px var(--el-input-border-color, var(--el-border-color)) inset;
   color: var(--el-input-text-color, var(--el-text-color-regular));
   border-radius: var(--el-input-border-radius, var(--el-border-radius-base));
   display: flex;

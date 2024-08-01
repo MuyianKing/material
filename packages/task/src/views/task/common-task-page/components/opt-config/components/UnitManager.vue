@@ -7,6 +7,8 @@ import { getOrgList, setOrg } from '../../../../../../server/common.task.page'
 import OrgTree from './OrgTree.vue'
 
 import 'element-plus/es/components/checkbox/style/css'
+import '@hl/ui/src/components/button/Index.css'
+import '@hl/ui/src/components/dialog/Index.css'
 
 const props = defineProps({
   configUuid: {

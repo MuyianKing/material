@@ -4,6 +4,8 @@ import { HlButton, HlDialog } from '@hl/ui'
 
 import PreviewTemplate from '../../form/preview/Template.vue'
 import { getPublishConfig } from '../../../server/config'
+import '@hl/ui/src/components/button/Index.css'
+import '@hl/ui/src/components/dialog/Index.css'
 
 const props = defineProps({
   configUuid: {

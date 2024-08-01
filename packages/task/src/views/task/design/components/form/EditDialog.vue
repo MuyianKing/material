@@ -4,6 +4,7 @@ import { HlDialog } from '@hl/ui'
 
 import FormEditor from '../../../../form/editor/Index.vue'
 import { getFlatFields } from '../../../../../hooks/form'
+import '@hl/ui/src/components/dialog/Index.css'
 
 defineProps({
   formId: {

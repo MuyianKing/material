@@ -10,6 +10,9 @@ import AddPerson from './AddPerson.vue'
 
 import 'element-plus/es/components/loading/style/css'
 import 'element-plus/es/components/alert/style/css'
+import '@hl/ui/src/components/add-button/Index.css'
+import '@hl/ui/src/components/del-button/Index.css'
+import '@hl/ui/src/components/dialog/Index.css'
 
 const props = defineProps({
   data: {

@@ -3,6 +3,8 @@ import { HlTable, HlTableColumn } from '@hl/ui'
 
 import TaskOpt from '../../../../../components/task/options/Index.vue'
 import TaskStatus from '../../../../../components/task/Status.vue'
+import '@hl/ui/src/components/table/Index.css'
+import '@hl/ui/src/components/table-column/Index.css'
 
 defineProps({
   configUuid: {
@@ -40,6 +42,4 @@ defineEmits(['refresh-one', 'refresh'])
   </hl-table>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

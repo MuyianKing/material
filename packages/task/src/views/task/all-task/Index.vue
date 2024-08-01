@@ -10,6 +10,7 @@ import MonitorComp from './components/query/components/MonitorComp.vue'
 import ParamsConfig from './components/ParamsConfig.vue'
 import HeaderConfig from './components/HeaderConfig.vue'
 import QueryComp from './components/query/Index.vue'
+import '@hl/ui/src/components/search-button/Index.css'
 
 const props = defineProps({
   autoSearch: {

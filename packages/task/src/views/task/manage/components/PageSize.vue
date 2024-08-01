@@ -1,6 +1,7 @@
 <script setup>
 import { ref, watch } from 'vue'
 import { HlSelect } from '@hl/ui'
+import '@hl/ui/src/components/select/Index.css'
 
 const props = defineProps({
   to: {
@@ -55,17 +56,10 @@ watch(() => props.show, (val) => {
   <teleport v-if="showTep" :to="to">
     <div class="inline-flex ml-4 whitespace-nowrap items-center">
       每页显示
-      <hl-select v-model="pageSize"
-                 :clearable="false"
-                 :options="customSize"
-                 allow-create
-                 class="mx-1 w-[100px]"
-      />
+      <hl-select v-model="pageSize" :clearable="false" :options="customSize" allow-create class="mx-1 w-[100px]" />
       条
     </div>
   </teleport>
 </template>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

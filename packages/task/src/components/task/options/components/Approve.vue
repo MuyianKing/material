@@ -7,6 +7,10 @@ import { auditTask, getTaskById } from '../../../../server'
 
 import 'element-plus/es/components/button/style/css'
 import 'element-plus/es/components/link/style/css'
+import '@hl/ui/src/components/button/Index.css'
+import '@hl/ui/src/components/dialog/Index.css'
+import '@hl/ui/src/components/form-item/Index.css'
+import '@hl/ui/src/components/radio/Index.css'
 
 const props = defineProps({
   taskId: {
@@ -55,7 +59,8 @@ async function submit() {
   <el-button v-if="button" v-bind="$attrs" :type="finish ? 'danger' : 'primary'" @click="handleClick">
     <slot />
   </el-button>
-  <el-link v-else :underline="false" class="m-1 whitespace-nowrap" :type="finish ? 'danger' : 'primary'" v-bind="$attrs" @click="handleClick">
+  <el-link v-else :underline="false" class="m-1 whitespace-nowrap" :type="finish ? 'danger' : 'primary'" v-bind="$attrs"
+    @click="handleClick">
     <slot />
   </el-link>
 

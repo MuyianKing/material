@@ -5,6 +5,8 @@ import PreviewTemplate from '../../form/preview/Template.vue'
 
 import { getPublishConfig } from '../../../server/config'
 import { publishTask } from '../../../server'
+import '@hl/ui/src/components/button/Index.css'
+import '@hl/ui/src/components/dialog/Index.css'
 
 const props = defineProps({
   configUuid: {

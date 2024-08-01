@@ -13,6 +13,14 @@ import 'element-plus/es/components/loading/style/css'
 import 'element-plus/es/components/tooltip/style/css'
 import 'element-plus/es/components/link/style/css'
 
+import '@hl/ui/src/components/date/Index.css'
+import '@hl/ui/src/components/form-item/Index.css'
+import '@hl/ui/src/components/input/Index.css'
+import '@hl/ui/src/components/search-button/Index.css'
+import '@hl/ui/src/components/table/Index.css'
+import '@hl/ui/src/components/table-column/Index.css'
+import '@hl/ui/src/components/time/Index.css'
+
 const {
   HlListPage,
   query,

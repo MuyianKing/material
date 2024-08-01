@@ -8,6 +8,7 @@ import useDetailData from '../../../useDetailData'
 import Audit from './Audit.vue'
 
 import 'element-plus/es/components/link/style/css'
+import '@hl/ui/src/components/dialog/Index.css'
 
 const props = defineProps({
   data: {

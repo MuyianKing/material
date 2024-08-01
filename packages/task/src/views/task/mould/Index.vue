@@ -9,6 +9,8 @@ import TaskPublish from '../publish/Index.vue'
 import TaskItem from './components/TaskItem.vue'
 
 import 'element-plus/es/components/link/style/css'
+import '@hl/ui/src/components/icon/Index.css'
+import '@hl/ui/src/components/search-page/Index.css'
 
 const query = reactive({
   query: '',
@@ -74,7 +76,8 @@ function handlePublish(task) {
             {{ item.group_name }}
           </div>
           <div class="flex flex-wrap">
-            <task-item v-for="task in item._task_config_list" :key="task.config_id" :data="task" :root-data="item" class="m-2" @publish="handlePublish(task)" @refresh="getData" />
+            <task-item v-for="task in item._task_config_list" :key="task.config_id" :data="task" :root-data="item"
+              class="m-2" @publish="handlePublish(task)" @refresh="getData" />
           </div>
         </template>
       </div>
