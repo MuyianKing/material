@@ -1,4 +1,10 @@
 <script setup>
+import useTagsStore from '@pinia/useTagsStore.js'
+import useAppStore from '@pinia/useAppStore.js'
+import { useRoute, useRouter } from 'vue-router'
+
+import { computed, nextTick, ref } from 'vue'
+
 const tags = useTagsStore()
 const appStore = useAppStore()
 
@@ -80,7 +86,7 @@ function handleRefresh() {
   })
 }
 
-function handleClick({data, option}) {
+function handleClick({ data, option }) {
   switch (option.value) {
     case 'close':
       closeTags(data.index)
@@ -113,13 +119,14 @@ function iconCloseTags(item) {
     <el-scrollbar class="flex-1 pr-4 h-full">
       <div class="flex h-full">
         <router-link v-for="(item, index) in tagsList" :key="index" :class="{ active: isActive(item.path) }" :title="item.title" :to="item.path"
-                     class="tags-li" @contextmenu.prevent="toggle({ index, path: item.path })">
+                     class="tags-li" @contextmenu.prevent="toggle({ index, path: item.path })"
+        >
           <span class="tags-li-title">{{ item.title }}</span>
-          <hl-icon v-if="tagsList.length > 1" class="tags-close-box" icon="typcn:delete-outline" @click.stop.prevent="iconCloseTags(item)"/>
+          <hl-icon v-if="tagsList.length > 1" class="tags-close-box" icon="typcn:delete-outline" @click.stop.prevent="iconCloseTags(item)" />
         </router-link>
       </div>
     </el-scrollbar>
-    <hl-context-menu ref="context_menu_ref" :options="options" @click="handleClick"/>
+    <hl-context-menu ref="context_menu_ref" :options="options" @click="handleClick" />
   </div>
 </template>
 

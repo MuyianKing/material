@@ -2,7 +2,11 @@
 import HlHeader from '@layout/Header.vue'
 import HlSidebar from '@layout/side-bar/Index.vue'
 import ExitFull from '@layout/ExitFull.vue'
-import { onBeforeRouteUpdate } from 'vue-router'
+import { onBeforeRouteUpdate, useRoute } from 'vue-router'
+import useAppStore from '@pinia/useAppStore.js'
+import useTagsStore from '@pinia/useTagsStore.js'
+
+import { computed, h, ref } from 'vue'
 
 const appStore = useAppStore()
 
@@ -79,7 +83,6 @@ function formatComponentInstance(component, route) {
     <div class="bottom-wrapper">
       <hl-header v-model:collapse="collapse" :class="{ 'hidden-hidden': appStore.full_page }" />
       <div class="content-box" :class="{ 'content-collapse': collapse }">
-
         <router-view v-if="tags.reload" v-slot="{ Component, route }">
           <transition name="fade">
             <keep-alive :exclude="/.*(NoAlive)$/" :max="15">

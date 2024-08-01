@@ -1,6 +1,9 @@
 <script setup name="HlTheme">
 import ConfigItem from '@layout/theme/ConfigItem.vue'
 import variables from '@style/theme.module.scss'
+import useThemeStore from '@pinia/useThemeStore.js'
+
+import { ref, watch, onMounted } from 'vue'
 import { colors_config, innerTheme, side_bg_config, tab_bar_config } from './inner.theme'
 
 const themeStore = useThemeStore()

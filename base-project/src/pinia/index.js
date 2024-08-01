@@ -1,7 +1,7 @@
 import { createPinia } from 'pinia'
 import { createPersistedState } from 'pinia-plugin-persistedstate'
 import store from '@utils/storage'
-import { PROJECT_PREFIX } from "../utils/app"
+import { PROJECT_PREFIX } from '../utils/app'
 
 const pinia = createPinia()
 pinia.use(createPersistedState({

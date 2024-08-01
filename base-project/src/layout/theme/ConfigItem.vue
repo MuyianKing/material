@@ -1,4 +1,6 @@
 <script setup>
+import useThemeStore from "@pinia/useThemeStore.js";
+
 const props = defineProps({
   title: {
     type: String,

@@ -31,14 +31,13 @@ export async function uploadFile(files, params = {}) {
   return result.data
 }
 
-
 /**
  *上传
  * @param {FormData} data
  * @param {object} params
  * @returns
  */
- function upload(data, params = {}) {
+function upload(data, params = {}) {
   if (!data) {
     return Promise.reject(new Error({
       errno: 999,

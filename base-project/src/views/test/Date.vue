@@ -1,4 +1,6 @@
 <script setup>
+import { ref } from 'vue'
+
 const date = ref('')
 
 const date_range = ref()

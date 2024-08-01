@@ -1,4 +1,6 @@
 <script setup>
+import { ref } from 'vue'
+
 const context_menu_ref = ref()
 
 const menu_options = [{

@@ -1,8 +1,14 @@
 <script name="Sidebar" setup>
 import SubMenu from '@layout/side-bar/components/SubMenu.vue'
-import {hasResource} from '@hooks/user'
+import { hasResource } from '@hooks/user'
 
-import { WEB_NAME } from "../../utils/app"
+import { useRoute, useRouter } from 'vue-router'
+
+import { computed, ref, watch, onMounted } from 'vue'
+import { storeToRefs } from 'pinia'
+import useThemeStore from '@pinia/useThemeStore.js'
+import useDynamicRoutesStore from '@pinia/useDynamicRoutesStore.js'
+import { WEB_NAME } from '../../utils/app'
 
 const router = useRouter()
 const route = useRoute()
@@ -42,13 +48,13 @@ const collapse = defineModel({
   default: false,
 })
 
-const {theme: storeTheme} = storeToRefs(useThemeStore())
+const { theme: storeTheme } = storeToRefs(useThemeStore())
 
 const width = computed(() => {
   return collapse.value ? 'calc(var(--el-menu-icon-width) + var(--el-menu-base-level-padding) * 2)' : storeTheme.value['side-width']
 })
 
-const {list} = storeToRefs(useDynamicRoutesStore())
+const { list } = storeToRefs(useDynamicRoutesStore())
 
 // 菜单
 const sideMenu = ref([])
@@ -83,10 +89,10 @@ onMounted(() => {
           </span>
         </div>
 
-        <hl-icon :icon="collapse ? 'fa:indent' : 'fa:dedent'" class="collapse-btn" @click="collapse = !collapse"/>
+        <hl-icon :icon="collapse ? 'fa:indent' : 'fa:dedent'" class="collapse-btn" @click="collapse = !collapse" />
       </div>
       <template v-for="item in sideMenu" :key="item.path">
-        <sub-menu :menu="item"/>
+        <sub-menu :menu="item" />
       </template>
     </el-menu>
   </div>

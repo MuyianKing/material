@@ -1,6 +1,14 @@
 <script name="UserLoginNoAlive" setup>
+import { onMounted, reactive, ref, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+
+import { ElButton, ElForm, ElFormItem, ElInput } from 'element-plus/es'
+
 import { clearUserData } from '@hooks/user'
 import { login } from '@server/user'
+
+import useDynamicRoutesStore from '@pinia/useDynamicRoutesStore.js'
+import useUserStore from '@pinia/useUserStore.js'
 
 const form = reactive({
   username: '',
@@ -185,9 +193,11 @@ $url: '@img/login/';
     width: 100%;
     height: 40px;
     line-height: 40px;
-    background-image: linear-gradient(to right,
-        rgb(31, 104, 242),
-        rgb(65, 159, 252));
+    background-image: linear-gradient(
+      to right,
+      rgb(31, 104, 242),
+      rgb(65, 159, 252)
+    );
     text-align: center;
     color: white;
     margin-top: 20px;
@@ -208,7 +218,7 @@ $url: '@img/login/';
     max-width: 600px !important;
     height: 500px !important;
 
-    &>img {
+    & > img {
       height: 100%;
       width: 100%;
     }

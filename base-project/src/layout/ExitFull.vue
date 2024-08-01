@@ -1,4 +1,6 @@
 <script setup>
+import useAppStore from '@pinia/useAppStore.js'
+
 const appStore = useAppStore()
 
 function handleClose() {

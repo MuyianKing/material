@@ -1,14 +1,14 @@
+import { clearUserData } from '@hooks/user'
 import http from '../utils/request'
 
-import { clearUserData } from '@hooks/user'
-import { ENV_MODE } from "../utils/app"
+import { ENV_MODE } from '../utils/app'
 
 /**
  * 登录
  * @param {*} params
  */
 export function login(params) {
-  console.log("login", params);
+  console.log('login', params)
   return http.post(hl.api.tyyh.login, params)
 }
 

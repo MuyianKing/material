@@ -1,7 +1,6 @@
 <script setup>
-import { PersonAvatar, PersonSelect, PersonSelectPanel } from "@hl/tyyh"
-import TestCompWrapper from "@comp/test-comp-wrapper/Index.vue"
-
+import { PersonAvatar, PersonSelect, PersonSelectPanel } from '@hl/tyyh'
+import TestCompWrapper from '@comp/test-comp-wrapper/Index.vue'
 </script>
 
 <template>
@@ -15,12 +14,16 @@ import TestCompWrapper from "@comp/test-comp-wrapper/Index.vue"
     <test-comp-wrapper title="人员选择">
       <div class="flex mt-2">
         <div class="flex-1">
-          <hl-block-title type="success">单选</hl-block-title>
-          <PersonSelect class="mt-2" />
+          <hl-block-title type="success">
+            单选
+          </hl-block-title>
+          <person-select class="mt-2" />
         </div>
         <div class="flex-1 ml-4">
-          <hl-block-title type="success">多选</hl-block-title>
-          <PersonSelect multiple class="mt-2" />
+          <hl-block-title type="success">
+            多选
+          </hl-block-title>
+          <person-select multiple class="mt-2" />
         </div>
       </div>
     </test-comp-wrapper>
@@ -28,12 +31,16 @@ import TestCompWrapper from "@comp/test-comp-wrapper/Index.vue"
     <test-comp-wrapper title="人员面板选择">
       <div class="flex mt-2">
         <div class="flex-1 ml-4">
-          <hl-block-title type="success">展开</hl-block-title>
-          <PersonSelectPanel expand class="mt-2" />
+          <hl-block-title type="success">
+            展开
+          </hl-block-title>
+          <person-select-panel expand class="mt-2" />
         </div>
         <div class="flex-1 ml-4">
-          <hl-block-title type="success">多选展开</hl-block-title>
-          <PersonSelectPanel expand multiple class="mt-2" />
+          <hl-block-title type="success">
+            多选展开
+          </hl-block-title>
+          <person-select-panel expand multiple class="mt-2" />
         </div>
       </div>
     </test-comp-wrapper>
@@ -41,12 +48,16 @@ import TestCompWrapper from "@comp/test-comp-wrapper/Index.vue"
     <test-comp-wrapper title="人员选择">
       <div class="flex mt-2 h-[300px] overflow-y-auto">
         <div class="flex-1 ml-4">
-          <hl-block-title type="success">展开</hl-block-title>
-          <PersonSelect expand class="mt-2" />
+          <hl-block-title type="success">
+            展开
+          </hl-block-title>
+          <person-select expand class="mt-2" />
         </div>
         <div class="flex-1 ml-4">
-          <hl-block-title type="success">多选展开</hl-block-title>
-          <PersonSelect expand multiple class="mt-2" />
+          <hl-block-title type="success">
+            多选展开
+          </hl-block-title>
+          <person-select expand multiple class="mt-2" />
         </div>
       </div>
     </test-comp-wrapper>
