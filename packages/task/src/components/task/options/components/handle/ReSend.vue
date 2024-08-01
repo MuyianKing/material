@@ -4,6 +4,9 @@ import { ElButton, ElLink } from 'element-plus'
 import { getTaskById, publishTask } from '../../../../../server'
 import HandleDialog from './components/Dialog.vue'
 
+import 'element-plus/es/components/button/style/css'
+import 'element-plus/es/components/link/style/css'
+
 const props = defineProps({
   taskId: {
     type: [String, Number],
@@ -50,7 +53,8 @@ function handleSubmit(form) {
   </el-link>
 
   <handle-dialog v-model="show_dialog" :server="handleSubmit" :task-id :config="form_config" :form-data="form_data"
-    :title @refresh="emits('refresh-one')">
+                 :title @refresh="emits('refresh-one')"
+  >
     下发
   </handle-dialog>
 </template>

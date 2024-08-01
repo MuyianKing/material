@@ -7,6 +7,8 @@ import ResultAudit from '../../../../../../views/task/detail/components/task-res
 import useDetailData from '../../../useDetailData'
 import Audit from './Audit.vue'
 
+import 'element-plus/es/components/link/style/css'
+
 const props = defineProps({
   data: {
     type: Object,

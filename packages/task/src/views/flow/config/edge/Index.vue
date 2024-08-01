@@ -4,6 +4,7 @@ import { storeToRefs } from 'pinia'
 import { ElForm } from 'element-plus'
 import ControlShow from '../../../../components/form/basic/ControlShow.vue'
 import useFlowStore from '../../../../pinia/modules/useFlowStore'
+import 'element-plus/es/components/form/style/css'
 
 const { edge } = storeToRefs(useFlowStore())
 

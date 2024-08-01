@@ -2,6 +2,7 @@
 import { inject } from 'vue'
 import { HlFormItem, HlInput } from '@hl/ui'
 import { ElForm } from 'element-plus'
+import 'element-plus/es/components/form/style/css'
 
 const { form_config } = toRefs(inject('editor_store'))
 </script>

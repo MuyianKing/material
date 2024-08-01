@@ -5,6 +5,9 @@ import { ElButton, ElLink } from 'element-plus'
 import { HlFormDialog, HlFormItem } from '@hl/ui'
 import { taskTurnOver } from '../../../../server'
 
+import 'element-plus/es/components/button/style/css'
+import 'element-plus/es/components/link/style/css'
+
 const props = defineProps({
   taskId: {
     type: [String, Number],
@@ -40,7 +43,8 @@ function handleClick() {
   </el-link>
 
   <hl-form-dialog v-model="dialogShow" :model="form" :title="`移交-${taskId}`" :server="taskTurnOver" width="50%" top="30"
-    @success="$emit('refresh')">
+                  @success="$emit('refresh')"
+  >
     <hl-form-item label="移交人员">
       <person-select-panel v-model="form.new_id_card" />
     </hl-form-item>

@@ -3,6 +3,8 @@ import { ref } from 'vue'
 import { ElTabPane, ElTabs } from 'element-plus'
 import PropertyConfig from './components/Property.vue'
 import FormConfig from './components/FormConfig.vue'
+import 'element-plus/es/components/tab-pane/style/css'
+import 'element-plus/es/components/tabs/style/css'
 
 const cur_tab = ref('property')
 </script>

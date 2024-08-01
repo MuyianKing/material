@@ -6,6 +6,8 @@ import { ElTabPane, ElTabs } from 'element-plus'
 import useFlowStore from '../../../pinia/modules/useFlowStore'
 import EdgeConfig from './edge/Index.vue'
 import NodeConfig from './node/Index.vue'
+import 'element-plus/es/components/tabs/style/css'
+import 'element-plus/es/components/tab-pane/style/css'
 
 const activeName = ref('first')
 

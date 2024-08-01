@@ -3,6 +3,9 @@ import { useAttrs } from 'vue'
 import { ElButton, ElLink } from 'element-plus'
 import { startTask } from '../../../../server'
 
+import 'element-plus/es/components/button/style/css'
+import 'element-plus/es/components/link/style/css'
+
 defineProps({
   button: {
     type: Boolean,

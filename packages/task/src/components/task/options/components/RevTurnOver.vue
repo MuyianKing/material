@@ -1,6 +1,10 @@
 <script setup>
+import { ElButton, ElLink } from 'element-plus'
 import RevBtn from '../common/RevBtn.vue'
 import { revTurnOverTask } from '../../../../server'
+
+import 'element-plus/es/components/button/style/css'
+import 'element-plus/es/components/link/style/css'
 
 const props = defineProps({
   taskId: {

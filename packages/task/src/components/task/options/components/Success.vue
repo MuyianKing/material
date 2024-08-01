@@ -2,6 +2,9 @@
 import { ElButton, ElLink } from 'element-plus'
 import { taskSuccess } from '../../../../server'
 
+import 'element-plus/es/components/button/style/css'
+import 'element-plus/es/components/link/style/css'
+
 const props = defineProps({
   taskId: {
     type: [String, Number],
@@ -36,7 +39,8 @@ async function handleClick() {
     完成
   </el-button>
   <el-link v-else :underline="false" class="m-1 whitespace-nowrap" :type="finish ? 'danger' : 'primary'" v-bind="$attrs"
-    @click="handleClick">
+           @click="handleClick"
+  >
     完成
   </el-link>
 </template>

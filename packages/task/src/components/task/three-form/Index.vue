@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import { ElForm } from 'element-plus'
 import PreviewPanelItem from '../../form-editor/PreviewPanelItem.vue'
 import genFormConfig from './hooks/genFormConfig'
+import 'element-plus/es/components/form/style/css'
 
 const props = defineProps({
   config: {

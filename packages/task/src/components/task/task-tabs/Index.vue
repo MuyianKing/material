@@ -3,6 +3,10 @@ import { onMounted, ref } from 'vue'
 import { ElBadge, ElTabPane, ElTabs } from 'element-plus'
 import { getCommonUnfinish } from '../../../server'
 
+import 'element-plus/es/components/tabs/style/css'
+import 'element-plus/es/components/tab-pane/style/css'
+import 'element-plus/es/components/badge/style/css'
+
 const props = defineProps({
   configUuid: {
     type: String,
@@ -59,7 +63,7 @@ defineExpose({
 
 <template>
   <el-tabs v-model="active_tab">
-    <el-tab-pane v-for="(tab,index) in tab_list" :key="index" :name="tab.name" lazy>
+    <el-tab-pane v-for="(tab, index) in tab_list" :key="index" :name="tab.name" lazy>
       <template #label>
         <el-badge :value="tab.count" :max="99" :show-zero="false">
           {{ tab.name }}

@@ -60,7 +60,7 @@ onMounted(() => {
     </template>
   </el-dropdown>
 
-  <task-publish v-model="show_publish" :config-id="puiblish_id" />
+  <task-publish v-model="show_publish" :config-uuid="puiblish_id" />
 </template>
 
 <style  lang="scss">

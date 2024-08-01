@@ -3,6 +3,9 @@ import { getCurrentInstance, ref } from 'vue'
 import { ElButton, ElLink } from 'element-plus'
 import HandleDialog from './components/Dialog.vue'
 
+import 'element-plus/es/components/button/style/css'
+import 'element-plus/es/components/link/style/css'
+
 defineProps({
   taskId: {
     type: [String, Number],
@@ -43,12 +46,14 @@ async function handleClick() {
     <slot />
   </el-button>
   <el-link v-else :underline="false" class="m-1 whitespace-nowrap" :type="finish ? 'danger' : 'primary'" v-bind="$attrs"
-    @click="handleClick">
+           @click="handleClick"
+  >
     <slot />
   </el-link>
 
   <handle-dialog v-model="show_dialog" :task-id :config="form_config" :finish :title top="10px"
-    @refresh="emits('refresh-one')" />
+                 @refresh="emits('refresh-one')"
+  />
 </template>
 
 <style lang='scss' scoped></style>

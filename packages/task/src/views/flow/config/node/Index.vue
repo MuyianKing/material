@@ -7,6 +7,8 @@ import { property_list, type_list } from '../../../../components/flow-node-prope
 import useFlowStore from '../../../../pinia/modules/useFlowStore'
 import { splitNodeEdge, validateOuterFileds } from '../../../../hooks/flow'
 import { check_config } from '../../../../default/flow'
+import 'element-plus/es/components/form/style/css'
+import 'element-plus/es/components/divider/style/css'
 
 const { node, prev_form_id, error_message } = storeToRefs(useFlowStore())
 
@@ -151,15 +153,18 @@ function handleCheckProcess({ old_form_id, new_form_id }) {
           <template v-for="comp in type_comp.children" :key="comp.key">
             <!-- 依赖所有的字段组件 -->
             <component :is="comp.key" v-if="comp.value_type === 'all'" v-model="node.base_config" :node="node"
-              :form-config="prev_form_id" />
+                       :form-config="prev_form_id"
+            />
 
             <!-- 添加表单组件 -->
             <component :is="comp.key" v-else-if="comp.field === 'form_id'" v-model="node" :node="node"
-              :form-config="prev_form_id" @update="handleCheckProcess" />
+                       :form-config="prev_form_id" @update="handleCheckProcess"
+            />
 
             <!-- 其他 -->
             <component :is="comp.key" v-else v-model="node.base_config[comp.field]" :node="node"
-              :form-config="prev_form_id" />
+                       :form-config="prev_form_id"
+            />
           </template>
         </template>
       </template>
