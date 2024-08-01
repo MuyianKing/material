@@ -2,6 +2,7 @@
 import { useList } from '@hl/jooks'
 import { ref, watch } from 'vue'
 import { HlDialog } from '@hl/ui'
+import { ElAlert } from 'element-plus'
 import TaskTable from '../../../views/task/manage/components/TaskTable.vue'
 import { getTaskManagerOne, taskManagement } from '../../../server/task'
 import { refreshTableRow } from '../../../utils'
@@ -54,11 +55,13 @@ watch(() => props.groupId, (val) => {
     <div class="start-task">
       <hl-list-page no-add no-search>
         <template #search>
-          <el-alert center title="请确定流程中的，签收，办理，审批人员没有问题后下发任务，或者您也可以到自助指令/任务管理界面下发任务" type="warning" :closable="false" />
+          <el-alert center title="请确定流程中的，签收，办理，审批人员没有问题后下发任务，或者您也可以到自助指令/任务管理界面下发任务" type="warning"
+            :closable="false" />
         </template>
 
         <template #table>
-          <task-table v-model:check="selected_task_ids" :data="table_data.data" style="height: calc(100vh - 350px)" @refresh="refresh" />
+          <task-table v-model:check="selected_task_ids" :data="table_data.data" style="height: calc(100vh - 350px)"
+            @refresh="refresh" />
         </template>
       </hl-list-page>
     </div>

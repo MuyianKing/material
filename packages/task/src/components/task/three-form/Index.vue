@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import { ElForm } from 'element-plus'
 import PreviewPanelItem from '../../form-editor/PreviewPanelItem.vue'
 import genFormConfig from './hooks/genFormConfig'
 
@@ -41,6 +42,4 @@ defineExpose({
   </el-form>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { HlIcon } from '@hl/ui'
-import { ElTimelineItem } from 'element-plus/es'
+import { ElTimelineItem } from 'element-plus'
 
 import FormDetail from '../../../../../form/preview/Template.vue'
 import Highlight from '../../../../../../components/task/detail/Highlight.vue'
@@ -54,10 +54,12 @@ const show_history = ref(false)
     <template #dot>
       <dot :data="data" />
     </template>
-    <hl-icon v-if="data.data?.old" icon="mingcute:down-fill" title="展开" class="pen-item pen-item-close right-10" :class="{ open: show_history }" @click="show_history = !show_history" />
+    <hl-icon v-if="data.data?.old" icon="mingcute:down-fill" title="展开" class="pen-item pen-item-close right-10"
+      :class="{ open: show_history }" @click="show_history = !show_history" />
     <hl-icon v-if="data.modify" icon="iconoir:page-edit" class="pen-item" title="编辑" @click="handleSubSubmit" />
-    <highlight :data="data" :interaction="interaction" @remove="(id) => $emit('remove', id)" />
-    <form-detail v-if="data.data?.content && typeof data.data?.content === 'object' && !interaction.includes(data.type)" :form-data="data.data?.content || {}" :config="data.a_node_form" mode="text">
+    <highlight :data="data" :interaction="interaction" @remove="(id) => $emit('remove',id)" />
+    <form-detail v-if="data.data?.content && typeof data.data?.content === 'object' && !interaction.includes(data.type)"
+      :form-data="data.data?.content || {}" :config="data.a_node_form" mode="text">
       <template #before="{ form }">
         <result-audit v-if="form.pass !== undefined" :data="form" />
       </template>
@@ -65,7 +67,9 @@ const show_history = ref(false)
   </el-timeline-item>
 
   <template v-if="data.data?.old && show_history">
-    <el-timeline-item v-for="old_item in reverseData(data.data?.old)" :key="old_item.a_time" class="time-line-item ml-5 time-line-item-second-level" :timestamp="old_item.a_time" placement="top" type="success">
+    <el-timeline-item v-for="old_item in reverseData(data.data?.old)" :key="old_item.a_time"
+      class="time-line-item ml-5 time-line-item-second-level" :timestamp="old_item.a_time" placement="top"
+      type="success">
       <template #dot>
         <dot :data="data" />
       </template>
@@ -78,7 +82,8 @@ const show_history = ref(false)
     </el-timeline-item>
   </template>
 
-  <handle-dialog v-if="data.modify" v-model="show_handle_dialog" :config="data.a_node_form" :form-id="data.id" :form-data="data.data?.content || {}" :task-id="data.task_id" @refresh="handleRefresh" />
+  <handle-dialog v-if="data.modify" v-model="show_handle_dialog" :config="data.a_node_form" :form-id="data.id"
+    :form-data="data.data?.content || {}" :task-id="data.task_id" @refresh="handleRefresh" />
 </template>
 
 <style lang='scss' scoped>
@@ -131,6 +136,7 @@ const show_history = ref(false)
   bottom: -15px !important;
   right: 10px !important;
 }
+
 .open {
   transform: rotate(180deg);
 }
@@ -148,9 +154,11 @@ const show_history = ref(false)
 
 .time-line-item-second-level {
   width: calc(100% - 20px);
+
   &:hover {
     width: calc(100% - 30px);
   }
+
   :deep(.el-timeline-item__tail) {
     border-left: 2px dashed var(--el-timeline-node-color);
   }

@@ -2,6 +2,7 @@
 import { computed, inject, ref, watchEffect } from 'vue'
 import { storeToRefs } from 'pinia'
 import { HlIcon } from '@hl/ui'
+import { ElTabPane, ElTabs } from 'element-plus'
 import useFlowStore from '../../../pinia/modules/useFlowStore'
 import EdgeConfig from './edge/Index.vue'
 import NodeConfig from './node/Index.vue'

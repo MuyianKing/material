@@ -1,5 +1,5 @@
 <script setup>
-import { ElFormItem } from 'element-plus/es'
+import { ElFormItem } from 'element-plus'
 
 defineProps({
   data: {

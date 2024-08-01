@@ -1,4 +1,5 @@
 <script setup>
+import { ElButton, ElLink } from 'element-plus'
 import { taskSuccess } from '../../../../server'
 
 const props = defineProps({
@@ -34,11 +35,10 @@ async function handleClick() {
   <el-button v-if="button" v-bind="$attrs" :type="finish ? 'danger' : 'primary'" @click="handleClick">
     完成
   </el-button>
-  <el-link v-else :underline="false" class="m-1 whitespace-nowrap" :type="finish ? 'danger' : 'primary'" v-bind="$attrs" @click="handleClick">
+  <el-link v-else :underline="false" class="m-1 whitespace-nowrap" :type="finish ? 'danger' : 'primary'" v-bind="$attrs"
+    @click="handleClick">
     完成
   </el-link>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

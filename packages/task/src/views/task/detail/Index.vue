@@ -1,7 +1,7 @@
 <script setup>
 import { computed, ref, useAttrs, watch } from 'vue'
 import { HlDialog } from '@hl/ui'
-import { ElSkeleton } from 'element-plus/es'
+import { ElSkeleton } from 'element-plus'
 
 import TaskForm from '../detail/components/TaskForm.vue'
 import TaskResult from '../detail/components/task-result/Index.vue'
@@ -50,7 +50,8 @@ const height = computed(() => {
   <hl-dialog ref="dialog_ref" :title="`任务详情 - ${task?.task_id}`" top="50px" width="90%">
     <div :style="{ height: `calc(100vh - ${height}px)` }" class="task-wrapper">
       <el-skeleton :loading="loading" :rows="rows" animated>
-        <task-form :config="task?.start_node?.form_config || {}" :model-value="task?.start_node?.form_content" class="form-wrapper" />
+        <task-form :config="task?.start_node?.form_config || {}" :model-value="task?.start_node?.form_content"
+          class="form-wrapper" />
       </el-skeleton>
       <el-skeleton :loading="loading" :rows="rows" animated class="ml-8">
         <task-result :result="task?.result || []" class="recorder" @refresh="refreshOne" />
@@ -67,7 +68,7 @@ const height = computed(() => {
   width: 100%;
   display: flex;
 
-  & > div {
+  &>div {
     height: 100%;
     overflow: auto;
   }

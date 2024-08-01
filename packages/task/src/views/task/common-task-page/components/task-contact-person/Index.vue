@@ -1,6 +1,7 @@
 <script setup>
 import { reactive, ref } from 'vue'
 import { HlDialog, HlEditButton, HlFormItem, HlInput, HlPage, HlSearchButton, HlTable, HlTableColumn } from '@hl/ui'
+import { ElButton, ElTag } from 'element-plus'
 
 import { refreshTableRow } from '../../../../../utils'
 import { getLinkPerson, getLinkPersonOne } from '../../../../../server/common.task.page'

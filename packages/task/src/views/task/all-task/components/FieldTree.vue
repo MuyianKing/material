@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, ref } from 'vue'
+import { ElTree } from 'element-plus'
 import { getParams } from '../../../../server'
 
 const tree_data = ref([])

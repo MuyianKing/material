@@ -1,6 +1,7 @@
 <script setup>
 import { HlIcon } from '@hl/ui'
 import { ref } from 'vue'
+import { ElButton, ElPopover } from 'element-plus'
 
 defineProps({
   icon: {
@@ -49,6 +50,4 @@ function submit() {
   </el-popover>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

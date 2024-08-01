@@ -1,6 +1,7 @@
 <script setup>
 import { PersonSelectPanel } from '@hl/tyyh'
 import { ref } from 'vue'
+import { ElButton, ElLink } from 'element-plus'
 import { HlFormDialog, HlFormItem } from '@hl/ui'
 import { taskTurnOver } from '../../../../server'
 
@@ -38,13 +39,12 @@ function handleClick() {
     </slot>
   </el-link>
 
-  <hl-form-dialog v-model="dialogShow" :model="form" :title="`移交-${taskId}`" :server="taskTurnOver" width="50%" top="30" @success="$emit('refresh')">
+  <hl-form-dialog v-model="dialogShow" :model="form" :title="`移交-${taskId}`" :server="taskTurnOver" width="50%" top="30"
+    @success="$emit('refresh')">
     <hl-form-item label="移交人员">
       <person-select-panel v-model="form.new_id_card" />
     </hl-form-item>
   </hl-form-dialog>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

@@ -1,6 +1,7 @@
 <script setup>
 import { provide, ref } from 'vue'
 import { HlDialog } from '@hl/ui'
+import { ElLink } from 'element-plus'
 import FormDetail from '../../../../../../views/form/preview/Template.vue'
 import ResultAudit from '../../../../../../views/task/detail/components/task-result/components/ResultAudit.vue'
 import useDetailData from '../../../useDetailData'

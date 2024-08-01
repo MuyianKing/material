@@ -1,6 +1,7 @@
 <script setup>
 import { cloneDeep } from 'lodash-es'
 import { ref, watchEffect } from 'vue'
+import { ElForm, ElSkeleton, ElSkeletonItem } from 'element-plus'
 import PreviewPanelItem from '../../../components/form-editor/PreviewPanelItem.vue'
 import TextPanelItem from '../../../components/form-editor/TextPanelItem.vue'
 import { getFormById } from '../../../server/form'
@@ -161,7 +162,9 @@ defineExpose({
       <el-skeleton-item v-for="item in new Array(10)" :key="item" class="h-[30px] mb-[15px]" variant="text" />
     </template>
     <template #default>
-      <el-form v-bind="$attrs" ref="form_ref" class="task-edit-form" :class="{ 'text-wrapper': mode === 'text' }" :label-width="`${+_config.form_config?.label_width + 5}`" :model="form_data" scroll-to-error validate-on-rule-change>
+      <el-form v-bind="$attrs" ref="form_ref" class="task-edit-form" :class="{ 'text-wrapper': mode === 'text' }"
+        :label-width="`${+_config.form_config?.label_width + 5}`" :model="form_data" scroll-to-error
+        validate-on-rule-change>
         <slot :form="form_data" name="before" />
         <preview-panel-item v-if="mode === 'preview'" v-model:form-data="form_data" v-model="_config.form_field_list" />
         <text-panel-item v-else :form-data="form_data" :model-value="_config?.form_field_list" />
@@ -171,5 +174,4 @@ defineExpose({
   </el-skeleton>
 </template>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import { ElButton, ElLink } from 'element-plus'
 import { getTaskById, publishTask } from '../../../../../server'
 import HandleDialog from './components/Dialog.vue'
 
@@ -48,7 +49,8 @@ function handleSubmit(form) {
     <slot />
   </el-link>
 
-  <handle-dialog v-model="show_dialog" :server="handleSubmit" :task-id :config="form_config" :form-data="form_data" :title @refresh="emits('refresh-one')">
+  <handle-dialog v-model="show_dialog" :server="handleSubmit" :task-id :config="form_config" :form-data="form_data"
+    :title @refresh="emits('refresh-one')">
     下发
   </handle-dialog>
 </template>

@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import { ElTabPane, ElTabs } from 'element-plus'
 import PropertyConfig from './components/Property.vue'
 import FormConfig from './components/FormConfig.vue'
 

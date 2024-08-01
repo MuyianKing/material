@@ -3,6 +3,7 @@ import { VueDraggable } from 'vue-draggable-plus'
 import { cloneDeep } from 'lodash-es'
 import { guid } from '@hl/utils/es/common'
 import { inject, ref } from 'vue'
+import { ElCollapse, ElCollapseItem } from 'element-plus'
 import { components_list_config } from './config'
 
 // 组件
@@ -45,7 +46,8 @@ function clone(element) {
 <template>
   <el-collapse v-model="collapse_active" style="background-color: #fff;">
     <el-collapse-item v-for="item in list" :key="item.id" :name="item.id" :title="item.name">
-      <vue-draggable v-model="item.children" :sort="false" :group="{ name: 'form-editor', pull: 'clone', put: false }" class="comp-list-wrapper" :clone="clone">
+      <vue-draggable v-model="item.children" :sort="false" :group="{ name: 'form-editor',pull: 'clone',put: false }"
+        class="comp-list-wrapper" :clone="clone">
         <div v-for="comp in item.children" :key="comp.id" class="comp-item">
           {{ comp.name }}
         </div>
@@ -86,7 +88,7 @@ function clone(element) {
   }
 
   :deep(.el-collapse-item) {
-    & > * {
+    &>* {
       background-color: transparent !important;
     }
   }

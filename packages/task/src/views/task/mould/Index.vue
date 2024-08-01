@@ -1,7 +1,7 @@
 <script name="TaskMouldIndex" setup>
 import { reactive, ref } from 'vue'
 import { HlIcon, HlSearchPage } from '@hl/ui'
-import { ElLink } from 'element-plus/es'
+import { ElLink } from 'element-plus'
 
 import { jump } from '@hl/utils/es/router'
 import { getTaskTree } from '../../../server/config'

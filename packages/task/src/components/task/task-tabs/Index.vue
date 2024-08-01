@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, ref } from 'vue'
+import { ElBadge, ElTabPane, ElTabs } from 'element-plus'
 import { getCommonUnfinish } from '../../../server'
 
 const props = defineProps({
@@ -58,7 +59,7 @@ defineExpose({
 
 <template>
   <el-tabs v-model="active_tab">
-    <el-tab-pane v-for="(tab, index) in tab_list" :key="index" :name="tab.name" lazy>
+    <el-tab-pane v-for="(tab,index) in tab_list" :key="index" :name="tab.name" lazy>
       <template #label>
         <el-badge :value="tab.count" :max="99" :show-zero="false">
           {{ tab.name }}

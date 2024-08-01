@@ -2,6 +2,7 @@
 import { getLabelByVal } from '@hl/utils/es/common'
 import { computed, inject, nextTick, watch } from 'vue'
 import { storeToRefs } from 'pinia'
+import { ElDivider, ElForm } from 'element-plus'
 import { property_list, type_list } from '../../../../components/flow-node-property/config'
 import useFlowStore from '../../../../pinia/modules/useFlowStore'
 import { splitNodeEdge, validateOuterFileds } from '../../../../hooks/flow'
@@ -149,13 +150,16 @@ function handleCheckProcess({ old_form_id, new_form_id }) {
           </el-divider>
           <template v-for="comp in type_comp.children" :key="comp.key">
             <!-- 依赖所有的字段组件 -->
-            <component :is="comp.key" v-if="comp.value_type === 'all'" v-model="node.base_config" :node="node" :form-config="prev_form_id" />
+            <component :is="comp.key" v-if="comp.value_type === 'all'" v-model="node.base_config" :node="node"
+              :form-config="prev_form_id" />
 
             <!-- 添加表单组件 -->
-            <component :is="comp.key" v-else-if="comp.field === 'form_id'" v-model="node" :node="node" :form-config="prev_form_id" @update="handleCheckProcess" />
+            <component :is="comp.key" v-else-if="comp.field === 'form_id'" v-model="node" :node="node"
+              :form-config="prev_form_id" @update="handleCheckProcess" />
 
             <!-- 其他 -->
-            <component :is="comp.key" v-else v-model="node.base_config[comp.field]" :node="node" :form-config="prev_form_id" />
+            <component :is="comp.key" v-else v-model="node.base_config[comp.field]" :node="node"
+              :form-config="prev_form_id" />
           </template>
         </template>
       </template>

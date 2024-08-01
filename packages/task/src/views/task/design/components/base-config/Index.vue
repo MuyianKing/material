@@ -1,6 +1,7 @@
 <script setup>
 import { inject, ref, toRefs } from 'vue'
 import { HlFormItem, HlIconSelect, HlInput, HlRadio } from '@hl/ui'
+import { ElForm } from 'element-plus'
 
 import { is_has_pass } from '../../../../../default/index'
 import ComplexControlSelect from '../../../../../components/person-complex-select/Index.vue'
@@ -152,7 +153,7 @@ defineExpose({
   :deep(.el-form-item) {
     flex-direction: column;
 
-    & > .el-form-item__label {
+    &>.el-form-item__label {
       display: block;
       font-weight: bold;
     }

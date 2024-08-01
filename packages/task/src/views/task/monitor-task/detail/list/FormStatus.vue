@@ -1,5 +1,5 @@
 <script name="FormStatus" setup>
-import { ElTable, ElTableColumn, ElTag } from 'element-plus/es'
+import { ElTable, ElTableColumn, ElTag } from 'element-plus'
 import { computed } from 'vue'
 
 const { data } = defineProps({
@@ -48,11 +48,10 @@ function headerCellStyle() {
 </script>
 
 <template>
-  <el-table :data="tableData" border class="flow-list-table" scrollbar-always-on style="width:40vw" table-layout="auto" :header-cell-style="headerCellStyle()">
-    <el-table-column v-for="item in tableColumns" :key="item.key" :fixed="item.fixed" :label="item.label" :prop="item.key"
-                     :width="item.key === 'title' ? 60 : ''"
-                     align="center" show-overflow-tooltip
-    >
+  <el-table :data="tableData" border class="flow-list-table" scrollbar-always-on style="width:40vw" table-layout="auto"
+    :header-cell-style="headerCellStyle()">
+    <el-table-column v-for="item in tableColumns" :key="item.key" :fixed="item.fixed" :label="item.label"
+      :prop="item.key" :width="item.key === 'title' ? 60 : ''" align="center" show-overflow-tooltip>
       <template #header>
         {{ item.label }}
         <el-tag v-if="typeof item.pass !== 'undefined'" :type="item.pass ? 'success' : 'warning'" size="small">
@@ -80,6 +79,7 @@ function headerCellStyle() {
 <style lang="scss" scoped>
 .flow-list-table {
   :deep(.el-table__inner-wrapper) {
+
     th,
     td,
     td .cell {

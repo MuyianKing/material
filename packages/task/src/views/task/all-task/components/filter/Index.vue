@@ -2,6 +2,7 @@
 import theme from '@style/theme.module.scss'
 import { computed, ref } from 'vue'
 import { HlIcon } from '@hl/ui'
+import { ElPopover } from 'element-plus'
 import InputComp from './components/Input.vue'
 import DropdownComp from './components/Dropdown.vue'
 import DateComp from './components/Date.vue'
@@ -47,7 +48,8 @@ const active = computed(() => {
 </script>
 
 <template>
-  <el-popover v-if="config?.type !== 'dropdown'" v-model:visible="visible" :width="width_map[props.config?.type]" trigger="click">
+  <el-popover v-if="config?.type !== 'dropdown'" v-model:visible="visible" :width="width_map[props.config?.type]"
+    trigger="click">
     <template #reference>
       <div class="flex items-center" :class="{ 'active-search': active }">
         <span>{{ config.label }}</span>

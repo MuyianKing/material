@@ -1,5 +1,6 @@
 <script setup>
 import { ref, watch } from 'vue'
+import { ElBreadcrumb, ElBreadcrumbItem } from 'element-plus'
 
 const props = defineProps({
   level: {
@@ -20,8 +21,9 @@ watch(() => props.level, (level) => {
 
 <template>
   <el-breadcrumb>
-    <el-breadcrumb-item v-for="(org, index) in orgs" :key="org.value">
-      <span class="cursor-pointer" :class="{ active: index === orgs.length - 1 }" @click="$emit('back', org)">{{ org.label }}</span>
+    <el-breadcrumb-item v-for="(org,index) in orgs" :key="org.value">
+      <span class="cursor-pointer" :class="{ active: index === orgs.length - 1 }" @click="$emit('back',org)">{{
+        org.label }}</span>
     </el-breadcrumb-item>
   </el-breadcrumb>
 </template>

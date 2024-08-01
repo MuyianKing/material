@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { HlButton, HlDialog } from '@hl/ui'
-import { ElCheckbox } from 'element-plus/es'
+import { ElCheckbox } from 'element-plus'
 
 import { getOrgList, setOrg } from '../../../../../../server/common.task.page'
 import OrgTree from './OrgTree.vue'

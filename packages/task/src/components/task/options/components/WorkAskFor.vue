@@ -1,5 +1,6 @@
 <script setup>
 import { ref, watch } from 'vue'
+import { ElButton, ElLink } from 'element-plus'
 import { HlFormDialog, HlFormItem, HlInput, HlUpload } from '@hl/ui'
 import { addWorkAskFor } from '../../../../server'
 import WorkAskFor from '../../../../model/task/workAskFor'
@@ -40,7 +41,8 @@ watch(show_detail, (val) => {
     </slot>
   </el-link>
 
-  <hl-form-dialog v-model="show_detail" title="工作要求" :model="form" :server="addWorkAskFor" @refresh="$emit('refresh-one')">
+  <hl-form-dialog v-model="show_detail" title="工作要求" :model="form" :server="addWorkAskFor"
+    @refresh="$emit('refresh-one')">
     <hl-form-item label="工作要求" required prop="pizhu[remark]">
       <hl-input v-model="form.pizhu.remark" type="textarea" :rows="4" />
     </hl-form-item>

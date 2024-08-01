@@ -4,7 +4,7 @@ import { storeToRefs } from 'pinia'
 import { useRoute, useRouter } from 'vue-router'
 
 import { HlButton, HlExportButton } from '@hl/ui'
-import { ElTabPane, ElTabs } from 'element-plus/es'
+import { ElTabPane, ElTabs } from 'element-plus'
 
 import TaskIcon from '../../../../../components/task/Icon.vue'
 import { publishTaskConfig, saveTaskConfig } from '../../../../../server/config'

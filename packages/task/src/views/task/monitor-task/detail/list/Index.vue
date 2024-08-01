@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { HlFormItem, HlPreview, HlSearchButton, HlSelect, HlTime } from '@hl/ui'
-import { ElTable, ElTableColumn } from 'element-plus/es'
+import { ElTable, ElTableColumn } from 'element-plus'
 
 import { useList } from '@hl/jooks'
 import { getDetail } from '../../../../../server/infoGroup'
@@ -116,9 +116,12 @@ defineExpose({
     </template>
 
     <template #table>
-      <el-table v-loading="loading" :data="table_data.data" :row-class="rowClass" :span-method="objectSpanMethod" border cell-class-name="special-table-cell" class="special-table" header-row-class-name="special-table-header-row" table-layout="auto">
+      <el-table v-loading="loading" :data="table_data.data" :row-class="rowClass" :span-method="objectSpanMethod" border
+        cell-class-name="special-table-cell" class="special-table" header-row-class-name="special-table-header-row"
+        table-layout="auto">
         <el-table-column align="center" label="序号" prop="special_index" width="60" />
-        <el-table-column v-for="item in table_data.header_config" :key="item.item" :column-key="item.node_type" :label="item.name" :prop="item.item" align="center">
+        <el-table-column v-for="item in table_data.header_config" :key="item.item" :column-key="item.node_type"
+          :label="item.name" :prop="item.item" align="center">
           <template #default="{ row }">
             <hl-time v-if="item.type === 'time'" :time="row[item.item]" />
             <template v-if="item.type === 'FormUpload'">
