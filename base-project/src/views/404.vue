@@ -1,6 +1,6 @@
 <script setup>
 import { ElButton } from 'element-plus/es'
-import { useRouter } from 'vue-router'
+import { RouterLink, useRouter } from 'vue-router'
 
 const router = useRouter()
 function goBack() {

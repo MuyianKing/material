@@ -1,4 +1,8 @@
 <script setup>
+import { defineEmits, ref, watch } from 'vue'
+import { storeToRefs } from 'pinia'
+import { HlFormDialog, HlFormItem, HlInput } from '@hl/ui'
+
 import { cloneDeep } from 'lodash-es'
 import { setTaskList } from '../../../../../../../../server/benches'
 import TaskGroup from '../../../../../../../../model/benches/task.group'

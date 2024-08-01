@@ -1,4 +1,5 @@
 <script setup>
+import { HlAddButton, HlBlockTitle, HlButton, HlDelButton, HlDetailButton, HlEditButton, HlExportButton, HlImportButton, HlResetButton, HlSearchButton } from '@hl/ui'
 </script>
 
 <template>

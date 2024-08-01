@@ -1,4 +1,6 @@
 <script setup>
+import { markRaw, ref } from 'vue'
+import { ElTabPane, ElTabs } from 'element-plus/es'
 import MyCreate from './my-create/Index.vue'
 import MyManage from './my-manage/Index.vue'
 

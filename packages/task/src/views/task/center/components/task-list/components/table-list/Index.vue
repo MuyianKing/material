@@ -1,4 +1,6 @@
 <script setup>
+import { defineEmits, defineExpose, defineProps, nextTick, ref, watch } from 'vue'
+
 import MyAttention from '../attention/Index.vue'
 import TaskTypeSwitch from '../switch-btn/TaskTypeSwitch.vue'
 import AllTask from '../../../../../all-task/Index.vue'

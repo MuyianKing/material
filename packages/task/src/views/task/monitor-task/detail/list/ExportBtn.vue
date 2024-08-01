@@ -1,4 +1,6 @@
 <script setup>
+import { defineProps } from 'vue'
+import { HlExportButton } from '@hl/ui'
 import { exportDetail } from '../../../../../server/infoGroup'
 
 const props = defineProps({

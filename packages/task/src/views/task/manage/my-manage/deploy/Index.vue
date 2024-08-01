@@ -1,4 +1,6 @@
 <script setup>
+import { ref } from 'vue'
+import { HlFormDialog, HlFormItem, HlRadio } from '@hl/ui'
 import IdCardList from './IdCardList.vue'
 
 const formData = ref({})

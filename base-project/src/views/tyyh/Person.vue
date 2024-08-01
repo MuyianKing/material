@@ -1,6 +1,7 @@
 <script setup>
 import { PersonAvatar, PersonSelect, PersonSelectPanel } from '@hl/tyyh'
 import TestCompWrapper from '@comp/test-comp-wrapper/Index.vue'
+import { HlBlockTitle } from '@hl/ui'
 </script>
 
 <template>

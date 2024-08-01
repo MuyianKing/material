@@ -6,7 +6,7 @@ import { onBeforeRouteUpdate, useRoute } from 'vue-router'
 import useAppStore from '@pinia/useAppStore.js'
 import useTagsStore from '@pinia/useTagsStore.js'
 
-import { computed, h, ref } from 'vue'
+import { computed, h, ref, watch } from 'vue'
 
 const appStore = useAppStore()
 

@@ -1,4 +1,7 @@
 <script setup>
+import { defineEmits, defineProps } from 'vue'
+import { HlIcon } from '@hl/ui'
+
 import { delGroup } from '../../../../server/group'
 
 const props = defineProps({

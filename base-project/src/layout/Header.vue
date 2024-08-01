@@ -5,6 +5,9 @@ import { exitFullScreen, openFullScreen } from '@utils/dom'
 import { logout } from '@server/user'
 import useUserStore from '@pinia/useUserStore.js'
 import { useRouter } from 'vue-router'
+import { ref } from 'vue'
+import { HlIcon } from '@hl/ui'
+import { ElDropdown, ElDropdownItem, ElDropdownMenu } from 'element-plus/es'
 
 const user = useUserStore()
 

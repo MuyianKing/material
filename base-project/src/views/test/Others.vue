@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import { HlAvatar, HlBlockTitle, HlButton, HlContextMenu, HlDialog } from '@hl/ui'
 
 const context_menu_ref = ref()
 

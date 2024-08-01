@@ -1,4 +1,7 @@
 <script setup>
+import { computed, defineProps } from 'vue'
+import { HlIcon } from '@hl/ui'
+
 import variables from '@style/theme.module.scss'
 
 const props = defineProps({

@@ -4,6 +4,8 @@ import useAppStore from '@pinia/useAppStore.js'
 import { useRoute, useRouter } from 'vue-router'
 
 import { computed, nextTick, ref } from 'vue'
+import { ElScrollbar } from 'element-plus/es'
+import { HlContextMenu, HlIcon } from '@hl/ui'
 
 const tags = useTagsStore()
 const appStore = useAppStore()

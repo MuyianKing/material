@@ -1,4 +1,7 @@
 <script setup>
+import { defineEmits, defineProps } from 'vue'
+import { HlTable, HlTableColumn } from '@hl/ui'
+
 import TaskOpt from '../../../../../components/task/options/Index.vue'
 import TaskStatus from '../../../../../components/task/Status.vue'
 

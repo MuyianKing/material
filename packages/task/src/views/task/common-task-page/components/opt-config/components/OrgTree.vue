@@ -1,4 +1,7 @@
 <script setup>
+import { defineExpose, defineModel, defineProps, ref, watch } from 'vue'
+import { ElTree } from 'element-plus/es'
+
 const props = defineProps({
   allData: {
     type: Array,

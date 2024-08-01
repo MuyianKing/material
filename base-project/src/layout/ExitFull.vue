@@ -1,4 +1,5 @@
 <script setup>
+import { HlIcon } from '@hl/ui'
 import useAppStore from '@pinia/useAppStore.js'
 
 const appStore = useAppStore()

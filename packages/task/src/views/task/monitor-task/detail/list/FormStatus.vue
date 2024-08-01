@@ -1,4 +1,7 @@
 <script name="FormStatus" setup>
+import { ElTable, ElTableColumn, ElTag } from 'element-plus/es'
+import { computed, defineProps } from 'vue'
+
 const { data } = defineProps({
   data: {
     type: Array,
@@ -80,7 +83,7 @@ function headerCellStyle() {
     th,
     td,
     td .cell {
-      padding: 1px 0 ;
+      padding: 1px 0;
     }
 
     th {

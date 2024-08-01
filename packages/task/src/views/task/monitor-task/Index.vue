@@ -1,4 +1,10 @@
 <script setup>
+import { defineExpose, onMounted } from 'vue'
+import { useRoute } from 'vue-router'
+
+import { HlDate, HlFormItem, HlInput, HlSearchButton, HlTable, HlTableColumn, HlTime } from '@hl/ui'
+import { ElLink, ElTooltip } from 'element-plus/es'
+
 import useListPage from '@hl/ui/src/list-page/index'
 import { jump } from '@hl/utils/es/router'
 import { getList, setTop } from '../../../server/infoGroup'

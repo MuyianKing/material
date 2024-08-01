@@ -1,4 +1,8 @@
 <script setup>
+import { defineEmits, defineProps, ref } from 'vue'
+import { HlIcon } from '@hl/ui'
+import { ElTimelineItem } from 'element-plus/es'
+
 import FormDetail from '../../../../../form/preview/Template.vue'
 import Highlight from '../../../../../../components/task/detail/Highlight.vue'
 import HandleDialog from '../../../../../../components/task/options/components/handle/components/Dialog.vue'

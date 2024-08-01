@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from 'vue'
 
+import { HlDate } from '@hl/ui'
+
 const date = ref('')
 
 const date_range = ref()

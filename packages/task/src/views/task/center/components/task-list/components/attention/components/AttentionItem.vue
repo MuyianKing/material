@@ -1,4 +1,9 @@
 <script setup>
+import { defineEmits, defineModel, defineProps, nextTick } from 'vue'
+import { storeToRefs } from 'pinia'
+import { ElBadge, ElTabPane, ElTabs } from 'element-plus/es'
+import { HlIcon } from '@hl/ui'
+
 import { setTaskList } from '../../../../../../../../server/benches'
 import useBenchesStore from '../../../../../../../../pinia/modules/useBenchesStore'
 

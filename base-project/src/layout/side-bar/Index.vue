@@ -1,10 +1,12 @@
 <script name="Sidebar" setup>
+import { HlIcon } from '@hl/ui'
 import SubMenu from '@layout/side-bar/components/SubMenu.vue'
 import { hasResource } from '@hooks/user'
+import { ElMenu } from 'element-plus/es'
 
 import { useRoute, useRouter } from 'vue-router'
 
-import { computed, ref, watch, onMounted } from 'vue'
+import { computed, defineModel, onMounted, ref, watch } from 'vue'
 import { storeToRefs } from 'pinia'
 import useThemeStore from '@pinia/useThemeStore.js'
 import useDynamicRoutesStore from '@pinia/useDynamicRoutesStore.js'

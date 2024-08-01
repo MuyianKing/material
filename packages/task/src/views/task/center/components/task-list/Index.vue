@@ -1,4 +1,7 @@
 <script setup>
+import { defineExpose, nextTick, ref } from 'vue'
+import { HlBlockTitle, HlIcon } from '@hl/ui'
+
 import WrapperComp from '../../components/Wrapper.vue'
 import TableList from './components/table-list/Index.vue'
 

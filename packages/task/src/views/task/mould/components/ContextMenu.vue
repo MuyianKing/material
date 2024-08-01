@@ -1,4 +1,7 @@
 <script setup>
+import { computed, defineEmits, defineExpose, ref } from 'vue'
+import { HlContextMenu } from '@hl/ui'
+
 import { jump } from '@hl/utils/es/router'
 import variables from '@style/theme.module.scss'
 import { delTaskConfig, startTaskConfig, stopTaskConfig } from '../../../../server/config'

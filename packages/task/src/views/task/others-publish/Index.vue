@@ -1,4 +1,7 @@
 <script setup>
+import { defineEmits, defineModel, defineProps, nextTick, ref, watch } from 'vue'
+import { HlButton, HlDialog } from '@hl/ui'
+
 import PreviewTemplate from '../../form/preview/Template.vue'
 import { getPublishConfig } from '../../../server/config'
 

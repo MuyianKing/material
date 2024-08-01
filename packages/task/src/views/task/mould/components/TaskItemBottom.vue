@@ -1,4 +1,8 @@
 <script setup>
+import { defineProps } from 'vue'
+import { HlIcon } from '@hl/ui'
+import { ElImage } from 'element-plus/es'
+
 import blockUp from '../../../../assets/img/task/block_up.png'
 import noPublish from '../../../../assets/img/task/no_publish.png'
 

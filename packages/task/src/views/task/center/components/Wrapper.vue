@@ -1,4 +1,7 @@
 <script setup>
+import { defineProps } from 'vue'
+import { HlBlockTitle } from '@hl/ui'
+
 defineProps({
   title: {
     type: String,

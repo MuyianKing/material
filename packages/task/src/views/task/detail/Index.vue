@@ -1,4 +1,8 @@
 <script setup>
+import { computed, defineEmits, defineProps, useAttrs } from 'vue'
+import { HlDialog } from '@hl/ui'
+import { ElSkeleton } from 'element-plus/es'
+
 import TaskForm from '../detail/components/TaskForm.vue'
 import TaskResult from '../detail/components/task-result/Index.vue'
 import TaskOpt from '../../../components/task/options/Index.vue'

@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from 'vue'
 
+import { HlUpload } from '@hl/ui'
+
 const file = ref(null)
 </script>
 

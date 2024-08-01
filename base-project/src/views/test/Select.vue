@@ -1,4 +1,6 @@
 <script setup>
+import { HlCheckbox } from '@hl/ui'
+
 const options = [{
   label: '是',
   value: 1,

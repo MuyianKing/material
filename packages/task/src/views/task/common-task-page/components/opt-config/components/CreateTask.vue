@@ -1,4 +1,7 @@
 <script setup>
+import { defineEmits, defineProps, ref } from 'vue'
+import { HlAddButton } from '@hl/ui'
+
 import PublishTask from '../../../../publish/Index.vue'
 
 defineProps({

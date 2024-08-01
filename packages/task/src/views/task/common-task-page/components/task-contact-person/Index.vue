@@ -1,5 +1,7 @@
 <script setup>
-import { HlPage } from '@hl/ui'
+import { defineProps, reactive, ref } from 'vue'
+import { HlDialog, HlEditButton, HlFormItem, HlInput, HlPage, HlSearchButton, HlTable, HlTableColumn } from '@hl/ui'
+
 import { refreshTableRow } from '../../../../../utils'
 import { getLinkPerson, getLinkPersonOne } from '../../../../../server/common.task.page'
 import ContactEdit from './components/Edit.vue'
