@@ -1,7 +1,9 @@
 <script setup>
 import { getLabelByVal, guid } from '@hl/utils/es/common'
+import { ref, watch } from 'vue'
+import { useDebounceFn } from '@vueuse/core'
+import { HlDelButton, HlDropdown, HlIcon, HlInput, HlSelect } from '@hl/ui'
 import { show_huo_qie, show_opt_type } from '../../../default/form'
-import AppendContent from '../../common/AppendContent.vue'
 
 const props = defineProps({
   // 所有字段
@@ -168,7 +170,7 @@ function getPlaceholder(row) {
             <el-cascader v-if="item.source !== 1" v-model="item.field" :options="field_list" :placeholder="getPlaceholder(item)" @change="handleChange" />
             <hl-input v-else v-model="item.field" />
           </append-content>
-          <hl-wj-dropdown v-model="item.opt" :options="show_opt_type" no-arrow label="auto" />
+          <hl-dropdown v-model="item.opt" :options="show_opt_type" no-arrow label="auto" />
 
           <hl-select v-if="select_map[item.field[1] || item.field]?.type === 'select'" v-model="item.value" style="flex:2" :options="select_map[item.field[1] || item.field].options" />
           <hl-input v-else v-model="item.value" style="flex:2" />
@@ -176,7 +178,7 @@ function getPlaceholder(row) {
         </div>
         <div v-else class="flex justify-center w-full">
           <div style="min-width:0;flex:3" />
-          <hl-wj-dropdown v-model="item.value" :options="show_huo_qie" no-arrow label="auto" />
+          <hl-dropdown v-model="item.value" :options="show_huo_qie" no-arrow label="auto" />
           <div style="min-width:0;flex:2;margin-right: 24px;" />
         </div>
       </template>

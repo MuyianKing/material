@@ -1,6 +1,8 @@
 <script setup>
 import useClipboard from 'vue-clipboard3'
 import { getLabelByVal } from '@hl/utils/es/common'
+import { computed, inject } from 'vue'
+import { HlFormItem, HlNodata } from '@hl/ui'
 import { property_list, type_list } from '../../../../../../components/form-property/config'
 
 const { property_config, active_form_item } = toRefs(inject('editor_store'))

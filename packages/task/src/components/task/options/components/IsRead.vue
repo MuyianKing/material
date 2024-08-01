@@ -1,4 +1,6 @@
 <script setup>
+import { useAttrs } from 'vue'
+import { ElButton, ElLink } from 'element-plus'
 import { readTask } from '../../../../server'
 
 defineProps({

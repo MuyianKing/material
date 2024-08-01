@@ -1,6 +1,7 @@
 <script setup>
 import { computed, onMounted, reactive, ref, watch } from 'vue'
 import { ElButton, ElCheckbox, ElInput, ElTag } from 'element-plus'
+import { HlDialog, HlIcon, HlNodata, HlResetButton } from '@hl/ui'
 import OrganizationTree from '../organization/components/plugin.vue'
 import { getList } from '../../server/person'
 import 'element-plus/es/components/tag/style/css'

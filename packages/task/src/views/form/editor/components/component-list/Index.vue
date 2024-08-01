@@ -2,6 +2,7 @@
 import { VueDraggable } from 'vue-draggable-plus'
 import { cloneDeep } from 'lodash-es'
 import { guid } from '@hl/utils/es/common'
+import { inject, ref } from 'vue'
 import { components_list_config } from './config'
 
 // 组件

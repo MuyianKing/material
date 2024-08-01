@@ -1,4 +1,5 @@
 <script setup>
+import { useAttrs } from 'vue'
 import { signTask } from '../../../../server'
 
 defineProps({

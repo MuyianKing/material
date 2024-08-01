@@ -1,5 +1,7 @@
 <script setup>
-import useListPage from '@hl/ui/src/list-page/index'
+import { useList } from '@hl/jooks'
+import { ref, watch } from 'vue'
+import { HlDialog } from '@hl/ui'
 import TaskTable from '../../../views/task/manage/components/TaskTable.vue'
 import { getTaskManagerOne, taskManagement } from '../../../server/task'
 import { refreshTableRow } from '../../../utils'
@@ -20,7 +22,7 @@ const {
   search,
   query,
   getData,
-} = useListPage({
+} = useList({
   query: {
     info_group_id: props.groupId,
   },
@@ -45,7 +47,6 @@ watch(() => props.groupId, (val) => {
   query.info_group_id = val
   search()
 })
-
 </script>
 
 <template>

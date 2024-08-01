@@ -1,5 +1,7 @@
 <script setup>
 import { VueDraggable } from 'vue-draggable-plus'
+import { HlDelButton, HlIcon, HlInput } from '@hl/ui'
+import { ElTooltip } from 'element-plus'
 
 defineProps({
   title: {

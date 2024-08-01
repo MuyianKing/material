@@ -1,6 +1,6 @@
 <script setup>
+import { HlInput } from '@hl/ui'
 import CustomEditableComp from '../../basic/CustomEditableComp.vue'
-
 import useComponent from '../../utils'
 
 const props = defineProps({

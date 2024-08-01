@@ -1,4 +1,6 @@
 <script setup>
+import { ref, watch } from 'vue'
+import { HlButton, HlFormDialog } from '@hl/ui'
 import { getHeadersParams, setHeadersParams } from '../../../../server'
 
 import FieldTree from './FieldTree.vue'

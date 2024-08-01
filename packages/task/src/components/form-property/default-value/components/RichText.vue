@@ -1,5 +1,6 @@
 <script setup>
-import { HlButton } from '@hl/ui'
+import { HlButton, HlDialog } from '@hl/ui'
+import { ref } from 'vue'
 import RichText from '../../../../components/common/rich-text/Index.vue'
 
 const model = defineModel()

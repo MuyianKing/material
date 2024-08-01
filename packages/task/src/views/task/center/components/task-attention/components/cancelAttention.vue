@@ -1,4 +1,7 @@
 <script setup>
+import { HlIcon } from '@hl/ui'
+import { ref } from 'vue'
+
 defineProps({
   icon: {
     type: String,

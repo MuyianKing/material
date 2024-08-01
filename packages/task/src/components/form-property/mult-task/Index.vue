@@ -1,4 +1,5 @@
 <script setup>
+import { HlFormItem, HlRadio } from '@hl/ui'
 import { no_yes } from '../../../default/index'
 
 const value = defineModel()

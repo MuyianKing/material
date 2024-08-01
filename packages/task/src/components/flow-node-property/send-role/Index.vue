@@ -1,6 +1,9 @@
 <script setup>
 import { RoleSelect } from '@hl/tyyh'
-import useFlowStore from '../../../../../../packages/task/src/pinia/modules/useFlowStore.js'
+import { computed } from 'vue'
+import { storeToRefs } from 'pinia'
+import { HlFormItem } from '@hl/ui'
+import useFlowStore from '../../../../../../packages/task/src/pinia/modules/useFlowStore'
 
 const value = defineModel()
 const { node } = storeToRefs(useFlowStore())

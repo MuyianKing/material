@@ -1,5 +1,5 @@
 <script setup>
-import { defineEmits, defineProps, onMounted, ref, watch } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 
 import { jump } from '@hl/utils/es/router'
 import { HlIcon } from '@hl/ui'

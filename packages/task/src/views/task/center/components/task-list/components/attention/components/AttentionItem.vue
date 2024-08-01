@@ -1,5 +1,5 @@
 <script setup>
-import { defineEmits, defineModel, defineProps, nextTick } from 'vue'
+import { nextTick } from 'vue'
 import { storeToRefs } from 'pinia'
 import { ElBadge, ElTabPane, ElTabs } from 'element-plus/es'
 import { HlIcon } from '@hl/ui'

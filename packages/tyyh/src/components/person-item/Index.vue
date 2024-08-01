@@ -1,4 +1,6 @@
 <script setup>
+import { HlIcon, HlImage } from '@hl/ui'
+
 const props = defineProps({
   user: {
     type: Object,

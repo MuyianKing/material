@@ -1,5 +1,5 @@
 <script setup>
-import { computed, defineEmits, defineExpose, ref } from 'vue'
+import { computed, ref } from 'vue'
 import { HlContextMenu } from '@hl/ui'
 
 import { jump } from '@hl/utils/es/router'

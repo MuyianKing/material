@@ -1,5 +1,7 @@
 import { defineStore } from 'pinia'
 
+const components_map = {}
+
 export default defineStore('dynamicRouter', {
   state: () => ({
     // 动态路由

@@ -1,4 +1,7 @@
 <script setup>
+import { ref } from 'vue'
+import { HlDropdown } from '@hl/ui'
+
 defineProps({
   config: {
     type: Object,
@@ -18,7 +21,7 @@ function handleSearch(value) {
 </script>
 
 <template>
-  <hl-wj-dropdown v-model="model" all :options="config.options" :label="config.label" @change="(value) => handleSearch(value)" />
+  <hl-dropdown v-model="model" all :options="config.options" :label="config.label" @change="(value) => handleSearch(value)" />
 </template>
 
 <style lang='scss' scoped>

@@ -1,4 +1,6 @@
 <script setup>
+import { HlFormItem, HlSelect } from '@hl/ui'
+
 const options = [{
   label: '身份证号',
   value: 'id_card',

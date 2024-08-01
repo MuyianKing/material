@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps } from 'vue'
+import { computed } from 'vue'
 import { HlIcon } from '@hl/ui'
 import { ElImage } from 'element-plus/es'
 

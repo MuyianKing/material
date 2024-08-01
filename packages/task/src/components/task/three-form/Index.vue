@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from 'vue'
 import PreviewPanelItem from '../../form-editor/PreviewPanelItem.vue'
 import genFormConfig from './hooks/genFormConfig'
 

@@ -1,5 +1,8 @@
 <script setup>
 import useAppStore from '@pinia/useAppStore'
+import { computed } from 'vue'
+import { storeToRefs } from 'pinia'
+import { HlFormItem, HlIcon, HlInput } from '@hl/ui'
 import useFlowStore from '../../../pinia/modules/useFlowStore'
 
 const value = defineModel()

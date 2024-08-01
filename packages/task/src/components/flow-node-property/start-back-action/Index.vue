@@ -1,4 +1,6 @@
 <script setup>
+import { HlFormItem, HlRadio } from '@hl/ui'
+
 const value = defineModel()
 const options = [{
   label: '自动重新下发',

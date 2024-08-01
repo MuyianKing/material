@@ -1,4 +1,5 @@
 <script setup>
+import { computed } from 'vue'
 import ComplexUser from '../../../../model/ComplexUser'
 import ComplexControlSelect from '../../../person-complex-select/Index.vue'
 

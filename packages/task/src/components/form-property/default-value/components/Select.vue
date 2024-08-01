@@ -1,4 +1,7 @@
 <script setup>
+import { inject } from 'vue'
+import { HlSelect } from '@hl/ui'
+
 const { property_config } = toRefs(inject('editor_store'))
 
 const model = defineModel()

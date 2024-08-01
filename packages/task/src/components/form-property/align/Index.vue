@@ -1,4 +1,5 @@
 <script setup>
+import { HlFormItem, HlSelect } from '@hl/ui'
 import { align_type } from '../../../default/form'
 
 const value = defineModel()

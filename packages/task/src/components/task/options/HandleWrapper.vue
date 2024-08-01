@@ -1,4 +1,5 @@
 <script setup>
+import { provide } from 'vue'
 import useDetailData from './useDetailData'
 
 defineOptions({

@@ -2,6 +2,7 @@
 import { cloneDeep } from 'lodash-es'
 import { computed, onMounted, ref, watch } from 'vue'
 import { ElCascader, ElTreeSelect } from 'element-plus'
+import { HlDropdownCascader } from '@hl/ui'
 import { getOrgInfo, getTreeList } from '../../server/organization'
 import 'element-plus/es/components/cascader/style/css'
 import 'element-plus/es/components/tree-select/style/css'

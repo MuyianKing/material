@@ -1,12 +1,13 @@
 {
   "name": "@hl/task",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "",
   "author": "",
   "license": "ISC",
   "keywords": [],
   "main": "index.js",
   "dependencies": {
+    "@hl/hooks": "^0.2.4",
     "@hl/tyyh": "0.3.0",
     "@hl/ui": "0.3.3",
     "@hl/utils": "0.3.3",

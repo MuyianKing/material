@@ -1,6 +1,6 @@
 <script name="FormStatus" setup>
 import { ElTable, ElTableColumn, ElTag } from 'element-plus/es'
-import { computed, defineProps } from 'vue'
+import { computed } from 'vue'
 
 const { data } = defineProps({
   data: {

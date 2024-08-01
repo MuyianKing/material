@@ -1,5 +1,5 @@
 <script setup>
-import { defineExpose, defineModel, defineProps, ref, watch } from 'vue'
+import { ref, watch } from 'vue'
 import { ElTree } from 'element-plus/es'
 
 const props = defineProps({

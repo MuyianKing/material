@@ -1,6 +1,8 @@
 <script setup>
-import HlInput from '@hl/ui/src/input/Index.vue'
+import { HlInput, HlSelect } from '@hl/ui'
 import { getLabelByVal } from '@hl/utils/es/common'
+import { watch } from 'vue'
+
 import { default_type } from '../../../../../default/form'
 import UserDefault from './components/UserDefault.vue'
 import TimeDiff from './components/time-diff/Index.vue'

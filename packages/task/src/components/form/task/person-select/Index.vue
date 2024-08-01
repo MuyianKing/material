@@ -1,5 +1,6 @@
 <script setup>
 import { PersonDiversitySelect } from '@hl/tyyh'
+import { computed } from 'vue'
 import CustomEditableComp from '../../basic/CustomEditableComp.vue'
 import useComponent from '../../utils'
 import { getPersonByAll } from '../../../../server'

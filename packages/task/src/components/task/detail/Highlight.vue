@@ -1,11 +1,14 @@
 <script setup>
+import { HlIcon, HlPreview } from '@hl/ui'
 import RevBtn from '../options/common/RevBtn.vue'
 import { removeWorkAskFor } from '../../../server/task'
 
 defineProps({
   interaction: {
     type: Array,
-    default: [],
+    default() {
+      return []
+    },
   },
   data: {
     type: Object,

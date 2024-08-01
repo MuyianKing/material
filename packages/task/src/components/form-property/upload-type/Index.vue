@@ -1,4 +1,5 @@
 <script setup>
+import { HlFormItem, HlSelect } from '@hl/ui'
 import { file_type_list } from '../../../default/form'
 
 const value = defineModel()

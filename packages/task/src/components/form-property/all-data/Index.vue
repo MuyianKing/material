@@ -1,5 +1,5 @@
 <script setup>
-import { HlQuestionIcon } from '@hl/ui'
+import { HlFormItem, HlQuestionIcon, HlRadio } from '@hl/ui'
 import { true_false } from '../../../default/index'
 
 const value = defineModel()

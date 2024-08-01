@@ -1,4 +1,6 @@
 <script setup>
+import { reactive, ref, useAttrs, watch } from 'vue'
+import { HlDialog, HlSearchPage, HlTable, HlTableColumn } from '@hl/ui'
 import { taskAuditFeedbackList } from '../../../../../../server/task'
 import Detail from './Detail.vue'
 import Audit from './Audit.vue'
@@ -48,7 +50,7 @@ function refresh() {
           <hl-table-column label="操作" width="150px">
             <template #default="{ row }">
               <div class="flex items-center justify-around">
-                <detail :data="row" :task-id="taskId"/>
+                <detail :data="row" :task-id="taskId" />
                 <audit :data="row" @refresh="refresh" />
               </div>
             </template>

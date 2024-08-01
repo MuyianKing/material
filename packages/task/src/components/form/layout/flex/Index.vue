@@ -1,5 +1,6 @@
 <script setup>
 import { getCanUseValue } from '@hl/utils/es/common'
+import { computed, nextTick, onMounted, watch } from 'vue'
 import CustomComp from '../../basic/CustomComp.vue'
 import EditorPanelItem from '../../../form-editor/EditorPanelItem.vue'
 import PreviewPanelItem from '../../../form-editor/PreviewPanelItem.vue'

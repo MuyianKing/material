@@ -1,5 +1,8 @@
 <script setup>
 import { getLabelByVal } from '@hl/utils/es/common'
+import { ref, watch } from 'vue'
+import { storeToRefs } from 'pinia'
+import { HlIcon } from '@hl/ui'
 import NodeData from '../../../../model/flow/node.data'
 import { node_list } from '../../../../default/flow'
 import useFlowStore from '../../../../../../../packages/task/src/pinia/modules/useFlowStore'

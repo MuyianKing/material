@@ -1,5 +1,5 @@
 <script setup>
-import { defineEmits, defineProps, ref, watch } from 'vue'
+import { ref, useAttrs, watch } from 'vue'
 import { HlAddButton, HlDelButton, HlDialog } from '@hl/ui'
 
 import { cloneDeep } from 'lodash-es'

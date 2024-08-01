@@ -1,4 +1,7 @@
 <script setup>
+import { computed, inject, ref, watchEffect } from 'vue'
+import { storeToRefs } from 'pinia'
+import { HlIcon } from '@hl/ui'
 import useFlowStore from '../../../pinia/modules/useFlowStore'
 import EdgeConfig from './edge/Index.vue'
 import NodeConfig from './node/Index.vue'

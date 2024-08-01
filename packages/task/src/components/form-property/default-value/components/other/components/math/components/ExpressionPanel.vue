@@ -1,4 +1,6 @@
 <script setup>
+import { computed } from 'vue'
+import { useEventListener } from '@vueuse/core'
 import { fh } from '../../../../../../../../default/form'
 import ExpressionComp from './Expression.vue'
 

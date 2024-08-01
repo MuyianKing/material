@@ -1,5 +1,5 @@
 <script setup>
-import { defineEmits, onMounted, ref } from 'vue'
+import { onMounted, ref } from 'vue'
 
 import WrapperComp from '../../components/Wrapper.vue'
 import { myTaskCount } from '../../../../../server/benches'

@@ -1,4 +1,6 @@
 <script setup>
+import { inject } from 'vue'
+import { HlFormItem, HlSelect } from '@hl/ui'
 import { input_type_list } from '../../../default/form'
 
 const value = defineModel()

@@ -2,9 +2,11 @@
 import '@logicflow/core/dist/style/index.css'
 import '@logicflow/extension/lib/style/index.css'
 import LogicFlow from '@logicflow/core'
-
+import { inject, nextTick, onMounted, provide, ref, watch } from 'vue'
 import { Control, SelectionSelect, Snapshot } from '@logicflow/extension'
+import { useDebounceFn, useEventListener } from '@vueuse/core'
 
+import { storeToRefs } from 'pinia'
 import FlowConfig from '../config/Index.vue'
 import { getPrevNodes, hanlderIsEmpty, splitNodeEdge, validateOuterFileds } from '../../../hooks/flow'
 import link from '../../../components/logicflow/edge/link'

@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from 'vue'
 import FixedComp from '../../../FixedComp.vue'
 import EditorDialog from './components/EditorDialog.vue'
 import ExpressionComp from './components/Expression.vue'

@@ -1,5 +1,4 @@
 <script setup>
-import { defineProps } from 'vue'
 import { ElFormItem } from 'element-plus/es'
 
 defineProps({

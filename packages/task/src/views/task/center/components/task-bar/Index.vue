@@ -1,5 +1,7 @@
 <script setup>
 import theme from '@style/theme.module.scss'
+import { onMounted, reactive, ref } from 'vue'
+import { HlChart, HlNodata } from '@hl/ui'
 import WrapperComp from '../../components/Wrapper.vue'
 import { getTaskStep } from '../../../../../server/task'
 import StaItem from './components/StaItem.vue'

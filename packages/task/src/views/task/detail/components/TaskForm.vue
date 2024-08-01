@@ -1,5 +1,4 @@
 <script setup>
-import { defineProps } from 'vue'
 import FormDetail from '../../../form/preview/Template.vue'
 
 defineProps({

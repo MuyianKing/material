@@ -1,4 +1,6 @@
 <script setup>
+import { ref } from 'vue'
+import { HlButton, HlDialog } from '@hl/ui'
 import FormDetail from '../../../../../../views/form/preview/Template.vue'
 import { finishTask } from '../../../../../../server'
 

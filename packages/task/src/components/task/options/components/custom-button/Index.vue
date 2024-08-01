@@ -1,4 +1,6 @@
 <script setup>
+import { ref } from 'vue'
+import { HlButton, HlDialog } from '@hl/ui'
 import ThreeForm from '../../../three-form/Index.vue'
 
 defineProps({

@@ -1,4 +1,6 @@
 <script setup>
+import { storeToRefs } from 'pinia'
+import { HlFormItem } from '@hl/ui'
 import DictPicker from '../../false-dict/Picker.vue'
 import useFlowStore from '../../../pinia/modules/useFlowStore'
 

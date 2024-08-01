@@ -1,5 +1,5 @@
 <script setup>
-import { defineEmits, getCurrentInstance, inject, onMounted, ref, toRefs, watch } from 'vue'
+import { getCurrentInstance, inject, onMounted, ref, toRefs, watch } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useRoute, useRouter } from 'vue-router'
 

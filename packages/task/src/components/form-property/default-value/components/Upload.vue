@@ -1,4 +1,7 @@
 <script setup>
+import { nextTick, ref, watch } from 'vue'
+import { HlUpload } from '@hl/ui'
+
 const props = defineProps({
   property: {
     type: Object,

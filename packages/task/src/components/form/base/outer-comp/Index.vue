@@ -1,5 +1,6 @@
 <script setup>
 import isURL from 'validator/es/lib/isURL'
+import { computed, inject, nextTick, onMounted, ref } from 'vue'
 import CustomComp from '../../basic/CustomComp.vue'
 import useComponent, { generatePropertyByConfig } from '../../utils'
 

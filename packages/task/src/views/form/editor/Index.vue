@@ -1,12 +1,13 @@
 <script setup>
 import { guid } from '@hl/utils/es/common'
+import { onMounted, provide, reactive } from 'vue'
+import { useRoute } from 'vue-router'
 import { getFormById } from '../../../server/form'
 import ComponentList from './components/component-list/Index.vue'
 import EditorPanel from './components/editor-panel/Index.vue'
 import ConfigComp from './components/config/Index.vue'
 import FooterComp from './components/Footer.vue'
-
-import EditorStore from './store.js'
+import EditorStore from './store'
 
 const props = defineProps({
   formId: {

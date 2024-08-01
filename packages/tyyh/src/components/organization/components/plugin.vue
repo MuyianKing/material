@@ -2,6 +2,7 @@
 import { useDebounceFn } from '@vueuse/core'
 import { nextTick, onMounted, reactive, ref } from 'vue'
 import { ElButton, ElTree, vLoading } from 'element-plus'
+import { HlIcon, HlInput } from '@hl/ui'
 import { getList } from '../../../server/organization'
 import 'element-plus/es/components/loading/style/css'
 import 'element-plus/es/components/tree/style/css'

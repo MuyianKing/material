@@ -1,4 +1,5 @@
 <script setup>
+import { onMounted, ref } from 'vue'
 import { getConfigTree } from '../../server/benches'
 
 const emits = defineEmits(['change'])
@@ -66,7 +67,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <el-tree-select :data="treeData" @change="handleChange" style="width: 170px"/>
+  <el-tree-select :data="treeData" style="width: 170px" @change="handleChange" />
 </template>
 
 <style scoped lang="scss"></style>

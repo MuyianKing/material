@@ -1,6 +1,10 @@
 <script setup>
+import { inject, ref, watch } from 'vue'
+import { storeToRefs } from 'pinia'
+import { HlFormItem, HlInput, HlSelect } from '@hl/ui'
+import { ElDivider } from 'element-plus'
 import { getPrevNodes } from '../../../hooks/flow'
-import useFlowStore from '../../../../../../packages/task/src/pinia/modules/useFlowStore.js'
+import useFlowStore from '../../../../../../packages/task/src/pinia/modules/useFlowStore'
 
 const model_value = defineModel({
   type: Object,

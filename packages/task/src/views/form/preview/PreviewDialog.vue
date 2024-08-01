@@ -1,4 +1,6 @@
 <script setup>
+import { provide, ref } from 'vue'
+import { HlDialog } from '@hl/ui'
 import PreviewTemplate from './Template.vue'
 
 defineProps({

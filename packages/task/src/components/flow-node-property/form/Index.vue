@@ -1,6 +1,9 @@
 <script setup>
+import { computed, ref } from 'vue'
+import { storeToRefs } from 'pinia'
+import { HlButton } from '@hl/ui'
 import TaskFormEdit from '../../../views/task/design/components/form/EditDialog.vue'
-import useFlowStore from '../../../../../../packages/task/src/pinia/modules/useFlowStore.js'
+import useFlowStore from '../../../../../../packages/task/src/pinia/modules/useFlowStore'
 
 const emits = defineEmits(['update'])
 

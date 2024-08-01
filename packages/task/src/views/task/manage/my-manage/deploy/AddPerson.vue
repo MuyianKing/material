@@ -1,5 +1,5 @@
 <script setup>
-import { defineEmits, defineProps, ref, watch } from 'vue'
+import { ref, watch } from 'vue'
 import { HlFormDialog, HlFormItem } from '@hl/ui'
 
 import { PersonSelectPanel } from '@hl/tyyh'

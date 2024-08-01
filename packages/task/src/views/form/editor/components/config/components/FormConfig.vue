@@ -1,4 +1,7 @@
 <script setup>
+import { inject } from 'vue'
+import { HlFormItem, HlInput } from '@hl/ui'
+
 const { form_config } = toRefs(inject('editor_store'))
 </script>
 

@@ -1,4 +1,6 @@
 <script setup>
+import { HlCheckbox, HlFormItem } from '@hl/ui'
+
 const model = defineModel()
 
 const options = [{

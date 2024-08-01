@@ -1,7 +1,11 @@
 <script setup>
+import { computed, inject, ref, watch } from 'vue'
+import { storeToRefs } from 'pinia'
+import { HlFormItem, HlInput, HlSelect } from '@hl/ui'
+import { ElOption, ElSelect } from 'element-plus'
 import AppendContent from '../../common/AppendContent.vue'
 import NodeOuter from '../../flow/NodeOuter.vue'
-import useFlowStore from '../../../../../../packages/task/src/pinia/modules/useFlowStore.js'
+import useFlowStore from '../../../../../../packages/task/src/pinia/modules/useFlowStore'
 
 const props = defineProps({
   label: {

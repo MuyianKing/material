@@ -1,5 +1,8 @@
 <script setup>
 import { PersonSelectPanel } from '@hl/tyyh'
+import { ref } from 'vue'
+import { HlFormDialog, HlFormItem } from '@hl/ui'
+import { ElButton, ElLink } from 'element-plus'
 import { taskRedeploy } from '../../../../server'
 
 const props = defineProps({

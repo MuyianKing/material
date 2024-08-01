@@ -1,4 +1,5 @@
 <script setup>
+import { HlFormItem } from '@hl/ui'
 import DictPicker from '../../false-dict/Picker.vue'
 
 const value = defineModel()

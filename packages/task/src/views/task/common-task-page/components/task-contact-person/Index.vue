@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, reactive, ref } from 'vue'
+import { reactive, ref } from 'vue'
 import { HlDialog, HlEditButton, HlFormItem, HlInput, HlPage, HlSearchButton, HlTable, HlTableColumn } from '@hl/ui'
 
 import { refreshTableRow } from '../../../../../utils'

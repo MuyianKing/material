@@ -1,4 +1,7 @@
 <script setup>
+import { ref } from 'vue'
+import { HlButton, HlInput } from '@hl/ui'
+
 defineProps({
   placeholder: {
     type: String,

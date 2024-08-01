@@ -1,4 +1,5 @@
 <script setup>
+import { HlFormItem } from '@hl/ui'
 import ComplexControlSelect from '../../person-complex-select/Index.vue'
 
 const model = defineModel()

@@ -1,5 +1,5 @@
 <script setup>
-import { computed, defineEmits, defineProps } from 'vue'
+import { computed } from 'vue'
 import { ElTable, ElTableColumn, ElTooltip } from 'element-plus/es'
 
 const props = defineProps({

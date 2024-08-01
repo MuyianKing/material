@@ -1,4 +1,6 @@
 <script setup>
+import { computed, inject } from 'vue'
+import { HlSelect } from '@hl/ui'
 import { getFlatFields } from '../../../../../../../../hooks/form'
 
 const { form_field_list, active_form_item } = toRefs(inject('editor_store'))

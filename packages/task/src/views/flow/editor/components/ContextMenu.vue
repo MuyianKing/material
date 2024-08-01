@@ -1,4 +1,5 @@
 <script setup>
+import { computed, inject } from 'vue'
 import { getPrevNodes } from '../../../../hooks/flow'
 import useFlowStore from '../../../../pinia/modules/useFlowStore'
 

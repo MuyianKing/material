@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from 'vue'
 import PropertyConfig from './components/Property.vue'
 import FormConfig from './components/FormConfig.vue'
 

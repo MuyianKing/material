@@ -1,4 +1,6 @@
 <script setup>
+import { HlSelect } from '@hl/ui'
+
 const options = [{
   label: '天',
   value: 'day',

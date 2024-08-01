@@ -1,5 +1,6 @@
 <script setup>
 import { getLabelByVal } from '@hl/utils/es/common'
+import { HlSelect } from '@hl/ui'
 import CustomEditableComp from '../../basic/CustomEditableComp.vue'
 
 import useComponent from '../../utils'

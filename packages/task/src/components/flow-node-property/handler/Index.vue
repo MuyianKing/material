@@ -1,6 +1,8 @@
 <script setup>
+import { storeToRefs } from 'pinia'
+import { HlFormItem } from '@hl/ui'
 import ComplexControlSelect from '../../person-complex-select/Index.vue'
-import useFlowStore from '../../../../../../packages/task/src/pinia/modules/useFlowStore.js'
+import useFlowStore from '../../../../../../packages/task/src/pinia/modules/useFlowStore'
 
 const value = defineModel()
 const { node, all_can_link_nodes } = storeToRefs(useFlowStore())

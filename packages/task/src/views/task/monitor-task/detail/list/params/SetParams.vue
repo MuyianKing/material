@@ -1,6 +1,6 @@
 <script setup>
 import { useRoute } from 'vue-router'
-import { defineEmits, ref, watch } from 'vue'
+import { ref, watch } from 'vue'
 import { HlButton, HlFormDialog } from '@hl/ui'
 import { getWhere, setWhere } from '../../../../../../server/infoGroup'
 import FieldTree from '../FieldTree.vue'

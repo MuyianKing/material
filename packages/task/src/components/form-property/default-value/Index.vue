@@ -1,4 +1,6 @@
 <script setup>
+import { computed, inject } from 'vue'
+import { HlFormItem } from '@hl/ui'
 import SelectComp from './components/Select.vue'
 import UploadComp from './components/Upload.vue'
 import DateTime from './components/DateTime.vue'

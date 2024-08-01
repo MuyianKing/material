@@ -1,5 +1,5 @@
 <script setup>
-import { defineEmits, ref, watch } from 'vue'
+import { ref, watch } from 'vue'
 import { HlButton, HlFormDialog } from '@hl/ui'
 
 import { setHeadersParams } from '../../../../server/task'

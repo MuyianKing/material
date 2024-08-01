@@ -1,6 +1,6 @@
 <script setup>
 import { useUrlSearchParams } from '@vueuse/core'
-import { defineExpose, onMounted, provide, reactive, ref } from 'vue'
+import { onMounted, provide, reactive, ref } from 'vue'
 
 import { getTaskConfigById } from '../../../server/config'
 import TaskbaseInfo from '../../../model/task/base.info'

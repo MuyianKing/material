@@ -1,4 +1,5 @@
 <script setup>
+import { HlPreview, HlUpload } from '@hl/ui'
 import CustomEditableComp from '../../basic/CustomEditableComp.vue'
 
 import useComponent from '../../utils'

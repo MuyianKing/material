@@ -1,5 +1,6 @@
 <script setup>
 import useAppStore from '@pinia/useAppStore'
+import { HlFormItem, HlIcon, HlInput } from '@hl/ui'
 
 const value = defineModel()
 const appStore = useAppStore()

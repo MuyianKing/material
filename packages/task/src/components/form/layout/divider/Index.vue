@@ -1,5 +1,6 @@
 <script setup>
 import { getCanUseValue } from '@hl/utils/es/common'
+import { computed, nextTick, onMounted } from 'vue'
 import CustomComp from '../../basic/CustomComp.vue'
 
 import { generatePropertyByConfig } from '../../utils'

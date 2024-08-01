@@ -1,5 +1,6 @@
 <script setup>
 import { cloneDeep } from 'lodash-es'
+import { ref, watchEffect } from 'vue'
 import PreviewPanelItem from '../../../components/form-editor/PreviewPanelItem.vue'
 import TextPanelItem from '../../../components/form-editor/TextPanelItem.vue'
 import { getFormById } from '../../../server/form'

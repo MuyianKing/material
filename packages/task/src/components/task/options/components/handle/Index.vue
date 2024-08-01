@@ -1,4 +1,5 @@
 <script setup>
+import { getCurrentInstance, ref } from 'vue'
 import HandleDialog from './components/Dialog.vue'
 
 defineProps({

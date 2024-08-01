@@ -2,7 +2,7 @@
 import { ref, toRefs } from 'vue'
 import { HlAddButton, HlFormItem, HlGridLayout, HlInput, HlNodata } from '@hl/ui'
 
-import useListPage from '@hl/ui/src/list-page/index'
+import { useList } from '@hl/jooks'
 import { useDraggable } from 'vue-draggable-plus'
 import { getList, sortGroup } from '../../../server/group'
 import GroupItem from './components/GroupItem.vue'
@@ -14,7 +14,7 @@ const {
   table_data,
   search,
   loading,
-} = useListPage({
+} = useList({
   query: {
     group_name: '',
   },

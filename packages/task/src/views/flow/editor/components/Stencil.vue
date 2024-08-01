@@ -1,5 +1,8 @@
 <script setup>
 import { guid } from '@hl/utils/es/common'
+import { storeToRefs } from 'pinia'
+import { inject } from 'vue'
+import { HlIcon } from '@hl/ui'
 import { node_list } from '../../../../default/flow'
 import NodeData from '../../../../model/flow/node.data'
 import useFlowStore from '../../../../pinia/modules/useFlowStore'

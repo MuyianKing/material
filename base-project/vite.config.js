@@ -11,6 +11,9 @@ import { defineConfig, loadEnv } from 'vite'
 import basicSsl from '@vitejs/plugin-basic-ssl'
 import viteImagemin from 'vite-plugin-imagemin'
 import viteCompression from 'vite-plugin-compression'
+import Components from 'unplugin-vue-components/vite'
+import AutoImport from 'unplugin-auto-import/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import useAlias from './alias.config'
 
 const { alias_map } = useAlias()
@@ -24,6 +27,30 @@ export default ({ mode }) => {
     vue(),
     vueJsx(),
     ElementPlus(),
+    AutoImport({
+      resolvers: [ElementPlusResolver()],
+    }),
+    Components({
+      directoryAsNamespace: true,
+      resolvers: [
+        ElementPlusResolver({
+          importStyle: 'sass',
+        }),
+        {
+          type: 'component',
+          resolve: (name) => {
+            if (name.startsWith('Hl')) {
+              return {
+                importName: name,
+                from: 'hlui',
+                path: `@hl/ui/index.js`,
+              }
+            }
+          },
+        },
+      ],
+      dts: true,
+    }),
     // 图片压缩
     viteImagemin({
       gifsicle: {

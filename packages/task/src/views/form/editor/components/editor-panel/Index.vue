@@ -1,4 +1,5 @@
 <script setup>
+import { inject, watch } from 'vue'
 import EditorPanelItem from '../../../../../components/form-editor/EditorPanelItem.vue'
 
 const { form_field_list, form_config } = toRefs(inject('editor_store'))

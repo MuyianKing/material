@@ -1,10 +1,10 @@
 <script setup>
-import { defineEmits, onMounted, ref, watch } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import { storeToRefs } from 'pinia'
 
-import useBus from '@utils/bus'
 import { getTaskList } from '../../../../../../../server/benches'
 import useBenchesStore from '../../../../../../../pinia/modules/useBenchesStore'
+import { Observer } from '../../../../../../../utils'
 import AttentionItem from './components/AttentionItem.vue'
 import EditDialog from './components/EditDialog.vue'
 
@@ -109,12 +109,11 @@ watch(config, (val) => {
 
 onMounted(() => {
   getData()
-})
 
-const { addBus } = useBus()
-addBus('refreshTableRow', () => {
-  refreshTableRow = true
-  getData(false)
+  Observer.addObserver('attention', () => {
+    refreshTableRow = true
+    getData(false)
+  })
 })
 </script>
 

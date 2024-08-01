@@ -1,7 +1,7 @@
 <script setup>
-import { defineProps, ref } from 'vue'
+import { ref } from 'vue'
 import { HlDate, HlFormItem, HlInput } from '@hl/ui'
-import useListPage from '@hl/ui/src/list-page/index'
+import { useList } from '@hl/jooks'
 
 import { getTaskManagerOne, taskManagement } from '../../../../server/task'
 import { refreshTableRow } from '../../../../utils'
@@ -22,7 +22,7 @@ const {
   table_data,
   search,
   getData,
-} = useListPage({
+} = useList({
   query: {
     create_end_time: '',
     create_start_time: '',

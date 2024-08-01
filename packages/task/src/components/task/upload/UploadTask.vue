@@ -1,5 +1,6 @@
 <script setup>
-import { HlUpload } from '@hl/ui'
+import { HlExportButton, HlUpload } from '@hl/ui'
+import { reactive, ref } from 'vue'
 import { uploadCreateTask } from '../../../server/task'
 import ConfirmUploadTask from './ConfirmUploadTask.vue'
 import StartTask from './StartUploadTask.vue'

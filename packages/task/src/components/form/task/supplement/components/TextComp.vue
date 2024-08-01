@@ -1,4 +1,6 @@
 <script setup>
+import { HlTable, HlTableColumn } from '@hl/ui'
+
 defineProps({
   data: {
     type: Object,

@@ -1,4 +1,5 @@
 <script setup>
+import { ref, useAttrs } from 'vue'
 import { deleteTask } from '../../../../server'
 
 defineProps({

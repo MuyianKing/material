@@ -1,4 +1,6 @@
 <script setup>
+import { HlFormItem } from '@hl/ui'
+
 const value = defineModel()
 </script>
 

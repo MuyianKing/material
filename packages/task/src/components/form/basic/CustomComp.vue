@@ -1,4 +1,5 @@
 <script setup>
+import { computed } from 'vue'
 import useGenerateRelative from './hooks/show'
 
 const props = defineProps({

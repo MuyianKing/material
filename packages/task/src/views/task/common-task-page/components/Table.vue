@@ -1,6 +1,6 @@
 <script setup>
-import { defineProps, defineEmits, ref } from 'vue'
-import { useListPage } from '@hl/ui'
+import { ref } from 'vue'
+import { useList } from '@hl/hooks'
 import { getList } from '../../../../server/common.task.page'
 import CustomTable from '../../../../components/task/CustomeTable.vue'
 import SearchConfig from './search-config/Index.vue'
@@ -26,7 +26,7 @@ const {
   search,
   loading,
   getData,
-} = useListPage({
+} = useList({
   query: {
     config_uuid: props.configUuid,
     ...props.params,

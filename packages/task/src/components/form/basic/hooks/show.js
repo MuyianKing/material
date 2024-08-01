@@ -1,4 +1,5 @@
 import { evalByFun, getLabelByVal } from '@hl/utils/es/common'
+import { onMounted, ref, watch } from 'vue'
 import { show_huo_qie, show_opt_type } from '../../../../default/form'
 
 export default function useGenerateRelative(form, config, mode) {

@@ -1,5 +1,8 @@
 <script setup>
-import useListPage from '@hl/ui/src/list-page'
+import { useList } from '@hl/jooks'
+import { onMounted, ref } from 'vue'
+import { useRoute } from 'vue-router'
+import { HlSearchButton } from '@hl/ui'
 import { getTaskList, getTaskOne } from '../../../server'
 import { refreshTableRow } from '../../../utils'
 import CustomTable from '../../../components/task/CustomeTable.vue'
@@ -22,7 +25,7 @@ const {
   table_data,
   search,
   loading,
-} = useListPage({
+} = useList({
   query: {
     query: '',
     status: '',

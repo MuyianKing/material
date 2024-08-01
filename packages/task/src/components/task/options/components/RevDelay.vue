@@ -1,4 +1,5 @@
 <script setup>
+import { ElButton, ElLink } from 'element-plus'
 import RevBtn from '../common/RevBtn.vue'
 import { revDelayTask } from '../../../../server'
 

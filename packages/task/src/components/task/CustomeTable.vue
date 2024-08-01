@@ -1,4 +1,5 @@
 <script setup>
+import { HlTable, HlTableColumn } from '@hl/ui'
 import TaskStatus from './Status.vue'
 import AdditionalComp from './Additional.vue'
 import TaskOpt from './options/Index.vue'

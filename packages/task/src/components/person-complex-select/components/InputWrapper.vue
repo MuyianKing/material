@@ -1,4 +1,6 @@
 <script setup>
+import { HlIcon } from '@hl/ui'
+
 defineProps({
   disabled: {
     type: Boolean,

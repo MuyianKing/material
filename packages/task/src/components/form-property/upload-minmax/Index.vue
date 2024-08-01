@@ -1,4 +1,7 @@
 <script setup>
+import { watch } from 'vue'
+import { HlFormItem, HlInput } from '@hl/ui'
+
 const property = defineModel()
 
 watch(() => property.value.upload_multiple, () => {

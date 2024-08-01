@@ -1,4 +1,5 @@
 <script setup>
+import { HlInput, HlSelect } from '@hl/ui'
 import EditOptions from '../../common/EditOptions.vue'
 import { select_source_type } from '../../../default/form'
 

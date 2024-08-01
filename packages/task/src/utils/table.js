@@ -1,4 +1,3 @@
-import useBus from '@utils/bus'
 import { exportTemplate } from '../server/config'
 
 // 任务表格模板下载
@@ -12,7 +11,6 @@ export async function downloadTemplate(config_uuid) {
   }
 }
 
-const { emitBus } = useBus()
 /**
  * 请求数据并刷新表格行数据
  * @param row 行数据
@@ -32,8 +30,23 @@ export async function refreshTableRow(row, server) {
       row[key] = result[key]
     }
 
-    emitBus('refreshTableRow', result)
+    Observer.monitor(result)
   } catch (e) {
     hl.message.error(e, '更新信息出错')
+  }
+}
+
+// 观察者
+export class Observer {
+  // 添加需要调用的对象
+  static observers = new Map()
+
+  static addObserver(name, observer) {
+    this.observers.set(name, observer)
+  }
+
+  // 监听的函数出发了之后提醒
+  static monitor(result) {
+    this.observers.forEach(item => item(result))
   }
 }

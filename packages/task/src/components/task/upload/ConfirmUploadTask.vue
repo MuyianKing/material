@@ -1,5 +1,6 @@
 <script setup>
-import { HlPage } from '@hl/ui'
+import { HlButton, HlDialog, HlPage, HlTable, HlTableColumn } from '@hl/ui'
+import { ref, useAttrs, watch } from 'vue'
 import { confirmUploadCreateTask } from '../../../server/task'
 
 const props = defineProps({

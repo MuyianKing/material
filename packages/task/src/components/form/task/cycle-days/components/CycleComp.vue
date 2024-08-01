@@ -1,5 +1,6 @@
 <script setup>
 import { getLabelByVal } from '@hl/utils/es/common'
+import { HlCheckbox, HlDate, HlFormItem, HlRadio } from '@hl/ui'
 import CycledatModel from '../../../../../model/task/cycle.day'
 
 defineProps({

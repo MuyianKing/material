@@ -1,4 +1,5 @@
 <script setup>
+import { onMounted, ref } from 'vue'
 import { getParams } from '../../../../server'
 
 const tree_data = ref([])

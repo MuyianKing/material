@@ -1,5 +1,5 @@
 <script setup>
-import { defineEmits, defineProps, ref } from 'vue'
+import { ref } from 'vue'
 import { HlIcon } from '@hl/ui'
 import { ElTimelineItem } from 'element-plus/es'
 

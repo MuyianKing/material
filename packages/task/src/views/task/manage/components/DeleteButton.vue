@@ -1,5 +1,5 @@
 <script setup>
-import { defineEmits, defineProps } from 'vue'
+import { defineEmits } from 'vue'
 import { HlButton } from '@hl/ui'
 
 import { deleteTask } from '../../../../server/task'

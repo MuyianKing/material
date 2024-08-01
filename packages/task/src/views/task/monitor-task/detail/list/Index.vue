@@ -1,10 +1,10 @@
 <script setup>
-import { defineExpose, ref } from 'vue'
+import { ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { HlFormItem, HlPreview, HlSearchButton, HlSelect, HlTime } from '@hl/ui'
 import { ElTable, ElTableColumn } from 'element-plus/es'
 
-import useListPage from '@hl/ui/src/list-page/index'
+import { useList } from '@hl/jooks'
 import { getDetail } from '../../../../../server/infoGroup'
 import StatusLabel from '../../../../../components/task/Status.vue'
 import SetParams from './params/SetParams.vue'
@@ -23,7 +23,7 @@ const {
   table_data,
   search,
   loading,
-} = useListPage({
+} = useList({
   query: {
     info_group_id,
     query: '',

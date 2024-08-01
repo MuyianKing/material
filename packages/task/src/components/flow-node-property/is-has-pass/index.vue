@@ -1,4 +1,5 @@
 <script setup>
+import { HlFormItem, HlRadio } from '@hl/ui'
 import { is_has_pass } from '../../../default/index'
 
 const value = defineModel()

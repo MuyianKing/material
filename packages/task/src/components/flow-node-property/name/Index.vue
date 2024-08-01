@@ -1,4 +1,6 @@
 <script setup>
+import { storeToRefs } from 'pinia'
+import { HlFormItem, HlInput } from '@hl/ui'
 import useFlowStore from '../../../pinia/modules/useFlowStore'
 
 const value = defineModel()

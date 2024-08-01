@@ -1,13 +1,14 @@
 <script setup>
-import useListPage from '@hl/ui/src/list-page/index'
+import { useList } from '@hl/jooks'
 import { jump } from '@hl/utils/es/router'
+import { HlFormItem, HlInput, HlTable, HlTableColumn } from '@hl/ui'
 
 const {
   HlListPage,
   query,
   getData,
   table_data,
-} = useListPage({
+} = useList({
   query: {
     keyword: '',
   },

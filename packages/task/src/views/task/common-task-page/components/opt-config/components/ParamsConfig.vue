@@ -1,5 +1,5 @@
 <script setup>
-import { defineEmits, defineProps, ref, watch } from 'vue'
+import { ref, watch } from 'vue'
 import { HlButton, HlFormDialog } from '@hl/ui'
 
 import FieldTree from '../../../../../../components/task/FieldTree.vue'

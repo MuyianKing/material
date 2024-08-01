@@ -1,5 +1,7 @@
 <script setup>
 import { VueDraggable } from 'vue-draggable-plus'
+import { computed, inject } from 'vue'
+import { HlIcon } from '@hl/ui'
 
 const props = defineProps({
   modelValue: {

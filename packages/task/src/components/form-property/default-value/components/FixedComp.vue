@@ -1,4 +1,6 @@
 <script setup>
+import { HlInput } from '@hl/ui'
+
 const model = defineModel()
 </script>
 

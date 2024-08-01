@@ -1,5 +1,6 @@
 <script setup>
 import { mix } from '@hl/utils/es/color'
+import { computed } from 'vue'
 
 const props = defineProps({
   data: {
