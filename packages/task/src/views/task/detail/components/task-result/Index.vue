@@ -7,6 +7,9 @@ import { cloneDeep } from 'lodash-es'
 import genFormConfig from '../../../../../hooks/genFormConfig'
 import ResultItem from './components/ResultItem.vue'
 
+import 'element-plus/es/components/timeline/style/css'
+import 'element-plus/es/components/empty/style/css'
+
 const props = defineProps({
   result: {
     type: Array,

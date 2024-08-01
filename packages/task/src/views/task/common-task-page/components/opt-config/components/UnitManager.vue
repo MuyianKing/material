@@ -6,6 +6,8 @@ import { ElCheckbox } from 'element-plus'
 import { getOrgList, setOrg } from '../../../../../../server/common.task.page'
 import OrgTree from './OrgTree.vue'
 
+import 'element-plus/es/components/checkbox/style/css'
+
 const props = defineProps({
   configUuid: {
     type: String,

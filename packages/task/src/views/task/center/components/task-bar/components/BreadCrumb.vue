@@ -2,6 +2,9 @@
 import { ref, watch } from 'vue'
 import { ElBreadcrumb, ElBreadcrumbItem } from 'element-plus'
 
+import 'element-plus/es/components/breadcrumb/style/css'
+import 'element-plus/es/components/breadcrumb-item/style/css'
+
 const props = defineProps({
   level: {
     type: Array,

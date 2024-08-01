@@ -14,6 +14,8 @@ import FormStatus from './FormStatus.vue'
 import ExportBtn from './ExportBtn.vue'
 
 import 'element-plus/es/components/loading/style/css'
+import 'element-plus/es/components/table/style/css'
+import 'element-plus/es/components/table-column/style/css'
 
 const route = useRoute()
 const info_group_id = route.params.id
@@ -119,13 +121,11 @@ defineExpose({
 
     <template #table>
       <el-table v-loading="loading" :data="table_data.data" :row-class="rowClass" :span-method="objectSpanMethod" border
-                cell-class-name="special-table-cell" class="special-table" header-row-class-name="special-table-header-row"
-                table-layout="auto"
-      >
+        cell-class-name="special-table-cell" class="special-table" header-row-class-name="special-table-header-row"
+        table-layout="auto">
         <el-table-column align="center" label="序号" prop="special_index" width="60" />
         <el-table-column v-for="item in table_data.header_config" :key="item.item" :column-key="item.node_type"
-                         :label="item.name" :prop="item.item" align="center"
-        >
+          :label="item.name" :prop="item.item" align="center">
           <template #default="{ row }">
             <hl-time v-if="item.type === 'time'" :time="row[item.item]" />
             <template v-if="item.type === 'FormUpload'">

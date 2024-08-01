@@ -8,6 +8,8 @@ import { getTaskTree } from '../../../server/config'
 import TaskPublish from '../publish/Index.vue'
 import TaskItem from './components/TaskItem.vue'
 
+import 'element-plus/es/components/link/style/css'
+
 const query = reactive({
   query: '',
 })

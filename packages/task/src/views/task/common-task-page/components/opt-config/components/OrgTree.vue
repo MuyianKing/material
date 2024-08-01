@@ -2,6 +2,8 @@
 import { ref, watch } from 'vue'
 import { ElTree } from 'element-plus/es'
 
+import 'element-plus/es/components/tree/style/css'
+
 const props = defineProps({
   allData: {
     type: Array,

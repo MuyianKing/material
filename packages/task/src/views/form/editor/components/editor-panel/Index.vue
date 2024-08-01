@@ -3,6 +3,8 @@ import { inject, watch } from 'vue'
 import { ElForm } from 'element-plus'
 import EditorPanelItem from '../../../../../components/form-editor/EditorPanelItem.vue'
 
+import 'element-plus/es/components/form/style/css'
+
 const { form_field_list, form_config } = toRefs(inject('editor_store'))
 
 watch(form_field_list, (val) => {

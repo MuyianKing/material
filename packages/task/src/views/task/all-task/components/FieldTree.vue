@@ -3,6 +3,8 @@ import { onMounted, ref } from 'vue'
 import { ElTree } from 'element-plus'
 import { getParams } from '../../../../server'
 
+import 'element-plus/es/components/tree/style/css'
+
 const tree_data = ref([])
 function getData() {
   getParams().then((data) => {

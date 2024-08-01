@@ -12,6 +12,8 @@ import DictPicker from '../../../../../components/false-dict/Picker.vue'
 import { rwdd_type_list } from '../../../../../default/task'
 import LabelTitle from './LabelTitle.vue'
 
+import 'element-plus/es/components/form/style/css'
+
 const { base_info } = toRefs(inject('task_config'))
 
 const form_ref = ref()

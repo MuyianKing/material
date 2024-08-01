@@ -7,6 +7,8 @@ import TaskForm from '../detail/components/TaskForm.vue'
 import TaskResult from '../detail/components/task-result/Index.vue'
 import TaskOpt from '../../../components/task/options/Index.vue'
 
+import 'element-plus/es/components/skeleton/style/css'
+
 const props = defineProps({
   task: {
     type: Object,

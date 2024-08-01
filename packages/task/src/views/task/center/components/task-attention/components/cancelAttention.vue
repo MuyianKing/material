@@ -3,6 +3,9 @@ import { HlIcon } from '@hl/ui'
 import { ref } from 'vue'
 import { ElButton, ElPopover } from 'element-plus'
 
+import 'element-plus/es/components/popover/style/css'
+import 'element-plus/es/components/button/style/css'
+
 defineProps({
   icon: {
     type: String,

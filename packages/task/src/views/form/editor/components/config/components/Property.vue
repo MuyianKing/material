@@ -8,6 +8,9 @@ import { property_list, type_list } from '../../../../../../components/form-prop
 import 'element-plus/es/components/form/style/css'
 import 'element-plus/es/components/divider/style/css'
 
+import 'element-plus/es/components/form/style/css'
+import 'element-plus/es/components/divider/style/css'
+
 const { property_config, active_form_item } = toRefs(inject('editor_store'))
 
 const property_list_comp = computed(() => {

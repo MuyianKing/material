@@ -7,7 +7,9 @@ import { cloneDeep } from 'lodash-es'
 import { getList } from '@hl/tyyh/src/server/person'
 import { taskDeploy } from '../../../../../server/task'
 import AddPerson from './AddPerson.vue'
+
 import 'element-plus/es/components/loading/style/css'
+import 'element-plus/es/components/alert/style/css'
 
 const props = defineProps({
   data: {
@@ -107,8 +109,7 @@ watch(() => attrs.modelValue, (val) => {
     </template>
 
     <add-person v-model="addPersonShow" :process-id="data.process_id" :task-id="data.task_id"
-                @success="handleAddSuccess"
-    />
+      @success="handleAddSuccess" />
   </hl-dialog>
 </template>
 

@@ -7,6 +7,9 @@ import { refreshTableRow } from '../../../../../utils'
 import { getLinkPerson, getLinkPersonOne } from '../../../../../server/common.task.page'
 import ContactEdit from './components/Edit.vue'
 
+import 'element-plus/es/components/button/style/css'
+import 'element-plus/es/components/tag/style/css'
+
 const props = defineProps({
   configUuid: {
     type: String,
