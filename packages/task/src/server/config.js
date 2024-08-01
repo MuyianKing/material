@@ -1,11 +1,10 @@
-import http from '../hooks/request'
 import api from '../api'
 
 /**
  * 保存任务配置
  */
 export function saveTaskConfig(params) {
-  return http.post(params.config_id ? api.taskConfigEdit : api.taskConfigAdd, params)
+  return hl.http.post(params.config_id ? api.taskConfigEdit : api.taskConfigAdd, params)
 }
 
 /**
@@ -15,7 +14,7 @@ export async function publishTaskConfig(params) {
   const data = await saveTaskConfig(params)
   const config_id = data.data.config_id
 
-  return http.post(api.taskConfigPublish, {
+  return hl.http.post(api.taskConfigPublish, {
     config_id,
   })
 }
@@ -26,7 +25,7 @@ export async function publishTaskConfig(params) {
  * @returns {Promise} data
  */
 export async function getTaskTree(params) {
-  const result = await http.post(api.taskTree, params)
+  const result = await hl.http.post(api.taskTree, params)
   return result?.data || []
 }
 
@@ -38,7 +37,7 @@ export async function getTaskConfigById(config_id) {
   const params = {}
   Number.isNaN(+config_id) ? params.config_uuid = config_id : params.config_id = config_id
 
-  const result = await http.post(api.taskConfigOne, params)
+  const result = await hl.http.post(api.taskConfigOne, params)
 
   if (result?.data) {
     return result?.data
@@ -65,7 +64,7 @@ export async function getPublishConfig(config_id) {
  * @param {*} config_id
  */
 export function delTaskConfig(config_id) {
-  return http.post(api.taskConfigDel, {
+  return hl.http.post(api.taskConfigDel, {
     config_id,
   })
 }
@@ -75,7 +74,7 @@ export function delTaskConfig(config_id) {
  * @param {*} config_id
  */
 export function stopTaskConfig(config_id) {
-  return http.post(api.taskConfigStop, {
+  return hl.http.post(api.taskConfigStop, {
     config_id,
   })
 }
@@ -85,7 +84,7 @@ export function stopTaskConfig(config_id) {
  * @param {*} config_id
  */
 export function startTaskConfig(config_id) {
-  return http.post(api.taskConfigStart, {
+  return hl.http.post(api.taskConfigStart, {
     config_id,
   })
 }
@@ -95,5 +94,5 @@ export function startTaskConfig(config_id) {
  * @param {String||Number} config_uuid 模板ID
  */
 export async function exportTemplate(config_uuid) {
-  return http.download(api.taskConfigExport, { config_uuid })
+  return hl.http.download(api.taskConfigExport, { config_uuid })
 }

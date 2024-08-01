@@ -1,4 +1,4 @@
-import { getLabelByVal } from '@hl/utils/common'
+import { getLabelByVal } from '@hl/utils/es/common'
 
 export default class TaskDetail {
   constructor(model = {}) {

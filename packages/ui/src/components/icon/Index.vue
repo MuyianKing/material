@@ -20,7 +20,7 @@ const _size = computed(() => {
 </script>
 
 <template>
-  <icon class="hl-icon" />
+  <icon class="hl-icon" aria-hidden="false" />
 </template>
 
 <style lang="scss" scoped>

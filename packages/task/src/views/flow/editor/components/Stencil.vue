@@ -1,5 +1,5 @@
 <script setup>
-import { guid } from '@hl/utils/common'
+import { guid } from '@hl/utils/es/common'
 import { node_list } from '../../../../default/flow'
 import NodeData from '../../../../model/flow/node.data'
 import useFlowStore from '../../../../pinia/modules/useFlowStore'

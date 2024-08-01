@@ -10,12 +10,23 @@ export const menuList = [
     },
   },
   {
+    path: '/task/cz',
+    component: () => import('@hl/task/src/views/task/common-task-page/index'),
+    meta: {
+      title: '差旅管理',
+      icon: 'mage:layout-center-fill',
+      params: {
+        config_uuid: 'GI5AC6CV9P',
+      },
+    },
+  },
+  {
     path: '/tyyh',
     meta: {
       title: '统一用户',
       icon: 'clarity:users-solid',
     },
-    children:[
+    children: [
       {
         path: 'person',
         component: () => import('@views/tyyh/Person.vue'),
@@ -39,9 +50,9 @@ export const menuList = [
           title: '其他',
           icon: 'material-symbols:other-admission-rounded',
         },
-      }
-    ]
-  }
+      },
+    ],
+  },
 ]
 
 export default [{
@@ -61,5 +72,5 @@ export default [{
   component: Layout,
   redirect: '/home',
   name: 'admin',
-  children: menuList
-},]
+  children: menuList,
+}]

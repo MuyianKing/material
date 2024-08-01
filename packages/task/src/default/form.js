@@ -1,4 +1,4 @@
-import { AUDIO_SUFFIX, FILE_SUFFIX, IMAGE_SUFFIX, VIDEO_SUFFIX } from '@hl/utils/file'
+import { AUDIO_SUFFIX, FILE_SUFFIX, IMAGE_SUFFIX, VIDEO_SUFFIX } from '@hl/utils/es/file'
 
 /**
  * 输入文本类型

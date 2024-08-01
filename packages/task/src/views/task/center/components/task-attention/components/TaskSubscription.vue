@@ -1,5 +1,5 @@
 <script setup>
-import { guid } from '@hl/utils/common'
+import { guid } from '@hl/utils/es/common'
 import TreeSelect from '../../../../../../components/task/TreeSelect.vue'
 import { setSubscriptionTask } from '../../../../../../server/benches'
 

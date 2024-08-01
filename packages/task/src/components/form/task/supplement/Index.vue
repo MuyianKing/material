@@ -1,5 +1,5 @@
 <script setup>
-import { jsonparse } from '@hl/utils/common'
+import { jsonparse } from '@hl/utils/es/common'
 import CustomEditableComp from '../../basic/CustomEditableComp.vue'
 
 import useComponent from '../../utils'

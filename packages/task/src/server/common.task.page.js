@@ -1,9 +1,8 @@
-import http from '../hooks/request'
 import api from '../api'
 import { formatTaskParamsType } from './task'
 
 export async function getList(params) {
-  const result = await http.post(api.taskInfoList, {
+  const result = await hl.http.post(api.taskInfoList, {
     ...params,
     type: params.list_type,
   })
@@ -22,19 +21,19 @@ export async function getList(params) {
 
 // 获取查询条件
 export async function taskQueryGet(config_uuid) {
-  const result = await http.post(api.taskQueryGet, { config_uuid })
+  const result = await hl.http.post(api.taskQueryGet, { config_uuid })
   return formatTaskParamsType(result.data || [])
 }
 
 // 获取可操作的按钮
 export async function getOptBtn(config_uuid) {
-  const result = await http.post(api.taskListBtn, { config_uuid })
+  const result = await hl.http.post(api.taskListBtn, { config_uuid })
   return result?.data || {}
 }
 
 // 获取配置的单位数据
 export async function getOrgList(config_uuid) {
-  const result = await http.post(api.taskListOrgGet, {
+  const result = await hl.http.post(api.taskListOrgGet, {
     config_uuid,
   })
 
@@ -51,7 +50,7 @@ export async function getOrgList(config_uuid) {
  * @param {Array<string>} params.orgs  单位
  */
 export async function setOrg(params) {
-  return http.post(api.taskListOrgSet, params)
+  return hl.http.post(api.taskListOrgSet, params)
 }
 
 /**
@@ -62,7 +61,7 @@ export async function setOrg(params) {
  * @param {string} params.organization_id
  */
 export async function setLinkPerson(params) {
-  return http.post(api.taskListUserSet, params)
+  return hl.http.post(api.taskListUserSet, params)
 }
 
 /**
@@ -72,7 +71,7 @@ export async function setLinkPerson(params) {
  * @returns {Promise<Array>} 联络人数据
  */
 export async function getLinkPerson(params) {
-  return http.post(api.taskListUserGet, params)
+  return hl.http.post(api.taskListUserGet, params)
 }
 
 /**
@@ -94,7 +93,7 @@ export async function getLinkPersonOne(params) {
  * @param {Array} params.items 参数
  */
 export async function setQuery(params) {
-  return http.post(api.taskListQuerySet, params)
+  return hl.http.post(api.taskListQuerySet, params)
 }
 
 /**
@@ -102,7 +101,7 @@ export async function setQuery(params) {
  * @param {string} config_uuid 模板ID
  */
 export async function getQuery(config_uuid) {
-  const data = await http.post(api.taskListQueryGet, {
+  const data = await hl.http.post(api.taskListQueryGet, {
     config_uuid,
   })
   return data.data.map(item => item.item)
@@ -115,7 +114,7 @@ export async function getQuery(config_uuid) {
  * @param {Array} params.items 参数
  */
 export async function setHeader(params) {
-  return http.post(api.taskListListSet, params)
+  return hl.http.post(api.taskListListSet, params)
 }
 
 /**
@@ -124,7 +123,7 @@ export async function setHeader(params) {
  * @return {Promise<Array>} 所有表头字段
  */
 export async function getAvailableHeader(config_uuid) {
-  const data = await http.post(api.taskListParamsGet, {
+  const data = await hl.http.post(api.taskListParamsGet, {
     config_uuid,
   })
 
@@ -137,7 +136,7 @@ export async function getAvailableHeader(config_uuid) {
  * @return {Promise<Array<string>>} 已配置自定义表
  */
 export async function getHeader(config_uuid) {
-  const data = await http.post(api.taskListLiastGet, {
+  const data = await hl.http.post(api.taskListLiastGet, {
     config_uuid,
   })
   return data.data.map(item => item.item)

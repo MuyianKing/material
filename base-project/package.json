@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@hl/hooks": "^0.2.4",
+    "@hl/task": "workspace:*",
     "@hl/tyyh": "^0.2.4",
     "@hl/ui": "workspace:*",
     "@hl/utils": "^0.2.2",

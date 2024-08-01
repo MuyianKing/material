@@ -1,5 +1,5 @@
 <script setup>
-import { jump } from '@hl/utils/router'
+import { jump } from '@hl/utils/es/router'
 import { HlIcon } from '@hl/ui'
 import { delTaskConfig, startTaskConfig, stopTaskConfig } from '../../../../server/config'
 import UploadTask from '../../../../components/task/upload/UploadTask.vue'

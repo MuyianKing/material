@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import { hasResource } from '@hooks/user'
-import { WEB_NAME } from "../utils/app"
 import NProgress from 'nprogress'
+import { WEB_NAME } from '../utils/app'
 import routes from './menu/index'
 import 'nprogress/nprogress.css'
 

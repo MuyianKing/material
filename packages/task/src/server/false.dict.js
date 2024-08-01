@@ -1,4 +1,3 @@
-import http from '../hooks/request'
 import api from '../api'
 
 /**
@@ -7,7 +6,7 @@ import api from '../api'
  * @returns {Promise} list
  */
 export async function getList(type) {
-  const result = await http.post(api.dict, {
+  const result = await hl.http.post(api.dict, {
     label: type,
   })
   return result.data || []

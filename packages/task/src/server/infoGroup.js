@@ -1,7 +1,6 @@
-import { getLabelByVal } from '@hl/utils/common'
+import { getLabelByVal } from '@hl/utils/es/common'
 import api from '../api'
 import { task_status_list } from '../default/task'
-import http from '../hooks/request'
 
 /**
  * 获取任务分组列表
@@ -11,7 +10,7 @@ import http from '../hooks/request'
  * @param {string} params.query 查询关键字（标题）
  */
 export async function getList(params) {
-  const res = await http.post(api.infoGroupList, params)
+  const res = await hl.http.post(api.infoGroupList, params)
   res.data.forEach((item) => {
     const a_organization = item.a_organization || []
     item.a_organization = a_organization.map((org) => {
@@ -33,7 +32,7 @@ export async function getList(params) {
  * @param {number} params.is_top 是否置顶 1置顶 2取消置顶
  */
 export function setTop(params) {
-  return http.post(api.infoGroupToTop, params)
+  return hl.http.post(api.infoGroupToTop, params)
 }
 
 /**
@@ -41,7 +40,7 @@ export function setTop(params) {
  * @param {number | string} info_group_id 任务分组id
  */
 export function getHeader(info_group_id) {
-  return http.post(api.infoGroupHeader, { info_group_id })
+  return hl.http.post(api.infoGroupHeader, { info_group_id })
 }
 
 /**
@@ -51,7 +50,7 @@ export function getHeader(info_group_id) {
  * @param {Array} params.items 表头配置
  */
 export async function setHeader(params) {
-  return http.post(api.infoGroupSetItems, params)
+  return hl.http.post(api.infoGroupSetItems, params)
 }
 
 /**
@@ -59,7 +58,7 @@ export async function setHeader(params) {
  * @param {number | string} info_group_id 任务分组id
  */
 export function getWhere(info_group_id) {
-  return http.post(api.infoGroupWhere, { info_group_id })
+  return hl.http.post(api.infoGroupWhere, { info_group_id })
 }
 
 /**
@@ -69,7 +68,7 @@ export function getWhere(info_group_id) {
  * @param {Array} params.where 查询条件
  */
 export function setWhere(params) {
-  return http.post(api.infoGroupSetWhere, params)
+  return hl.http.post(api.infoGroupSetWhere, params)
 }
 
 /**
@@ -79,7 +78,7 @@ export function setWhere(params) {
  * @param {string} params.where 查询条件
  */
 export async function getDetail(params) {
-  const res = await http.post(api.infoGroupDetail, {
+  const res = await hl.http.post(api.infoGroupDetail, {
     ...params,
     circle_index: params.circle_index === '' ? -1 : params.circle_index,
   })
@@ -152,7 +151,7 @@ export async function getDetail(params) {
  * @param {number | string} info_group_id 任务分组id
  */
 export function getParams(info_group_id) {
-  return http.post(api.infoGroupParams, { info_group_id })
+  return hl.http.post(api.infoGroupParams, { info_group_id })
 }
 
 /**
@@ -162,7 +161,7 @@ export function getParams(info_group_id) {
  * @param {string} params.where 查询条件
  */
 export function exportDetail(params) {
-  return http.download(api.infoGroupExport, params)
+  return hl.http.download(api.infoGroupExport, params)
 }
 
 /**
@@ -172,5 +171,5 @@ export function exportDetail(params) {
  * @param {string} params.where 查询条件
  */
 export function getFlow(params) {
-  return http.post(api.infoGroupProcess, params)
+  return hl.http.post(api.infoGroupProcess, params)
 }

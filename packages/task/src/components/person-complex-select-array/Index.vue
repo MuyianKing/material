@@ -1,5 +1,5 @@
 <script setup>
-import { getLabelByVal } from '@hl/utils/common'
+import { getLabelByVal } from '@hl/utils/es/common'
 import { user_level_default } from '../../default'
 import ComplexUser from '../../model/ComplexUser'
 import InputWrapper from '../person-complex-select/components/InputWrapper.vue'

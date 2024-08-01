@@ -1,5 +1,3 @@
-import taskApis from './src/api/'
-
 export * from './registerRequiredComp'
 
 // 表单内联系人组件
@@ -34,7 +32,5 @@ export * from './src/components/person-complex-select'
 // 公共任务模板
 export * from './src/views/task/common-task-page'
 
-// 任务的所有请求地址
-export const apis = taskApis
-
+// 操作按钮
 export * from './src/components/task/options'

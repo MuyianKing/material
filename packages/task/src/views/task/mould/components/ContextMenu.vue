@@ -1,5 +1,5 @@
 <script setup>
-import { jump } from '@hl/utils/router'
+import { jump } from '@hl/utils/es/router'
 import variables from '@style/theme.module.scss'
 import { delTaskConfig, startTaskConfig, stopTaskConfig } from '../../../../server/config'
 

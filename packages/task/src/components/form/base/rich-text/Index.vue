@@ -2,7 +2,7 @@
 import Quill from 'quill'
 import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'
-import { jsonparse } from '@hl/utils/common'
+import { jsonparse } from '@hl/utils/es/common'
 import CustomEditableComp from '../../basic/CustomEditableComp.vue'
 
 import { generatePropertyByConfig } from '../../utils'

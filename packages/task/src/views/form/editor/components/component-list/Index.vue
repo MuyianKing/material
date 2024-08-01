@@ -1,7 +1,7 @@
 <script setup>
 import { VueDraggable } from 'vue-draggable-plus'
 import { cloneDeep } from 'lodash-es'
-import { guid } from '@hl/utils/common'
+import { guid } from '@hl/utils/es/common'
 import { components_list_config } from './config'
 
 // 组件

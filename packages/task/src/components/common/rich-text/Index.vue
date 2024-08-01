@@ -2,7 +2,8 @@
 import Quill from 'quill'
 import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'
-import { jsonparse } from '@hl/utils/common'
+import { jsonparse } from '@hl/utils/es/es/common'
+import { nextTick, onMounted, ref, watch } from 'ref'
 
 const container_ref = ref()
 const editor_ref = ref()
@@ -11,7 +12,6 @@ const model = defineModel()
 let editor = null
 let update_by_self = false
 function init() {
-  console.log('init:>>', model.value)
   nextTick(() => {
     editor = new Quill(editor_ref.value, {
       modules: {

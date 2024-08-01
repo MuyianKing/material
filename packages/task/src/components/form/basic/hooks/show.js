@@ -1,4 +1,4 @@
-import { evalByFun, getLabelByVal } from '@hl/utils/common'
+import { evalByFun, getLabelByVal } from '@hl/utils/es/common'
 import { show_huo_qie, show_opt_type } from '../../../../default/form'
 
 export default function useGenerateRelative(form, config, mode) {

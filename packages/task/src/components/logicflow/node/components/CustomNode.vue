@@ -1,5 +1,5 @@
 <script setup>
-import { getLabelByVal } from '@hl/utils/common'
+import { getLabelByVal } from '@hl/utils/es/common'
 import NodeData from '../../../../model/flow/node.data'
 import { node_list } from '../../../../default/flow'
 import useFlowStore from '../../../../../../../packages/task/src/pinia/modules/useFlowStore'

@@ -1,4 +1,4 @@
-import { getLabelByVal } from '@hl/utils/common'
+import { getLabelByVal } from '@hl/utils/es/common'
 import { node_list } from '../../default/flow'
 
 /**

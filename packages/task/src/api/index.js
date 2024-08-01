@@ -1,4 +1,4 @@
-import { addPrefixToUrls } from '@hl/utils/api'
+import { addPrefixToUrls } from '@hl/utils/es/api'
 
 export default addPrefixToUrls('/task/api', {
   app: '/task/config/app',

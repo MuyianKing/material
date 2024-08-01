@@ -1,5 +1,5 @@
 <script setup>
-import { getLabelByVal, guid } from '@hl/utils/common'
+import { getLabelByVal, guid } from '@hl/utils/es/common'
 import { show_huo_qie, show_opt_type } from '../../../default/form'
 import AppendContent from '../../common/AppendContent.vue'
 

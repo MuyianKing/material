@@ -1,5 +1,5 @@
 <script name="TaskMouldIndex" setup>
-import { jump } from '@hl/utils/router'
+import { jump } from '@hl/utils/es/router'
 import { getTaskTree } from '../../../server/config'
 import TaskPublish from '../publish/Index.vue'
 import TaskItem from './components/TaskItem.vue'

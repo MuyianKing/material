@@ -28,7 +28,7 @@ const tabData = [
           <template #label>
             <div>{{ item.label }}</div>
           </template>
-          <component :is="item.component" style="padding: 0"/>
+          <component :is="item.component" style="padding: 0" />
         </el-tab-pane>
       </el-tabs>
     </div>

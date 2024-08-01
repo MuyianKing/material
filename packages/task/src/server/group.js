@@ -1,18 +1,17 @@
 import api from '../api'
-import http from '../hooks/request'
 
 /**
  * 获取任务分组列表
  */
 export function getList(params) {
-  return http.post(api.groupList, params)
+  return hl.http.post(api.groupList, params)
 }
 
 /**
  * 保存任务专题
  */
 export function saveGroup(params) {
-  return http.post(params.group_id ? api.groupEdit : api.groupCreate, params)
+  return hl.http.post(params.group_id ? api.groupEdit : api.groupCreate, params)
 }
 
 /**
@@ -20,7 +19,7 @@ export function saveGroup(params) {
  * @param {Array} group_ids 分组group_id组成的数组
  */
 export function sortGroup(group_ids) {
-  return http.post(api.groupSort, { group_id: group_ids })
+  return hl.http.post(api.groupSort, { group_id: group_ids })
 }
 
 /**
@@ -31,5 +30,5 @@ export async function delGroup(group_id) {
   if (!group_id) {
     throw new Error('缺少ID')
   }
-  return http.post(api.groupDel, { group_id })
+  return hl.http.post(api.groupDel, { group_id })
 }

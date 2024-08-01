@@ -1,4 +1,4 @@
-import { evalByFun } from '@hl/utils/common'
+import { evalByFun } from '@hl/utils/es/common'
 
 /**
  * 根据默认值配置生成一个监听器

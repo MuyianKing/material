@@ -1,5 +1,5 @@
 <script setup>
-import { getLabelByVal } from '@hl/utils/common'
+import { getLabelByVal } from '@hl/utils/es/common'
 import { task_opt_list } from '../../../default/task'
 import DetailOpt from './components/Detail.vue'
 import useDetailData from './useDetailData'

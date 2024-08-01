@@ -1,5 +1,4 @@
 import { cloneDeep } from 'lodash-es'
-import http from '../hooks/request'
 import api from '../api'
 import { deletePropertyConfig } from '../hooks/form'
 
@@ -10,7 +9,7 @@ import { deletePropertyConfig } from '../hooks/form'
 export function saveFormConfig(model) {
   model = cloneDeep((model))
   deletePropertyConfig(model.form_field_list)
-  return http.post(model.form_id ? api.formEdit : api.formAdd, model)
+  return hl.http.post(model.form_id ? api.formEdit : api.formAdd, model)
 }
 
 /**
@@ -18,7 +17,7 @@ export function saveFormConfig(model) {
  * @param {string} form_id 表单ID
  */
 export async function getFormById(form_id) {
-  const result = await http.post(api.formOne, {
+  const result = await hl.http.post(api.formOne, {
     form_id,
   })
 
@@ -30,7 +29,7 @@ export async function getFormById(form_id) {
 }
 
 export async function getSomeForms(form_ids) {
-  const result = await http.post(api.formSome, {
+  const result = await hl.http.post(api.formSome, {
     form_id: form_ids,
   })
 

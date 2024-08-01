@@ -1,6 +1,6 @@
 <script setup>
 import useListPage from '@hl/ui/src/list-page/index'
-import { jump } from '@hl/utils/router'
+import { jump } from '@hl/utils/es/router'
 import { getList, setTop } from '../../../server/infoGroup'
 
 const {

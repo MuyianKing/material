@@ -7,11 +7,13 @@
   "keywords": [],
   "main": "index.js",
   "dependencies": {
+    "@hl/tyyh": "0.3.0",
+    "@hl/ui": "0.3.3",
+    "@hl/utils": "0.3.3",
     "@logicflow/core": "^1.2.27",
     "@logicflow/extension": "^1.2.27",
+    "element-plus": "^2.7.7",
     "quill": "2.0.2",
-    "@hl/tyyh": "workspace:*",
-    "@hl/ui": "workspace:*",
-    "@hl/utils": "workspace:*"
+    "vue-router": "^4.4.0"
   }
 }

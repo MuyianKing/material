@@ -1,5 +1,5 @@
 <script setup>
-import { arrayUnion, getLabelByVal } from '@hl/utils/common'
+import { arrayUnion, getLabelByVal } from '@hl/utils/es/common'
 import { getFormById } from '../../server/form'
 import { getFlatFields } from '../../hooks/form'
 

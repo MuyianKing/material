@@ -1,5 +1,5 @@
 <script setup>
-import { getLabelByVal } from '@hl/utils/common'
+import { getLabelByVal } from '@hl/utils/es/common'
 import { property_list, type_list } from '../../../../components/flow-node-property/config'
 import useFlowStore from '../../../../pinia/modules/useFlowStore'
 import { splitNodeEdge, validateOuterFileds } from '../../../../hooks/flow'

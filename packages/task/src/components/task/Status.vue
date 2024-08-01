@@ -1,5 +1,5 @@
 <script setup>
-import { mix } from '@hl/utils/color'
+import { mix } from '@hl/utils/es/color'
 
 const props = defineProps({
   data: {

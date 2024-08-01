@@ -1,9 +1,8 @@
 import { cloneDeep } from 'lodash-es'
-import { getLabelByVal } from '@hl/utils/common'
+import { getLabelByVal } from '@hl/utils/es/common'
 import TaskDetail from '../model/task/detail'
 import api from '../api'
 import { task_status_list } from '../default/task'
-import http from '../hooks/request'
 
 /**
  * 发布任务
@@ -17,7 +16,7 @@ export async function publishTask(params) {
     throw new Error('任务模板编号缺失')
   }
 
-  return http.post(api.publish, params)
+  return hl.http.post(api.publish, params)
 }
 
 /**
@@ -25,7 +24,7 @@ export async function publishTask(params) {
  * @param {*} params
  */
 export async function getTaskList(params) {
-  const result = await http.post(api.list, params)
+  const result = await hl.http.post(api.list, params)
   result.header_config = result.data.header?.map((item) => {
     return {
       label: item.name,
@@ -44,7 +43,7 @@ export async function getTaskList(params) {
  * @returns {Promise<*>}
  */
 export async function getTaskOne(task_id) {
-  const result = await http.post(api.list, {
+  const result = await hl.http.post(api.list, {
     task_id,
   })
 
@@ -60,7 +59,7 @@ export async function getTaskOne(task_id) {
  * @param {string} task_id 任务Id
  */
 export async function getTaskById(task_id) {
-  const result = await http.post(api.taskOne, {
+  const result = await hl.http.post(api.taskOne, {
     task_id,
   })
 
@@ -74,7 +73,7 @@ export async function getTaskById(task_id) {
  */
 export function signTask(task_id, id_card = '') {
   const user = hl.getUserInfo()
-  return http.post(api.taskSign, {
+  return hl.http.post(api.taskSign, {
     task_id,
     id_card: id_card || user.id_card,
   })
@@ -85,7 +84,7 @@ export function signTask(task_id, id_card = '') {
  * @param {string} task_id 任务ID
  */
 export function readTask(task_id) {
-  return http.post(api.taskRead, {
+  return hl.http.post(api.taskRead, {
     task_id,
   })
 }
@@ -101,13 +100,13 @@ export function finishTask(task_id, content, finish, id_card = '') {
   if (content.id) {
     const id = content.id
     delete content.id
-    return http.post(api.taskupdateResult, {
+    return hl.http.post(api.taskupdateResult, {
       content,
       id,
     })
   } else {
     const user = hl.getUserInfo()
-    return http.post(api.taskFinish, {
+    return hl.http.post(api.taskFinish, {
       task_id,
       content,
       finish,
@@ -122,7 +121,7 @@ export function finishTask(task_id, content, finish, id_card = '') {
  * @param {object} content 处置表单内容
  */
 export function auditTask(task_id, content) {
-  return http.post(api.taskAudit, {
+  return hl.http.post(api.taskAudit, {
     task_id,
     content,
   })
@@ -133,7 +132,7 @@ export function auditTask(task_id, content) {
  * @returns {Promise<Array>} list
  */
 export async function getTaskBenchesParams() {
-  let result = await http.post(api.taskBenchesParams)
+  let result = await hl.http.post(api.taskBenchesParams)
 
   result = result?.data || []
 
@@ -162,7 +161,7 @@ export function formatTaskParamsType(data) {
  * 获取可配置的参数
  */
 export async function getParams() {
-  const result = await http.post(api.taskParams)
+  const result = await hl.http.post(api.taskParams)
   return result.data || []
 }
 
@@ -172,7 +171,7 @@ export async function getParams() {
  * @return { Promise<Array> }} items 参数的key组成的数组
  */
 export function setBenchesParams(items) {
-  return http.post(api.setBenchesParams, {
+  return hl.http.post(api.setBenchesParams, {
     items,
   })
 }
@@ -182,7 +181,7 @@ export function setBenchesParams(items) {
  * @param { Any } items 表头字段的key组成的数组
  */
 export function setHeadersParams(items) {
-  return http.post(api.setHeaderParams, {
+  return hl.http.post(api.setHeaderParams, {
     items,
   })
 }
@@ -191,7 +190,7 @@ export function setHeadersParams(items) {
  * 获取列表可配置表头
  */
 export async function getHeadersParams() {
-  const result = await http.post(api.getHeaderParams)
+  const result = await hl.http.post(api.getHeaderParams)
 
   return result.data || []
 }
@@ -201,7 +200,7 @@ export async function getHeadersParams() {
  * @param {object} params
  */
 export async function delayTask(params) {
-  return http.post(api.taskAdditionalDelay, params)
+  return hl.http.post(api.taskAdditionalDelay, params)
 }
 
 /**
@@ -209,7 +208,7 @@ export async function delayTask(params) {
  * @param {string} task_id
  */
 export async function revDelayTask(task_id) {
-  return http.post(api.taskRevDelay, { task_id })
+  return hl.http.post(api.taskRevDelay, { task_id })
 }
 
 /**
@@ -217,7 +216,7 @@ export async function revDelayTask(task_id) {
  * @param {string} task_id
  */
 export async function revTurnOverTask(task_id) {
-  return http.post(api.taskRevTurnOver, { task_id })
+  return hl.http.post(api.taskRevTurnOver, { task_id })
 }
 
 /**
@@ -225,7 +224,7 @@ export async function revTurnOverTask(task_id) {
  * @param {object} params
  */
 export async function examinesDelayTask(params) {
-  return http.post(api.taskExaminesDelay, params)
+  return hl.http.post(api.taskExaminesDelay, params)
 }
 
 /**
@@ -233,7 +232,7 @@ export async function examinesDelayTask(params) {
  * @param {object} params
  */
 export async function examinesTurnOverTask(params) {
-  return http.post(api.taskTurnOverDelay, params)
+  return hl.http.post(api.taskTurnOverDelay, params)
 }
 
 /**
@@ -244,7 +243,7 @@ export async function moveTask(params) {
   params = cloneDeep(params)
 
   params.id_card = params.id_card[0]
-  return http.post(api.taskAdditionalMove, params)
+  return hl.http.post(api.taskAdditionalMove, params)
 }
 
 /**
@@ -252,7 +251,7 @@ export async function moveTask(params) {
  * @param {object} params
  */
 export async function uploadCreateTask(params) {
-  return http.post(api.taskConfigImport, params)
+  return hl.http.post(api.taskConfigImport, params)
 }
 
 /**
@@ -260,7 +259,7 @@ export async function uploadCreateTask(params) {
  * @param {object} params
  */
 export async function confirmUploadCreateTask(params) {
-  const result = await http.post(api.taskConfigConfirm, params)
+  const result = await hl.http.post(api.taskConfigConfirm, params)
   return result?.data
 }
 
@@ -269,7 +268,7 @@ export async function confirmUploadCreateTask(params) {
  * @param {object} params
  */
 export async function addWorkAskFor(params) {
-  return http.post(api.taskAddWorkAskFor, params)
+  return hl.http.post(api.taskAddWorkAskFor, params)
 }
 
 /**
@@ -277,7 +276,7 @@ export async function addWorkAskFor(params) {
  * @param {string} result_id
  */
 export async function removeWorkAskFor(result_id) {
-  return http.post(api.taskRemoveWorkAskFor, { result_id })
+  return hl.http.post(api.taskRemoveWorkAskFor, { result_id })
 }
 
 /**
@@ -287,7 +286,7 @@ export async function removeWorkAskFor(result_id) {
  * @returns {Array} 人员列表
  */
 export async function getPersonByAll(params, split_org_job) {
-  const result = await http.post(api.multiplePerson, {
+  const result = await hl.http.post(api.multiplePerson, {
     ...params,
   })
 
@@ -313,7 +312,7 @@ export async function getPersonByAll(params, split_org_job) {
  * 获取本级任务
  */
 export async function getTaskStep(params) {
-  return http.post(api.taskStatistics, params)
+  return hl.http.post(api.taskStatistics, params)
 }
 
 /**
@@ -324,7 +323,7 @@ export async function getTaskStep(params) {
  * @param {string} params.create_end_time 结束时间
  */
 export async function taskManagement(params) {
-  const data = await http.post(api.taskMyCreate, params)
+  const data = await hl.http.post(api.taskMyCreate, params)
   data.data.forEach((item) => {
     const statusObj = getLabelByVal(task_status_list, item.status, { obj: true }) || {}
     item.statusConfig = [{ html: statusObj.label, color: statusObj.color, name: [] }]
@@ -346,7 +345,7 @@ export async function getTaskManagerOne(task_id) {
  */
 export function deleteTask(task_id) {
   const task_ids = Array.isArray(task_id) ? task_id : [task_id]
-  return http.post(api.taskDelete, { task_id: task_ids })
+  return hl.http.post(api.taskDelete, { task_id: task_ids })
 }
 
 /**
@@ -356,7 +355,7 @@ export function deleteTask(task_id) {
  */
 export function startTask(task_id, start_time) {
   const task_ids = Array.isArray(task_id) ? task_id : [task_id]
-  return http.post(api.taskStart, { task_id: task_ids, start_time: start_time || undefined })
+  return hl.http.post(api.taskStart, { task_id: task_ids, start_time: start_time || undefined })
 }
 
 /**
@@ -364,7 +363,7 @@ export function startTask(task_id, start_time) {
  * @param {object} params
  */
 export async function taskMyManage(params) {
-  const data = await http.post(api.taskMyManage, params)
+  const data = await hl.http.post(api.taskMyManage, params)
   data.data.forEach((item) => {
     const statusObj = getLabelByVal(task_status_list, item.status, { obj: true }) || {}
     item.statusConfig = [{ html: statusObj.label, color: statusObj.color, name: [] }]
@@ -379,7 +378,7 @@ export async function taskMyManage(params) {
  * @param {string} params.deploy 调度类型 1：两个人员之间调度 2：检测到人员变化 3：指定某个节点调度, 添加一个人  4: 删除一个人
  */
 export async function taskDeploy(params) {
-  return http.post(api.taskDeploy, params)
+  return hl.http.post(api.taskDeploy, params)
 }
 
 /**
@@ -387,7 +386,7 @@ export async function taskDeploy(params) {
  * @param {object} params
  */
 export async function taskModelList(params) {
-  return http.post(api.infoTaskModelList, params)
+  return hl.http.post(api.infoTaskModelList, params)
 }
 
 /**
@@ -396,7 +395,7 @@ export async function taskModelList(params) {
  * @param {string} params.task_id 任务ID
  */
 export async function taskGetDing(params) {
-  return http.post(api.taskGetDing, params)
+  return hl.http.post(api.taskGetDing, params)
 }
 
 /**
@@ -406,7 +405,7 @@ export async function taskGetDing(params) {
  * @param {string} params.id_card 通知人员
  */
 export async function taskDing(params) {
-  return http.post(api.taskDing, params)
+  return hl.http.post(api.taskDing, params)
 }
 
 /**
@@ -416,7 +415,7 @@ export async function taskDing(params) {
  * @param {string} params.new_id_card 移交人员
  */
 export async function taskTurnOver(params) {
-  return http.post(api.taskTurnOver, {
+  return hl.http.post(api.taskTurnOver, {
     ...params,
     new_id_card: params.new_id_card.join(','),
   })
@@ -429,7 +428,7 @@ export async function taskTurnOver(params) {
  * @param {string} params.new_id_card 转派人员
  */
 export async function taskRedeploy(params) {
-  return http.post(api.taskRedeploy, {
+  return hl.http.post(api.taskRedeploy, {
     ...params,
     new_id_card: params.new_id_card.join(','),
   })
@@ -441,7 +440,7 @@ export async function taskRedeploy(params) {
  * @param {string} params.task_id 任务ID
  */
 export function taskSuccess(params) {
-  return http.post(api.taskSuccess, params)
+  return hl.http.post(api.taskSuccess, params)
 }
 
 /**
@@ -451,7 +450,7 @@ export function taskSuccess(params) {
  * }>} 数量
  */
 export async function getUnfinishTask() {
-  const result = await http.post(api.taskUnfinish)
+  const result = await hl.http.post(api.taskUnfinish)
   return {
     unfinish: result.data,
   }
@@ -462,7 +461,7 @@ export async function getUnfinishTask() {
  * @returns {Promise<>} 数量
  */
 export async function getCommonUnfinish(config_uuid) {
-  const result = await http.post(api.taskInfoUnfinish, {
+  const result = await hl.http.post(api.taskInfoUnfinish, {
     config_uuid,
   })
   return result.data || []
@@ -496,7 +495,7 @@ export async function getTaskDetailData(taskId) {
  * @returns {*}
  */
 export function remarkTask(params) {
-  return http.post(api.taskNodeHandle, params)
+  return hl.http.post(api.taskNodeHandle, params)
 }
 
 /**
@@ -505,7 +504,7 @@ export function remarkTask(params) {
  * @returns {*}
  */
 export function taskAuditFeedbackList(params) {
-  return http.post(api.taskAuditFeedbackList, params)
+  return hl.http.post(api.taskAuditFeedbackList, params)
 }
 
 /**
@@ -514,5 +513,5 @@ export function taskAuditFeedbackList(params) {
  * @returns {*}
  */
 export function taskAuditFeedbackAudit(params) {
-  return http.post(api.taskAuditFeedbackAudit, params)
+  return hl.http.post(api.taskAuditFeedbackAudit, params)
 }

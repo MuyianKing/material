@@ -1,5 +1,5 @@
 <script setup>
-import { guid } from '@hl/utils/common'
+import { guid } from '@hl/utils/es/common'
 import { getFormById } from '../../../server/form'
 import ComponentList from './components/component-list/Index.vue'
 import EditorPanel from './components/editor-panel/Index.vue'

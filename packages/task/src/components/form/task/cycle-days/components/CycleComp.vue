@@ -1,5 +1,5 @@
 <script setup>
-import { getLabelByVal } from '@hl/utils/common'
+import { getLabelByVal } from '@hl/utils/es/common'
 import CycledatModel from '../../../../../model/task/cycle.day'
 
 defineProps({
