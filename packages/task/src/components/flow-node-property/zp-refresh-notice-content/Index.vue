@@ -3,7 +3,9 @@ import useAppStore from '@pinia/useAppStore'
 import { computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import { HlFormItem, HlIcon, HlInput } from '@hl/ui'
+import { ElTooltip } from 'element-plus'
 import useFlowStore from '../../../pinia/modules/useFlowStore'
+import 'element-plus/es/components/tooltip/style/css'
 
 const value = defineModel()
 const appStore = useAppStore()

@@ -1,6 +1,8 @@
 <script setup>
 import { onMounted, ref } from 'vue'
+import { ElTree } from 'element-plus'
 import { getAvailableHeader } from '../../server/common.task.page'
+import 'element-plus/es/components/button/tree/css'
 
 const props = defineProps({
   configUuid: {

@@ -1,8 +1,12 @@
 <script setup>
 import { ref } from 'vue'
 import { HlButton, HlDialog, HlFormItem, HlRadio } from '@hl/ui'
+import { ElButton, ElLink } from 'element-plus'
 import FormDetail from '../../../../views/form/preview/Template.vue'
 import { auditTask, getTaskById } from '../../../../server'
+
+import 'element-plus/es/components/button/style/css'
+import 'element-plus/es/components/link/style/css'
 
 const props = defineProps({
   taskId: {

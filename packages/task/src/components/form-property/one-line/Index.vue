@@ -1,5 +1,7 @@
 <script setup>
 import { HlFormItem } from '@hl/ui'
+import { ElSwitch } from 'element-plus'
+import 'element-plus/es/components/switch/style/css'
 
 const property = defineModel()
 </script>

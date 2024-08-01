@@ -1,7 +1,12 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue'
 import { HlFormItem } from '@hl/ui'
+import { ElInput, ElOption, ElSelect, ElTooltip } from 'element-plus'
 import { taskModelList } from '../../../server/task'
+import 'element-plus/es/components/tooltip/style/css'
+import 'element-plus/es/components/input/style/css'
+import 'element-plus/es/components/select/style/css'
+import 'element-plus/es/components/option/style/css'
 
 const props = defineProps({
   type: {

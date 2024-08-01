@@ -4,6 +4,9 @@ import { ElButton, ElLink } from 'element-plus'
 import { remarkTask } from '../../../../server'
 import HandleDialog from './handle/components/Dialog.vue'
 
+import 'element-plus/es/components/button/style/css'
+import 'element-plus/es/components/link/style/css'
+
 const props = defineProps({
   taskId: {
     type: [String, Number],

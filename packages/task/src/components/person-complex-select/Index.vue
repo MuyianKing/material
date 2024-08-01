@@ -4,6 +4,7 @@ import { reactive, ref, watch } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useDebounceFn } from '@vueuse/core'
 import { HlButton, HlDialog, HlFormItem, HlIcon, HlPage, HlQuestionIcon, HlSearchPage, HlSelect } from '@hl/ui'
+import { vLoading } from 'element-plus'
 import { getPersonByAll } from '../../server'
 import { TaskFlowNodeOuter } from '../flow'
 import ComplexUser from '../../model/ComplexUser'
@@ -13,6 +14,7 @@ import { validateOuterFileds } from '../../hooks/flow'
 import useFlowStore from '../../pinia/modules/useFlowStore'
 import ExcludePerson from './components/ExcludePerson.vue'
 import InputWrapper from './components/InputWrapper.vue'
+import 'element-plus/es/components/loading/style/css'
 
 const props = defineProps({
   title: {

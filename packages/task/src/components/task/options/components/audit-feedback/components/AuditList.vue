@@ -1,9 +1,11 @@
 <script setup>
 import { reactive, ref, useAttrs, watch } from 'vue'
 import { HlDialog, HlSearchPage, HlTable, HlTableColumn } from '@hl/ui'
+import { vLoading } from 'element-plus'
 import { taskAuditFeedbackList } from '../../../../../../server/task'
 import Detail from './Detail.vue'
 import Audit from './Audit.vue'
+import 'element-plus/es/components/loading/style/css'
 
 const props = defineProps({
   taskId: {

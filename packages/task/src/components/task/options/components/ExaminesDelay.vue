@@ -1,9 +1,12 @@
 <script setup>
 import { ref, watch } from 'vue'
 import { HlFormDialog, HlFormItem, HlInput, HlSelect } from '@hl/ui'
+import { ElButton, ElLink } from 'element-plus'
 import { examinesDelayTask } from '../../../../server'
 import ExaminesDelay from '../../../../model/task/examinesDelay'
 import { examinesApplyFor } from '../../../../default/task'
+import 'element-plus/es/components/button/style/css'
+import 'element-plus/es/components/link/style/css'
 
 const props = defineProps({
   taskId: {

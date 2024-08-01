@@ -2,11 +2,14 @@
 import { getLabelByVal } from '@hl/utils/es/common'
 import { ref, watch } from 'vue'
 import { HlButton, HlDialog, HlFormItem, HlIcon, HlQuestionIcon, HlSelect } from '@hl/ui'
+import { ElForm, ElTag } from 'element-plus'
 import { user_level_default } from '../../default'
 import ComplexUser from '../../model/ComplexUser'
 import InputWrapper from '../person-complex-select/components/InputWrapper.vue'
 import ComplexControlSelect from '../person-complex-select/Index.vue'
 import { clone } from './deepCopy'
+import 'element-plus/es/components/tag/style/css'
+import 'element-plus/es/components/form/style/css'
 
 defineProps({
   title: {

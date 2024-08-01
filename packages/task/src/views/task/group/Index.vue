@@ -4,9 +4,11 @@ import { HlAddButton, HlFormItem, HlGridLayout, HlInput, HlNodata } from '@hl/ui
 
 import { useList } from '@hl/jooks'
 import { useDraggable } from 'vue-draggable-plus'
+import { vLoading } from 'element-plus'
 import { getList, sortGroup } from '../../../server/group'
 import GroupItem from './components/GroupItem.vue'
 import GroupEdit from './components/Edit.vue'
+import 'element-plus/es/components/loading/style/css'
 
 const {
   HlListPage,

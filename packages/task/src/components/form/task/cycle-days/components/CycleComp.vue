@@ -1,7 +1,9 @@
 <script setup>
 import { getLabelByVal } from '@hl/utils/es/common'
 import { HlCheckbox, HlDate, HlFormItem, HlRadio } from '@hl/ui'
+import { ElTimePicker } from 'element-plus'
 import CycledatModel from '../../../../../model/task/cycle.day'
+import 'element-plus/es/components/time-picker/style/css'
 
 defineProps({
   disabled: {

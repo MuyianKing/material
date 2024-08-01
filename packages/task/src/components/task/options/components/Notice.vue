@@ -1,8 +1,12 @@
 <script setup>
 import { ref } from 'vue'
 import { HlButton, HlDialog, HlTable, HlTableColumn } from '@hl/ui'
-import { ElButton, ElLink } from 'element-plus'
+import { ElButton, ElLink, vLoading } from 'element-plus'
 import { taskDing, taskGetDing } from '../../../../server'
+import 'element-plus/es/components/loading/style/css'
+
+import 'element-plus/es/components/button/style/css'
+import 'element-plus/es/components/link/style/css'
 
 const props = defineProps({
   taskId: {

@@ -1,8 +1,11 @@
 <script setup>
 import { computed } from 'vue'
 import { useEventListener } from '@vueuse/core'
+import { ElText } from 'element-plus'
 import { fh } from '../../../../../../../../default/form'
 import ExpressionComp from './Expression.vue'
+
+import 'element-plus/es/components/text/style/css'
 
 const model = defineModel({
   type: Array,

@@ -1,5 +1,7 @@
 <script setup>
 import { HlFormItem } from '@hl/ui'
+import { ElColorPicker } from 'element-plus'
+import 'element-plus/es/components/color-picker/style/css'
 
 const value = defineModel()
 </script>

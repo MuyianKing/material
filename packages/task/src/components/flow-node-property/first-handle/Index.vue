@@ -6,6 +6,8 @@ import { ElOption, ElSelect } from 'element-plus'
 import AppendContent from '../../common/AppendContent.vue'
 import NodeOuter from '../../flow/NodeOuter.vue'
 import useFlowStore from '../../../../../../packages/task/src/pinia/modules/useFlowStore'
+import 'element-plus/es/components/select/style/css'
+import 'element-plus/es/components/option/style/css'
 
 const props = defineProps({
   label: {

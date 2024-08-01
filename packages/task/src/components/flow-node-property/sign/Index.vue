@@ -1,6 +1,8 @@
 <script setup>
 import { HlCheckbox, HlFormItem, HlIcon } from '@hl/ui'
+import { ElTooltip } from 'element-plus'
 import { sign_type_list } from '../../../default/flow'
+import 'element-plus/es/components/tooltip/style/css'
 
 defineProps({
   node: {

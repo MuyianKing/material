@@ -3,7 +3,9 @@ import { getLabelByVal, guid } from '@hl/utils/es/common'
 import { ref, watch } from 'vue'
 import { useDebounceFn } from '@vueuse/core'
 import { HlDelButton, HlDropdown, HlIcon, HlInput, HlSelect } from '@hl/ui'
+import { ElCascader } from 'element-plus'
 import { show_huo_qie, show_opt_type } from '../../../default/form'
+import 'element-plus/es/components/cascader/style/css'
 
 const props = defineProps({
   // 所有字段

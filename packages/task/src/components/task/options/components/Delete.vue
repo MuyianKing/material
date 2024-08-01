@@ -1,6 +1,10 @@
 <script setup>
 import { ref, useAttrs } from 'vue'
+import { ElButton, ElLink, ElPopover } from 'element-plus'
 import { deleteTask } from '../../../../server'
+import 'element-plus/es/components/button/style/css'
+import 'element-plus/es/components/link/style/css'
+import 'element-plus/es/components/popover/style/css'
 
 defineProps({
   button: {

@@ -1,6 +1,9 @@
 <script setup>
 import { getCurrentInstance, ref } from 'vue'
+import { ElButton, ElLink } from 'element-plus'
 import TaskDetail from '../../../../views/task/detail/Index.vue'
+import 'element-plus/es/components/button/style/css'
+import 'element-plus/es/components/link/style/css'
 
 defineProps({
   task: {

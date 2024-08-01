@@ -1,5 +1,7 @@
 <script setup>
 import { HlTable, HlTableColumn } from '@hl/ui'
+import { ElPopover } from 'element-plus'
+import 'element-plus/es/components/popover/style/css'
 
 defineProps({
   data: {

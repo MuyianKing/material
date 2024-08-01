@@ -1,8 +1,10 @@
 <script setup>
 import { HlTable, HlTableColumn } from '@hl/ui'
+import { vLoading } from 'element-plus'
 import TaskStatus from './Status.vue'
 import AdditionalComp from './Additional.vue'
 import TaskOpt from './options/Index.vue'
+import 'element-plus/es/components/loading/style/css'
 
 defineProps({
   tableData: {

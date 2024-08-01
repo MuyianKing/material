@@ -1,5 +1,9 @@
 <script setup>
 import { ref } from 'vue'
+import { ElButton, ElPopover } from 'element-plus'
+
+import 'element-plus/es/components/button/style/css'
+import 'element-plus/es/components/popover/style/css'
 
 defineProps({
   text: {

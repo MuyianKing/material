@@ -2,6 +2,8 @@
 import { useAttrs } from 'vue'
 import { ElButton, ElLink } from 'element-plus'
 import { readTask } from '../../../../server'
+import 'element-plus/es/components/button/style/css'
+import 'element-plus/es/components/link/style/css'
 
 defineProps({
   button: {

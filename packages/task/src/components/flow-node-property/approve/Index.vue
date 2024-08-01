@@ -5,6 +5,7 @@ import { HlFormItem, HlInput, HlSelect } from '@hl/ui'
 import { ElDivider } from 'element-plus'
 import { getPrevNodes } from '../../../hooks/flow'
 import useFlowStore from '../../../../../../packages/task/src/pinia/modules/useFlowStore'
+import 'element-plus/es/components/divider/style/css'
 
 const model_value = defineModel({
   type: Object,

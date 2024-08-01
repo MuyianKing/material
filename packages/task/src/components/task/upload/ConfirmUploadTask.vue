@@ -1,7 +1,9 @@
 <script setup>
 import { HlButton, HlDialog, HlPage, HlTable, HlTableColumn } from '@hl/ui'
 import { ref, useAttrs, watch } from 'vue'
+import { vLoading } from 'element-plus'
 import { confirmUploadCreateTask } from '../../../server/task'
+import 'element-plus/es/components/loading/style/css'
 
 const props = defineProps({
   data: {

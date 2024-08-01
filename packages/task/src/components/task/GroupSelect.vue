@@ -1,6 +1,10 @@
 <script setup name="ProjectSelect">
+import { ElOption, ElSelect } from 'element-plus'
 import useSelect from '../../hooks/select'
 import { getList } from '../../server/group'
+
+import 'element-plus/es/components/select/style/css'
+import 'element-plus/es/components/option/style/css'
 
 const props = defineProps({
   modelValue: {

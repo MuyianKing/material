@@ -6,6 +6,9 @@ import { ElButton, ElLink } from 'element-plus'
 import { moveTask } from '../../../../server'
 import MoveModel from '../../../../model/task/move'
 
+import 'element-plus/es/components/button/style/css'
+import 'element-plus/es/components/link/style/css'
+
 const props = defineProps({
   taskId: {
     type: [String, Number],

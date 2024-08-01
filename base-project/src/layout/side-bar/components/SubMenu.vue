@@ -1,5 +1,4 @@
 <script setup>
-import { defineProps } from 'vue'
 import { HlIcon } from '@hl/ui'
 import { ElMenuItem, ElSubMenu } from 'element-plus/es'
 

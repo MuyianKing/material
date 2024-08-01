@@ -3,11 +3,13 @@ import { onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 
 import { HlDate, HlFormItem, HlInput, HlSearchButton, HlTable, HlTableColumn, HlTime } from '@hl/ui'
-import { ElLink, ElTooltip } from 'element-plus'
+import { ElLink, ElTooltip, vLoading } from 'element-plus'
 
 import { useList } from '@hl/jooks'
 import { jump } from '@hl/utils/es/router'
 import { getList, setTop } from '../../../server/infoGroup'
+
+import 'element-plus/es/components/loading/style/css'
 
 const {
   HlListPage,
@@ -93,7 +95,8 @@ defineExpose({
       </hl-form-item>
       <hl-form-item label="创建时间">
         <hl-date v-model:end="query.create_endtime" v-model:start="query.create_starttime" date-type="datetime"
-          placeholder="请选择日期" type="range" />
+                 placeholder="请选择日期" type="range"
+        />
       </hl-form-item>
     </template>
 
@@ -115,7 +118,7 @@ defineExpose({
         <hl-table-column label="单位详情" prop="org">
           <template #default="{ row }">
             <div>
-              <template v-for="(item,index) in row.a_organization" :key="index">
+              <template v-for="(item, index) in row.a_organization" :key="index">
                 <el-tooltip :content="`${item.name}: ${item.statusName}`" effect="light" placement="top">
                   <span :style="`color: ${item.statusColor}`" class="whitespace-nowrap">{{ item.name }}</span>
                 </el-tooltip>
@@ -130,7 +133,8 @@ defineExpose({
               查看
             </el-link>
             <el-link :type="row.is_top === 1 ? 'warning' : 'success'" :underline="false" class="ml-2"
-              @click="handleSetTop(row)">
+                     @click="handleSetTop(row)"
+            >
               {{ row.is_top === 1 ? '取消置顶' : '置顶' }}
             </el-link>
           </template>

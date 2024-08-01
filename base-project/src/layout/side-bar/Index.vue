@@ -6,7 +6,7 @@ import { ElMenu } from 'element-plus/es'
 
 import { useRoute, useRouter } from 'vue-router'
 
-import { computed, defineModel, onMounted, ref, watch } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import { storeToRefs } from 'pinia'
 import useThemeStore from '@pinia/useThemeStore.js'
 import useDynamicRoutesStore from '@pinia/useDynamicRoutesStore.js'

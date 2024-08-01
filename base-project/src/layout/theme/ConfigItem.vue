@@ -1,7 +1,6 @@
 <script setup>
-import {defineProps} from 'vue'
 import { HlIcon } from '@hl/ui'
-import useThemeStore from '@pinia/useThemeStore.js'
+import useThemeStore from '@pinia/useThemeStore'
 
 const props = defineProps({
   title: {

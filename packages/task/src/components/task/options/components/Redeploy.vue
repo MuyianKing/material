@@ -5,6 +5,9 @@ import { HlFormDialog, HlFormItem } from '@hl/ui'
 import { ElButton, ElLink } from 'element-plus'
 import { taskRedeploy } from '../../../../server'
 
+import 'element-plus/es/components/button/style/css'
+import 'element-plus/es/components/link/style/css'
+
 const props = defineProps({
   taskId: {
     type: [String, Number],

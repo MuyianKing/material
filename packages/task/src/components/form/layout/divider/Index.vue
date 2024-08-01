@@ -1,7 +1,9 @@
 <script setup>
 import { getCanUseValue } from '@hl/utils/es/common'
 import { computed, nextTick, onMounted } from 'vue'
+import { ElDivider } from 'element-plus'
 import CustomComp from '../../basic/CustomComp.vue'
+import 'element-plus/es/components/divider/style/css'
 
 import { generatePropertyByConfig } from '../../utils'
 

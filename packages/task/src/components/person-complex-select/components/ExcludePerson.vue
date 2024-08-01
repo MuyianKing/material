@@ -1,4 +1,8 @@
 <script setup>
+import { ElTag } from 'element-plus'
+import 'element-plus/es/components/button/style/css'
+import 'element-plus/es/components/tag/style/css'
+
 defineProps({
   list: {
     type: Array,

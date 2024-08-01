@@ -1,6 +1,9 @@
 <script setup>
 import { onMounted, ref } from 'vue'
+import { ElTreeSelect } from 'element-plus'
 import { getConfigTree } from '../../server/benches'
+
+import 'element-plus/es/components/tree-select/style/css'
 
 const emits = defineEmits(['change'])
 

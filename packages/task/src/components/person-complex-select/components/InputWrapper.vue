@@ -1,5 +1,7 @@
 <script setup>
 import { HlIcon } from '@hl/ui'
+import { ElTag } from 'element-plus'
+import 'element-plus/es/components/tag/style/css'
 
 defineProps({
   disabled: {
