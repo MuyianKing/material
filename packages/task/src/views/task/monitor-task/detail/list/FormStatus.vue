@@ -2,6 +2,10 @@
 import { ElTable, ElTableColumn, ElTag } from 'element-plus'
 import { computed } from 'vue'
 
+import 'element-plus/es/components/table/style/css'
+import 'element-plus/es/components/table-column/style/css'
+import 'element-plus/es/components/tag/style/css'
+
 const { data } = defineProps({
   data: {
     type: Array,

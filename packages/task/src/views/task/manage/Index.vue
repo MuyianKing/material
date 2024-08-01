@@ -4,6 +4,9 @@ import { ElTabPane, ElTabs } from 'element-plus'
 import MyCreate from './my-create/Index.vue'
 import MyManage from './my-manage/Index.vue'
 
+import 'element-plus/es/components/tabs/style/css'
+import 'element-plus/es/components/tab-pane/style/css'
+
 const tabsValue = ref(0)
 
 const tabData = [

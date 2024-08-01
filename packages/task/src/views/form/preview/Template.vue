@@ -8,6 +8,10 @@ import { getFormById } from '../../../server/form'
 import { getDefault } from '../../../hooks/form.default.value'
 import { getFlatFields } from '../../../hooks/form'
 
+import 'element-plus/es/components/skeleton/style/css'
+import 'element-plus/es/components/skeleton-item/style/css'
+import 'element-plus/es/components/form/style/css'
+
 const props = defineProps({
   config: {
     type: Object,

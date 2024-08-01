@@ -7,6 +7,8 @@ import InputComp from './components/Input.vue'
 import DropdownComp from './components/Dropdown.vue'
 import DateComp from './components/Date.vue'
 
+import 'element-plus/es/components/popover/style/css'
+
 const props = defineProps({
   config: {
     type: Object,

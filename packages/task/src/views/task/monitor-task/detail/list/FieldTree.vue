@@ -3,6 +3,8 @@ import { onMounted, ref } from 'vue'
 import { ElTree } from 'element-plus'
 import { getParams } from '../../../../../server/infoGroup'
 
+import 'element-plus/es/components/tree/style/css'
+
 const props = defineProps({
   infoGroupId: {
     type: [Number, String],
