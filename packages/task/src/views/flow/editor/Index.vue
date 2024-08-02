@@ -2,7 +2,7 @@
 import '@logicflow/core/dist/style/index.css'
 import '@logicflow/extension/lib/style/index.css'
 import LogicFlow from '@logicflow/core'
-import { inject, nextTick, onMounted, provide, ref, watch } from 'vue'
+import { inject, nextTick, onMounted, provide, ref, toRefs, watch } from 'vue'
 import { Control, SelectionSelect, Snapshot } from '@logicflow/extension'
 import { useDebounceFn, useEventListener } from '@vueuse/core'
 

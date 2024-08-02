@@ -10,8 +10,8 @@ export const menuList = [
     },
   },
   {
-    path: '/task/cz',
-    component: () => import('@hl/task/src/views/task/common-task-page/index'),
+    path: '/task/cz2',
+    component: () => import('@hl/task/src/views/task/common-task-page/Index.vue'),
     meta: {
       title: '差旅管理',
       icon: 'mage:layout-center-fill',

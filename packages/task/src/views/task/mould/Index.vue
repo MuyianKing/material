@@ -4,6 +4,7 @@ import { HlIcon, HlSearchPage } from '@hl/ui'
 import { ElLink } from 'element-plus'
 
 import { jump } from '@hl/utils/es/router'
+import {useRouter} from "vue-router"
 import { getTaskTree } from '../../../server/config'
 import TaskPublish from '../publish/Index.vue'
 import TaskItem from './components/TaskItem.vue'
@@ -30,7 +31,7 @@ function handleCreate() {
   jump({
     path: '/task/design/base-config',
     type: '_blank',
-  })
+  },useRouter())
 }
 
 const show_publish = ref(false)

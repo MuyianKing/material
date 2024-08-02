@@ -4,7 +4,7 @@ import { useRoute } from 'vue-router'
 import { HlFormItem, HlPreview, HlSearchButton, HlSelect, HlTime } from '@hl/ui'
 import { ElTable, ElTableColumn, vLoading } from 'element-plus'
 
-import { useList } from '@hl/jooks'
+import { useList } from '@hl/hooks'
 import { getDetail } from '../../../../../server/infoGroup'
 import StatusLabel from '../../../../../components/task/Status.vue'
 import SetParams from './params/SetParams.vue'

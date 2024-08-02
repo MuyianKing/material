@@ -1,5 +1,5 @@
 <script setup>
-import { useList } from '@hl/jooks'
+import { useList } from '@hl/hooks'
 import { ref, watch } from 'vue'
 import { HlDialog } from '@hl/ui'
 import { ElAlert } from 'element-plus'

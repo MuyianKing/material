@@ -2,7 +2,7 @@
 import { onMounted, ref } from 'vue'
 import { ElTree } from 'element-plus'
 import { getAvailableHeader } from '../../server/common.task.page'
-import 'element-plus/es/components/button/tree/css'
+import 'element-plus/es/components/tree/style/css'
 
 const props = defineProps({
   configUuid: {

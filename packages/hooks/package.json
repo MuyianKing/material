@@ -1,6 +1,6 @@
 {
   "name": "@hl/hooks",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "",
   "author": "",
   "license": "ISC",
@@ -10,11 +10,8 @@
     "build": "npx vite build"
   },
   "dependencies": {
-    "@hl/ui": "^0.3.0",
-    "@hl/utils": "^0.3.0",
-    "@vueuse/core": "^10.11.0",
-    "lodash-es": "^4.17.21",
-    "vue": "^3.4.33"
+    "@hl/ui": "^0.4.0",
+    "@hl/utils": "^0.4.0"
   },
   "devDependencies": {}
 }

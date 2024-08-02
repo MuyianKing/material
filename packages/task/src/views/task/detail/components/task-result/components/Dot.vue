@@ -2,7 +2,6 @@
 import { computed } from 'vue'
 import { HlIcon } from '@hl/ui'
 
-import variables from '@style/theme.module.scss'
 import '@hl/ui/src/components/icon/Index.css'
 
 const props = defineProps({
@@ -11,6 +10,8 @@ const props = defineProps({
     default: null,
   },
 })
+
+const variables = hl.variables
 
 const type_map = {
   unstart: {

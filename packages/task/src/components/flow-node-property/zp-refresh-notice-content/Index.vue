@@ -1,5 +1,4 @@
 <script setup>
-import useAppStore from '@pinia/useAppStore'
 import { computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import { HlFormItem, HlIcon, HlInput } from '@hl/ui'
@@ -11,7 +10,7 @@ import '@hl/ui/src/components/icon/Index.css'
 import '@hl/ui/src/components/input/Index.css'
 
 const value = defineModel()
-const appStore = useAppStore()
+const appStore = hl.appStore
 
 const { node } = storeToRefs(useFlowStore())
 

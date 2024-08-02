@@ -5,8 +5,9 @@ import { useRoute } from 'vue-router'
 import { HlDate, HlFormItem, HlInput, HlSearchButton, HlTable, HlTableColumn, HlTime } from '@hl/ui'
 import { ElLink, ElTooltip, vLoading } from 'element-plus'
 
-import { useList } from '@hl/jooks'
+import { useList } from '@hl/hooks'
 import { jump } from '@hl/utils/es/router'
+import {useRouter} from "vue-router"
 import { getList, setTop } from '../../../server/infoGroup'
 
 import 'element-plus/es/components/loading/style/css'
@@ -62,7 +63,7 @@ function handleClickDetail(row) {
   const url = `/monitor-task/detail/${row.info_group_id}`
   jump({
     path: url,
-  })
+  },useRouter())
 }
 
 async function handleSetTop(row) {

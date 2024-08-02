@@ -12,6 +12,9 @@ import api from '@api'
 import useDynamicRoutesStore from '@pinia/useDynamicRoutesStore'
 import useThemeStore from '@pinia/useThemeStore'
 import useUserStore from '@pinia/useUserStore'
+import { registerRequiredComp } from '@hl/task'
+// import registerRequiredComp from '@hl/task/registerRequiredComp'
+// import CommonTask from '@hl/task/server'
 import { BASE_URL, ICONIFY_API } from './utils/app'
 import http from './utils/request'
 import pinia from '@/pinia'
@@ -49,6 +52,7 @@ app.use(pinia)
 useDynamicRoutesStore().initDynamicRoutes(router)
 app.use(router)
   .use(directions)
+  .use(registerRequiredComp)
   .mount('#app')
 
 const theme = useThemeStore()

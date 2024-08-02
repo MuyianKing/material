@@ -2,8 +2,8 @@
 import Quill from 'quill'
 import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'
-import { jsonparse } from '@hl/utils/es/es/common'
-import { nextTick, onMounted, ref, watch } from 'ref'
+import { jsonparse } from '@hl/utils/es/common'
+import { nextTick, onMounted, ref, watch } from 'vue'
 
 const container_ref = ref()
 const editor_ref = ref()

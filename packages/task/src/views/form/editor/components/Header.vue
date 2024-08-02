@@ -1,5 +1,5 @@
 <script setup>
-import { inject, ref } from 'vue'
+import { inject, ref, toRefs } from 'vue'
 import { HlButton, HlEditInfo, HlIcon } from '@hl/ui'
 import PreviewDialog from '../../preview/PreviewDialog.vue'
 import { saveFormConfig } from '../../../../server/form'
@@ -40,7 +40,7 @@ function handleSave() {
       </hl-button>
     </div>
 
-    <preview-dialog v-model="show_preview" :config="{ form_config,form_field_list }" />
+    <preview-dialog v-model="show_preview" :config="{ form_config, form_field_list }" />
   </div>
 </template>
 

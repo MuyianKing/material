@@ -159,7 +159,7 @@ defineExpose({
   :deep(.el-form-item) {
     flex-direction: column;
 
-    &>.el-form-item__label {
+    & > .el-form-item__label {
       display: block;
       font-weight: bold;
     }

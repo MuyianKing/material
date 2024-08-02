@@ -1,5 +1,4 @@
 <script setup>
-import theme from '@style/theme.module.scss'
 import { computed, ref } from 'vue'
 import { HlIcon } from '@hl/ui'
 import { ElPopover } from 'element-plus'
@@ -52,7 +51,8 @@ const active = computed(() => {
 
 <template>
   <el-popover v-if="config?.type !== 'dropdown'" v-model:visible="visible" :width="width_map[props.config?.type]"
-    trigger="click">
+              trigger="click"
+  >
     <template #reference>
       <div class="flex items-center" :class="{ 'active-search': active }">
         <span>{{ config.label }}</span>
@@ -64,7 +64,7 @@ const active = computed(() => {
     <date-comp v-if="config?.type === 'date'" @search="handleSearch" />
   </el-popover>
 
-  <dropdown-comp v-else :config="config" :light-color="theme['color-danger']" @search="handleSearch" />
+  <dropdown-comp v-else :config="config" light-color="#ff5656" @search="handleSearch" />
 </template>
 
 <style lang='scss' scoped>

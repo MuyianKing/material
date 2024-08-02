@@ -3,6 +3,7 @@ import { computed, ref } from 'vue'
 import { HlContextMenu } from '@hl/ui'
 
 import { jump } from '@hl/utils/es/router'
+import {useRouter} from "vue-router"
 import variables from '@style/theme.module.scss'
 import { delTaskConfig, startTaskConfig, stopTaskConfig } from '../../../../server/config'
 import '@hl/ui/src/components/context-menu/Index.css'
@@ -20,7 +21,7 @@ function handleEdit(data) {
     query: {
       id: data?.config_id,
     },
-  })
+  },useRouter())
 }
 
 // 删除

@@ -1,5 +1,5 @@
 <script setup>
-import { useList } from '@hl/jooks'
+import { useList } from '@hl/hooks'
 import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { HlSearchButton } from '@hl/ui'

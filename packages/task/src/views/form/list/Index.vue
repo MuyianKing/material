@@ -1,7 +1,8 @@
 <script setup>
-import { useList } from '@hl/jooks'
+import { useList } from '@hl/hooks'
 import { jump } from '@hl/utils/es/router'
 import { HlFormItem, HlInput, HlTable, HlTableColumn } from '@hl/ui'
+import {useRouter} from "vue-router"
 import '@hl/ui/src/components/form-item/Index.css'
 import '@hl/ui/src/components/input/Index.css'
 import '@hl/ui/src/components/table/Index.css'
@@ -26,7 +27,7 @@ function handleEdit() {
       id: '',
     },
     type: '_blank',
-  })
+  },useRouter())
 }
 </script>
 

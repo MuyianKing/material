@@ -1,4 +1,5 @@
 import Cookies from 'js-cookie'
+import dayjs from 'dayjs'
 import { jsonparse } from './common'
 
 export default {
@@ -95,6 +96,7 @@ const cookie = {
       v = JSON.parse(v)
       return v
     } catch (error) {
+      console.log('get cookie', error)
       return v
     }
   },
@@ -131,7 +133,7 @@ const store = {
       localStorage.setItem('keys', JSON.stringify(keys))
     } catch (e) {
       if (e.message.includes('exceeded the quota')) {
-        console.log('超出')
+        console.log('set storage 超出')
         this.clearInvalid(() => this.setItem(key, value, expire))
       }
     }
@@ -201,6 +203,7 @@ const store = {
       }
       return jsonparse(v.value, v.value)
     } catch (error) {
+      console.log('get storage', error)
       return v
     }
   },

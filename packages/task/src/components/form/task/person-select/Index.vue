@@ -1,5 +1,5 @@
 <script setup>
-import { PersonDiversitySelect } from '@hl/tyyh'
+import { PersonSelect } from '@hl/tyyh'
 import { computed } from 'vue'
 import CustomEditableComp from '../../basic/CustomEditableComp.vue'
 import useComponent from '../../utils'
@@ -89,8 +89,8 @@ function personDataiIsEmpty(handler) {
 
 <template>
   <custom-editable-comp :config="config" :mode="mode" :form="form">
-    <person-diversity-select v-if="mode === 'edit'" disabled :multiple="property.multiple" :expand="property.expand" :placeholder="property.placeholder || '请选择人员'" :organization-id="org" :server="apiServer" :has-next="property.person_has_next" :org-job-idcard="property.person_id_key === 'org_job_idcard'" :clearable="property.clearable" />
-    <person-diversity-select v-else v-model="form[config.id]" :multiple="property.multiple" :expand="property.expand" :placeholder="property.placeholder || '请选择人员'" :organization-id="org" :server="apiServer" :has-next="property.person_has_next" :org-job-idcard="property.person_id_key === 'org_job_idcard'" :clearable="property.clearable" :disabled="property.status === 2 || mode === 'text'" />
+    <person-select v-if="mode === 'edit'" disabled :multiple="property.multiple" :expand="property.expand" :placeholder="property.placeholder || '请选择人员'" :organization-id="org" :server="apiServer" :has-next="property.person_has_next" :org-job-idcard="property.person_id_key === 'org_job_idcard'" :clearable="property.clearable" />
+    <person-select v-else v-model="form[config.id]" :multiple="property.multiple" :expand="property.expand" :placeholder="property.placeholder || '请选择人员'" :organization-id="org" :server="apiServer" :has-next="property.person_has_next" :org-job-idcard="property.person_id_key === 'org_job_idcard'" :clearable="property.clearable" :disabled="property.status === 2 || mode === 'text'" />
     <slot />
   </custom-editable-comp>
 </template>

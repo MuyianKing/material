@@ -1,7 +1,6 @@
 <script setup>
-import useClipboard from 'vue-clipboard3'
 import { getLabelByVal } from '@hl/utils/es/common'
-import { computed, inject } from 'vue'
+import { computed, inject, toRefs } from 'vue'
 import { HlFormItem, HlNodata } from '@hl/ui'
 import { ElDivider, ElForm } from 'element-plus'
 import { property_list, type_list } from '../../../../../../components/form-property/config'
@@ -42,18 +41,11 @@ const property_list_comp = computed(() => {
 
   return _type_list.filter(item => item.children.length > 0)
 })
-
-const { toClipboard } = useClipboard()
-
-function handleCopy(icon) {
-  toClipboard(icon)
-  hl.message.success(`复制成功：${icon}`)
-}
 </script>
 
 <template>
   <el-form label-width="100px">
-    <hl-form-item label="表单ID" @click="handleCopy(active_form_item)">
+    <hl-form-item label="表单ID">
       <hl-input :model-value="active_form_item" readonly />
     </hl-form-item>
 

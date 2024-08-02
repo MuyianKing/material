@@ -1,4 +1,4 @@
-<script setup name="ProjectSelect">
+<script setup name="GroupSelect">
 import { ElOption, ElSelect } from 'element-plus'
 import useSelect from '../../hooks/select'
 import { getList } from '../../server/group'

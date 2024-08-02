@@ -2,6 +2,7 @@
 import { onMounted, ref, watch } from 'vue'
 
 import { jump } from '@hl/utils/es/router'
+import {useRouter} from "vue-router"
 import { HlIcon } from '@hl/ui'
 import { delTaskConfig, startTaskConfig, stopTaskConfig } from '../../../../server/config'
 import UploadTask from '../../../../components/task/upload/UploadTask.vue'
@@ -98,7 +99,7 @@ function handleEdit(task) {
     query: {
       id: task?.config_id,
     },
-  })
+  },useRouter())
 }
 
 // 模板下载

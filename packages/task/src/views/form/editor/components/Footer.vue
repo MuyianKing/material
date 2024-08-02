@@ -1,5 +1,5 @@
 <script setup>
-import { inject, ref } from 'vue'
+import { inject, ref, toRefs } from 'vue'
 import { HlButton } from '@hl/ui'
 import PreviewDialog from '../../preview/PreviewDialog.vue'
 import { saveFormConfig } from '../../../../server/form'

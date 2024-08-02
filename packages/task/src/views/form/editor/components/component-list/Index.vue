@@ -2,7 +2,7 @@
 import { VueDraggable } from 'vue-draggable-plus'
 import { cloneDeep } from 'lodash-es'
 import { guid } from '@hl/utils/es/common'
-import { inject, ref } from 'vue'
+import { inject, ref, toRefs } from 'vue'
 import { ElCollapse, ElCollapseItem } from 'element-plus'
 import { components_list_config } from './config'
 import 'element-plus/es/components/collapse/style/css'

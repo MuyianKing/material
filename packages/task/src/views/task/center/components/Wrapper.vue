@@ -1,5 +1,4 @@
 <script setup>
-import { defineProps } from 'vue'
 import { HlBlockTitle } from '@hl/ui'
 import '@hl/ui/src/components/block-title/Index.css'
 

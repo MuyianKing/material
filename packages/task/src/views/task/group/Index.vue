@@ -2,7 +2,7 @@
 import { ref, toRefs } from 'vue'
 import { HlAddButton, HlFormItem, HlGridLayout, HlInput, HlNodata } from '@hl/ui'
 
-import { useList } from '@hl/jooks'
+import { useList } from '@hl/hooks'
 import { useDraggable } from 'vue-draggable-plus'
 import { vLoading } from 'element-plus'
 import { getList, sortGroup } from '../../../server/group'
