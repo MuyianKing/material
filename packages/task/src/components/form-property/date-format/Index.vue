@@ -1,6 +1,8 @@
 <script setup>
 import { onMounted, ref, watch, watchEffect } from 'vue'
 import { HlFormItem, HlSelect } from '@hl/ui'
+import '@hl/ui/src/components/form-item/Index.css'
+import '@hl/ui/src/components/select/Index.css'
 
 const _property = defineModel()
 

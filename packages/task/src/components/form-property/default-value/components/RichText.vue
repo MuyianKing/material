@@ -2,6 +2,8 @@
 import { HlButton, HlDialog } from '@hl/ui'
 import { ref } from 'vue'
 import RichText from '../../../../components/common/rich-text/Index.vue'
+import '@hl/ui/src/components/button/Index.css'
+import '@hl/ui/src/components/dialog/Index.css'
 
 const model = defineModel()
 const show = ref(false)

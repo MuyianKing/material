@@ -6,6 +6,11 @@ import { HlDelButton, HlDropdown, HlIcon, HlInput, HlSelect } from '@hl/ui'
 import { ElCascader } from 'element-plus'
 import { show_huo_qie, show_opt_type } from '../../../default/form'
 import 'element-plus/es/components/cascader/style/css'
+import '@hl/ui/src/components/del-button/Index.css'
+import '@hl/ui/src/components/dropdown/Index.css'
+import '@hl/ui/src/components/icon/Index.css'
+import '@hl/ui/src/components/input/Index.css'
+import '@hl/ui/src/components/select/Index.css'
 
 const props = defineProps({
   // 所有字段

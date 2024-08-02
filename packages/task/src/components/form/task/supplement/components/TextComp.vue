@@ -2,6 +2,8 @@
 import { HlTable, HlTableColumn } from '@hl/ui'
 import { ElPopover } from 'element-plus'
 import 'element-plus/es/components/popover/style/css'
+import '@hl/ui/src/components/table/Index.css'
+import '@hl/ui/src/components/table-column/Index.css'
 
 defineProps({
   data: {

@@ -1,6 +1,7 @@
 <script setup>
 import { ProjectSelect } from '@hl/tyyh'
 import { HlFormItem } from '@hl/ui'
+import '@hl/ui/src/components/form-item/Index.css'
 
 const value = defineModel()
 </script>

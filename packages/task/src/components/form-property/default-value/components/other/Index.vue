@@ -7,6 +7,8 @@ import { default_type } from '../../../../../default/form'
 import UserDefault from './components/UserDefault.vue'
 import TimeDiff from './components/time-diff/Index.vue'
 import MathComp from './components/math/Index.vue'
+import '@hl/ui/src/components/input/Index.css'
+import '@hl/ui/src/components/select/Index.css'
 
 const model = defineModel()
 

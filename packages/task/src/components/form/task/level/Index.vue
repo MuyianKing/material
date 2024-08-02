@@ -5,6 +5,7 @@ import CustomEditableComp from '../../basic/CustomEditableComp.vue'
 
 import useComponent from '../../utils'
 import { task_level } from '../../../../default/form'
+import '@hl/ui/src/components/select/Index.css'
 
 const props = defineProps({
   config: {

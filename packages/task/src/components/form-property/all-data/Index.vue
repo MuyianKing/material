@@ -1,6 +1,9 @@
 <script setup>
 import { HlFormItem, HlQuestionIcon, HlRadio } from '@hl/ui'
 import { true_false } from '../../../default/index'
+import '@hl/ui/src/components/form-item/Index.css'
+import '@hl/ui/src/components/radio/Index.css'
+import '@hl/ui/src/components/question-icon/Index.css'
 
 const value = defineModel()
 </script>

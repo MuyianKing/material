@@ -4,6 +4,7 @@ import { storeToRefs } from 'pinia'
 import { HlButton } from '@hl/ui'
 import TaskFormEdit from '../../../views/task/design/components/form/EditDialog.vue'
 import useFlowStore from '../../../../../../packages/task/src/pinia/modules/useFlowStore'
+import '@hl/ui/src/components/button/Index.css'
 
 const emits = defineEmits(['update'])
 

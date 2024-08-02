@@ -4,6 +4,10 @@ import { HlCheckbox, HlDate, HlFormItem, HlRadio } from '@hl/ui'
 import { ElTimePicker } from 'element-plus'
 import CycledatModel from '../../../../../model/task/cycle.day'
 import 'element-plus/es/components/time-picker/style/css'
+import '@hl/ui/src/components/checkbox/Index.css'
+import '@hl/ui/src/components/date/Index.css'
+import '@hl/ui/src/components/form-item/Index.css'
+import '@hl/ui/src/components/radio/Index.css'
 
 defineProps({
   disabled: {

@@ -8,6 +8,7 @@ import DeadlineComp from './components/Deadline.vue'
 import TaskUser from './components/TaskUser.vue'
 import OtherDefault from './components/other/Index.vue'
 import RichText from './components/RichText.vue'
+import '@hl/ui/src/components/form-item/Index.css'
 
 const value = defineModel()
 const { property_config } = toRefs(inject('editor_store'))

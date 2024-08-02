@@ -1,6 +1,7 @@
 <script setup>
 import { HlInput } from '@hl/ui'
 import CustomEditableComp from '../../basic/CustomEditableComp.vue'
+import '@hl/ui/src/components/input/Index.css'
 
 import useComponent from '../../utils'
 

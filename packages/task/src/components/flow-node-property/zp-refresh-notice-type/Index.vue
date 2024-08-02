@@ -3,6 +3,7 @@ import { storeToRefs } from 'pinia'
 import { HlFormItem } from '@hl/ui'
 import DictPicker from '../../false-dict/Picker.vue'
 import useFlowStore from '../../../pinia/modules/useFlowStore'
+import '@hl/ui/src/components/form-item/Index.css'
 
 const { node } = storeToRefs(useFlowStore())
 const value = defineModel()

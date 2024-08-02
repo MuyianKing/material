@@ -2,6 +2,8 @@
 import { storeToRefs } from 'pinia'
 import { HlFormItem, HlRadio } from '@hl/ui'
 import useFlowStore from '../../../pinia/modules/useFlowStore'
+import '@hl/ui/src/components/form-item/Index.css'
+import '@hl/ui/src/components/radio/Index.css'
 
 const value = defineModel()
 

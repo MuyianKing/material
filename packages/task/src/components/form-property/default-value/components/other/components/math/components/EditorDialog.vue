@@ -7,6 +7,8 @@ import { fh, number } from '../../../../../../../../default/form'
 import BlocksComp from './Blocks.vue'
 import ExpressionPanel from './ExpressionPanel.vue'
 import FieldList from './FieldList.vue'
+import '@hl/ui/src/components/button/Index.css'
+import '@hl/ui/src/components/dialog/Index.css'
 
 const model = defineModel('exp', {
   type: [Array, String],
@@ -42,6 +44,7 @@ function handleSubmit() {
     model.value = expression.value
     show.value = false
   } catch (error) {
+    console.log(error)
     hl.message.error(null, '表达式错误')
   }
 }

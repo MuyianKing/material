@@ -55,7 +55,8 @@ onMounted(() => {
 
 <template>
   <el-dropdown ref="dropdown_ref" placement="bottom-end" max-height="600"
-    popper-class="task-center-create-task-dropdown">
+               popper-class="task-center-create-task-dropdown"
+  >
     <el-link v-if="task_temp_list" type="primary" class="cursor-pointer ml-4 select-none" v-bind="$attrs">
       <span>创建任务</span>
       <hl-icon icon="iconamoon:arrow-down-2-thin" />

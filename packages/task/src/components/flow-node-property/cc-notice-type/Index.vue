@@ -1,6 +1,7 @@
 <script setup>
 import { HlFormItem } from '@hl/ui'
 import DictPicker from '../../false-dict/Picker.vue'
+import '@hl/ui/src/components/form-item/Index.css'
 
 const value = defineModel()
 </script>

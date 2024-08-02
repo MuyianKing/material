@@ -8,6 +8,9 @@ import NodeOuter from '../../flow/NodeOuter.vue'
 import useFlowStore from '../../../../../../packages/task/src/pinia/modules/useFlowStore'
 import 'element-plus/es/components/select/style/css'
 import 'element-plus/es/components/option/style/css'
+import '@hl/ui/src/components/form-item/Index.css'
+import '@hl/ui/src/components/select/Index.css'
+import '@hl/ui/src/components/input/Index.css'
 
 const props = defineProps({
   label: {

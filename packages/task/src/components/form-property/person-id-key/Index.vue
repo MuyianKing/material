@@ -1,5 +1,7 @@
 <script setup>
 import { HlFormItem, HlSelect } from '@hl/ui'
+import '@hl/ui/src/components/select/Index.css'
+import '@hl/ui/src/components/form-item/Index.css'
 
 const options = [{
   label: '身份证号',

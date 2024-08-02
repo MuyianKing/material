@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import { HlDate } from '@hl/ui'
 import CustomEditableComp from '../../basic/CustomEditableComp.vue'
 import useComponent from '../../utils'
+import '@hl/ui/src/components/date/Index.css'
 
 const props = defineProps({
   config: {

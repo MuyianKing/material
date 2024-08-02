@@ -2,6 +2,8 @@
 import { storeToRefs } from 'pinia'
 import { HlFormItem, HlSelect } from '@hl/ui'
 import useFlowStore from '../../../pinia/modules/useFlowStore'
+import '@hl/ui/src/components/form-item/Index.css'
+import '@hl/ui/src/components/select/Index.css'
 
 const value = defineModel()
 

@@ -2,6 +2,7 @@
 import { HlFormItem } from '@hl/ui'
 import { ElSwitch } from 'element-plus'
 import 'element-plus/es/components/switch/style/css'
+import '@hl/ui/src/components/form-item/Index.css'
 
 const property = defineModel()
 </script>

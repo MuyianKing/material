@@ -1,6 +1,7 @@
 <script setup>
 import { nextTick, ref, watch } from 'vue'
 import { HlUpload } from '@hl/ui'
+import '@hl/ui/src/components/upload/Index.css'
 
 const props = defineProps({
   property: {

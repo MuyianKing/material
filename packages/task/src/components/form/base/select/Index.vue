@@ -3,6 +3,9 @@ import { getLabelByVal } from '@hl/utils/es/common'
 import { computed, ref, watch } from 'vue'
 import { HlCheckbox, HlRadio, HlSelect } from '@hl/ui'
 import CustomEditableComp from '../../basic/CustomEditableComp.vue'
+import '@hl/ui/src/components/checkbox/Index.css'
+import '@hl/ui/src/components/radio/Index.css'
+import '@hl/ui/src/components/select/Index.css'
 
 import useComponent from '../../utils'
 

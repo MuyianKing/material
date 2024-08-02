@@ -2,6 +2,7 @@
 import { computed, inject } from 'vue'
 import { HlSelect } from '@hl/ui'
 import { getFlatFields } from '../../../../../../../../hooks/form'
+import '@hl/ui/src/components/select/Index.css'
 
 const { form_field_list, active_form_item } = toRefs(inject('editor_store'))
 

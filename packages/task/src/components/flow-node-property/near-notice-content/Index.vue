@@ -3,6 +3,9 @@ import useAppStore from '@pinia/useAppStore'
 import { HlFormItem, HlIcon, HlInput } from '@hl/ui'
 import { ElTooltip } from 'element-plus'
 import 'element-plus/es/components/tooltip/style/css'
+import '@hl/ui/src/components/icon/Index.css'
+import '@hl/ui/src/components/form-item/Index.css'
+import '@hl/ui/src/components/input/Index.css'
 
 const value = defineModel()
 

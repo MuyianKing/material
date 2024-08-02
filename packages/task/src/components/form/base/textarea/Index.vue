@@ -2,6 +2,7 @@
 import { HlInput } from '@hl/ui'
 import CustomEditableComp from '../../basic/CustomEditableComp.vue'
 import useComponent from '../../utils'
+import '@hl/ui/src/components/input/Index.css'
 
 const props = defineProps({
   config: {

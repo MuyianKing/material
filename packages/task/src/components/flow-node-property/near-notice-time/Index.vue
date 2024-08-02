@@ -1,6 +1,8 @@
 <script setup>
 import { ref, watch } from 'vue'
 import { HlFormItem, HlInput } from '@hl/ui'
+import '@hl/ui/src/components/form-item/Index.css'
+import '@hl/ui/src/components/input/Index.css'
 
 const value = defineModel()
 

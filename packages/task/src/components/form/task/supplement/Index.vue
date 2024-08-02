@@ -6,6 +6,7 @@ import CustomEditableComp from '../../basic/CustomEditableComp.vue'
 
 import useComponent from '../../utils'
 import TextComp from './components/TextComp.vue'
+import '@hl/ui/src/components/input/Index.css'
 
 const props = defineProps({
   config: {

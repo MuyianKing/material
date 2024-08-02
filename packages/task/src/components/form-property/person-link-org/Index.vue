@@ -2,6 +2,8 @@
 import { computed, inject } from 'vue'
 import { HlFormItem, HlSelect } from '@hl/ui'
 import { getFlatFields } from '../../../hooks/form'
+import '@hl/ui/src/components/form-item/Index.css'
+import '@hl/ui/src/components/select/Index.css'
 
 const { form_field_list } = toRefs(inject('editor_store'))
 const model = defineModel()

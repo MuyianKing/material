@@ -1,5 +1,6 @@
 <script setup>
 import { HlInput } from '@hl/ui'
+import '@hl/ui/src/components/input/Index.css'
 
 const model = defineModel()
 </script>

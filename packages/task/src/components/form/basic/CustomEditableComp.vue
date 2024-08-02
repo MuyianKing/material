@@ -4,6 +4,7 @@ import { HlFormItem } from '@hl/ui'
 import getDefaultWatcher from '../../../hooks/form.default.watcher'
 import { getDefault } from '../../../hooks/form.default.value'
 import CustomComp from './CustomComp.vue'
+import '@hl/ui/src/components/form-item/Index.css'
 
 const props = defineProps({
   config: {

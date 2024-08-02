@@ -2,6 +2,9 @@
 import { HlFormItem, HlRadio } from '@hl/ui'
 import { true_false } from '../../../default'
 
+import '@hl/ui/src/components/radio/Index.css'
+import '@hl/ui/src/components/form-item/Index.css'
+
 const value = defineModel()
 </script>
 

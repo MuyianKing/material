@@ -3,6 +3,9 @@ import { VueDraggable } from 'vue-draggable-plus'
 import { HlDelButton, HlIcon, HlInput } from '@hl/ui'
 import { ElTooltip } from 'element-plus'
 import 'element-plus/es/components/tooltip/style/css'
+import '@hl/ui/src/components/del-button/Index.css'
+import '@hl/ui/src/components/icon/Index.css'
+import '@hl/ui/src/components/input/Index.css'
 
 defineProps({
   title: {

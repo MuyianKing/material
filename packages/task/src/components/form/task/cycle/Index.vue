@@ -4,6 +4,7 @@ import CustomEditableComp from '../../basic/CustomEditableComp.vue'
 
 import useComponent from '../../utils'
 import { task_circle_type } from '../../../../default/form'
+import '@hl/ui/src/components/radio/Index.css'
 
 const props = defineProps({
   config: {

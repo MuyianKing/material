@@ -6,6 +6,9 @@ import { ElDivider } from 'element-plus'
 import { getPrevNodes } from '../../../hooks/flow'
 import useFlowStore from '../../../../../../packages/task/src/pinia/modules/useFlowStore'
 import 'element-plus/es/components/divider/style/css'
+import '@hl/ui/src/components/form-item/Index.css'
+import '@hl/ui/src/components/input/Index.css'
+import '@hl/ui/src/components/select/Index.css'
 
 const model_value = defineModel({
   type: Object,

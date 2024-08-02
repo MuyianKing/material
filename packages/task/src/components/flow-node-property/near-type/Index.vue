@@ -7,6 +7,7 @@ import 'element-plus/es/components/tooltip/style/css'
 import 'element-plus/es/components/input/style/css'
 import 'element-plus/es/components/select/style/css'
 import 'element-plus/es/components/option/style/css'
+import '@hl/ui/src/components/form-item/Index.css'
 
 const props = defineProps({
   type: {

@@ -4,6 +4,7 @@ import { computed, ref, watch } from 'vue'
 import { HlSelect } from '@hl/ui'
 import { getFormById } from '../../server/form'
 import { getFlatFields } from '../../hooks/form'
+import '@hl/ui/src/components/select/Index.css'
 
 const props = defineProps({
   /**

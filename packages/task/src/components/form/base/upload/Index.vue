@@ -3,6 +3,8 @@ import { HlPreview, HlUpload } from '@hl/ui'
 import CustomEditableComp from '../../basic/CustomEditableComp.vue'
 
 import useComponent from '../../utils'
+import '@hl/ui/src/components/preview/Index.css'
+import '@hl/ui/src/components/upload/Index.css'
 
 const props = defineProps({
   config: {

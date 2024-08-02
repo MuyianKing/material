@@ -1,5 +1,6 @@
 <script setup>
 import { HlSelect } from '@hl/ui'
+import '@hl/ui/src/components/select/Index.css'
 
 const options = [{
   label: '天',

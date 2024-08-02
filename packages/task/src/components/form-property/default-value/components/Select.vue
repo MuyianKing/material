@@ -1,6 +1,7 @@
 <script setup>
 import { inject } from 'vue'
 import { HlSelect } from '@hl/ui'
+import '@hl/ui/src/components/select/Index.css'
 
 const { property_config } = toRefs(inject('editor_store'))
 

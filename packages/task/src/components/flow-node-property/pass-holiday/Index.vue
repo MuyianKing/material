@@ -1,6 +1,8 @@
 <script setup>
 import { HlFormItem, HlRadio } from '@hl/ui'
 import { is_one_two } from '../../../default/index'
+import '@hl/ui/src/components/form-item/Index.css'
+import '@hl/ui/src/components/radio/Index.css'
 
 const value = defineModel()
 </script>

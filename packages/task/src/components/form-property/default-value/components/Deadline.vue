@@ -3,6 +3,8 @@ import { ref, watch } from 'vue'
 import dayjs from 'dayjs'
 import { HlDate, HlRadio } from '@hl/ui'
 import { task_deadline_type } from '../../../../default/form'
+import '@hl/ui/src/components/date/Index.css'
+import '@hl/ui/src/components/radio/Index.css'
 
 const model = defineModel()
 const radio_value = ref(24)

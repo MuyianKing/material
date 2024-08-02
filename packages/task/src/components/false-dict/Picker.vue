@@ -2,6 +2,9 @@
 import { ref } from 'vue'
 import { HlCheckbox, HlRadio, HlSelect } from '@hl/ui'
 import { getList } from '../../server/false.dict'
+import '@hl/ui/src/components/checkbox/Index.css'
+import '@hl/ui/src/components/radio/Index.css'
+import '@hl/ui/src/components/select/Index.css'
 
 const props = defineProps({
   type: {
