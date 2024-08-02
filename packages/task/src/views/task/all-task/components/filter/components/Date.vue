@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from 'vue'
 import { HlButton, HlDate } from '@hl/ui'
+import '@hl/ui/src/components/button/Index.css'
+import '@hl/ui/src/components/date/Index.css'
 
 defineProps({
 
@@ -28,5 +30,4 @@ const end = ref('')
   </div>
 </template>
 
-<style lang='scss' scoped>
-</style>
+<style lang='scss' scoped></style>

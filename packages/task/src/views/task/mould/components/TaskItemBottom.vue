@@ -7,6 +7,7 @@ import blockUp from '../../../../assets/img/task/block_up.png'
 import noPublish from '../../../../assets/img/task/no_publish.png'
 
 import 'element-plus/es/components/image/style/css'
+import '@hl/ui/src/components/icon/Index.css'
 
 const props = defineProps({
   data: {

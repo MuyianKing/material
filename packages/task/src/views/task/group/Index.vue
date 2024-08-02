@@ -9,6 +9,11 @@ import { getList, sortGroup } from '../../../server/group'
 import GroupItem from './components/GroupItem.vue'
 import GroupEdit from './components/Edit.vue'
 import 'element-plus/es/components/loading/style/css'
+import '@hl/ui/src/components/add-button/Index.css'
+import '@hl/ui/src/components/form-item/Index.css'
+import '@hl/ui/src/components/grid-layout/Index.css'
+import '@hl/ui/src/components/input/Index.css'
+import '@hl/ui/src/components/nodata/Index.css'
 
 const {
   HlListPage,
@@ -61,7 +66,8 @@ useDraggable(draggable_ref, data, {
       </template>
       <template #table>
         <hl-grid-layout ref="draggable_ref" v-loading="loading" :min-width="350" :width="350" class="w-full">
-          <group-item v-for="group in data" :key="group.group_id" :data="group" @dblclick="handleEdit(group)" @refresh="search" />
+          <group-item v-for="group in data" :key="group.group_id" :data="group" @dblclick="handleEdit(group)"
+            @refresh="search" />
         </hl-grid-layout>
         <hl-nodata v-if="data.length === 0" class="relative-center" text="暂无分组" width="500px" />
       </template>

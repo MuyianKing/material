@@ -3,6 +3,8 @@ import { ref } from 'vue'
 import { HlButton, HlDialog } from '@hl/ui'
 import FormDetail from '../../../../../../views/form/preview/Template.vue'
 import { finishTask } from '../../../../../../server'
+import '@hl/ui/src/components/dialog/Index.css'
+import '@hl/ui/src/components/button/Index.css'
 
 const props = defineProps({
   taskId: {
@@ -85,6 +87,4 @@ async function finallySubmit(form) {
   </hl-dialog>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

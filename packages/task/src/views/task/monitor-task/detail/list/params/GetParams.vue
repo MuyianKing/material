@@ -3,6 +3,7 @@ import { onMounted } from 'vue'
 import { HlFormItem } from '@hl/ui'
 import { getWhere } from '../../../../../../server/infoGroup'
 import ParamsComp from './ParamsComp.vue'
+import '@hl/ui/src/components/form-item/Index.css'
 
 const props = defineProps({
   infoGroupId: {

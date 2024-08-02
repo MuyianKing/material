@@ -7,6 +7,7 @@ import { delTaskConfig, startTaskConfig, stopTaskConfig } from '../../../../serv
 import UploadTask from '../../../../components/task/upload/UploadTask.vue'
 import { downloadTemplate } from '../../../../utils'
 import TaskItemBottom from './TaskItemBottom.vue'
+import '@hl/ui/src/components/icon/Index.css'
 
 const props = defineProps({
   rootData: {
@@ -153,7 +154,8 @@ onMounted(() => {
     <task-item-bottom :data="data" />
     <div v-if="data.can_create || data.can_modify" class="mark">
       <div class="content">
-        <div v-for="item in options" :key="item.className" :class="item.className" class="item" @click="handleClick(item)">
+        <div v-for="item in options" :key="item.className" :class="item.className" class="item"
+          @click="handleClick(item)">
           <hl-icon :icon="item.icon" class="mr-1" />
           {{ item.label }}
         </div>

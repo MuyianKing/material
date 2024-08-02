@@ -4,6 +4,8 @@ import { HlBlockTitle, HlIcon } from '@hl/ui'
 
 import WrapperComp from '../../components/Wrapper.vue'
 import TableList from './components/table-list/Index.vue'
+import '@hl/ui/src/components/block-title/Index.css'
+import '@hl/ui/src/components/icon/Index.css'
 
 const editing = ref(false)
 const task_list_ref = ref()

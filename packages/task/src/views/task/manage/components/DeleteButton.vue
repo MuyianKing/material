@@ -3,6 +3,7 @@ import { defineEmits } from 'vue'
 import { HlButton } from '@hl/ui'
 
 import { deleteTask } from '../../../../server/task'
+import '@hl/ui/src/components/button/Index.css'
 
 const props = defineProps({
   tasks: Array,
@@ -32,6 +33,4 @@ function deleteTaskFun() {
   </hl-button>
 </template>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

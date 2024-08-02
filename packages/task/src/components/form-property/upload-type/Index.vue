@@ -1,6 +1,8 @@
 <script setup>
 import { HlFormItem, HlSelect } from '@hl/ui'
 import { file_type_list } from '../../../default/form'
+import '@hl/ui/src/components/form-item/Index.css'
+import '@hl/ui/src/components/select/Index.css'
 
 const value = defineModel()
 </script>

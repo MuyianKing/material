@@ -4,6 +4,8 @@ import { HlButton, HlFormDialog } from '@hl/ui'
 
 import { getHeader, setHeader } from '../../../../../../server/common.task.page'
 import FieldTree from '../../../../../../components/task/FieldTree.vue'
+import '@hl/ui/src/components/button/Index.css'
+import '@hl/ui/src/components/form-dialog/Index.css'
 
 const props = defineProps({
   configUuid: {

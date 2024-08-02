@@ -2,6 +2,8 @@
 import { ref } from 'vue'
 import { HlButton, HlDialog } from '@hl/ui'
 import ThreeForm from '../../../three-form/Index.vue'
+import '@hl/ui/src/components/dialog/Index.css'
+import '@hl/ui/src/components/button/Index.css'
 
 defineProps({
   customConfig: {
@@ -31,6 +33,4 @@ function handleClick() {
   </hl-dialog>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

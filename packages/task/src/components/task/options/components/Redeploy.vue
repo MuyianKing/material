@@ -8,6 +8,9 @@ import { taskRedeploy } from '../../../../server'
 import 'element-plus/es/components/button/style/css'
 import 'element-plus/es/components/link/style/css'
 
+import '@hl/ui/src/components/form-dialog/Index.css'
+import '@hl/ui/src/components/form-item/Index.css'
+
 const props = defineProps({
   taskId: {
     type: [String, Number],
@@ -43,13 +46,12 @@ function handleClick() {
     </slot>
   </el-link>
 
-  <hl-form-dialog v-model="dialogShow" :model="form" :title="`转派-${taskId}`" :server="taskRedeploy" width="50%" top="30" @refresh="$emit('refresh-one')">
+  <hl-form-dialog v-model="dialogShow" :model="form" :title="`转派-${taskId}`" :server="taskRedeploy" width="50%" top="30"
+    @refresh="$emit('refresh-one')">
     <hl-form-item label="转派人员">
       <person-select-panel v-model="form.new_id_card" />
     </hl-form-item>
   </hl-form-dialog>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

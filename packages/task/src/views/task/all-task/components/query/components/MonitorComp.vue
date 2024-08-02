@@ -3,6 +3,8 @@ import { onMounted, ref } from 'vue'
 import { HlFormItem, HlRadio } from '@hl/ui'
 import { is_has_pass } from '../../../../../../default/index'
 import { isBenchesJK, setBenchesJK } from '../../../../../../server/benches'
+import '@hl/ui/src/components/form-item/Index.css'
+import '@hl/ui/src/components/radio/Index.css'
 
 const emits = defineEmits(['search'])
 const monitor = defineModel()

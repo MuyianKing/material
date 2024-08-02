@@ -1,6 +1,9 @@
 <script setup>
 import { HlFormItem, HlRadio } from '@hl/ui'
 
+import '@hl/ui/src/components/form-item/Index.css'
+import '@hl/ui/src/components/radio/Index.css'
+
 const options = [{
   label: '级联形式',
   value: 'cascader',

@@ -4,6 +4,7 @@ import { HlFormItem } from '@hl/ui'
 
 import { taskQueryGet } from '../../../../../server/common.task.page'
 import ParamsComp from '../../../../../components/task/ParamsComp.vue'
+import '@hl/ui/src/components/form-item/Index.css'
 
 const props = defineProps({
   configUuid: {
@@ -48,6 +49,4 @@ defineExpose({
   </hl-form-item>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

@@ -4,6 +4,11 @@ import { ref, useAttrs, watch } from 'vue'
 import { vLoading } from 'element-plus'
 import { confirmUploadCreateTask } from '../../../server/task'
 import 'element-plus/es/components/loading/style/css'
+import '@hl/ui/src/components/dialog/Index.css'
+import '@hl/ui/src/components/button/Index.css'
+import '@hl/ui/src/components/page/Index.css'
+import '@hl/ui/src/components/table/Index.css'
+import '@hl/ui/src/components/table-column/Index.css'
 
 const props = defineProps({
   data: {
@@ -54,7 +59,8 @@ watch(() => attrs.modelValue, (value) => {
 
 <template>
   <hl-dialog title="确认上传创建任务" width="70%" top="30">
-    <hl-table v-model:check="check" v-model:check-all="checkAll" v-model:exclude-checked="excludeChecked" v-loading="tableLoading" :data="data.data" select row-key="_id">
+    <hl-table v-model:check="check" v-model:check-all="checkAll" v-model:exclude-checked="excludeChecked"
+      v-loading="tableLoading" :data="data.data" select row-key="_id">
       <hl-table-column v-for="key in data.header" :key="key" :label="key">
         <template #default="{ row }">
           {{ row[key] }}

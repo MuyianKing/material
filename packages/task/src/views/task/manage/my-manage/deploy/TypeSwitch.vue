@@ -2,6 +2,8 @@
 import { computed, ref } from 'vue'
 import { PersonSelectPanel } from '@hl/tyyh'
 import { HlButton, HlIcon } from '@hl/ui'
+import '@hl/ui/src/components/button/Index.css'
+import '@hl/ui/src/components/icon/Index.css'
 
 const emits = defineEmits(['search', 'deploy-submit'])
 
@@ -67,7 +69,8 @@ const sliderPosition = computed(() => {
 
 <template>
   <div v-if="deploy === 1" class="flex items-center text-gray-400 text-sm" style="width:300px">
-    <person-select-panel v-model="old_id_card_temp" :input-show-all-data="false" :multiple="false" class="flex-1" @change="handleSearch" />
+    <person-select-panel v-model="old_id_card_temp" :input-show-all-data="false" :multiple="false" class="flex-1"
+      @change="handleSearch" />
     <span class="ml-2 whitespace-nowrap ">替换</span>
     <hl-icon class="flex-shrink-0" icon="ep:d-arrow-right" />
     <person-select-panel v-model="new_id_card" :input-show-all-data="false" :multiple="false" class="flex-1" />

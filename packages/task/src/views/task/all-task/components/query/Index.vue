@@ -3,6 +3,7 @@ import { onMounted, ref } from 'vue'
 import { HlFormItem } from '@hl/ui'
 import { getTaskBenchesParams } from '../../../../../server'
 import ParamsComp from '../../../../../components/task/ParamsComp.vue'
+import '@hl/ui/src/components/form-item/Index.css'
 
 const emits = defineEmits(['search'])
 

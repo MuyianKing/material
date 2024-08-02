@@ -8,6 +8,7 @@ import TaskResult from '../detail/components/task-result/Index.vue'
 import TaskOpt from '../../../components/task/options/Index.vue'
 
 import 'element-plus/es/components/skeleton/style/css'
+import '@hl/ui/src/components/dialog/Index.css'
 
 const props = defineProps({
   task: {

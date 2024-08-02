@@ -4,6 +4,8 @@ import { ref, watch } from 'vue'
 import { HlButton, HlFormDialog } from '@hl/ui'
 import { getWhere, setWhere } from '../../../../../../server/infoGroup'
 import FieldTree from '../FieldTree.vue'
+import '@hl/ui/src/components/button/Index.css'
+import '@hl/ui/src/components/form-dialog/Index.css'
 
 const emits = defineEmits(['refresh'])
 

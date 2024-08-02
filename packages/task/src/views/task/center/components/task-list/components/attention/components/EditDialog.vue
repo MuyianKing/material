@@ -8,6 +8,9 @@ import { setTaskList } from '../../../../../../../../server/benches'
 import TaskGroup from '../../../../../../../../model/benches/task.group'
 import useBenchesStore from '../../../../../../../../pinia/modules/useBenchesStore'
 import TreeSelect from '../../../../../../../../components/task/TreeSelect.vue'
+import '@hl/ui/src/components/form-dialog/Index.css'
+import '@hl/ui/src/components/form-item/Index.css'
+import '@hl/ui/src/components/input/Index.css'
 
 const emits = defineEmits(['refresh'])
 

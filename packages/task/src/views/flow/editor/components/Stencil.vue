@@ -7,6 +7,7 @@ import { node_list } from '../../../../default/flow'
 import NodeData from '../../../../model/flow/node.data'
 import useFlowStore from '../../../../pinia/modules/useFlowStore'
 import { validateOuterFileds } from '../../../../hooks/flow'
+import '@hl/ui/src/components/icon/Index.css'
 
 const { error_message } = storeToRefs(useFlowStore())
 
@@ -42,12 +43,14 @@ async function handleRefresh() {
   <div class="stencil-list">
     <div>
       <div class="node-list">
-        <div v-for="node in node_list_comp.filter(item => !item.category)" :key="node.type" class="node-item" :style="node.style" @mousedown="addNode(node)">
+        <div v-for="node in node_list_comp.filter(item => !item.category)" :key="node.type" class="node-item"
+          :style="node.style" @mousedown="addNode(node)">
           {{ node.base_config.title }}
         </div>
       </div>
       <div class="node-list mt-4">
-        <div v-for="node in node_list_comp.filter(item => item.category === 'other')" :key="node.type" class="node-item" :style="node.style" @mousedown="addNode(node)">
+        <div v-for="node in node_list_comp.filter(item => item.category === 'other')" :key="node.type" class="node-item"
+          :style="node.style" @mousedown="addNode(node)">
           {{ node.base_config.title }}
         </div>
       </div>
@@ -59,7 +62,7 @@ async function handleRefresh() {
         <span class="ml-2">错误信息</span>
         <hl-icon icon="mingcute:refresh-3-fill" class="refresh" title="刷新" @click="handleRefresh" />
       </div>
-      <div v-for="(item, index) in error_message" :key="item.key" class="message-item">
+      <div v-for="(item,index) in error_message" :key="item.key" class="message-item">
         <div>{{ index + 1 }}、</div>
         <div>{{ item.message }}</div>
       </div>

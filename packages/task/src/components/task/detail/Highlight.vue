@@ -3,6 +3,9 @@ import { HlIcon, HlPreview } from '@hl/ui'
 import RevBtn from '../options/common/RevBtn.vue'
 import { removeWorkAskFor } from '../../../server/task'
 
+import '@hl/ui/src/components/icon/Index.css'
+import '@hl/ui/src/components/preview/Index.css'
+
 defineProps({
   interaction: {
     type: Array,

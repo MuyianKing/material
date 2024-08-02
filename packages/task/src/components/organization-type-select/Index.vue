@@ -4,6 +4,7 @@ import { HlCheckbox } from '@hl/ui'
 // 单位层级
 import { ref } from 'vue'
 import { getDwcjList } from '../../server/organization'
+import '@hl/ui/src/components/checkbox/Index.css'
 
 const value = defineModel({
   type: Array,

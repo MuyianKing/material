@@ -3,6 +3,9 @@ import { HlInput, HlSelect } from '@hl/ui'
 import EditOptions from '../../common/EditOptions.vue'
 import { select_source_type } from '../../../default/form'
 
+import '@hl/ui/src/components/input/Index.css'
+import '@hl/ui/src/components/select/Index.css'
+
 const property = defineModel()
 </script>
 

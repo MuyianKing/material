@@ -5,6 +5,12 @@ import { HlDate, HlFormDialog, HlFormItem, HlIcon, HlInput } from '@hl/ui'
 import TreeSelect from '../../../../../../components/task/TreeSelect.vue'
 import { setSubscriptionTask } from '../../../../../../server/benches'
 
+import '@hl/ui/src/components/date/Index.css'
+import '@hl/ui/src/components/form-dialog/Index.css'
+import '@hl/ui/src/components/form-item/Index.css'
+import '@hl/ui/src/components/icon/Index.css'
+import '@hl/ui/src/components/input/Index.css'
+
 const props = defineProps({
   taskData: {
     type: Array,
@@ -47,7 +53,8 @@ async function handleSubmit() {
       订阅
     </div>
 
-    <hl-form-dialog v-model="show" :model="form" title="订阅关注任务" width="500px" top="50px" label-width="120" @submit="handleSubmit">
+    <hl-form-dialog v-model="show" :model="form" title="订阅关注任务" width="500px" top="50px" label-width="120"
+      @submit="handleSubmit">
       <div class="px-5">
         <hl-form-item label="关注任务" prop="config_uuids" required>
           <tree-select v-model="form.config_uuids" multiple @change="handleChange" />

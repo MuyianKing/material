@@ -1,6 +1,7 @@
 <script setup>
 import { computed } from 'vue'
 import { HlIcon } from '@hl/ui'
+import '@hl/ui/src/components/icon/Index.css'
 
 // 任务图标的容器
 const props = defineProps({

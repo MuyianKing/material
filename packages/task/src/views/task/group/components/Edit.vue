@@ -5,6 +5,10 @@ import { HlFormDialog, HlFormItem, HlInput, HlQuestionIcon } from '@hl/ui'
 import ComplexControlSelect from '../../../../components/person-complex-select/Index.vue'
 import TaskGroup from '../../../../model/task/group'
 import { saveGroup } from '../../../../server/group'
+import '@hl/ui/src/components/form-dialog/Index.css'
+import '@hl/ui/src/components/form-item/Index.css'
+import '@hl/ui/src/components/input/Index.css'
+import '@hl/ui/src/components/question-icon/Index.css'
 
 const props = defineProps({
   data: {

@@ -6,6 +6,8 @@ import WrapperComp from '../../components/Wrapper.vue'
 import { getTaskStep } from '../../../../../server/task'
 import StaItem from './components/StaItem.vue'
 import BreadCrumb from './components/BreadCrumb.vue'
+import '@hl/ui/src/components/chart/Index.css'
+import '@hl/ui/src/components/nodata/Index.css'
 
 const emits = defineEmits(['search'])
 const option = ref({

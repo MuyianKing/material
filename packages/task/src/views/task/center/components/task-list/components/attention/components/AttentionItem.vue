@@ -10,6 +10,7 @@ import useBenchesStore from '../../../../../../../../pinia/modules/useBenchesSto
 import 'element-plus/es/components/tabs/style/css'
 import 'element-plus/es/components/tab-pane/style/css'
 import 'element-plus/es/components/badge/style/css'
+import '@hl/ui/src/components/icon/Index.css'
 
 defineProps({
   editable: {

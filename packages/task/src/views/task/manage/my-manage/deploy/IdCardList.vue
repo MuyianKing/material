@@ -2,6 +2,10 @@
 import { ref, watch } from 'vue'
 import { HlButton, HlFormItem, HlIcon, HlInput } from '@hl/ui'
 import { guid } from '@hl/utils/es/common'
+import '@hl/ui/src/components/button/Index.css'
+import '@hl/ui/src/components/form-item/Index.css'
+import '@hl/ui/src/components/icon/Index.css'
+import '@hl/ui/src/components/input/Index.css'
 
 const value = defineModel()
 

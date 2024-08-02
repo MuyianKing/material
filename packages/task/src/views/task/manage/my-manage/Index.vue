@@ -9,6 +9,9 @@ import { refreshTableRow } from '../../../../utils'
 import TaskTable from '../components/TaskTable.vue'
 import DeployIndex from './deploy/Index.vue'
 import TypeSwitch from './deploy/TypeSwitch.vue'
+import '@hl/ui/src/components/date/Index.css'
+import '@hl/ui/src/components/form-item/Index.css'
+import '@hl/ui/src/components/input/Index.css'
 
 const {
   HlListPage,
@@ -71,7 +74,8 @@ function handleDeploySubmit(e) {
       <hl-list-page no-add>
         <template #search>
           <hl-form-item label="创建时间">
-            <hl-date v-model:end="query.create_end_time" v-model:start="query.create_start_time" date-type="datetime" type="range" @change="search" />
+            <hl-date v-model:end="query.create_end_time" v-model:start="query.create_start_time" date-type="datetime"
+              type="range" @change="search" />
           </hl-form-item>
           <hl-form-item label="任务标题">
             <hl-input v-model="query.query" style="width: 200px" @input="search" />
@@ -79,7 +83,8 @@ function handleDeploySubmit(e) {
         </template>
         <template #button>
           <div class="flex justify-end items-center flex-1" style="min-width:500px">
-            <type-switch v-model:deploy="query.deploy" v-model:id-card="query.id_card" @search="search" @deploy-submit="handleDeploySubmit" />
+            <type-switch v-model:deploy="query.deploy" v-model:id-card="query.id_card" @search="search"
+              @deploy-submit="handleDeploySubmit" />
           </div>
         </template>
         <template #table>

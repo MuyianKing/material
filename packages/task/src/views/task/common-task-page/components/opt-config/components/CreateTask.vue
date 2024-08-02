@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import { HlAddButton } from '@hl/ui'
 
 import PublishTask from '../../../../publish/Index.vue'
+import '@hl/ui/src/components/add-button/Index.css'
 
 defineProps({
   configUuid: {
@@ -21,6 +22,4 @@ const showPublish = ref(false)
   <publish-task v-model="showPublish" :config-uuid @refresh="emits('refresh')" />
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

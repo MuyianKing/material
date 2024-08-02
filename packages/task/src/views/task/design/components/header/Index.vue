@@ -13,6 +13,8 @@ import useFlowStore from '../../../../../pinia/modules/useFlowStore'
 
 import 'element-plus/es/components/tabs/style/css'
 import 'element-plus/es/components/tab-pane/style/css'
+import '@hl/ui/src/components/button/Index.css'
+import '@hl/ui/src/components/export-button/Index.css'
 
 const emits = defineEmits(['refresh'])
 const { base_info } = toRefs(inject('task_config'))

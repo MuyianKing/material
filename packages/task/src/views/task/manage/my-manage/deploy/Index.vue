@@ -2,6 +2,9 @@
 import { ref } from 'vue'
 import { HlFormDialog, HlFormItem, HlRadio } from '@hl/ui'
 import IdCardList from './IdCardList.vue'
+import '@hl/ui/src/components/form-dialog/Index.css'
+import '@hl/ui/src/components/form-item/Index.css'
+import '@hl/ui/src/components/radio/Index.css'
 
 const formData = ref({})
 
@@ -36,6 +39,4 @@ const deployOptions = ref([
   </hl-form-dialog>
 </template>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

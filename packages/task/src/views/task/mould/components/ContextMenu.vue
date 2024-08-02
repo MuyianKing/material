@@ -5,6 +5,7 @@ import { HlContextMenu } from '@hl/ui'
 import { jump } from '@hl/utils/es/router'
 import variables from '@style/theme.module.scss'
 import { delTaskConfig, startTaskConfig, stopTaskConfig } from '../../../../server/config'
+import '@hl/ui/src/components/context-menu/Index.css'
 
 const emits = defineEmits(['refresh'])
 

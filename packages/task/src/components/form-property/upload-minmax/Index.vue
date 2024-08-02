@@ -2,6 +2,9 @@
 import { watch } from 'vue'
 import { HlFormItem, HlInput } from '@hl/ui'
 
+import '@hl/ui/src/components/form-item/Index.css'
+import '@hl/ui/src/components/input/Index.css'
+
 const property = defineModel()
 
 watch(() => property.value.upload_multiple, () => {

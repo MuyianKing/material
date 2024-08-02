@@ -8,6 +8,7 @@ import EdgeConfig from './edge/Index.vue'
 import NodeConfig from './node/Index.vue'
 import 'element-plus/es/components/tabs/style/css'
 import 'element-plus/es/components/tab-pane/style/css'
+import '@hl/ui/src/components/icon/Index.css'
 
 const activeName = ref('first')
 

@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from 'vue'
 import { HlButton, HlInput } from '@hl/ui'
+import '@hl/ui/src/components/button/Index.css'
+import '@hl/ui/src/components/input/Index.css'
 
 defineProps({
   placeholder: {
@@ -29,5 +31,4 @@ function handleSearch() {
   </div>
 </template>
 
-<style lang='scss' scoped>
-</style>
+<style lang='scss' scoped></style>

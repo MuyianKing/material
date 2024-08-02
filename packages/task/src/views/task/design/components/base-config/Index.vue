@@ -13,6 +13,10 @@ import { rwdd_type_list } from '../../../../../default/task'
 import LabelTitle from './LabelTitle.vue'
 
 import 'element-plus/es/components/form/style/css'
+import '@hl/ui/src/components/icon-select/Index.css'
+import '@hl/ui/src/components/form-item/Index.css'
+import '@hl/ui/src/components/input/Index.css'
+import '@hl/ui/src/components/radio/Index.css'
 
 const { base_info } = toRefs(inject('task_config'))
 

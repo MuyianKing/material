@@ -8,6 +8,11 @@ import 'element-plus/es/components/loading/style/css'
 import 'element-plus/es/components/button/style/css'
 import 'element-plus/es/components/link/style/css'
 
+import '@hl/ui/src/components/dialog/Index.css'
+import '@hl/ui/src/components/table/Index.css'
+import '@hl/ui/src/components/table-column/Index.css'
+import '@hl/ui/src/components/button/Index.css'
+
 const props = defineProps({
   taskId: {
     type: [String, Number],
@@ -79,7 +84,8 @@ async function handleConfirm() {
   </el-link>
 
   <hl-dialog v-model="dialogShow" title="通知人员" width="70%" top="30">
-    <hl-table v-model:check="check" v-model:check-all="checkAll" v-model:exclude-checked="excludeChecked" v-loading="tableLoading" row-key="id_card" :data="data" select>
+    <hl-table v-model:check="check" v-model:check-all="checkAll" v-model:exclude-checked="excludeChecked"
+      v-loading="tableLoading" row-key="id_card" :data="data" select>
       <hl-table-column label="姓名" prop="name" />
       <hl-table-column label="手机号" prop="phone" />
       <hl-table-column label="警号" prop="police_id" />
@@ -93,6 +99,4 @@ async function handleConfirm() {
   </hl-dialog>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>
