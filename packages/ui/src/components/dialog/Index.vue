@@ -41,6 +41,8 @@ function setMaxHeight() {
     const offsetTop = $el.offsetTop
 
     if (props.height) {
+      console.log($el.querySelector('.el-dialog__body').style.height = `calc(${props.height} - ${header + footer}px)`)
+
       $el.querySelector('.el-dialog__body').style.height = `calc(${props.height} - ${header + footer}px)`
     } else {
       $el.querySelector('.el-dialog__body').style.maxHeight = `calc(100vh - ${header + 2 * offsetTop + footer}px)`

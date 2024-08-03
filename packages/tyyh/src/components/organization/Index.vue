@@ -233,6 +233,10 @@ const _props = computed(() => {
 const cascader_ref = ref()
 
 function handleChange(val) {
+  if (!val) {
+    val = props.multiple ? [] : ''
+  }
+
   emits('update:modelValue', val)
   if (!_props.value.multiple) {
     emits('update:label', cascader_ref.value.getCheckedNodes()[0]?.label)

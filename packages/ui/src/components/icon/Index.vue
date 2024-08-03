@@ -14,18 +14,20 @@ const props = defineProps({
   },
 })
 
-const _size = computed(() => {
-  return getCanUseValue(props.size)
+const _style = computed(() => {
+  return {
+    'font-size': getCanUseValue(props.size),
+    'color': props.color,
+  }
 })
 </script>
 
 <template>
-  <icon class="hl-icon" aria-hidden="false" />
+  <icon class="hl-icon" aria-hidden="false" :style="_style" />
 </template>
 
 <style lang="scss" scoped>
-.hl-icon {
-  font-size: v-bind(_size);
-  color: v-bind(color);
+.hl-ui-zw {
+  color: red;
 }
 </style>

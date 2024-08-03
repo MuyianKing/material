@@ -1,6 +1,7 @@
 <script setup>
-import { ElButton } from 'element-plus/es'
+import { ElButton } from 'element-plus'
 import { RouterLink, useRouter } from 'vue-router'
+import 'element-plus/es/components/button/style/css'
 
 const router = useRouter()
 function goBack() {

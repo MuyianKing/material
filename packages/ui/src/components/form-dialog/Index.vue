@@ -7,11 +7,6 @@ import 'element-plus/es/components/button/style/css'
 import 'element-plus/es/components/form/style/css'
 
 const props = defineProps({
-  // 显示隐藏弹框
-  modelValue: {
-    type: Boolean,
-    default: false,
-  },
   // 标题
   title: {
     type: String,
@@ -61,7 +56,7 @@ const props = defineProps({
   },
 })
 
-const emits = defineEmits(['update:modelValue', 'error', 'success', 'refresh', 'submit'])
+const emits = defineEmits(['error', 'success', 'refresh', 'submit'])
 
 // 保存
 const _loading = ref(false)
@@ -97,7 +92,6 @@ function submit() {
 
 function close() {
   form_ref.value.clearValidate()
-  emits('update:modelValue', false)
 }
 
 defineExpose({
@@ -106,7 +100,7 @@ defineExpose({
 </script>
 
 <template>
-  <dialog-comp :model-value="modelValue" :title="title" :width="width" :top="top" @close="close">
+  <dialog-comp :title :width :top v-bind="$attrs" @close="close">
     <el-form ref="form_ref" :class="{ 'inline-form': inline }" :model="model" :rules="rules" :label-width="labelWidth" v-bind="$attrs" scroll-to-error>
       <slot />
     </el-form>

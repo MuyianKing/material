@@ -55,10 +55,17 @@ const previewList = computed(() => {
   }
   return props.preview && props.preview.length > 0 ? props.preview : [prev_src.value]
 })
+
+const _style = computed(() => {
+  return {
+    height: props.height,
+    width: props.width,
+  }
+})
 </script>
 
 <template>
-  <div class="hl-preview-img">
+  <div class="hl-preview-img" :style="_style">
     <el-image v-if="prev_src" :fit="fit" :preview-src-list="previewList" :src="prev_src" class="w-full h-full" preview-teleported>
       <template #placeholder>
         <div v-loading="true" class="w-full h-full" element-loading-text="加载中..." />
@@ -69,9 +76,5 @@ const previewList = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-.hl-preview-img {
-  height: v-bind(height);
-  width: v-bind(width);
-  position: relative;
-}
+@use './Index.scss';
 </style>

@@ -249,7 +249,7 @@ const margin = computed(() => props.multiple ? '5px' : '')
 </script>
 
 <template>
-  <div v-bind="$attrs" class="upload-wrapper" :class="{ 'flex-style': listType === 'card' }">
+  <div v-bind="$attrs" class="upload-wrapper" :class="{ 'flex-style': listType === 'card' || is_only_video_image }">
     <template v-if="preview">
       <preview-comp v-if="!slots.preview" :file="files_value" :list-type @delete="handleDel" @re-upload="handleReupload" />
       <slot v-else name="preview" />

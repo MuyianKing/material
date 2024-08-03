@@ -21,7 +21,7 @@ export default defineConfig({
           exports: 'named',
           preserveModules: true,
           preserveModulesRoot: 'packages/tyyh',
-          dir: './dist/hl/tyyh',
+          dir: './base-project/dist/hl/tyyh',
           entryFileNames: '[name].js',
           assetFileNames: '[name][extname]',
         },

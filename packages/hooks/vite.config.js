@@ -26,7 +26,7 @@ export default defineConfig({
         preserveModules: true,
         preserveModulesRoot: 'packages/hooks',
         entryFileNames: '[name].js',
-        dir: './dist/hl/hooks',
+        dir: './base-project/dist/hl/hooks',
         exports: 'named',
         format: 'es',
       },

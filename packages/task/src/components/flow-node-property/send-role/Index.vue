@@ -3,7 +3,7 @@ import { RoleSelect } from '@hl/tyyh'
 import { computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import { HlFormItem } from '@hl/ui'
-import useFlowStore from '../../../../../../packages/task/src/pinia/modules/useFlowStore'
+import useFlowStore from '../../../pinia/modules/useFlowStore'
 import '@hl/ui/src/components/form-item/Index.css'
 
 const value = defineModel()

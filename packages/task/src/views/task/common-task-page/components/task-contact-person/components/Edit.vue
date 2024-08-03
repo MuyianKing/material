@@ -40,10 +40,12 @@ watch(() => attrs.modelValue, (val) => {
 
 <template>
   <hl-form-dialog :title="`设置${text} (${data?.organization_name})`" top="50px" width="40%" :model="form"
-    :server="setLinkPerson" @success="$emit('refresh')">
+                  :server="setLinkPerson" @success="$emit('refresh')"
+  >
     <hl-form-item :label="text">
       <person-select v-model="form.id_cards" clearable multiple org-job-idcard
-        :extend-params="{ organization_id: form.organization_id }" has-next />
+                     :extend-params="{ organization_id: form.organization_id }" has-next
+      />
     </hl-form-item>
   </hl-form-dialog>
 </template>

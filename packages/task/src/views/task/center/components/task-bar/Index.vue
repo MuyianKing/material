@@ -1,11 +1,11 @@
 <script setup>
 import { onMounted, reactive, ref } from 'vue'
-import { HlNodata } from '@hl/ui'
+import { HlChart, HlNodata } from '@hl/ui'
 import WrapperComp from '../../components/Wrapper.vue'
 import { getTaskStep } from '../../../../../server/task'
 import StaItem from './components/StaItem.vue'
 import BreadCrumb from './components/BreadCrumb.vue'
-// import '@hl/ui/src/components/chart/Index.css'
+import '@hl/ui/src/components/chart/Index.css'
 import '@hl/ui/src/components/nodata/Index.css'
 
 const emits = defineEmits(['search'])
@@ -151,7 +151,7 @@ onMounted(() => {
     <div class="flex-column h-full">
       <sta-item v-model="query" @refresh="linkList" />
       <bread-crumb class="mt-3" :level="level" @back="back" />
-      <!-- <hl-chart v-show="data.data?.length > 0" :option="option" class="flex-1-0" @ready="chartReady" /> -->
+      <hl-chart v-show="data.data?.length > 0" :option="option" class="flex-1-0" @ready="chartReady" />
       <template v-if="data.data?.length === 0">
         <div class="nodata">
           <hl-nodata width="60%" />

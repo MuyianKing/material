@@ -2,7 +2,7 @@
 import { useList } from '@hl/hooks'
 import { jump } from '@hl/utils/es/router'
 import { HlFormItem, HlInput, HlTable, HlTableColumn } from '@hl/ui'
-import {useRouter} from "vue-router"
+import { useRouter } from 'vue-router'
 import '@hl/ui/src/components/form-item/Index.css'
 import '@hl/ui/src/components/input/Index.css'
 import '@hl/ui/src/components/table/Index.css'
@@ -20,6 +20,7 @@ const {
   server: null,
 })
 
+const router = useRouter()
 function handleEdit() {
   jump({
     path: '/form/editor/index',
@@ -27,7 +28,7 @@ function handleEdit() {
       id: '',
     },
     type: '_blank',
-  },useRouter())
+  }, router)
 }
 </script>
 

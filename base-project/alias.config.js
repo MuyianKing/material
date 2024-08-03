@@ -18,6 +18,9 @@ const alias_path = [
   ['@utils', '@hl/utils/es'],
   ['utils', './src/utils'],
   ['@app', './src/utils/app'],
+  ['@tyyh', '@hl/tyyh'],
+  // ['@ui', './dist/hl/ui'],
+  ['@ui', './node_modules/@hl/ui/index.js'],
 ]
 
 export default function useAlias() {

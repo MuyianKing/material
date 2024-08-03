@@ -1,6 +1,8 @@
 <script setup>
 import { HlIcon } from '@hl/ui'
 import { ElMenuItem, ElSubMenu } from 'element-plus/es'
+import 'element-plus/es/components/menu-item/style/css'
+import 'element-plus/es/components/sub-menu/style/css'
 
 defineProps({
   menu: {

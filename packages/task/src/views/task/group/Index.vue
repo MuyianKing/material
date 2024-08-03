@@ -1,10 +1,10 @@
 <script name="TaskGroupIndex" setup>
 import { ref, toRefs } from 'vue'
 import { HlAddButton, HlFormItem, HlGridLayout, HlInput, HlNodata } from '@hl/ui'
-
 import { useList } from '@hl/hooks'
 import { useDraggable } from 'vue-draggable-plus'
 import { vLoading } from 'element-plus'
+import { vResources } from '@hl/tyyh'
 import { getList, sortGroup } from '../../../server/group'
 import GroupItem from './components/GroupItem.vue'
 import GroupEdit from './components/Edit.vue'
@@ -67,7 +67,8 @@ useDraggable(draggable_ref, data, {
       <template #table>
         <hl-grid-layout ref="draggable_ref" v-loading="loading" :min-width="350" :width="350" class="w-full">
           <group-item v-for="group in data" :key="group.group_id" :data="group" @dblclick="handleEdit(group)"
-            @refresh="search" />
+                      @refresh="search"
+          />
         </hl-grid-layout>
         <hl-nodata v-if="data.length === 0" class="relative-center" text="暂无分组" width="500px" />
       </template>

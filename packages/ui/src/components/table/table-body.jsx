@@ -153,7 +153,7 @@ export default {
                 >
                   {
                     (props.select) && (
-                      <td style="width:60px;min-width:60px;max-width:60px;text-align:center">
+                      <td className="hl-table-td hl-table-checkbox" style="width:60px;min-width:60px;max-width:60px;text-align:center">
                         <ElCheckbox true-value={row[props.rowKey]} false-value="" size="large" v-model={row.checkbox} onChange={val => handleCheckboxChange(val, row[props.rowKey])} />
                       </td>
                     )

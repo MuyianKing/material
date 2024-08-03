@@ -2,13 +2,18 @@
 import { onMounted, reactive, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
-import { ElButton, ElForm, ElFormItem, ElInput } from 'element-plus/es'
+import { ElButton, ElForm, ElFormItem, ElInput } from 'element-plus'
 
 import { clearUserData } from '@hooks/user'
 import { login } from '@server/user'
 
-import useDynamicRoutesStore from '@pinia/useDynamicRoutesStore.js'
-import useUserStore from '@pinia/useUserStore.js'
+import useDynamicRoutesStore from '@pinia/useDynamicRoutesStore'
+import useUserStore from '@pinia/useUserStore'
+
+import 'element-plus/es/components/button/style/css'
+import 'element-plus/es/components/form/style/css'
+import 'element-plus/es/components/form-item/style/css'
+import 'element-plus/es/components/input/style/css'
 
 const form = reactive({
   username: '',

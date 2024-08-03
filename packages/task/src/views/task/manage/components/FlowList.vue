@@ -78,14 +78,16 @@ function handleClickCell({ row, column, deploy }) {
 <template>
   <el-table :data="tableData" border class="flow-list-table" scrollbar-always-on style="width:40vw" table-layout="auto">
     <el-table-column v-for="item in tableColumns" :key="item.key" :fixed="item.fixed" :label="item.label"
-      :prop="item.key" :width="item.key === 'title' ? 60 : ''" align="center"
-      :show-overflow-tooltip="{ content: '',disabled: true }">
+                     :prop="item.key" :width="item.key === 'title' ? 60 : ''" align="center"
+                     :show-overflow-tooltip="{ content: '', disabled: true }"
+    >
       <template #header>
         {{ item.label }}
       </template>
-      <template #default="{ row,column,$index }">
+      <template #default="{ row, column, $index }">
         <span :class="{ 'cursor-pointer': clickCell }"
-          @click="handleClickCell({ row,column,index: $index,deploy: item.deploy })">
+              @click="handleClickCell({ row, column, index: $index, deploy: item.deploy })"
+        >
           <template v-if="item.key === 'title'">
             {{ row.title }}
           </template>
@@ -106,7 +108,6 @@ function handleClickCell({ row, column, deploy }) {
 <style lang="scss" scoped>
 .flow-list-table {
   :deep(.el-table__inner-wrapper) {
-
     th,
     td,
     td .cell {

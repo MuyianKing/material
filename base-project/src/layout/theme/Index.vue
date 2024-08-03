@@ -4,7 +4,12 @@ import variables from '@style/theme.module.scss'
 import useThemeStore from '@pinia/useThemeStore.js'
 
 import { onMounted, ref, watch } from 'vue'
+import { ElColorPicker, ElDrawer } from 'element-plus/es'
+import { HlIcon } from '@hl/ui'
 import { colors_config, innerTheme, side_bg_config, tab_bar_config } from './inner.theme'
+
+import 'element-plus/es/components/color-picker/style/css'
+import 'element-plus/es/components/drawer/style/css'
 
 const themeStore = useThemeStore()
 

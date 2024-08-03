@@ -20,7 +20,7 @@ export default defineConfig({
         'nanoid',
         '@iconify/vue',
         /^@multiavatar\/multiavatar/,
-        /^wavesurfer/
+        /^wavesurfer/,
       ],
       output: [
         {
@@ -28,7 +28,7 @@ export default defineConfig({
           exports: 'named',
           preserveModules: true,
           preserveModulesRoot: 'packages/ui',
-          dir: './dist/hl/ui',
+          dir: './base-project/dist/hl/ui',
           entryFileNames: '[name].js',
           assetFileNames: '[name][extname]',
         },
@@ -40,6 +40,6 @@ export default defineConfig({
   },
   plugins: [
     vue(),
-    vueJsx()
+    vueJsx(),
   ],
 })

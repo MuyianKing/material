@@ -4,11 +4,11 @@ import { HlIcon, HlSearchPage } from '@hl/ui'
 import { ElLink } from 'element-plus'
 
 import { jump } from '@hl/utils/es/router'
-import {useRouter} from "vue-router"
+import { useRouter } from 'vue-router'
+import { vResources } from '@hl/tyyh'
 import { getTaskTree } from '../../../server/config'
 import TaskPublish from '../publish/Index.vue'
 import TaskItem from './components/TaskItem.vue'
-
 import 'element-plus/es/components/link/style/css'
 import '@hl/ui/src/components/icon/Index.css'
 import '@hl/ui/src/components/search-page/Index.css'
@@ -27,11 +27,12 @@ async function getData() {
   }
 }
 
+const router = useRouter()
 function handleCreate() {
   jump({
     path: '/task/design/base-config',
     type: '_blank',
-  },useRouter())
+  }, router)
 }
 
 const show_publish = ref(false)
@@ -78,7 +79,8 @@ function handlePublish(task) {
           </div>
           <div class="flex flex-wrap">
             <task-item v-for="task in item._task_config_list" :key="task.config_id" :data="task" :root-data="item"
-              class="m-2" @publish="handlePublish(task)" @refresh="getData" />
+                       class="m-2" @publish="handlePublish(task)" @refresh="getData"
+            />
           </div>
         </template>
       </div>

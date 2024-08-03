@@ -1,11 +1,11 @@
 <script setup name="HlSelect">
-import { ElOption, ElOptionGroup, ElSelect,vLoading } from 'element-plus'
+import { ElOption, ElOptionGroup, ElSelect, vLoading } from 'element-plus'
 import 'element-plus/es/components/option/style/css'
 import 'element-plus/es/components/option-group/style/css'
 import 'element-plus/es/components/select/style/css'
 import 'element-plus/es/components/loading/style/css'
 
-import { computed, getCurrentInstance } from "vue"
+import { computed, getCurrentInstance } from 'vue'
 
 const props = defineProps({
   options: {
@@ -41,6 +41,12 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  disabledOptions: {
+    type: [String, Array],
+    default() {
+      return []
+    },
+  },
 })
 
 const emits = defineEmits(['update:modelValue', 'blur', 'change', 'bottom'])
@@ -71,6 +77,13 @@ function blur() {
 function handleBottom() {
   emits('bottom')
 }
+
+const _d_p = computed(() => {
+  if (!props.disabledOptions) {
+    return []
+  }
+  return Array.isArray(props.disabledOptions) ? props.disabledOptions : [props.disabledOptions]
+})
 </script>
 
 <template>
@@ -84,11 +97,11 @@ function handleBottom() {
       <template v-for="item in options" :key="item.value">
         <template v-if="item.children">
           <el-option-group :label="item.label">
-            <el-option v-for="child in item.children" :key="child.value" :label="child.label" :value="child.value" />
+            <el-option v-for="child in item.children" :key="child.value" :label="child.label" :value="child.value" :disabled="_d_p.includes(item.value)" />
           </el-option-group>
         </template>
 
-        <el-option v-else :label="item.label" :value="item.value" />
+        <el-option v-else :label="item.label" :value="item.value" :disabled="_d_p.includes(item.value)" />
       </template>
     </div>
     <div v-loading="loading" class="loading-item" />

@@ -6,7 +6,7 @@ import { HlIcon } from '@hl/ui'
 import { ElText } from 'element-plus'
 import NodeData from '../../../../model/flow/node.data'
 import { node_list } from '../../../../default/flow'
-import useFlowStore from '../../../../../../../packages/task/src/pinia/modules/useFlowStore'
+import useFlowStore from '../../../../pinia/modules/useFlowStore'
 import 'element-plus/es/components/button/style/css'
 import 'element-plus/es/components/text/style/css'
 
@@ -111,7 +111,7 @@ $border-radius: 5px;
     color: gray;
   }
 
-  &>svg {
+  & > svg {
     font-size: 22px;
     color: gray;
     margin-left: 5px;

@@ -5,11 +5,11 @@
   "private": true,
   "scripts": {
     "lint": "lint-staged",
-    "build:ui": "vite build  --emptyOutDir --config ./packages/ui/vite.config.js & copy .\\packages\\ui\\package.json .\\dist\\hl\\ui",
-    "build:tyyh": "vite build  --emptyOutDir --config ./packages/tyyh/vite.config.js & copy .\\packages\\tyyh\\package.json .\\dist\\hl\\tyyh",
-    "build:hooks": "vite build  --emptyOutDir --config ./packages/hooks/vite.config.js & copy .\\packages\\hooks\\package.json .\\dist\\hl\\hooks",
-    "build:utils": "vite build  --emptyOutDir --config ./packages/utils/vite.config.js & copy .\\packages\\utils\\package.json .\\dist\\hl\\utils",
-    "build:task": "vite build  --emptyOutDir --config ./packages/task/vite.config.js & copy .\\packages\\task\\package.json .\\dist\\hl\\task"
+    "build:ui": "vite build  --emptyOutDir --config ./packages/ui/vite.config.js & copy .\\packages\\ui\\package.json .\\base-project\\dist\\hl\\ui",
+    "build:tyyh": "vite build  --emptyOutDir --config ./packages/tyyh/vite.config.js & copy .\\packages\\tyyh\\package.json .\\base-project\\dist\\hl\\tyyh",
+    "build:hooks": "vite build  --emptyOutDir --config ./packages/hooks/vite.config.js & copy .\\packages\\hooks\\package.json .\\base-project\\dist\\hl\\hooks",
+    "build:utils": "vite build  --emptyOutDir --config ./packages/utils/vite.config.js & copy .\\packages\\utils\\package.json .\\base-project\\dist\\hl\\utils",
+    "build:task": "vite build  --emptyOutDir --config ./packages/task/vite.config.js & copy .\\packages\\task\\package.json .\\base-project\\dist\\hl\\task"
   },
   "dependencies": {
     "vue": "^3.4.35"

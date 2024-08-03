@@ -4,6 +4,7 @@ import { computed } from 'vue'
 import { vLoading } from 'element-plus'
 import IconComp from '../../icon/Index.vue'
 import PreviewComp from '../../preview/Index.vue'
+import '../../preview/Index.scss'
 import 'element-plus/es/components/loading/style/css'
 
 const props = defineProps({

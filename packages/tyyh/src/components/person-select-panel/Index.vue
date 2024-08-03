@@ -9,6 +9,11 @@ import 'element-plus/es/components/input/style/css'
 import 'element-plus/es/components/checkbox/style/css'
 import 'element-plus/es/components/button/style/css'
 
+import '@hl/ui/src/components/dialog/Index.css'
+import '@hl/ui/src/components/icon/Index.css'
+import '@hl/ui/src/components/nodata/Index.css'
+import '@hl/ui/src/components/reset-button/Index.css'
+
 const props = defineProps({
   modelValue: {
     type: Array,

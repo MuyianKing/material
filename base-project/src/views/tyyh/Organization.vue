@@ -1,7 +1,8 @@
 <script setup>
-import { Organization } from '@hl/tyyh'
 import TestCompWrapper from '@comp/test-comp-wrapper/Index.vue'
 import { HlBlockTitle } from '@hl/ui'
+// eslint-disable-next-line antfu/no-import-node-modules-by-path
+import Organization from '../../../node_modules/@hl/tyyh/src/components/organization/Index.vue'
 </script>
 
 <template>

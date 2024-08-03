@@ -80,9 +80,5 @@ const _style = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-.hl-preview-video {
-  position: relative;
-  background-color: black;
-  cursor: pointer;
-}
+@use './Index.scss';
 </style>

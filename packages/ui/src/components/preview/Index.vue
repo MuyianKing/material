@@ -75,19 +75,7 @@ watch(() => props.files, (val) => {
 </template>
 
 <style lang='scss' scoped>
-.file-preview-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-
-  :deep(.preview-item) {
-    margin-right: 5px;
-    margin-bottom: 5px;
-
-    &:last-child,
-    &:last-child {
-      margin-bottom: 0 !important;
-      margin-right: 0 !important;
-    }
-  }
-}
+@import './Index.scss';
+@import '../video/Index.scss';
+@import '../file/Index.scss';
 </style>

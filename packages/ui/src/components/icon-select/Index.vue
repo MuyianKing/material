@@ -1,8 +1,12 @@
 <script setup>
 import { inject } from 'vue'
 import { useList } from '@hl/hooks'
+import { ElPopover, vLoading } from 'element-plus'
 import IconComp from '../icon/Index.vue'
 import InputComp from '../input/Index.vue'
+
+import 'element-plus/es/components/popover/style/css'
+import 'element-plus/es/components/loading/style/css'
 
 defineProps({
   placholder: {
@@ -46,7 +50,7 @@ function handleBottom() {
 
 <template>
   <div>
-    <el-popover placement="bottom-start" :title="title" :width="440" trigger="click">
+    <el-popover placement="bottom-start" :title="title" :width="440" trigger="click" :teleported="false">
       <template #reference>
         <div class="flex items-center cursor-pointer">
           <span class="placholder-item">{{ placholder }}</span>

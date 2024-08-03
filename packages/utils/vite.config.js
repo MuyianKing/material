@@ -28,7 +28,7 @@ export default defineConfig({
       output: {
         preserveModules: true,
         entryFileNames: '[name].js',
-        dir: './dist/hl/utils',
+        dir: './base-project/dist/hl/utils',
         exports: 'named',
         format: 'es',
       },

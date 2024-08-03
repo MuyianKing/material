@@ -10,7 +10,7 @@ import '@hl/ui/src/components/icon/Index.css'
 import '@hl/ui/src/components/input/Index.css'
 
 const value = defineModel()
-const appStore = hl.appStore
+const appStore = hl.getAppInfo()
 
 const { node } = storeToRefs(useFlowStore())
 

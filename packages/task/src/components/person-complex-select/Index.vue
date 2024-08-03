@@ -3,8 +3,8 @@ import { CircleSelect, JobCascader, Organization, PersonItem, PersonSelectPanel,
 import { reactive, ref, watch } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useDebounceFn } from '@vueuse/core'
-import { HlButton, HlDialog, HlFormItem, HlIcon, HlPage, HlQuestionIcon, HlSearchPage, HlSelect } from '@hl/ui'
-import { vLoading } from 'element-plus'
+import { HlButton, HlDialog, HlFormItem, HlIcon, HlNodata, HlPage, HlQuestionIcon, HlSearchPage, HlSelect } from '@hl/ui'
+import { ElTooltip, vLoading } from 'element-plus'
 import { getPersonByAll } from '../../server'
 import { TaskFlowNodeOuter } from '../flow'
 import ComplexUser from '../../model/ComplexUser'
@@ -14,7 +14,9 @@ import { validateOuterFileds } from '../../hooks/flow'
 import useFlowStore from '../../pinia/modules/useFlowStore'
 import ExcludePerson from './components/ExcludePerson.vue'
 import InputWrapper from './components/InputWrapper.vue'
+
 import 'element-plus/es/components/loading/style/css'
+import 'element-plus/es/components/tooltip/style/css'
 
 import '@hl/ui/src/components/button/Index.css'
 import '@hl/ui/src/components/dialog/Index.css'
@@ -24,6 +26,11 @@ import '@hl/ui/src/components/page/Index.css'
 import '@hl/ui/src/components/question-icon/Index.css'
 import '@hl/ui/src/components/search-page/Index.css'
 import '@hl/ui/src/components/select/Index.css'
+import '@hl/ui/src/components/nodata/Index.css'
+
+import '@hl/tyyh/src/components/organization/components/plugin.css'
+import '@hl/tyyh/src/components/person-item/Index.css'
+import '@hl/tyyh/src/components/person-select-panel/Index.css'
 
 const props = defineProps({
   title: {
@@ -184,7 +191,8 @@ watch(show, (val) => {
 <template>
   <div class="w-full">
     <input-wrapper :readonly="readonly" :disabled="disabled" :placeholder="placeholder" :data="table_data.data"
-      :form-user="query_model.form_user" @click="handleOpen" />
+                   :form-user="query_model.form_user" @click="handleOpen"
+    />
     <hl-dialog v-model="show" :title="title" width="90%" top="30">
       <hl-search-page label-width="100px">
         <template #header>
@@ -193,43 +201,49 @@ watch(show, (val) => {
           </hl-form-item>
           <hl-form-item label="角色" class="w-half">
             <role-select v-model="query_model.roles" multiple :max-collapse-tags="2" collapse-tags collapse-tags-tooltip
-              :disabled="disabled || readonly" />
+                         :disabled="disabled || readonly"
+            />
           </hl-form-item>
           <hl-form-item label="圈层" class="w-half">
             <circle-select v-model="query_model.circles" multiple :max-collapse-tags="2" collapse-tags
-              collapse-tags-tooltip :disabled="disabled || readonly" />
+                           collapse-tags-tooltip :disabled="disabled || readonly"
+            />
           </hl-form-item>
           <hl-form-item label="职务" class="w-half">
             <job-cascader v-model="query_model.jobs" multiple class="w-full" :max-collapse-tags="16" collapse-tags
-              collapse-tags-tooltip :disabled="disabled || readonly" />
+                          collapse-tags-tooltip :disabled="disabled || readonly"
+            />
           </hl-form-item>
           <hl-form-item label="单位" class="w-half">
             <organization v-model="query_model.organizations" class="w-full" multiple collapse-tags
-              collapse-tags-tooltip :max-collapse-tags="8" :disabled="disabled || readonly" />
+                          collapse-tags-tooltip :max-collapse-tags="8" :disabled="disabled || readonly"
+            />
           </hl-form-item>
           <hl-form-item label="补充人员" class="w-full">
             <div class="flex w-full items-center">
               <person-select-panel v-model="query_model.id_cards" max-height="64px" class="flex-1"
-                :disabled="disabled || readonly" />
-              <ElTooltip>
+                                   :disabled="disabled || readonly"
+              />
+              <el-tooltip>
                 <hl-icon icon="mingcute:question-fill" class="tooltip-item" />
                 <template #content>
                   最终选择的人员会根据职务、角色、单位取交集，再加上补充人员和表单内联系人
                 </template>
-              </ElTooltip>
+              </el-tooltip>
             </div>
           </hl-form-item>
           <hl-form-item v-if="formConfig && formConfig.length > 0" label="表单内联系人" class="w-half">
             <div class="flex w-full items-center">
               <task-flow-node-outer v-model="query_model.form_user" :form-config="formConfig" multiple
-                type="form_user" />
-              <ElTooltip>
+                                    type="form_user"
+              />
+              <el-tooltip>
                 <hl-icon icon="mingcute:question-fill" class="tooltip-item" />
                 <template #content>
                   <div>表单内联系人是指当前节点的前面所有节点关联的表单内的配置的对外输出字段，</div>
                   <div>当配置了这些字段后，当前面的节点流转到当前节点时，会自动统计出前面节点填写的字段以供当前节点使用</div>
                 </template>
-              </ElTooltip>
+              </el-tooltip>
             </div>
           </hl-form-item>
           <hl-form-item v-if="nodes" label="关联节点" class="w-half">

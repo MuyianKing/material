@@ -14,7 +14,7 @@ defineProps({
 </script>
 
 <template>
-  <button-comp type="danger" icon="icon-park-outline:add-one" :show-icon="icon" :text="text">
+  <button-comp type="danger" icon="icon-park-outline:add-one" :show-icon="icon" :text="$slots.default ? '' : text">
     <slot />
   </button-comp>
 </template>

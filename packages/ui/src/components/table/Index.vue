@@ -207,6 +207,10 @@ function doLayout() {
         const column = columns.find(item => item.uuid === uuid)
         const width = `${body_tds[i].getBoundingClientRect().width}px`
 
+        if (!column) {
+          continue
+        }
+
         // tbody 不设置maxWidth，数据会撑开td
         column.tdStyle.maxWidth = width
         column.tdStyle.width = width
@@ -613,7 +617,7 @@ defineExpose({
   }
 }
 
-.hl-table-checkbox {
+:deep(.hl-table-checkbox) {
   width: 60px;
   min-width: 60px;
   max-width: 60px;

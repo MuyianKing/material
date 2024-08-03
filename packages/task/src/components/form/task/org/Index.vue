@@ -2,6 +2,7 @@
 import { Organization } from '@hl/tyyh'
 import CustomEditableComp from '../../basic/CustomEditableComp.vue'
 import useComponent from '../../utils'
+import '@hl/tyyh/src/components/organization/components/plugin.css'
 
 const props = defineProps({
   config: {

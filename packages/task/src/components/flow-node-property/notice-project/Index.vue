@@ -1,5 +1,5 @@
 <script setup>
-// import { ProjectSelect } from '@hl/tyyh'
+import { ProjectSelect } from '@hl/tyyh'
 import { HlFormItem } from '@hl/ui'
 import '@hl/ui/src/components/form-item/Index.css'
 
@@ -8,7 +8,7 @@ const value = defineModel()
 
 <template>
   <hl-form-item label="项目管理">
-    <!-- <project-select v-model="value" multiple /> -->
+    <project-select v-model="value" multiple />
   </hl-form-item>
 </template>
 

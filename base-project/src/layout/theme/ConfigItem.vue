@@ -1,6 +1,9 @@
 <script setup>
 import { HlIcon } from '@hl/ui'
 import useThemeStore from '@pinia/useThemeStore'
+import { ElColorPicker, ElInput } from 'element-plus/es'
+import 'element-plus/es/components/input/style/css'
+import 'element-plus/es/components/color-picker/style/css'
 
 const props = defineProps({
   title: {

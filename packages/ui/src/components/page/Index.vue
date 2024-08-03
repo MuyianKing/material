@@ -2,7 +2,7 @@
 import { ElPagination } from 'element-plus'
 import { pageSize } from '@hl/utils/es/common'
 import 'element-plus/es/components/pagination/style/css'
-import {computed} from "vue"
+import { computed } from 'vue'
 
 const props = defineProps({
   // 总条数

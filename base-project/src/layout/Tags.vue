@@ -1,11 +1,12 @@
 <script setup>
-import useTagsStore from '@pinia/useTagsStore.js'
+import useTagsStore from '@pinia/useTagsStore'
 import useAppStore from '@pinia/useAppStore.js'
 import { useRoute, useRouter } from 'vue-router'
 
 import { computed, nextTick, ref } from 'vue'
-import { ElScrollbar } from 'element-plus/es'
+import { ElScrollbar } from 'element-plus'
 import { HlContextMenu, HlIcon } from '@hl/ui'
+import 'element-plus/es/components/scrollbar/style/css'
 
 const tags = useTagsStore()
 const appStore = useAppStore()

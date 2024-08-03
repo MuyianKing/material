@@ -1,7 +1,8 @@
 <script setup>
-import { ElButton, ElTooltip } from 'element-plus'
+import { ElButton, ElLink, ElTooltip } from 'element-plus'
 import 'element-plus/es/components/button/style/css'
 import 'element-plus/es/components/tooltip/style/css'
+import 'element-plus/es/components/link/style/css'
 import HlIcon from '../icon/Index.vue'
 
 defineOptions({
@@ -17,7 +18,7 @@ defineProps({
     type: Boolean,
     default: true,
   },
-  iconSize: {
+  size: {
     type: Number,
     default: 18,
   },
@@ -25,12 +26,8 @@ defineProps({
     type: String,
     default: '',
   },
-  // button-按钮  icon-图标
+  // button-按钮  icon-图标  text-文本
   buttonType: {
-    type: String,
-    default: 'button',
-  },
-  btnType: {
     type: String,
     default: 'button',
   },
@@ -51,26 +48,29 @@ function handleClick() {
 </script>
 
 <template>
-  <span v-if="btnType === 'link'" class="add-button mx-1">{{ text }}</span>
-  <el-button v-else-if="buttonType === 'button'" :type="type" v-bind="$attrs" @click="handleClick">
-    <hl-icon v-if="icon && showIcon" :icon="icon" theme="outline" class="mr-1" />
+  <!-- 纯文本 -->
+  <el-link v-if="buttonType === 'text'" class="hl-button" :type v-bind="$attrs" @click="handleClick">
+    <slot>
+      {{ text }}
+    </slot>
+  </el-link>
+
+  <!-- 按钮 -->
+  <el-button v-else-if="buttonType === 'button'" class="hl-button" :type v-bind="$attrs" @click="handleClick">
+    <hl-icon v-if="icon && showIcon" :icon theme="outline" class="mr-1" />
     {{ text }}
     <slot />
   </el-button>
+
+  <!-- 图标带提示 -->
   <el-tooltip v-else-if="text" :content="text" effect="light" :placement="placement">
-    <hl-icon v-bind="$attrs" :icon="icon" :size="iconSize" theme="outline" class="icon" @click="handleClick" />
+    <hl-icon v-bind="$attrs" :icon :size theme="outline" class="hl-button cursor-pointer" @click="handleClick" />
   </el-tooltip>
 
-  <hl-icon v-else v-bind="$attrs" :icon="icon" :size="iconSize" theme="outline" class="icon" @click="handleClick" />
+  <!-- 图标无提示 -->
+  <hl-icon v-else v-bind="$attrs" :icon :size theme="outline" class="hl-button cursor-pointer" @click="handleClick" />
 </template>
 
 <style lang="scss" scoped>
-.icon {
-  margin: 0 3px;
-  cursor: pointer;
-}
 
-.el-button {
-  padding: 0 15px;
-}
 </style>

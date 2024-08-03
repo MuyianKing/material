@@ -2,7 +2,7 @@
 import { onMounted, ref, watch } from 'vue'
 
 import { jump } from '@hl/utils/es/router'
-import {useRouter} from "vue-router"
+import { useRouter } from 'vue-router'
 import { HlIcon } from '@hl/ui'
 import { delTaskConfig, startTaskConfig, stopTaskConfig } from '../../../../server/config'
 import UploadTask from '../../../../components/task/upload/UploadTask.vue'
@@ -91,6 +91,7 @@ async function handleChangeStatus(task) {
 }
 
 // 编辑
+const router = useRouter()
 function handleEdit(task) {
   jump({
     type: '_blank',
@@ -99,7 +100,7 @@ function handleEdit(task) {
     query: {
       id: task?.config_id,
     },
-  },useRouter())
+  }, router)
 }
 
 // 模板下载
@@ -156,7 +157,8 @@ onMounted(() => {
     <div v-if="data.can_create || data.can_modify" class="mark">
       <div class="content">
         <div v-for="item in options" :key="item.className" :class="item.className" class="item"
-          @click="handleClick(item)">
+             @click="handleClick(item)"
+        >
           <hl-icon :icon="item.icon" class="mr-1" />
           {{ item.label }}
         </div>
@@ -183,12 +185,6 @@ onMounted(() => {
   cursor: pointer;
   position: relative;
   overflow: hidden;
-
-  &:hover .mark {
-    opacity: 1;
-    z-index: 10;
-    transform: scale(1);
-  }
 
   .mark {
     position: absolute;
@@ -227,11 +223,18 @@ onMounted(() => {
       transition: all 0.3s;
       user-select: none;
       min-height: 32px;
+      height: 40px;
 
       &:hover {
         background-color: rgba(211, 227, 253);
       }
     }
+  }
+
+  &:hover .mark {
+    opacity: 1;
+    z-index: 10;
+    transform: scale(1);
   }
 
   .dropdown-item {

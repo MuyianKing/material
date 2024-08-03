@@ -26,6 +26,10 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  keepLabel: {
+    type: Boolean,
+    default: false,
+  },
   // 是否可搜索
   hasSearch: {
     type: Boolean,
@@ -130,8 +134,14 @@ const activeStatus = computed(() => {
   }
   return _value.value.length > 0
 })
+
 // label
 const _label = computed(() => {
+  // 选中后不改变label
+  if (!props.keepLabel) {
+    return props.label
+  }
+
   if (!props.multiple) {
     return getLabelByVal(_options.value, model.value) || props.label
   }

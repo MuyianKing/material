@@ -1,12 +1,12 @@
-<script setup name="HlImportButton">
-import { ElButton } from 'element-plus'
-import IconComp from '../icon/Index.vue'
+<script setup>
+import ButtonComp from '../button/Index.vue'
+
 import 'element-plus/es/components/button/style/css'
 
 defineProps({
   icon: {
     type: Boolean,
-    default: false,
+    default: true,
   },
   text: {
     type: String,
@@ -16,15 +16,15 @@ defineProps({
 </script>
 
 <template>
-  <el-button color="#626aef">
-    <icon-comp icon="bx:import" class="mr-1" style="font-size: 20px;" />
-    {{ text }}
+  <button-comp color="#626aef" type="success" icon="ph:export-bold" :show-icon="icon" :text="$slots.default ? '' : text">
     <slot />
-  </el-button>
+  </button-comp>
 </template>
 
 <style lang="scss" scoped>
-.hl-ui-zw {
-  color: red;
+.icon-item {
+  font-size: 20px;
+  color: var(--color-success);
+  cursor: pointer;
 }
 </style>

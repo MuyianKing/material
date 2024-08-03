@@ -2,8 +2,9 @@
 import { Organization } from '@hl/tyyh'
 import { storeToRefs } from 'pinia'
 import { HlFormItem } from '@hl/ui'
-import useFlowStore from '../../../../../../packages/task/src/pinia/modules/useFlowStore'
+import useFlowStore from '../../../pinia/modules/useFlowStore'
 import '@hl/ui/src/components/form-item/Index.css'
+import '@hl/tyyh/src/components/organization/components/plugin.css'
 
 const value = defineModel()
 const { node } = storeToRefs(useFlowStore())

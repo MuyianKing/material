@@ -10,6 +10,8 @@ import 'element-plus/es/components/link/style/css'
 import '@hl/ui/src/components/form-dialog/Index.css'
 import '@hl/ui/src/components/form-item/Index.css'
 
+import '@hl/tyyh/src/components/person-select-panel/Index.css'
+
 const props = defineProps({
   taskId: {
     type: [String, Number],
@@ -45,7 +47,8 @@ function handleClick() {
   </el-link>
 
   <hl-form-dialog v-model="dialogShow" :model="form" :title="`移交-${taskId}`" :server="taskTurnOver" width="50%" top="30"
-    @success="$emit('refresh')">
+                  @success="$emit('refresh')"
+  >
     <hl-form-item label="移交人员">
       <person-select-panel v-model="form.new_id_card" />
     </hl-form-item>

@@ -1,13 +1,16 @@
 <script setup>
-import HlTags from '@layout/Tags.vue'
-import HlTheme from '@layout/theme/Index.vue'
+import Tags from '@layout/Tags.vue'
+import ThemeComp from '@layout/theme/Index.vue'
 import { exitFullScreen, openFullScreen } from '@utils/dom'
 import { logout } from '@server/user'
-import useUserStore from '@pinia/useUserStore.js'
+import useUserStore from '@pinia/useUserStore'
 import { useRouter } from 'vue-router'
 import { ref } from 'vue'
 import { HlIcon } from '@hl/ui'
-import { ElDropdown, ElDropdownItem, ElDropdownMenu } from 'element-plus/es'
+import { ElDropdown, ElDropdownItem, ElDropdownMenu } from 'element-plus'
+import 'element-plus/es/components/dropdown/style/css'
+import 'element-plus/es/components/dropdown-item/style/css'
+import 'element-plus/es/components/dropdown-menu/style/css'
 
 const user = useUserStore()
 
@@ -37,10 +40,10 @@ function fullScreen() {
 <template>
   <div class="outer-header">
     <div class="header">
-      <hl-tags class="tags-wrapper" />
+      <tags class="tags-wrapper" />
       <div class="header-right">
         <div class="header-user-con">
-          <hl-theme class="cursor-pointer" />
+          <theme-comp class="cursor-pointer" />
           <hl-icon class="cursor-pointer" icon="icon-park-outline:full-screen" @click="fullScreen" />
           <el-dropdown class="user-name" trigger="click" @command="handleDown">
             <span class="el-dropdown-link">

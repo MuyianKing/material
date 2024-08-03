@@ -57,7 +57,7 @@ export default {
           <tr className="hl-table-tr">
             {
               (props.select) && (
-                <th className="hl-table-td hl-table-th hl-table-checkbox">
+                <th className="hl-table-td hl-table-th hl-table-checkbox" style="width:60px;min-width:60px;max-width:60px;text-align:center">
                   <ElCheckbox size="large" modelValue={props.checkAll} onChange={changeCheckAll} />
                 </th>
               )

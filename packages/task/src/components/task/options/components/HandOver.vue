@@ -13,6 +13,8 @@ import '@hl/ui/src/components/form-dialog/Index.css'
 import '@hl/ui/src/components/form-item/Index.css'
 import '@hl/ui/src/components/input/Index.css'
 
+import '@hl/tyyh/src/components/person-select-panel/Index.css'
+
 const props = defineProps({
   taskId: {
     type: [String, Number],

@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref, watch, watchEffect } from 'vue'
+import { computed, onMounted, ref, watch, watchEffect } from 'vue'
 import { HlCheckbox, HlRadio, HlSelect } from '@hl/ui'
 import { getUserList, getUserListWithEachOrgJob } from '../../server/user'
 
@@ -46,7 +46,16 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  // 禁用选项
+  disabledPerson: {
+    type: [String, Array],
+    default() {
+      return []
+    },
+  },
 })
+
+console.log('person-select')
 
 const _options = ref([])
 const loading = ref(false)
@@ -150,16 +159,21 @@ watchEffect(() => {
     if (!Array.isArray(value.value)) {
       value.value = value.value ? [value.value] : []
     }
-  } else {
-    value.value = ''
   }
+})
+
+const _d_p = computed(() => {
+  if (!props.disabledPerson) {
+    return []
+  }
+  return Array.isArray(props.disabledPerson) ? props.disabledPerson : [props.disabledPerson]
 })
 </script>
 
 <template>
   <hl-radio v-if="expand && !multiple" v-model="value" :options="_options" :empty="!required" v-bind="$attrs" />
   <hl-checkbox v-else-if="expand && multiple" v-model="value" :options="_options" v-bind="$attrs" />
-  <hl-select v-else v-model="value" :options="_options" v-bind="$attrs" :multiple :loading :remote-method="filter" remote @bottom="handleMore" />
+  <hl-select v-else v-model="value" :options="_options" v-bind="$attrs" :multiple :loading :remote-method="filter" remote :disabled-options="_d_p" @bottom="handleMore" />
 </template>
 
 <style scoped lang="scss"></style>
