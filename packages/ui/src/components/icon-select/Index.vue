@@ -1,7 +1,7 @@
 <script setup>
-import { inject } from 'vue'
-import { useList } from '@hl/hooks'
+import { inject, onMounted, reactive, ref } from 'vue'
 import { ElPopover, vLoading } from 'element-plus'
+import { useDebounceFn } from '@vueuse/core'
 import IconComp from '../icon/Index.vue'
 import InputComp from '../input/Index.vue'
 
@@ -26,26 +26,54 @@ function handleClick(row) {
   model.value = row
 }
 
-const {
-  query,
-  getData,
-  table_data,
-  search,
-  loading,
-} = useList({
-  query: {
-    limit: 200,
-    query: '',
-  },
-  server: getIcons,
+const query = reactive({
+  limit: 200,
+  page: 1,
+  query: '',
+})
+
+const loading = ref(false)
+const table_data = reactive({
+  data: [],
+  has_more: true,
+})
+async function getData(config) {
+  try {
+    if (!config?.append) {
+      table_data.data = []
+    }
+
+    loading.value = true
+    const result = await getIcons(query)
+    result.data.forEach((icon) => {
+      table_data.data.push(icon)
+    })
+
+    table_data.has_more = result.count > query.page * query.limit
+  } finally {
+    loading.value = false
+  }
+}
+
+const search = useDebounceFn(() => {
+  query.page = 1.0
+  getData()
 })
 
 function handleBottom() {
+  if (!table_data.has_more) {
+    return
+  }
+
   query.page++
   getData({
     append: true,
   })
 }
+
+onMounted(() => {
+  getData()
+})
 </script>
 
 <template>

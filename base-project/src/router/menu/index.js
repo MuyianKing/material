@@ -133,6 +133,14 @@ export const menuList = [
           icon: 'clarity:user-solid',
         },
       },
+      {
+        path: 'icon',
+        component: () => import('@views/ui/Icon.vue'),
+        meta: {
+          title: '图标',
+          icon: 'clarity:user-solid',
+        },
+      },
     ],
   },
 ]

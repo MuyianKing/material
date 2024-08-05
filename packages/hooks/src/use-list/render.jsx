@@ -1,17 +1,23 @@
-import { HlSearchPage, HlPage, HlSearchButton, HlAddButton } from '@hl/ui';
-import "@hl/ui/src/components/search-page/Index.css"
-import "@hl/ui/src/components/search-button/Index.css"
-import "@hl/ui/src/components/add-button/Index.css"
-import "@hl/ui/src/components/page/Index.css"
+import { HlAddButton, HlPage, HlSearchButton, HlSearchPage } from '@hl/ui'
+import '@hl/ui/src/components/search-page/Index.css'
+import '@hl/ui/src/components/search-button/Index.css'
+import '@hl/ui/src/components/add-button/Index.css'
+import '@hl/ui/src/components/page/Index.css'
 
 export default {
   name: 'HlListPageRender',
+  components: {
+    HlAddButton,
+    HlPage,
+    HlSearchButton,
+    HlSearchPage,
+  },
   props: {
     query: {
       type: Object,
       default() {
-        return {};
-      }
+        return {}
+      },
     },
     _loading: {
       type: Object,
@@ -22,72 +28,72 @@ export default {
     tableData: {
       type: Object,
       default() {
-        return {};
-      }
+        return {}
+      },
     },
     getData: {
       type: Function,
       required: true,
       default() {
-        return () => { };
-      }
+        return () => { }
+      },
     },
     // 隐藏添加按钮
     noAdd: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 隐藏搜索按钮
     noSearch: {
       type: Boolean,
-      default: false
+      default: false,
     },
     pageConfig: {
       type: Object,
-      default: null
-    }
+      default: null,
+    },
   },
   setup(props, { slots, emit }) {
     // 列表页头部搜索区域
-    const header = [];
+    const header = []
 
     // 搜索表单
     if (slots.search) {
-      header.push(slots.search);
+      header.push(slots.search)
     }
 
     const button = []
 
     // 搜索按钮
     if (!props.noSearch) {
-      button.push(() => <HlSearchButton onClick={() => emit('search')} />);
+      button.push(() => <HlSearchButton onClick={() => emit('search')} />)
     }
 
     // 添加按钮
     if (!props.noAdd) {
-      button.push(() => <HlAddButton onClick={() => emit('add', null)} />);
+      button.push(() => <HlAddButton onClick={() => emit('add', null)} />)
     }
 
     // 其他按钮
     if (slots.button) {
-      button.push(slots.button);
+      button.push(slots.button)
     }
 
     // 分页
-    const default_slots = [() => <HlPage modelValue={props.query.page} size={props.query.limit} sizes={props.pageConfig?.sizes} count={props.tableData.count || 0} onUpdate:modelValue={(val) => emit('updatePage', val)} onUpdate:size={(val) => emit('updateSize', val)} onChange={props.getData} />];
+    const default_slots = [() => <HlPage modelValue={props.query.page} size={props.query.limit} sizes={props.pageConfig?.sizes} count={props.tableData.count || 0} onUpdate:modelValue={val => emit('updatePage', val)} onUpdate:size={val => emit('updateSize', val)} onChange={props.getData} />]
     if (slots.default) {
-      default_slots.push(slots.default);
+      default_slots.push(slots.default)
     }
 
     return () => (
       <HlSearchPage class="list-page" loading={props._loading?.value}>
         {{
-          header: () => header.map((slot) => (typeof slot === 'function' ? slot() : slot)),
-          button: () => button.map((slot) => (typeof slot === 'function' ? slot() : slot)),
+          header: () => header.map(slot => (typeof slot === 'function' ? slot() : slot)),
+          button: () => button.map(slot => (typeof slot === 'function' ? slot() : slot)),
           table: () => (slots.table ? slots.table() : ''),
-          default: () => default_slots.map((slot) => (typeof slot === 'function' ? slot() : slot))
+          default: () => default_slots.map(slot => (typeof slot === 'function' ? slot() : slot)),
         }}
       </HlSearchPage>
-    );
-  }
-};
+    )
+  },
+}

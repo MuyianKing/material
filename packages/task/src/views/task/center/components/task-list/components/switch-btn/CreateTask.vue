@@ -32,7 +32,6 @@ async function getTaskTemplate() {
         children: item.children,
       }
     })
-    console.log(task_temp_list.value)
   } catch (e) {
     hl.message.error(e, '获取任务模板数据出错')
   }

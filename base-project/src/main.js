@@ -49,8 +49,6 @@ const app = createApp(App)
 
 app.use(pinia)
 
-console.log(registerRequiredComp.install)
-
 app.use(router)
   .use(directions)
   .use(registerRequiredComp)

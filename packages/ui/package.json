@@ -1,14 +1,13 @@
 {
   "name": "@hl/ui",
   "type": "module",
-  "version": "0.4.21",
+  "version": "0.4.22",
   "scripts": {
     "dev": "vite",
     "build": "vite build"
   },
   "dependencies": {
-    "@hl/hooks": "^0.4.20",
-    "@hl/utils": "^0.4.20",
+    "@hl/utils": "^0.4.21",
     "@iconify/vue": "^4.1.2",
     "@multiavatar/multiavatar": "^1.0.7",
     "@vueuse/core": "^10.11.0",
