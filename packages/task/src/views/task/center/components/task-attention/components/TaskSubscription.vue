@@ -54,7 +54,8 @@ async function handleSubmit() {
     </div>
 
     <hl-form-dialog v-model="show" :model="form" title="订阅关注任务" width="500px" top="50px" label-width="120"
-      @submit="handleSubmit">
+                    @submit="handleSubmit"
+    >
       <div class="px-5">
         <hl-form-item label="关注任务" prop="config_uuids" required>
           <tree-select v-model="form.config_uuids" multiple @change="handleChange" />

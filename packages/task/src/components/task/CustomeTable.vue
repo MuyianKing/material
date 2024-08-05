@@ -33,7 +33,8 @@ function rowClass(row) {
   <hl-table v-loading="loading" :data="tableData.data" :row-class="rowClass" row-key="task_id">
     <hl-table-column type="index" />
     <hl-table-column v-for="column in tableData.header_config" :key="column.prop" :label="column.label"
-      :prop="column.prop">
+                     :prop="column.prop"
+    >
       <template #default="{ row }">
         <task-status v-if="column.prop === 'status'" :data="row.status" />
         <additional-comp v-else-if="column.prop === 'additional_list'" :list="row.additional_list" />
@@ -42,7 +43,7 @@ function rowClass(row) {
     </hl-table-column>
     <hl-table-column label="操作" min-width="100">
       <template #default="{ row }">
-        <task-opt :task="row" @refresh-one="$emit('refresh-one',row)" @refresh="$emit('refresh')" />
+        <task-opt :task="row" @refresh-one="$emit('refresh-one', row)" @refresh="$emit('refresh')" />
       </template>
     </hl-table-column>
   </hl-table>

@@ -70,7 +70,7 @@ function isHidden(unfinish, type) {
 </script>
 
 <template>
-  <el-tabs v-if="model" v-model="model.value" :class="`tab-style-${level}`" @tab-click="emits('tab-click',model)">
+  <el-tabs v-if="model" v-model="model.value" :class="`tab-style-${level}`" @tab-click="emits('tab-click', model)">
     <el-tab-pane v-if="level === 1" :class="`tab-item-${level}`" :name="-1">
       <template #label>
         <span :class="{ active_item: model.value === -1 }" class="panel-item">
@@ -79,21 +79,25 @@ function isHidden(unfinish, type) {
       </template>
     </el-tab-pane>
 
-    <el-tab-pane v-for="(item,index) in model.subs" :key="index" :class="`tab-item-${level}`" :name="index">
+    <el-tab-pane v-for="(item, index) in model.subs" :key="index" :class="`tab-item-${level}`" :name="index">
       <template #label>
-        <el-badge :class="{ active_item: model.value === index }" :hidden="isHidden(!item.unfinish,taskType)" :max="99"
-          :offset="[0,8]" :value="item.unfinish" class="panel-item">
+        <el-badge :class="{ active_item: model.value === index }" :hidden="isHidden(!item.unfinish, taskType)" :max="99"
+                  :offset="[0, 8]" :value="item.unfinish" class="panel-item"
+        >
           <span class="select-none" @dblclick.stop="handleEdit('edit')">{{ item.title }}</span>
           <hl-icon v-if="editable && !item.all" class="trash-item" icon="ci:trash-full"
-            @click.stop="handleDel(index)" />
+                   @click.stop="handleDel(index)"
+          />
         </el-badge>
 
         <hl-icon v-if="index === model.subs.length - 1 && editable" class="plus-icon" icon="bx:bxs-folder-plus"
-          @click="handleEdit('add')" @click.stop />
+                 @click="handleEdit('add')" @click.stop
+        />
       </template>
 
       <attention-item v-if="item.subs" v-model="model.subs[index]" :editable :task-type :level="level + 1"
-        @refresh="refresh" @tab-click="emits('tab-click',$event)" />
+                      @refresh="refresh" @tab-click="emits('tab-click', $event)"
+      />
     </el-tab-pane>
   </el-tabs>
 </template>

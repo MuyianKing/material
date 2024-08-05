@@ -42,7 +42,7 @@ async function handleDel() {
       </div>
       <div class="flex items-center">
         <hl-icon icon="bx:bxs-time-five" />
-        <span>{{ data.create_time?.substring(0,16) }}</span>
+        <span>{{ data.create_time?.substring(0, 16) }}</span>
       </div>
     </div>
     <hl-icon class="close-item" icon="material-symbols-light:close" @click="handleDel" />

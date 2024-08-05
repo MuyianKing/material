@@ -41,14 +41,16 @@ watch(show_detail, (val) => {
     审批移交申请
   </el-button>
   <el-link v-else :underline="false" class="m-1 whitespace-nowrap" type="success" v-bind="$attrs"
-    @click="show_detail = true">
+           @click="show_detail = true"
+  >
     <slot>
       审批移交申请
     </slot>
   </el-link>
 
   <hl-form-dialog v-model="show_detail" title="审批移交申请" :model="form" :server="examinesTurnOverTask"
-    @refresh="$emit('refresh-one')">
+                  @refresh="$emit('refresh-one')"
+  >
     <hl-form-item label="审批结果" required prop="result">
       <hl-select v-model="form.result" :options="examinesApplyFor" />
     </hl-form-item>

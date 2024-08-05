@@ -1,13 +1,14 @@
 <script setup>
 import { getLabelByVal } from '@hl/utils/es/common'
 import { computed, inject, toRefs } from 'vue'
-import { HlFormItem, HlNodata } from '@hl/ui'
+import { HlFormItem, HlInput, HlNodata } from '@hl/ui'
 import { ElDivider, ElForm } from 'element-plus'
 import { property_list, type_list } from '../../../../../../components/form-property/config'
 import 'element-plus/es/components/form/style/css'
 import 'element-plus/es/components/divider/style/css'
 import '@hl/ui/src/components/form-item/Index.css'
 import '@hl/ui/src/components/nodata/Index.css'
+import '@hl/ui/src/components/input/Index.css'
 
 const { property_config, active_form_item } = toRefs(inject('editor_store'))
 

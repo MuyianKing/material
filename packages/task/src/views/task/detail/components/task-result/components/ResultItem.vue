@@ -58,11 +58,13 @@ const show_history = ref(false)
       <dot :data="data" />
     </template>
     <hl-icon v-if="data.data?.old" icon="mingcute:down-fill" title="展开" class="pen-item pen-item-close right-10"
-      :class="{ open: show_history }" @click="show_history = !show_history" />
+             :class="{ open: show_history }" @click="show_history = !show_history"
+    />
     <hl-icon v-if="data.modify" icon="iconoir:page-edit" class="pen-item" title="编辑" @click="handleSubSubmit" />
-    <highlight :data="data" :interaction="interaction" @remove="(id) => $emit('remove',id)" />
+    <highlight :data="data" :interaction="interaction" @remove="(id) => $emit('remove', id)" />
     <form-detail v-if="data.data?.content && typeof data.data?.content === 'object' && !interaction.includes(data.type)"
-      :form-data="data.data?.content || {}" :config="data.a_node_form" mode="text">
+                 :form-data="data.data?.content || {}" :config="data.a_node_form" mode="text"
+    >
       <template #before="{ form }">
         <result-audit v-if="form.pass !== undefined" :data="form" />
       </template>
@@ -71,8 +73,9 @@ const show_history = ref(false)
 
   <template v-if="data.data?.old && show_history">
     <el-timeline-item v-for="old_item in reverseData(data.data?.old)" :key="old_item.a_time"
-      class="time-line-item ml-5 time-line-item-second-level" :timestamp="old_item.a_time" placement="top"
-      type="success">
+                      class="time-line-item ml-5 time-line-item-second-level" :timestamp="old_item.a_time" placement="top"
+                      type="success"
+    >
       <template #dot>
         <dot :data="data" />
       </template>
@@ -86,7 +89,8 @@ const show_history = ref(false)
   </template>
 
   <handle-dialog v-if="data.modify" v-model="show_handle_dialog" :config="data.a_node_form" :form-id="data.id"
-    :form-data="data.data?.content || {}" :task-id="data.task_id" @refresh="handleRefresh" />
+                 :form-data="data.data?.content || {}" :task-id="data.task_id" @refresh="handleRefresh"
+  />
 </template>
 
 <style lang='scss' scoped>

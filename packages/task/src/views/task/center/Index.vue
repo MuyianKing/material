@@ -87,12 +87,12 @@ $left_width: 440px;
   }
 }
 
-.task-layout>div {
+.task-layout > div {
   min-height: 0;
   margin-bottom: 10px;
 }
 
-.task-layout>div:last-child {
+.task-layout > div:last-child {
   margin-bottom: 0;
 }
 

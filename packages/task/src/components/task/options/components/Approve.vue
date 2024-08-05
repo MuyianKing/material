@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { HlButton, HlDialog, HlFormItem, HlRadio } from '@hl/ui'
+import { HlButton, HlDialog, HlFormItem, HlInput, HlRadio } from '@hl/ui'
 import { ElButton, ElLink } from 'element-plus'
 import FormDetail from '../../../../views/form/preview/Template.vue'
 import { auditTask, getTaskById } from '../../../../server'
@@ -11,6 +11,7 @@ import '@hl/ui/src/components/button/Index.css'
 import '@hl/ui/src/components/dialog/Index.css'
 import '@hl/ui/src/components/form-item/Index.css'
 import '@hl/ui/src/components/radio/Index.css'
+import '@hl/ui/src/components/input/Index.css'
 
 const props = defineProps({
   taskId: {
@@ -60,7 +61,8 @@ async function submit() {
     <slot />
   </el-button>
   <el-link v-else :underline="false" class="m-1 whitespace-nowrap" :type="finish ? 'danger' : 'primary'" v-bind="$attrs"
-    @click="handleClick">
+           @click="handleClick"
+  >
     <slot />
   </el-link>
 

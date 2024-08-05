@@ -108,6 +108,7 @@ const color = computed(() => {
 
   overflow: hidden;
   text-overflow: ellipsis;
+  line-clamp: 4;
   -webkit-line-clamp: 4;
   display: -webkit-box;
   -webkit-box-orient: vertical;
