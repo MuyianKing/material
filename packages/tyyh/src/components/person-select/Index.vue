@@ -53,9 +53,11 @@ const props = defineProps({
       return []
     },
   },
+  readonly: {
+    type: Boolean,
+    default: false,
+  },
 })
-
-console.log('person-select')
 
 const _options = ref([])
 const loading = ref(false)
@@ -77,12 +79,28 @@ async function getData() {
       const { data, count } = await getApi()(query)
       if (query.page === 1) {
         _options.value = []
+
+        const id_card = Array.isArray(value.value) ? value.value.join(',') : value.value
+        if (id_card) {
+          const init_data = await getApi()({
+            ...query,
+            id_card,
+            limit: 100000,
+            page: 1,
+          })
+
+          formatData(init_data.data).forEach((item) => {
+            _options.value.push(item)
+          })
+        }
       }
 
+      const has_value = Array.isArray(value.value) ? value.value : [value.value]
       formatData(data).forEach((item) => {
-        _options.value.push(item)
+        if (!has_value.includes(item.value)) {
+          _options.value.push(item)
+        }
       })
-
       has_more = _options.value.length < count
       loading.value = false
     }
@@ -103,7 +121,7 @@ function getApi() {
   if (props.orgJobIdcard) {
     return getUserListWithEachOrgJob
   } else {
-    return getUserList
+    return params => getUserList(params, false)
   }
 }
 
@@ -150,30 +168,36 @@ watch([() => props.organizationId, () => props.hasNext], () => {
   getData()
 })
 
-onMounted(() => {
-  getData()
-})
-
+// 如果组件的单选多选是变化的，那么需要监听
 watchEffect(() => {
   if (props.multiple) {
+    // 变为多选，但是值不是数组变为数组
     if (!Array.isArray(value.value)) {
       value.value = value.value ? [value.value] : []
     }
+  } else if (Array.isArray(value.value)) {
+    // 单选但是值为数组
+    value.value = ''
   }
 })
 
+// 禁用的人
 const _d_p = computed(() => {
   if (!props.disabledPerson) {
     return []
   }
   return Array.isArray(props.disabledPerson) ? props.disabledPerson : [props.disabledPerson]
 })
+
+onMounted(() => {
+  getData()
+})
 </script>
 
 <template>
   <hl-radio v-if="expand && !multiple" v-model="value" :options="_options" :empty="!required" v-bind="$attrs" />
   <hl-checkbox v-else-if="expand && multiple" v-model="value" :options="_options" v-bind="$attrs" />
-  <hl-select v-else v-model="value" :options="_options" v-bind="$attrs" :multiple :loading :remote-method="filter" remote :disabled-options="_d_p" @bottom="handleMore" />
+  <hl-select v-else v-model="value" :options="_options" v-bind="$attrs" :multiple :loading :remote-method="filter" :readonly remote :disabled-options="_d_p" @bottom="handleMore" />
 </template>
 
 <style scoped lang="scss"></style>

@@ -96,4 +96,5 @@ export default addPrefixToUrls('/task/api', {
   taskListParamsGet: '/task/list/params_get',
   taskAuditFeedbackList: '/task/additional/work_sp_list',
   taskAuditFeedbackAudit: '/task/additional/work_sp',
+  taskAlarmList: '/jq-basic/page',
 })

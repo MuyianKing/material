@@ -65,11 +65,27 @@ const props = defineProps({
   // 触发区域样式：card-卡片  line-一行
   triggerType: {
     type: String,
-    default: 'card',
+    default: '',
   },
 })
 
 const emits = defineEmits(['upload-start', 'upload-finish'])
+
+// 触发区域展示形式
+const _trigger_type = computed(() => {
+  if (props.triggerType) {
+    return props.triggerType
+  }
+
+  const type = Array.isArray(props.type) ? props.type : [props.type]
+
+  // 如果包含文件、音频中的一种 => line
+  if (type.includes('file') || type.includes('audio') || type.includes('all')) {
+    return 'line'
+  }
+
+  return 'card'
+})
 
 const { uploadFile } = inject('GLOBAL_CUSTOM_CONFIG')
 
@@ -255,7 +271,7 @@ const margin = computed(() => props.multiple ? '5px' : '')
       <slot v-else name="preview" />
     </template>
 
-    <trigger-comp v-if="!readonly" ref="trigger_ref" :config="trigger_config" :trigger-type @select-file="handleSelect">
+    <trigger-comp v-if="!readonly" ref="trigger_ref" :config="trigger_config" :trigger-type="_trigger_type" @select-file="handleSelect">
       <template v-if="slots.default" #trigger>
         <slot />
       </template>

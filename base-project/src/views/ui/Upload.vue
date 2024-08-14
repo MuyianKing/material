@@ -8,7 +8,9 @@ const image = ref(null)
 
 <template>
   <div>
+    {{ image }}
     <hl-upload v-model="image" />
+    <hl-upload v-model="image" type="file" />
   </div>
 </template>
 

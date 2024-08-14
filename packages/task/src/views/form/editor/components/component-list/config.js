@@ -65,4 +65,12 @@ export const components_list_config = [{
     id: 'FormSupplement',
     name: '补充数据',
   }],
+}, {
+  name: '业务组件',
+  id: 'task',
+  children: [{
+    id: 'AlarmSelect',
+    name: '警情选择',
+  },
+  ],
 }]

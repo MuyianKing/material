@@ -243,9 +243,10 @@ const labelWidth_comp = computed(() => {
   return ''
 })
 
-const info = ref()
+const info = ref('')
 onMounted(() => {
-  if (instance?.vnode?.el?.querySelector?.('.el-form-item__content').querySelector('.el-input')) {
+  const el_form_item = instance?.vnode?.el?.querySelector?.('.el-form-item__content')
+  if (el_form_item.querySelector('.el-input') || el_form_item.querySelector('.el-textarea')) {
     info.value = '请输入'
   } else {
     info.value = '请选择'
@@ -255,6 +256,7 @@ onMounted(() => {
 
 <template>
   <el-form-item :rules="rules" :label-width="labelWidth_comp" :label="label">
+    {{ info }}
     <template v-if="$slots.label" #label>
       <slot name="label" />
     </template>

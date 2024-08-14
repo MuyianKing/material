@@ -1,10 +1,21 @@
 import api from '../api'
 
-export function getUserList(params) {
-  return hl.http.post(api.user, {
+export async function getUserList(params, simple = true) {
+  const result = await hl.http.post(api.user, {
     ...params,
     opt: 'user_get_v_0_0_2',
   })
+
+  if (!simple) {
+    result.data.forEach((item) => {
+      if (item.organization?.length > 0) {
+        const org = item.organization[0]
+        item.name = `${item.name}（${org.organization_name} - ${org.job_name}）`
+      }
+    })
+  }
+
+  return result
 }
 
 /**
@@ -35,4 +46,33 @@ export async function getUserListWithEachOrgJob(params) {
 
   result.data = newValue
   return result
+}
+
+/**
+ * 修改密码
+ * @param {object} params
+ * @param {string} params.police_id 警号
+ * @param {string} params.password 新密码
+ * @returns {Promise<object>} 是否成功
+ */
+export async function updatePassword(params) {
+  return hl.http.post(api.user, {
+    opt: 'user_password',
+    ...params,
+  })
+}
+
+/**
+ * 修改用户信息
+ * @param {object} params
+ * @param {string} params.id_card 身份证号
+ * @param {string} params.phone 手机号
+ * @param {string} params.password 手机短号
+ * @returns {Promise<object>} 是否成功
+ */
+export async function updateUserInfo(params) {
+  return hl.http.post(api.user, {
+    opt: 'user_update_basic_v_0_0_2',
+    ...params,
+  })
 }

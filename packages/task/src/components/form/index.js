@@ -17,6 +17,7 @@ import PersonSelect from './task/person-select/Index.vue'
 import Supplement from './task/supplement/Index.vue'
 import TaskUser from './task/task-user/Index.vue'
 import Title from './task/title/Index.vue'
+import AlarmSelect from './service/alarm-select/Index.vue'
 
 export default {
   // 自动导入该文件下的所有vue文件，以“Form文件夹名”作为组件名称注册全局组件
@@ -41,6 +42,7 @@ export default {
       Supplement,
       TaskUser,
       Title,
+      AlarmSelect,
     }
     for (const key in globModules) {
       app.component(`Form${key}`, globModules[key])

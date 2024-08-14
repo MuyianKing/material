@@ -14,9 +14,10 @@ const props = defineProps({
       return []
     },
   },
-  apiUrl: {
-    type: String,
-    default: '',
+  // 请求方法：可以不配置options，待选项从方法中获取，配置了该项options将失效
+  apiServer: {
+    type: Function,
+    default: null,
   },
   modelValue: {
     type: [String, Number, Array],
@@ -41,11 +42,17 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  // 禁用的选项：选项值组成的数组
   disabledOptions: {
     type: [String, Array],
     default() {
       return []
     },
+  },
+  // 只读
+  readonly: {
+    type: Boolean,
+    default: false,
   },
 })
 
@@ -53,6 +60,11 @@ const emits = defineEmits(['update:modelValue', 'blur', 'change', 'bottom'])
 
 // 提示信息
 const placeholder_comp = computed(() => {
+  // 只读没有提示
+  if (props.readonly) {
+    return ''
+  }
+
   if (props.placeholder) {
     return props.placeholder
   }
@@ -70,14 +82,17 @@ function change(val) {
   emits('change', val)
 }
 
+// 失焦
 function blur() {
   emits('blur')
 }
 
+// 触底触发
 function handleBottom() {
   emits('bottom')
 }
 
+// 禁用选项
 const _d_p = computed(() => {
   if (!props.disabledOptions) {
     return []
@@ -87,7 +102,7 @@ const _d_p = computed(() => {
 </script>
 
 <template>
-  <el-select :model-value="modelValue" :placeholder="placeholder_comp" :clearable="clearable" filterable @change="change" @blur="blur">
+  <el-select :model-value="modelValue" :placeholder="placeholder_comp" :clearable="clearable" filterable :class="{ 'readonly-item': readonly }" @change="change" @blur="blur">
     <div v-loadmore="handleBottom" class="relative">
       <el-option v-if="all" value="">
         全部
@@ -115,5 +130,17 @@ const _d_p = computed(() => {
   width: 100%;
   height: 100%;
   pointer-events: none;
+}
+
+.readonly-item {
+  :deep(.el-select__wrapper) {
+    background-color: #fff;
+    box-shadow: none;
+    color: inherit !important;
+
+    .el-select__selected-item {
+      color: inherit !important;
+    }
+  }
 }
 </style>

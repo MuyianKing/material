@@ -7,7 +7,7 @@
  * @param {string} opt.type 跳转方式：_blank--新tab self--当前页
  */
 export function jump(opt, router) {
-  if (!opt.path) {
+  if (!opt.path || !router) {
     return
   }
 

@@ -1,7 +1,7 @@
 <script name="HlDialog" setup>
 import { ElDialog } from 'element-plus'
 import 'element-plus/es/components/dialog/style/css'
-import { computed, nextTick, ref, useAttrs, useSlots, watch } from 'vue'
+import { computed, defineModel, nextTick, ref, useSlots, watch } from 'vue'
 
 const props = defineProps({
   closeOnClickModal: {
@@ -67,8 +67,11 @@ const top_comp = computed(() => {
   return top
 })
 
-const $attrs = useAttrs()
-watch(() => $attrs.modelValue, (val) => {
+const model = defineModel({
+  type: Boolean,
+  default: false,
+})
+watch(model, (val) => {
   if (val) {
     nextTick(() => {
       setMaxHeight()
@@ -93,7 +96,7 @@ defineExpose({
 </script>
 
 <template>
-  <el-dialog ref="dialog_ref" :close-on-click-modal="closeOnClickModal" :destroy-on-close="destroyOnClose"
+  <el-dialog ref="dialog_ref" v-model="model" :close-on-click-modal="closeOnClickModal" :destroy-on-close="destroyOnClose"
              :style="dialog_style" append-to-body class="hl-custome-dialog"
   >
     <slot />

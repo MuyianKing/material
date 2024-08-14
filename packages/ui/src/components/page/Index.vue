@@ -27,6 +27,10 @@ const props = defineProps({
     type: Number,
     default: 1,
   },
+  pagerCount: {
+    type: Number,
+    default: 7,
+  },
 })
 
 // 当前页
@@ -72,7 +76,7 @@ const layout = computed(() => {
       </span>
       <span>条</span>
     </div>
-    <el-pagination :current-page="_page" :layout :page-size="size" :total="count" background hide-on-single-page @update:current-page="handlePageChange" @update:page-size="handleSizeChange" />
+    <el-pagination :current-page="_page" :pager-count :layout :page-size="size" :total="count" background hide-on-single-page @update:current-page="handlePageChange" @update:page-size="handleSizeChange" />
   </div>
 </template>
 

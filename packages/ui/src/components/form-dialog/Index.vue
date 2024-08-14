@@ -90,8 +90,13 @@ function submit() {
   })
 }
 
+const show = defineModel({
+  type: Boolean,
+  default: false,
+})
 function close() {
   form_ref.value.clearValidate()
+  show.value = false
 }
 
 defineExpose({
@@ -100,7 +105,7 @@ defineExpose({
 </script>
 
 <template>
-  <dialog-comp :title :width :top v-bind="$attrs" @close="close">
+  <dialog-comp v-model="show" :title :width :top v-bind="$attrs" @close="close">
     <el-form ref="form_ref" :class="{ 'inline-form': inline }" :model="model" :rules="rules" :label-width="labelWidth" v-bind="$attrs" scroll-to-error>
       <slot />
     </el-form>

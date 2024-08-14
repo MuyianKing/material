@@ -138,7 +138,7 @@ const activeStatus = computed(() => {
 // label
 const _label = computed(() => {
   // 选中后不改变label
-  if (!props.keepLabel) {
+  if (props.keepLabel) {
     return props.label
   }
 
@@ -166,10 +166,10 @@ const _label = computed(() => {
         </div>
         <el-scrollbar class="py-1" max-height="280">
           <div v-if="multiple" class="px-4">
-            <el-checkbox v-if="!noAll" v-model="multipleAllValue" class="mr-0" label="全部" @change="allChecked" />
+            <el-checkbox v-if="!noAll" v-model="multipleAllValue" class="mr-0 ml-4" label="全部" @change="allChecked" />
             <el-checkbox-group :model-value="_value" class="flex flex-col">
               <el-checkbox v-for="item in _options" :key="item.value" :disabled="item.disabled" :label="item.label"
-                           :value="item.value" class="mr-0" @click="handleSingleChange(item)"
+                           :value="item.value" class="mr-0 ml-4" @click="handleSingleChange(item)"
               />
             </el-checkbox-group>
           </div>

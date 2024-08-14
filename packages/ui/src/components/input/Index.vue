@@ -106,7 +106,7 @@ function handleInput(val) {
   if (props.type === 'number') {
     model.value = val === '' ? '' : +val
   } else {
-    model.value = val
+    model.value = val.replace(/'/g, '')
   }
 }
 </script>

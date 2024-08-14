@@ -64,7 +64,7 @@ const { _text } = useButton(props, '删除')
       </div>
     </div>
     <template #reference>
-      <div class="inline-flex">
+      <div class="inline-block">
         <button-comp :button-type="text ? 'text' : 'icon'" type="danger" class="del-icon" :icon :text="_text" v-bind="$attrs" @click="handleClick">
           <slot />
         </button-comp>

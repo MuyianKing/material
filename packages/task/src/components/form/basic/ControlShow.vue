@@ -5,6 +5,8 @@ import { useDebounceFn } from '@vueuse/core'
 import { HlDelButton, HlDropdown, HlIcon, HlInput, HlSelect } from '@hl/ui'
 import { ElCascader } from 'element-plus'
 import { show_huo_qie, show_opt_type } from '../../../default/form'
+import AppendContent from '../../common/AppendContent.vue'
+
 import 'element-plus/es/components/cascader/style/css'
 import '@hl/ui/src/components/del-button/Index.css'
 import '@hl/ui/src/components/dropdown/Index.css'
