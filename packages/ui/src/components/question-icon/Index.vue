@@ -1,6 +1,7 @@
 <script setup>
+import { ElTooltip } from 'element-plus'
 import IconComp from '../icon/Index.vue'
-import { ElTooltip } from "element-plus"
+import 'element-plus/es/components/tooltip/style/css'
 
 defineProps({
   placement: {
@@ -19,4 +20,8 @@ defineProps({
   </el-tooltip>
 </template>
 
-<style lang='scss' scoped></style>
+<style lang="scss" scoped>
+.hl-ui-zw {
+  color: red;
+}
+</style>

@@ -14,7 +14,13 @@ defineProps({
 </script>
 
 <template>
-  <button-comp type="danger" icon="icon-park-outline:add-one" :show-icon="icon" :text="text">
+  <button-comp type="danger" icon="icon-park-outline:add-one" :show-icon="icon" :text="$slots.default ? '' : text">
     <slot />
   </button-comp>
 </template>
+
+<style lang="scss" scoped>
+.hl-ui-zw {
+  color: red;
+}
+</style>

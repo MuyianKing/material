@@ -1,20 +1,35 @@
 <script setup>
+import useButton from '../../hooks/useButton'
 import ButtonComp from '../button/Index.vue'
 
-defineProps({
+const props = defineProps({
   icon: {
-    type: Boolean,
-    default: false,
+    type: String,
+    default: 'icon-park-outline:find',
   },
   text: {
-    type: String,
-    default: '查看',
+    type: [Boolean, String],
+    default: false,
   },
 })
+
+const emits = defineEmits(['click'])
+
+function handleClick() {
+  emits('click')
+}
+
+const { _text } = useButton(props, '查看')
 </script>
 
 <template>
-  <button-comp icon="icon-park-outline:find" :text="text" :show-icon="icon" button-type="icon" />
+  <button-comp :button-type="text ? 'text' : 'icon'" type="primary" :icon :text="_text" @click="handleClick">
+    <slot />
+  </button-comp>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.hl-ui-zw {
+  color: red;
+}
+</style>

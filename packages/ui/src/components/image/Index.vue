@@ -1,8 +1,9 @@
 <script setup name="HlPreviewImg">
-// import { previewFileUrl } from '@hl/utils/file'
-import { ElImage } from "element-plus"
+import { ElImage, vLoading } from 'element-plus'
+import 'element-plus/es/components/image/style/css'
+import 'element-plus/es/components/loading/style/css'
 
-function previewFileUrl() { }
+import { computed, inject } from 'vue'
 
 const props = defineProps({
   src: {
@@ -37,6 +38,8 @@ const props = defineProps({
   },
 })
 
+const { previewFileUrl } = inject('GLOBAL_CUSTOM_CONFIG')
+
 // 查看地址
 const prev_src = computed(() => {
   if (props.src) {
@@ -52,10 +55,17 @@ const previewList = computed(() => {
   }
   return props.preview && props.preview.length > 0 ? props.preview : [prev_src.value]
 })
+
+const _style = computed(() => {
+  return {
+    height: props.height,
+    width: props.width,
+  }
+})
 </script>
 
 <template>
-  <div class="hl-preview-img">
+  <div class="hl-preview-img" :style="_style">
     <el-image v-if="prev_src" :fit="fit" :preview-src-list="previewList" :src="prev_src" class="w-full h-full" preview-teleported>
       <template #placeholder>
         <div v-loading="true" class="w-full h-full" element-loading-text="加载中..." />
@@ -66,9 +76,5 @@ const previewList = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-.hl-preview-img {
-  height: v-bind(height);
-  width: v-bind(width);
-  position: relative;
-}
+@use './Index.scss';
 </style>

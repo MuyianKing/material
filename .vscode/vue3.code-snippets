@@ -124,5 +124,12 @@
 			"},",
 			"})",
 		]
-	}
+	},
+	"ec": {
+		"scope": "",
+		"prefix": "ec",
+		"body": [
+			"import 'element-plus/es/components/$1/style/css'",
+		]
+	},
 }

@@ -1,4 +1,7 @@
 <script setup>
+import { useEventListener } from '@vueuse/core'
+import { computed, nextTick, onMounted, ref } from 'vue'
+
 const props = defineProps({
   // 是否开启自动滚动
   auto: {

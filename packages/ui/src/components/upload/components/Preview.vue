@@ -1,7 +1,11 @@
 <script setup>
 import { getType } from '@hl/utils/es/file'
+import { computed } from 'vue'
+import { vLoading } from 'element-plus'
 import IconComp from '../../icon/Index.vue'
 import PreviewComp from '../../preview/Index.vue'
+import '../../preview/Index.scss'
+import 'element-plus/es/components/loading/style/css'
 
 const props = defineProps({
   file: {
@@ -23,7 +27,11 @@ function handleDel(row) {
 }
 
 // 重新上传
-function handleChange(row) {
+function handleChange(row, real) {
+  if (!real) {
+    return
+  }
+
   emits('re-upload', row)
 }
 
@@ -43,61 +51,18 @@ const _files = computed(() => {
 </script>
 
 <template>
-  <div v-for="_file in _files" :key="_file.id" v-loading="_file.loading" class="preview-wrapper" :class="{ 'my-2': listType === 'auto', 'file-list-wrapper': listType === 'auto' && !['video', 'image'].includes(_file.type) }">
-    <preview-comp :files="_file" height="100px" width="100px" no-preview :list-type />
-    <div class="delete-wrapper">
+  <div v-for="_file in _files" :key="_file.id" v-loading="_file.loading" class="preview-wrapper"
+       :class="{ 'my-2': listType === 'auto' && ['video', 'image'].includes(_file.type) }" @click="handleChange(_file, !['video', 'image'].includes(_file.type))"
+  >
+    <preview-comp :files="_file" height="100px" width="100px" no-preview :list-type no-download />
+    <div v-if="['video', 'image'].includes(_file.type)" class="delete-wrapper" @click.stop>
       <icon-comp class="icon-close" icon="pixelarticons:trash" size="24px" @click="handleDel(_file)" />
-      <icon-comp class="ml-2" icon="ri:folder-upload-line" size="24px" @click="handleChange(_file)" />
+      <icon-comp class="ml-2" icon="ri:folder-upload-line" size="24px" @click="handleChange(_file, true)" />
     </div>
+    <icon-comp v-else class="icon-close ml-2" icon="pixelarticons:trash" size="18px" @click.stop="handleDel(_file)" />
   </div>
 </template>
 
 <style lang='scss' scoped>
-.preview-wrapper {
-  position: relative;
-  border-radius: 5px;
-  width: fit-content;
-}
 
-.file-list-wrapper {
-  padding: 10px 0;
-}
-
-.file-list-wrapper:hover {
-  padding: 10px;
-}
-
-.delete-wrapper {
-  display: none;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  position: absolute;
-  top: 0;
-  right: 0;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  user-select: none;
-  border-radius: 5px;
-
-  & > svg:hover {
-    cursor: pointer;
-    color: var(--color-primary);
-  }
-}
-
-.preview-wrapper:hover {
-  .delete-wrapper {
-    display: flex;
-  }
-}
-
-:deep(img) {
-  border-radius: 5px;
-}
-
-:deep(.hl-preview-video) {
-  border-radius: 5px;
-}
 </style>

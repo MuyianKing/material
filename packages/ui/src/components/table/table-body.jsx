@@ -1,9 +1,15 @@
 import { isOverflow } from '@hl/utils/es/dom'
-// eslint-disable-next-line no-unused-vars
 import { ElCheckbox, ElTooltip } from 'element-plus'
+import 'element-plus/es/components/checkbox/style/css'
+import 'element-plus/es/components/tooltip/style/css'
+import { computed, inject, ref } from 'vue'
 
 export default {
   name: 'HlTableBody',
+  components: {
+    ElCheckbox,
+    ElTooltip,
+  },
   props: {
     hover: {
       type: String,
@@ -147,7 +153,7 @@ export default {
                 >
                   {
                     (props.select) && (
-                      <td style="width:60px;min-width:60px;max-width:60px;text-align:center">
+                      <td className="hl-table-td hl-table-checkbox" style="width:60px;min-width:60px;max-width:60px;text-align:center">
                         <ElCheckbox true-value={row[props.rowKey]} false-value="" size="large" v-model={row.checkbox} onChange={val => handleCheckboxChange(val, row[props.rowKey])} />
                       </td>
                     )

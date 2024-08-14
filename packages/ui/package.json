@@ -1,18 +1,24 @@
 {
   "name": "@hl/ui",
   "type": "module",
-  "version": "0.0.2",
-  "private": true,
+  "version": "0.4.30",
   "scripts": {
     "dev": "vite",
     "build": "vite build"
   },
   "dependencies": {
+    "@hl/utils": "^0.4.20",
     "@iconify/vue": "^4.1.2",
     "@multiavatar/multiavatar": "^1.0.7",
-    "wavesurfer.js": "^7.8.0"
+    "@vueuse/core": "^10.11.0",
+    "dayjs": "^1.11.12",
+    "echarts": "^5.5.1",
+    "element-plus": "^2.7.8",
+    "js-cookie": "^3.0.5",
+    "lodash-es": "^4.17.21",
+    "validator": "^13.12.0",
+    "wavesurfer.js": "^7.8.2"
   },
   "devDependencies": {
-
   }
 }

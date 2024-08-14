@@ -8,7 +8,11 @@ defineProps({
 </script>
 
 <template>
-  <span class="tel">{{ tel }}</span>
+  <span class="tel">
+    <slot>
+      {{ tel }}
+    </slot>
+  </span>
 </template>
 
 <style lang="scss" scoped>

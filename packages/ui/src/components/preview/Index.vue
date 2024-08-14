@@ -1,5 +1,6 @@
 <script setup>
 import { getType } from '@hl/utils/es/file'
+import { ref, watch } from 'vue'
 import ImageComp from '../image/Index.vue'
 import VideoComp from '../video/Index.vue'
 import FileComp from '../file/Index.vue'
@@ -15,7 +16,7 @@ const props = defineProps({
   },
   width: {
     type: String,
-    default: 'auto',
+    default: '100px',
   },
   noPreview: {
     type: Boolean,
@@ -25,6 +26,10 @@ const props = defineProps({
   listType: {
     type: String,
     default: 'auto',
+  },
+  noDownload: {
+    type: Boolean,
+    default: false,
   },
 })
 
@@ -64,25 +69,13 @@ watch(() => props.files, (val) => {
       <video-comp v-else :src="item.path" :prefix="item.prefix" :height :width controls :no-preview class="preview-item" />
     </template>
     <template v-for="item in _not_image_video" :key="item.id">
-      <file-comp :file="item" class="preview-item" :card="listType === 'card'" :height :width />
+      <file-comp :file="item" class="preview-item" :card="listType === 'card'" :height :width :no-download />
     </template>
   </div>
 </template>
 
 <style lang='scss' scoped>
-.file-preview-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-
-  :deep(.preview-item) {
-    margin-right: 5px;
-    margin-bottom: 5px;
-
-    &:last-child,
-    &:last-child {
-      margin-bottom: 0 !important;
-      margin-right: 0 !important;
-    }
-  }
-}
+@import './Index.scss';
+@import '../video/Index.scss';
+@import '../file/Index.scss';
 </style>

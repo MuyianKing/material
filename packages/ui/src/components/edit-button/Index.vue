@@ -1,25 +1,36 @@
-<script setup name="HlEditButton">
-import IconComp from '../icon/Index.vue'
-import { ElTooltip } from "element-plus"
+<script setup>
+import ButtonComp from '../button/Index.vue'
+
+import useButton from '../../hooks/useButton'
+
+const props = defineProps({
+  icon: {
+    type: String,
+    default: 'uil:edit',
+  },
+  text: {
+    type: [Boolean, String],
+    default: false,
+  },
+})
 
 const emits = defineEmits(['click'])
 
 function handleClick() {
   emits('click')
 }
+
+const { _text } = useButton(props, '编辑')
 </script>
 
 <template>
-  <el-tooltip content="修改" placement="bottom" effect="light">
-    <icon-comp class="icon" icon="uil:edit" @click="handleClick" />
-  </el-tooltip>
+  <button-comp :button-type="text ? 'text' : 'icon'" type="primary" :icon :text="_text" @click="handleClick">
+    <slot />
+  </button-comp>
 </template>
 
 <style lang="scss" scoped>
-.icon {
-  margin: 0 3px;
-  cursor: pointer;
-  color: var(--color-primary);
-  font-size: 20px;
+.hl-ui-zw {
+  color: red;
 }
 </style>

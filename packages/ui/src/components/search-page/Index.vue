@@ -1,5 +1,8 @@
 <script setup name="SearchPage">
-import {ElForm} from "element-plus"
+import { ElForm, vLoading } from 'element-plus'
+import 'element-plus/es/components/loading/style/css'
+import 'element-plus/es/components/form/style/css'
+import { nextTick, onMounted, ref } from 'vue'
 
 const props = defineProps({
   formSize: {
@@ -74,7 +77,7 @@ onMounted(() => {
     padding: 5px;
     position: relative;
 
-    &> :deep(*) {
+    & > :deep(*) {
       margin: 5px;
     }
   }
@@ -100,7 +103,7 @@ onMounted(() => {
     height: 32px;
     overflow: hidden;
 
-    &>.button-wrapper {
+    & > .button-wrapper {
       position: absolute;
       bottom: 10px;
       right: 0;

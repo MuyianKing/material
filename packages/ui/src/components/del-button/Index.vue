@@ -1,7 +1,9 @@
 <script setup>
-import { ElPopover } from 'element-plus'
+import { ElButton, ElPopover } from 'element-plus'
 import 'element-plus/es/components/popover/style/css'
+import { ref } from 'vue'
 import ButtonComp from '../button/Index.vue'
+import useButton from '../../hooks/useButton'
 
 const props = defineProps({
   message: {
@@ -17,8 +19,12 @@ const props = defineProps({
     default: 'top',
   },
   text: {
+    type: [Boolean, String],
+    default: false,
+  },
+  icon: {
     type: String,
-    default: '删除',
+    default: 'icon-park-outline:delete',
   },
 })
 
@@ -40,6 +46,8 @@ function handleClick() {
     emits('click')
   }
 }
+
+const { _text } = useButton(props, '删除')
 </script>
 
 <template>
@@ -56,8 +64,10 @@ function handleClick() {
       </div>
     </div>
     <template #reference>
-      <div class="inline-flex">
-        <button-comp :text="text" button-type="icon" class="del-icon" icon="icon-park-outline:delete" @click="handleClick" />
+      <div class="inline-block">
+        <button-comp :button-type="text ? 'text' : 'icon'" type="danger" class="del-icon" :icon :text="_text" v-bind="$attrs" @click="handleClick">
+          <slot />
+        </button-comp>
       </div>
     </template>
   </el-popover>

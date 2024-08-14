@@ -1,0 +1,15 @@
+{
+  "name": "@hl/tyyh",
+  "type": "module",
+  "version": "0.4.25",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@hl/hooks": "^0.4.20",
+    "@hl/ui": "^0.4.20",
+    "@hl/utils": "^0.4.20",
+    "element-plus": "^2.7.8"
+  }
+}

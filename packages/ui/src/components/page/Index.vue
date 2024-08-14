@@ -1,6 +1,8 @@
 <script name="HlPagination" setup>
 import { ElPagination } from 'element-plus'
 import { pageSize } from '@hl/utils/es/common'
+import 'element-plus/es/components/pagination/style/css'
+import { computed } from 'vue'
 
 const props = defineProps({
   // 总条数
@@ -25,6 +27,10 @@ const props = defineProps({
     type: Number,
     default: 1,
   },
+  pagerCount: {
+    type: Number,
+    default: 7,
+  },
 })
 
 // 当前页
@@ -37,7 +43,6 @@ function handlePageChange(val) {
 }
 
 function handleSizeChange(val) {
-  console.log(val)
   emits('update:size', val)
   emits('change')
 }
@@ -71,7 +76,7 @@ const layout = computed(() => {
       </span>
       <span>条</span>
     </div>
-    <el-pagination :current-page="_page" :layout :page-size="size" :total="count" background hide-on-single-page @update:current-page="handlePageChange" @update:page-size="handleSizeChange" />
+    <el-pagination :current-page="_page" :pager-count :layout :page-size="size" :total="count" background hide-on-single-page @update:current-page="handlePageChange" @update:page-size="handleSizeChange" />
   </div>
 </template>
 

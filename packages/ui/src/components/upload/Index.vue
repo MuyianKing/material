@@ -1,6 +1,8 @@
 <script setup>
 import { AUDIO_SUFFIX, FILE_SUFFIX } from '@hl/utils/es/file'
+import { guid } from '@hl/utils/es/common'
 import { error } from '@hl/utils/es/message'
+import { computed, inject, nextTick, provide, ref, useSlots } from 'vue'
 import TriggerComp from './components/Trigger.vue'
 import PreviewComp from './components/Preview.vue'
 import UploadProgress from './components/Progress.vue'
@@ -63,17 +65,29 @@ const props = defineProps({
   // 触发区域样式：card-卡片  line-一行
   triggerType: {
     type: String,
-    default: 'line',
-  },
-  uploadFile: {
-    type: Function,
-    default: null,
+    default: '',
   },
 })
 
 const emits = defineEmits(['upload-start', 'upload-finish'])
 
-function uploadFile() {}
+// 触发区域展示形式
+const _trigger_type = computed(() => {
+  if (props.triggerType) {
+    return props.triggerType
+  }
+
+  const type = Array.isArray(props.type) ? props.type : [props.type]
+
+  // 如果包含文件、音频中的一种 => line
+  if (type.includes('file') || type.includes('audio') || type.includes('all')) {
+    return 'line'
+  }
+
+  return 'card'
+})
+
+const { uploadFile } = inject('GLOBAL_CUSTOM_CONFIG')
 
 const slots = useSlots()
 
@@ -105,7 +119,7 @@ function handleReupload(row) {
 // 选择文件后
 async function handleSelect(file) {
   let new_file = {
-    id: hl.common.guid(),
+    id: guid(),
     name: file.name,
     path: URL.createObjectURL(file),
   }
@@ -251,13 +265,13 @@ const margin = computed(() => props.multiple ? '5px' : '')
 </script>
 
 <template>
-  <div v-bind="$attrs" class="upload-wrapper" :class="{ 'flex-style': listType === 'card' }">
+  <div v-bind="$attrs" class="upload-wrapper" :class="{ 'flex-style': listType === 'card' || is_only_video_image }">
     <template v-if="preview">
       <preview-comp v-if="!slots.preview" :file="files_value" :list-type @delete="handleDel" @re-upload="handleReupload" />
       <slot v-else name="preview" />
     </template>
 
-    <trigger-comp v-if="!readonly" ref="trigger_ref" :config="trigger_config" :trigger-type @select-file="handleSelect">
+    <trigger-comp v-if="!readonly" ref="trigger_ref" :config="trigger_config" :trigger-type="_trigger_type" @select-file="handleSelect">
       <template v-if="slots.default" #trigger>
         <slot />
       </template>
@@ -277,6 +291,87 @@ const margin = computed(() => props.multiple ? '5px' : '')
   color: #555;
 }
 
+// -------------触发组件-----------
+:deep(.trigger-comp) {
+  &.trigger-item {
+    width: 100px !important;
+    height: 100px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+  }
+
+  &.normal-trigger {
+    width: fit-content;
+  }
+
+  .upload-icon {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
+  .upload-icon:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+}
+
+// -------------预览-----------------
+:deep(.preview-wrapper) {
+  position: relative;
+  border-radius: 5px;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+
+  .file-list-wrapper {
+    padding: 5px 0;
+  }
+
+  .file-list-wrapper:hover {
+    padding: 10px;
+  }
+
+  .delete-wrapper {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    right: 0;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    user-select: none;
+    border-radius: 5px;
+
+    & > svg:hover {
+      cursor: pointer;
+      color: var(--color-primary);
+    }
+  }
+
+  &:hover {
+    .delete-wrapper {
+      display: flex;
+    }
+  }
+
+  img {
+    border-radius: 5px;
+  }
+
+  .hl-preview-video {
+    border-radius: 5px;
+  }
+}
+
+// ---------------------
 .flex-style {
   display: flex;
   flex-wrap: wrap;

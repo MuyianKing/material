@@ -1,6 +1,7 @@
 <script setup>
-import { ElButton } from 'element-plus'
-import IconComp from '../icon/Index.vue'
+import ButtonComp from '../button/Index.vue'
+
+import 'element-plus/es/components/button/style/css'
 
 defineProps({
   icon: {
@@ -11,20 +12,13 @@ defineProps({
     type: String,
     default: '导出',
   },
-  type: {
-    type: String,
-    default: 'button',
-  },
 })
 </script>
 
 <template>
-  <el-button v-if="type === 'button'" type="success">
-    <icon-comp v-if="icon" icon="ph:export-bold" class="mr-1" />
-    {{ text }}
+  <button-comp type="success" icon="ph:export-bold" :show-icon="icon" :text="$slots.default ? '' : text">
     <slot />
-  </el-button>
-  <icon-comp v-else icon="ph:export-bold" class="mr-1 icon-item" />
+  </button-comp>
 </template>
 
 <style lang="scss" scoped>

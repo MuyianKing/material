@@ -1,4 +1,6 @@
 <script setup name="HlDataNum">
+import { ref, watchEffect } from 'vue'
+
 const props = defineProps({
   num: {
     type: Number,

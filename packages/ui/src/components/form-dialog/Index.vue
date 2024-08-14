@@ -1,13 +1,12 @@
 <script setup name="HlFormDialog">
+import { ElButton, ElForm } from 'element-plus'
+import { error, success, warning } from '@hl/utils/es/message'
+import { ref } from 'vue'
 import DialogComp from '../dialog/Index.vue'
-import { ElForm, ElButton } from "element-plus"
+import 'element-plus/es/components/button/style/css'
+import 'element-plus/es/components/form/style/css'
 
 const props = defineProps({
-  // 显示隐藏弹框
-  modelValue: {
-    type: Boolean,
-    default: false,
-  },
   // 标题
   title: {
     type: String,
@@ -57,14 +56,14 @@ const props = defineProps({
   },
 })
 
-const emits = defineEmits(['update:modelValue', 'error', 'success', 'refresh', 'submit'])
+const emits = defineEmits(['error', 'success', 'refresh', 'submit'])
 
 // 保存
-const loading = ref(false)
+const _loading = ref(false)
 const form_ref = ref()
 function submit() {
   if (!props.model) {
-    hl.message.warning('hl-form-dialog组件未设置model属性')
+    warning('hl-form-dialog组件未设置model属性')
     return
   }
 
@@ -72,17 +71,17 @@ function submit() {
     if (valid) {
       const fun = props.server
       if (fun && typeof fun === 'function') {
-        loading.value = true
+        _loading.value = true
         fun(props.model).then((data) => {
-          hl.message.success('保存成功')
+          success('保存成功')
           emits('success', data)
           emits('refresh')
           close()
         }).catch((e) => {
-          hl.message.error(e, '保存失败')
+          error(e, '保存失败')
           emits('error')
         }).finally(() => {
-          loading.value = false
+          _loading.value = false
         })
       } else {
         emits('submit')
@@ -91,9 +90,13 @@ function submit() {
   })
 }
 
+const show = defineModel({
+  type: Boolean,
+  default: false,
+})
 function close() {
   form_ref.value.clearValidate()
-  emits('update:modelValue', false)
+  show.value = false
 }
 
 defineExpose({
@@ -102,13 +105,13 @@ defineExpose({
 </script>
 
 <template>
-  <dialog-comp :model-value="modelValue" :title="title" :width="width" :top="top" @close="close">
+  <dialog-comp v-model="show" :title :width :top v-bind="$attrs" @close="close">
     <el-form ref="form_ref" :class="{ 'inline-form': inline }" :model="model" :rules="rules" :label-width="labelWidth" v-bind="$attrs" scroll-to-error>
       <slot />
     </el-form>
     <template #footer>
       <slot name="footer" :submit="submit">
-        <el-button type="primary" :loading="loading" @click="submit">
+        <el-button type="primary" :loading="_loading" @click="submit">
           {{ submitText }}
         </el-button>
       </slot>

@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from 'vue'
 import useGridLayout from './useGridLayout'
 
 const props = defineProps({
@@ -51,4 +52,8 @@ initConfig()
   </div>
 </template>
 
-<style lang='scss' scoped></style>
+<style lang="scss" scoped>
+.hl-ui-zw {
+  color: red;
+}
+</style>

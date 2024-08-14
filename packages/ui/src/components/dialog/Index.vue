@@ -1,5 +1,7 @@
 <script name="HlDialog" setup>
-import { ElDialog } from "element-plus"
+import { ElDialog } from 'element-plus'
+import 'element-plus/es/components/dialog/style/css'
+import { computed, defineModel, nextTick, ref, useSlots, watch } from 'vue'
 
 const props = defineProps({
   closeOnClickModal: {
@@ -39,6 +41,8 @@ function setMaxHeight() {
     const offsetTop = $el.offsetTop
 
     if (props.height) {
+      console.log($el.querySelector('.el-dialog__body').style.height = `calc(${props.height} - ${header + footer}px)`)
+
       $el.querySelector('.el-dialog__body').style.height = `calc(${props.height} - ${header + footer}px)`
     } else {
       $el.querySelector('.el-dialog__body').style.maxHeight = `calc(100vh - ${header + 2 * offsetTop + footer}px)`
@@ -63,8 +67,11 @@ const top_comp = computed(() => {
   return top
 })
 
-const $attrs = useAttrs()
-watch(() => $attrs.modelValue, (val) => {
+const model = defineModel({
+  type: Boolean,
+  default: false,
+})
+watch(model, (val) => {
   if (val) {
     nextTick(() => {
       setMaxHeight()
@@ -89,7 +96,9 @@ defineExpose({
 </script>
 
 <template>
-  <el-dialog ref="dialog_ref" :close-on-click-modal="closeOnClickModal" :destroy-on-close="destroyOnClose" :style="dialog_style" append-to-body class="hl-custome-dialog">
+  <el-dialog ref="dialog_ref" v-model="model" :close-on-click-modal="closeOnClickModal" :destroy-on-close="destroyOnClose"
+             :style="dialog_style" append-to-body class="hl-custome-dialog"
+  >
     <slot />
 
     <template v-if="slots.footer" #footer>

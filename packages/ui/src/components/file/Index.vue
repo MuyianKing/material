@@ -1,6 +1,7 @@
 <script setup>
 import { getSuffix, getType } from '@hl/utils/es/file'
 import { closeLoading, error, loading } from '@hl/utils/es/message'
+import { computed, inject, nextTick, ref } from 'vue'
 import WavesurferComp from '../wavesurfer/Index.vue'
 import IconComp from '../icon/Index.vue'
 
@@ -28,8 +29,8 @@ const props = defineProps({
     default: '300px',
   },
 })
-function previewFileUrl() { }
-function downloadFile() { }
+
+const { previewFileUrl, downloadFile } = inject('GLOBAL_CUSTOM_CONFIG')
 
 const wavesurfer_src = ref('')
 
@@ -74,6 +75,10 @@ const icon_map = {
 const icon_comp = computed(() => {
   return icon_map[getSuffix(props.file?.name)] || icon_map[getType(props.file?.name)]
 })
+
+const _name = computed(() => {
+  return props.file.org_name || props.file.fileName || props.file.name
+})
 </script>
 
 <template>
@@ -82,44 +87,18 @@ const icon_comp = computed(() => {
       <div class="flex-1-0 card-top">
         <icon-comp :icon="icon_comp" size="40" />
       </div>
-      <div class="line-clamp-1 card-file-name" :title="file.name">
-        {{ file.name }}
+      <div class="line-clamp-1 card-file-name" :title="_name">
+        {{ _name }}
       </div>
     </div>
 
     <span v-else v-bind="$attrs" class="file-item" @click="handleDownload">
-      {{ file.name }}
+      {{ _name }}
     </span>
     <wavesurfer-comp v-model="wavesurfer_src" v-bind="$attrs" />
   </template>
 </template>
 
 <style lang="scss" scoped>
-.file-item {
-  color: var(--color-primary);
-  cursor: pointer;
-}
-
-.card-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--color-primary);
-  border-radius: 5px;
-  cursor: pointer;
-  background-color: var(--el-color-primary-light-9);
-
-  .card-top {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .card-file-name {
-    width: 100%;
-    text-align: center;
-    line-height: 26px;
-  }
-}
+@use './Index.scss';
 </style>

@@ -1,6 +1,8 @@
 <script setup>
 import WaveSurfer from 'wavesurfer.js'
 import Hover from 'wavesurfer.js/dist/plugins/hover.esm.js'
+import { closeLoading, error, loading } from '@hl/utils/es/message'
+import { nextTick, ref, watch } from 'vue'
 import IconComp from '../icon/Index.vue'
 
 const src = defineModel({
@@ -16,12 +18,12 @@ let wavesurfer_timeout_flg = 0
 
 watch(src, () => {
   if (src.value) {
-    hl.message.loading('加载中...')
+    loading('加载中...')
     nextTick(() => {
       wavesurfer = WaveSurfer.create({
         container: wavesurfer_ref.value,
         scrollParent: true,
-        waveColor: variables['color-primary'],
+        waveColor: '#409eff',
         progressColor: 'gray',
         url: src.value,
         autoplay: true,
@@ -37,8 +39,7 @@ watch(src, () => {
       })
 
       wavesurfer.on('ready', () => {
-        console.log('ready')
-        hl.message.closeLoading()
+        closeLoading()
       })
 
       wavesurfer.on('click', () => {
@@ -60,8 +61,8 @@ watch(src, () => {
         }
       })
 
-      wavesurfer.on('error', (error) => {
-        hl.message.error(error, '播放失败')
+      wavesurfer.on('error', (e) => {
+        error(e, '播放失败')
         handleClose()
       })
     })
@@ -70,7 +71,7 @@ watch(src, () => {
 
 function handleClose() {
   wavesurfer && wavesurfer.destroy()
-  hl.message.closeLoading()
+  closeLoading()
   src.value = ''
 }
 </script>

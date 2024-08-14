@@ -1,4 +1,6 @@
 <script setup name="HlTableScrollBar">
+import { ref } from 'vue'
+
 const props = defineProps({
   tableId: {
     type: [String, Number],

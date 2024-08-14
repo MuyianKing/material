@@ -1,5 +1,8 @@
 <script setup name="HlDateRange">
-import { ElDatePicker } from "element-plus"
+import { ElDatePicker } from 'element-plus'
+import 'element-plus/es/components/date-picker/style/css'
+import dayjs from 'dayjs'
+import { computed, nextTick, watch } from 'vue'
 
 const props = defineProps({
   // 类型：同el-date
@@ -166,9 +169,15 @@ watch(model_value, () => {
 <template>
   <div class="flex items-center">
     <!-- 开始时间 -->
-    <el-date-picker v-bind="$attrs" :model-value="start_comp" :type :placeholder="startPlaceholder || '请选择开始时间'" :format="format_comp" :value-format="start_value_format_comp" :style="el_date_style_comp" @update:model-value="handleStartChange" />
+    <el-date-picker v-bind="$attrs" :model-value="start_comp" :type :placeholder="startPlaceholder || '请选择开始时间'"
+                    :format="format_comp" :value-format="start_value_format_comp" :style="el_date_style_comp"
+                    @update:model-value="handleStartChange"
+    />
     <span class="mx-2 text-gray-400 separator">{{ separator }}</span>
     <!-- 结束时间 -->
-    <el-date-picker v-bind="$attrs" :model-value="end_comp" :type :placeholder="endPlaceholder || '请选择结束时间'" :format="format_comp" :value-format="end_value_format_comp" :style="el_date_style_comp" @update:model-value="handleEndChange" />
+    <el-date-picker v-bind="$attrs" :model-value="end_comp" :type :placeholder="endPlaceholder || '请选择结束时间'"
+                    :format="format_comp" :value-format="end_value_format_comp" :style="el_date_style_comp"
+                    @update:model-value="handleEndChange"
+    />
   </div>
 </template>
