@@ -141,6 +141,14 @@ export const menuList = [
           icon: 'clarity:user-solid',
         },
       },
+      {
+        path: 'form',
+        component: () => import('@views/ui/Form.vue'),
+        meta: {
+          title: '表单',
+          icon: 'clarity:user-solid',
+        },
+      },
     ],
   },
 ]

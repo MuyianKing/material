@@ -73,22 +73,5 @@ defineExpose({
 </script>
 
 <template>
-  <div v-if="show_scroll" class="scroll-bar" :class="{ active }" />
+  <div v-if="show_scroll" class="hl-table-scroll-bar" :class="{ active }" />
 </template>
-
-<style lang="scss" scoped>
-.scroll-bar {
-  display: none;
-  position: absolute;
-  top: 0;
-  right: 0;
-  border-radius: 5px;
-  width: 6px;
-  height: 100px;
-  background-color: rgba(185, 186, 189, 0.6);
-}
-
-.scroll-bar.active {
-  display: block;
-}
-</style>

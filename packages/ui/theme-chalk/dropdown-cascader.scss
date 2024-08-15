@@ -1,0 +1,23 @@
+.hl-dropdown-cascader {
+  .active {
+    background-color: var(--color-primary);
+    color: white;
+  }
+
+  .dropdown-label {
+    cursor: pointer;
+    line-height: normal;
+  }
+
+  .active-label {
+    color: var(--color-primary);
+  }
+
+  .arrow-icon {
+    transition: all ease 0.5s;
+  }
+
+  .deg-180 {
+    transform: rotate(180deg);
+  }
+}

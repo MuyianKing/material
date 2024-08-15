@@ -106,7 +106,7 @@ defineExpose({
 
 <template>
   <dialog-comp v-model="show" :title :width :top v-bind="$attrs" @close="close">
-    <el-form ref="form_ref" :class="{ 'inline-form': inline }" :model="model" :rules="rules" :label-width="labelWidth" v-bind="$attrs" scroll-to-error>
+    <el-form ref="form_ref" :class="{ 'hl-form-dialog-inline-form': inline }" :model="model" :rules="rules" :label-width="labelWidth" v-bind="$attrs" scroll-to-error>
       <slot />
     </el-form>
     <template #footer>
@@ -118,14 +118,3 @@ defineExpose({
     </template>
   </dialog-comp>
 </template>
-
-<style lang="scss" scoped>
-.inline-form {
-  display: flex;
-  flex-wrap: wrap;
-
-  :deep(.el-form-item) {
-    width: 50%;
-  }
-}
-</style>

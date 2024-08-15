@@ -50,25 +50,9 @@ function click(item) {
 </script>
 
 <template>
-  <el-radio-group :model-value="modelValue" :class="{ 'line-item': line }" @change="change">
+  <el-radio-group :model-value="modelValue" :class="{ 'hl-radio-line-item': line }" @change="change">
     <el-radio v-for="item in options" :key="item.value" :value="item.value" @click="click(item)">
       {{ item.label }}
     </el-radio>
   </el-radio-group>
 </template>
-
-<style lang="scss" scoped>
-.line-item {
-  width: 100%;
-
-  .el-radio {
-    width: 100%;
-    margin-right: 0;
-
-    .el-radio__label {
-      white-space: break-spaces;
-      line-height: 20px;
-    }
-  }
-}
-</style>

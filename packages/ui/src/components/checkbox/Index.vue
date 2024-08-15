@@ -66,29 +66,9 @@ const _list_value_map = computed(() => {
 </script>
 
 <template>
-  <el-checkbox-group :class="{ 'line-item': line }" :model-value="value" @change="handleChange">
+  <el-checkbox-group class="hl-checkbox" :class="{ 'hl-checkbox-line-item': line }" :model-value="value" @change="handleChange">
     <el-checkbox v-for="item in options" :key="item.value" :value="item.value">
       {{ item.label }}
     </el-checkbox>
   </el-checkbox-group>
 </template>
-
-<style lang="scss" scoped>
-:deep(.el-radio) {
-  margin-right: 10px;
-}
-
-.line-item {
-  width: 100%;
-
-  .el-checkbox {
-    width: 100%;
-    margin-right: 0;
-
-    .el-checkbox__label {
-      white-space: break-spaces;
-      line-height: 20px;
-    }
-  }
-}
-</style>

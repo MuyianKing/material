@@ -47,9 +47,3 @@ const _style = computed(() => {
     </slot>
   </el-avatar>
 </template>
-
-<style lang="scss" scoped>
-.hl-ui-zw {
-  color: red;
-}
-</style>

@@ -19,9 +19,3 @@ defineProps({
     <icon-comp icon="mingcute:question-fill" class="text-gray-600 cursor-pointer" v-bind="$attrs" />
   </el-tooltip>
 </template>
-
-<style lang="scss" scoped>
-.hl-ui-zw {
-  color: red;
-}
-</style>

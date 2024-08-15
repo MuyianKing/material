@@ -102,7 +102,7 @@ const _d_p = computed(() => {
 </script>
 
 <template>
-  <el-select :model-value="modelValue" :placeholder="placeholder_comp" :clearable="clearable" filterable :class="{ 'readonly-item': readonly }" @change="change" @blur="blur">
+  <el-select :model-value="modelValue" :placeholder="placeholder_comp" :clearable="clearable" filterable :class="{ 'hl-select-readonly-item': readonly }" @change="change" @blur="blur">
     <div v-loadmore="handleBottom" class="relative">
       <el-option v-if="all" value="">
         全部
@@ -119,28 +119,6 @@ const _d_p = computed(() => {
         <el-option v-else :label="item.label" :value="item.value" :disabled="_d_p.includes(item.value)" />
       </template>
     </div>
-    <div v-loading="loading" class="loading-item" />
+    <div v-loading="loading" class="hl-select-loading-item" />
   </el-select>
 </template>
-
-<style lang="scss" scoped>
-.loading-item {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-.readonly-item {
-  :deep(.el-select__wrapper) {
-    background-color: #fff;
-    box-shadow: none;
-    color: inherit !important;
-
-    .el-select__selected-item {
-      color: inherit !important;
-    }
-  }
-}
-</style>

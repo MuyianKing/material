@@ -260,12 +260,10 @@ const is_only_video_image = computed(() => {
 })
 
 provide('is_only_video_image', is_only_video_image)
-
-const margin = computed(() => props.multiple ? '5px' : '')
 </script>
 
 <template>
-  <div v-bind="$attrs" class="upload-wrapper" :class="{ 'flex-style': listType === 'card' || is_only_video_image }">
+  <div v-bind="$attrs" class="hl-upload-wrapper" :class="{ 'hl-upload-flex-style': listType === 'card' || is_only_video_image, 'hl-upload-multiple-margin': multiple }">
     <template v-if="preview">
       <preview-comp v-if="!slots.preview" :file="files_value" :list-type @delete="handleDel" @re-upload="handleReupload" />
       <slot v-else name="preview" />
@@ -285,103 +283,3 @@ const margin = computed(() => props.multiple ? '5px' : '')
     </template>
   </upload-progress>
 </template>
-
-<style lang='scss' scoped>
-.upload-wrapper {
-  color: #555;
-}
-
-// -------------触发组件-----------
-:deep(.trigger-comp) {
-  &.trigger-item {
-    width: 100px !important;
-    height: 100px;
-    border: 1px solid #ddd;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-  }
-
-  &.normal-trigger {
-    width: fit-content;
-  }
-
-  .upload-icon {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-  }
-
-  .upload-icon:hover {
-    color: var(--color-primary);
-    text-decoration: underline;
-  }
-}
-
-// -------------预览-----------------
-:deep(.preview-wrapper) {
-  position: relative;
-  border-radius: 5px;
-  width: fit-content;
-  display: flex;
-  align-items: center;
-
-  .file-list-wrapper {
-    padding: 5px 0;
-  }
-
-  .file-list-wrapper:hover {
-    padding: 10px;
-  }
-
-  .delete-wrapper {
-    display: none;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    position: absolute;
-    top: 0;
-    right: 0;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    user-select: none;
-    border-radius: 5px;
-
-    & > svg:hover {
-      cursor: pointer;
-      color: var(--color-primary);
-    }
-  }
-
-  &:hover {
-    .delete-wrapper {
-      display: flex;
-    }
-  }
-
-  img {
-    border-radius: 5px;
-  }
-
-  .hl-preview-video {
-    border-radius: 5px;
-  }
-}
-
-// ---------------------
-.flex-style {
-  display: flex;
-  flex-wrap: wrap;
-
-  :deep(.preview-wrapper) {
-    margin: 0 v-bind(margin) v-bind(margin) 0;
-  }
-
-  :deep(.trigger-item) {
-    margin: 0 v-bind(margin) v-bind(margin) 0;
-  }
-}
-</style>

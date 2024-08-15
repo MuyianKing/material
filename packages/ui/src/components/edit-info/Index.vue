@@ -75,7 +75,7 @@ const handleBlur = useDebounceFn(() => {
 </script>
 
 <template>
-  <div class="cell-item" :class="{ 'cursor-pointer': editable }" :style="{ width, textAlign: align }"
+  <div class="hl-edit-info" :class="{ 'cursor-pointer': editable }" :style="{ width, textAlign: align }"
        @dblclick="handleDblclick"
   >
     <el-input v-if="rowValue.editing" ref="input_ref" v-model="input_val" :placeholder="placeholder" @blur="handleBlur"
@@ -87,14 +87,3 @@ const handleBlur = useDebounceFn(() => {
     </template>
   </div>
 </template>
-
-<style lang="scss" scoped>
-.cell-item {
-  position: relative;
-  min-height: 20px;
-}
-
-:deep(.el-input__inner) {
-  text-align: v-bind(align) !important;
-}
-</style>

@@ -268,15 +268,3 @@ onMounted(() => {
     <slot />
   </el-form-item>
 </template>
-
-<style lang="scss" scoped>
-.item-content {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  flex: 1;
-  line-height: 32px;
-  position: relative;
-  min-width: 0;
-}
-</style>

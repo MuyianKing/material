@@ -20,11 +20,3 @@ defineProps({
     <slot />
   </button-comp>
 </template>
-
-<style lang="scss" scoped>
-.icon-item {
-  font-size: 20px;
-  color: var(--color-success);
-  cursor: pointer;
-}
-</style>

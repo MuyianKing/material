@@ -128,9 +128,3 @@ function handleInput(val) {
     <div v-html="tips_comp" />
   </el-popover>
 </template>
-
-<style lang="scss" scoped>
-.hl-ui-zw {
-  color: red;
-}
-</style>

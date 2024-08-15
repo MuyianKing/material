@@ -10,6 +10,11 @@ defineOptions({
 })
 
 defineProps({
+  // button-按钮  icon-图标  text-文本
+  buttonType: {
+    type: String,
+    default: 'button',
+  },
   icon: {
     type: String,
     default: '',
@@ -25,11 +30,6 @@ defineProps({
   text: {
     type: String,
     default: '',
-  },
-  // button-按钮  icon-图标  text-文本
-  buttonType: {
-    type: String,
-    default: 'button',
   },
   placement: {
     type: String,
@@ -58,8 +58,9 @@ function handleClick() {
   <!-- 按钮 -->
   <el-button v-else-if="buttonType === 'button'" class="hl-button" :type v-bind="$attrs" @click="handleClick">
     <hl-icon v-if="icon && showIcon" :icon theme="outline" class="mr-1" />
-    {{ text }}
-    <slot />
+    <slot>
+      {{ text }}
+    </slot>
   </el-button>
 
   <!-- 图标带提示 -->
@@ -70,9 +71,3 @@ function handleClick() {
   <!-- 图标无提示 -->
   <hl-icon v-else v-bind="$attrs" :icon :size theme="outline" class="hl-button cursor-pointer" @click="handleClick" />
 </template>
-
-<style lang="scss" scoped>
-.hl-ui.zw {
-  color: red;
-}
-</style>

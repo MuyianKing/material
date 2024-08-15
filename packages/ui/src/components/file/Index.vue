@@ -83,7 +83,7 @@ const _name = computed(() => {
 
 <template>
   <template v-if="file && file.name">
-    <div v-if="card" class="card-item" :style="_style" v-bind="$attrs" @click="handleDownload">
+    <div v-if="card" class="hl-file-card-item" :style="_style" v-bind="$attrs" @click="handleDownload">
       <div class="flex-1-0 card-top">
         <icon-comp :icon="icon_comp" size="40" />
       </div>
@@ -92,13 +92,9 @@ const _name = computed(() => {
       </div>
     </div>
 
-    <span v-else v-bind="$attrs" class="file-item" @click="handleDownload">
+    <span v-else v-bind="$attrs" class="hl-file-item" @click="handleDownload">
       {{ _name }}
     </span>
     <wavesurfer-comp v-model="wavesurfer_src" v-bind="$attrs" />
   </template>
 </template>
-
-<style lang="scss" scoped>
-@use './Index.scss';
-</style>

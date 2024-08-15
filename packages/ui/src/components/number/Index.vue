@@ -70,9 +70,3 @@ watchEffect(() => {
 <template>
   <span class="hl-data-num">{{ num_format }}{{ suffix }}</span>
 </template>
-
-<style lang="scss" scoped>
-.hl-data-num {
-  display: flex;
-}
-</style>

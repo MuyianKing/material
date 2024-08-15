@@ -8,15 +8,9 @@ defineProps({
 </script>
 
 <template>
-  <span class="tel">
+  <span class="hl-tel whitespace-nowrap">
     <slot>
       {{ tel }}
     </slot>
   </span>
 </template>
-
-<style lang="scss" scoped>
-.tel {
-  white-space: nowrap;
-}
-</style>

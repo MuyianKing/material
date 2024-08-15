@@ -536,7 +536,7 @@ defineExpose({
 </script>
 
 <template>
-  <div :id="tableId" class="hl-table" :class="{ 'hl-table-border': border, 'nowrap': nowrap && !refresh_layout }"
+  <div :id="tableId" class="hl-table" :class="{ 'hl-table-border': border, 'hl-table-nowrap': nowrap && !refresh_layout }"
        :style="{ height: data.length === 0 ? '100%' : '' }"
   >
     <!-- 隐藏列: slot里容纳table-column -->
@@ -569,99 +569,3 @@ defineExpose({
     <edit-header v-if="storageKey" :show="editHeader" @submit="editSubmit" @close="closeEditHeader" />
   </div>
 </template>
-
-<style lang="scss" scoped>
-@import './scss/table.scss';
-
-.hl-table {
-  max-height: 100%;
-  overflow-x: auto;
-  height: 100%;
-}
-
-.hidden-columns {
-  visibility: hidden;
-  position: absolute;
-  z-index: -1;
-}
-
-.body-wrapper {
-  overflow-y: auto;
-  overflow-x: hidden;
-  width: fit-content;
-  min-width: 100%;
-  position: relative;
-  scrollbar-width: none;
-  max-height: calc(100% - 41px);
-}
-
-.body-wrapper::-webkit-scrollbar {
-  width: 0px;
-  height: 7px;
-}
-
-.body-wrapper::-webkit-scrollbar-thumb {
-  background: transparent;
-  border-radius: 20px;
-}
-
-.body-wrapper:hover::-webkit-scrollbar-thumb {
-  background: rgba(185, 186, 189, 0.6);
-}
-
-.nowrap {
-  :deep(table) {
-    .hl-table-td {
-      white-space: nowrap;
-    }
-  }
-}
-
-:deep(.hl-table-checkbox) {
-  width: 60px;
-  min-width: 60px;
-  max-width: 60px;
-  text-align: center !important;
-
-  .el-checkbox {
-    height: 14px;
-  }
-}
-
-.hl-table-border {
-  .hl-table-header {
-    border-top: v-bind(borderWidth) solid v-bind(borderColor);
-  }
-
-  :deep(table) {
-    border-left: v-bind(borderWidth) solid v-bind(borderColor);
-
-    tbody td,
-    thead th {
-      border-bottom: v-bind(borderWidth) solid v-bind(borderColor);
-      border-right: v-bind(borderWidth) solid v-bind(borderColor);
-    }
-  }
-
-  .hl-table-no-data {
-    border-bottom: v-bind(borderWidth) solid v-bind(borderColor);
-  }
-}
-
-:deep(.hl-table-body) {
-  .hl-table-tr:hover {
-    td {
-      background-color: #ebeef5 !important;
-    }
-  }
-
-  .hl-table-tr.active {
-    background-color: #ebeef5;
-  }
-}
-
-:deep(.hl-table-td-div) {
-  display: flex;
-  align-items: center;
-}
-</style>

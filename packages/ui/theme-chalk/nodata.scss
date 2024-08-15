@@ -1,0 +1,13 @@
+.hl-no-data {
+  text-align: center;
+
+  .no-data-img {
+    width: v-bind(width);
+    height: v-bind(height);
+    display: inline-table;
+  }
+
+  .no-data-text {
+    color: #aaa;
+  }
+}

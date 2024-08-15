@@ -1,6 +1,8 @@
-@use "../image/Index.scss";
+@import './video.scss';
+@import './file.scss';
+@import "./image.scss";
 
-.file-preview-wrapper {
+.hl-preview-wrapper {
   display: flex;
   flex-wrap: wrap;
 

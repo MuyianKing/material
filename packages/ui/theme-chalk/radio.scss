@@ -1,0 +1,13 @@
+.hl-radio-line-item {
+  width: 100%;
+
+  .el-radio {
+    width: 100%;
+    margin-right: 0;
+
+    .el-radio__label {
+      white-space: break-spaces;
+      line-height: 20px;
+    }
+  }
+}

@@ -74,7 +74,3 @@ const _style = computed(() => {
     <slot />
   </div>
 </template>
-
-<style lang="scss" scoped>
-@use './Index.scss';
-</style>

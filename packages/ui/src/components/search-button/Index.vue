@@ -14,13 +14,7 @@ defineProps({
 </script>
 
 <template>
-  <button-comp icon="lucide:search" :show-icon="icon" :text="text">
+  <button-comp icon="lucide:search" :show-icon="icon" :text="$slots.default ? '' : text">
     <slot />
   </button-comp>
 </template>
-
-<style lang="scss" scoped>
-.hl-ui-zw {
-  color: red;
-}
-</style>

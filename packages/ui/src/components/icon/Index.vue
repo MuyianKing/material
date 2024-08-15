@@ -25,9 +25,3 @@ const _style = computed(() => {
 <template>
   <icon class="hl-icon" aria-hidden="false" :style="_style" />
 </template>
-
-<style lang="scss" scoped>
-.hl-ui-zw {
-  color: red;
-}
-</style>

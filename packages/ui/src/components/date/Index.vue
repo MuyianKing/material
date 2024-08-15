@@ -19,9 +19,3 @@ defineProps({
   <date-comp v-if="type === 'date'" :type="dateType" v-bind="$attrs" />
   <date-range v-else :type="dateType" v-bind="$attrs" />
 </template>
-
-<style lang="scss" scoped>
-.hl-ui-zw {
-  color: red;
-}
-</style>

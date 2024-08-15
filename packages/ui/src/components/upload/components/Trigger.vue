@@ -85,7 +85,7 @@ defineExpose({
 </script>
 
 <template>
-  <div v-if="show_add" v-bind="$attrs" class="cursor-pointer normal-trigger trigger-comp"
+  <div v-if="show_add" v-bind="$attrs" class="cursor-pointer normal-trigger hl-upload-trigger-comp"
        :class="{ 'trigger-item': triggerType === 'card' && !slots.trigger, 'w-full': triggerType === 'line' }" @click="triggerAdd"
   >
     <slot name="trigger" />

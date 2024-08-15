@@ -1,3 +1,3 @@
-import DropdownCascader from './CascaderSelect.vue'
+import DropdownCascader from './Index.vue'
 
 export const HlDropdownCascader = DropdownCascader
