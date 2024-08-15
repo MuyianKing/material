@@ -90,15 +90,6 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
-  // 边框颜色
-  borderColor: {
-    type: String,
-    default: '#dfdfdf',
-  },
-  borderWidth: {
-    type: String,
-    default: '1px',
-  },
   rowClass: {
     type: Function,
     default() {

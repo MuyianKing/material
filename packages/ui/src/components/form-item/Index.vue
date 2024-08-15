@@ -256,7 +256,6 @@ onMounted(() => {
 
 <template>
   <el-form-item :rules="rules" :label-width="labelWidth_comp" :label="label">
-    {{ info }}
     <template v-if="$slots.label" #label>
       <slot name="label" />
     </template>

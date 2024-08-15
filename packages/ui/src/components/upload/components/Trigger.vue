@@ -102,7 +102,3 @@ defineExpose({
   </div>
   <input ref="file_input_ref" type="file" :accept="accept_type" style="display:none" @change="selectMedia">
 </template>
-
-<style lang='scss' scoped>
-
-</style>

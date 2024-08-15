@@ -127,21 +127,21 @@
 
 .hl-table-border {
   .hl-table-header {
-    border-top: v-bind(borderWidth) solid v-bind(borderColor);
+    border-top: 1px solid #dfdfdf;
   }
 
   table {
-    border-left: v-bind(borderWidth) solid v-bind(borderColor);
+    border-left: 1px solid #dfdfdf;
 
     tbody td,
     thead th {
-      border-bottom: v-bind(borderWidth) solid v-bind(borderColor);
-      border-right: v-bind(borderWidth) solid v-bind(borderColor);
+      border-bottom: 1px solid #dfdfdf;
+      border-right: 1px solid #dfdfdf;
     }
   }
 
   .hl-table-no-data {
-    border-bottom: v-bind(borderWidth) solid v-bind(borderColor);
+    border-bottom: 1px solid #dfdfdf;
   }
 }
 

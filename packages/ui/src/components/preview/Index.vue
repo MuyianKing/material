@@ -22,10 +22,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  // 展示方式 auto-自动 card-卡片形式
-  listType: {
-    type: String,
-    default: 'auto',
+  // 是否已卡片形式展示
+  card: {
+    type: Boolean,
+    default: false,
   },
   noDownload: {
     type: Boolean,
@@ -69,7 +69,7 @@ watch(() => props.files, (val) => {
       <video-comp v-else :src="item.path" :prefix="item.prefix" :height :width controls :no-preview class="preview-item" />
     </template>
     <template v-for="item in _not_image_video" :key="item.id">
-      <file-comp :file="item" class="preview-item" :card="listType === 'card'" :height :width :no-download />
+      <file-comp :file="item" class="preview-item" :card :height :width :no-download />
     </template>
   </div>
 </template>

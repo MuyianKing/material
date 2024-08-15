@@ -11,10 +11,10 @@ const props = defineProps({
     type: [String, Array, Object],
     default: '',
   },
-  // 展示方式 auto-自动 card-卡片形式
+  // 展示方式 line-一行一附件 card-卡片形式
   listType: {
     type: String,
-    default: 'auto',
+    default: 'card',
   },
 })
 
@@ -51,10 +51,10 @@ const _files = computed(() => {
 
 <template>
   <div v-for="_file in _files" :key="_file.id" v-loading="_file.loading" class="hl-upload-preview-wrapper"
-       :class="{ 'my-2': listType === 'auto' && ['video', 'image'].includes(_file.type) }" @click="handleChange(_file, !['video', 'image'].includes(_file.type))"
+       @click="handleChange(_file, listType !== 'card')"
   >
-    <preview-comp :files="_file" height="100px" width="100px" no-preview :list-type no-download />
-    <div v-if="['video', 'image'].includes(_file.type)" class="delete-wrapper" @click.stop>
+    <preview-comp :files="_file" height="100px" width="100px" no-preview :card="listType === 'card'" no-download />
+    <div v-if="listType === 'card'" class="delete-wrapper" @click.stop>
       <icon-comp class="icon-close" icon="pixelarticons:trash" size="24px" @click="handleDel(_file)" />
       <icon-comp class="ml-2" icon="ri:folder-upload-line" size="24px" @click="handleChange(_file, true)" />
     </div>

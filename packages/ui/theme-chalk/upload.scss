@@ -1,3 +1,7 @@
+@import "./file.scss";
+@import "./image.scss";
+@import "./video.scss";
+
 .hl-upload-wrapper {
   color: #555;
 }
@@ -87,10 +91,9 @@
   display: flex;
   flex-wrap: wrap;
 
-  .preview-wrapper {
+  .hl-upload-preview-wrapper {
     margin: 0;
   }
-
 
   .trigger-item {
     margin: 0;
@@ -98,12 +101,36 @@
 }
 
 .hl-upload-multiple-margin {
-  .preview-wrapper {
+  .hl-upload-preview-wrapper {
     margin: 0 5px 5px 0;
   }
 
-
   .trigger-item {
     margin: 0 5px 5px 0;
+  }
+}
+
+.hl-ui-progress-shadow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999999;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  .progress-body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 50%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+  }
+
+  .progress {
+    width: 100%;
   }
 }

@@ -57,10 +57,10 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
-  // 展示方式 auto-自动 card-卡片形式
+  // 展示方式 card-卡片形式 line-一行 不传自动判断
   listType: {
     type: String,
-    default: 'auto',
+    default: '',
   },
   // 触发区域样式：card-卡片  line-一行
   triggerType: {
@@ -76,15 +76,21 @@ const _trigger_type = computed(() => {
   if (props.triggerType) {
     return props.triggerType
   }
+  return _list_type.value
+})
 
-  const type = Array.isArray(props.type) ? props.type : [props.type]
-
-  // 如果包含文件、音频中的一种 => line
-  if (type.includes('file') || type.includes('audio') || type.includes('all')) {
-    return 'line'
+// 展示形式
+const _list_type = computed(() => {
+  if (props.listType) {
+    return props.listType
   }
 
-  return 'card'
+  // 判断当前文件类型是否只包含图片和视频
+  if (is_only_video_image.value) {
+    return 'card'
+  }
+
+  return 'line'
 })
 
 const { uploadFile } = inject('GLOBAL_CUSTOM_CONFIG')
@@ -263,9 +269,9 @@ provide('is_only_video_image', is_only_video_image)
 </script>
 
 <template>
-  <div v-bind="$attrs" class="hl-upload-wrapper" :class="{ 'hl-upload-flex-style': listType === 'card' || is_only_video_image, 'hl-upload-multiple-margin': multiple }">
+  <div v-bind="$attrs" class="hl-upload-wrapper" :class="{ 'hl-upload-flex-style': _list_type === 'card', 'hl-upload-multiple-margin': multiple }">
     <template v-if="preview">
-      <preview-comp v-if="!slots.preview" :file="files_value" :list-type @delete="handleDel" @re-upload="handleReupload" />
+      <preview-comp v-if="!slots.preview" :file="files_value" :list-type="_list_type" @delete="handleDel" @re-upload="handleReupload" />
       <slot v-else name="preview" />
     </template>
 
