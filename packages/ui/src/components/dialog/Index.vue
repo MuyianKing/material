@@ -1,6 +1,5 @@
 <script name="HlDialog" setup>
 import { ElDialog } from 'element-plus'
-import 'element-plus/es/components/dialog/style/css'
 import { computed, defineModel, nextTick, ref, useSlots, watch } from 'vue'
 
 const props = defineProps({

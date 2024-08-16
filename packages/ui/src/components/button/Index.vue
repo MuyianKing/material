@@ -1,8 +1,5 @@
 <script setup>
 import { ElButton, ElLink, ElTooltip } from 'element-plus'
-import 'element-plus/es/components/button/style/css'
-import 'element-plus/es/components/tooltip/style/css'
-import 'element-plus/es/components/link/style/css'
 import HlIcon from '../icon/Index.vue'
 
 defineOptions({

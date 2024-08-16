@@ -1,7 +1,6 @@
 <script setup>
 import { ElTooltip } from 'element-plus'
 import IconComp from '../icon/Index.vue'
-import 'element-plus/es/components/tooltip/style/css'
 
 defineProps({
   placement: {

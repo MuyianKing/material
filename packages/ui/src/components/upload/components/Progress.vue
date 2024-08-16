@@ -1,6 +1,5 @@
 <script setup name="UploadProgress">
 import { ElProgress } from 'element-plus'
-import 'element-plus/es/components/progress/style/css'
 
 import { useSlots } from 'vue'
 

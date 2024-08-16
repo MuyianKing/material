@@ -1,6 +1,5 @@
 <script setup>
 import ButtonComp from '../button/Index.vue'
-
 import useButton from '../../hooks/useButton'
 
 const props = defineProps({

@@ -1,8 +1,6 @@
 <script setup>
 import ButtonComp from '../button/Index.vue'
 
-import 'element-plus/es/components/button/style/css'
-
 defineProps({
   icon: {
     type: Boolean,

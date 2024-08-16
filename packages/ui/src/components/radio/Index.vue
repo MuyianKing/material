@@ -1,7 +1,5 @@
 <script setup name="HlRadio">
 import { ElRadio, ElRadioGroup } from 'element-plus'
-import 'element-plus/es/components/radio/style/css'
-import 'element-plus/es/components/radio-group/style/css'
 
 const props = defineProps({
   options: {

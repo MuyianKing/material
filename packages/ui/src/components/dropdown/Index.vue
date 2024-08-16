@@ -4,13 +4,6 @@ import { ElCheckbox, ElCheckboxGroup, ElDropdown, ElDropdownItem, ElDropdownMenu
 import { computed, nextTick, ref, watch } from 'vue'
 import { HlIcon } from '../icon'
 
-import 'element-plus/es/components/checkbox/style/css'
-import 'element-plus/es/components/checkbox-group/style/css'
-import 'element-plus/es/components/dropdown/style/css'
-import 'element-plus/es/components/dropdown-item/style/css'
-import 'element-plus/es/components/dropdown-menu/style/css'
-import 'element-plus/es/components/scrollbar/style/css'
-
 const props = defineProps({
   // 待选项
   options: {

@@ -1,8 +1,6 @@
 <script name="HlResetButton" setup>
 import { ElButton, ElPopconfirm } from 'element-plus'
 import IconComp from '../icon/Index.vue'
-import 'element-plus/es/components/button/style/css'
-import 'element-plus/es/components/popconfirm/style/css'
 
 defineProps({
   icon: {

@@ -10,7 +10,7 @@
     "build": "npx vite build"
   },
   "dependencies": {
-    "@hl/ui": "^0.4.20",
+    "@hl/ui": "^0.5.1",
     "@hl/utils": "^0.4.20"
   },
   "devDependencies": {}

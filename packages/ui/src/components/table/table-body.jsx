@@ -1,7 +1,5 @@
 import { isOverflow } from '@hl/utils/es/dom'
 import { ElCheckbox, ElTooltip } from 'element-plus'
-import 'element-plus/es/components/checkbox/style/css'
-import 'element-plus/es/components/tooltip/style/css'
 import { computed, inject, ref } from 'vue'
 
 export default {

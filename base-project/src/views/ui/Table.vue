@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 import HlTable from '@hl/ui/src/components/table/Index.vue'
 import HlTableColumn from '@hl/ui/src/components/table-column/Index.vue'
-import '@hl/ui/theme-chalk/table.scss'
 
 const data = ref([{
   name: 'muyian',

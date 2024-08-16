@@ -3,8 +3,6 @@ import { ElButton, ElForm } from 'element-plus'
 import { error, success, warning } from '@hl/utils/es/message'
 import { ref } from 'vue'
 import DialogComp from '../dialog/Index.vue'
-import 'element-plus/es/components/button/style/css'
-import 'element-plus/es/components/form/style/css'
 
 const props = defineProps({
   // 标题

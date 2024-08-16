@@ -1,0 +1,54 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "@comp/*": [
+        "./src/components/*"
+      ],
+      "@def/*": [
+        "./src/default/*"
+      ],
+      "@server/*": [
+        "./src/server/*"
+      ],
+      "@model/*": [
+        "./src/model/*"
+      ],
+      "@views/*": [
+        "./src/views/*"
+      ],
+      "@hooks/*": [
+        "./src/hooks/*"
+      ],
+      "@img/*": [
+        "./src/assets/img/*"
+      ],
+      "@data/*": [
+        "./src/assets/data/*"
+      ],
+      "@pinia/*": [
+        "./src/pinia/modules/*"
+      ],
+      "@utils/*": [
+        "./node_modules/@hl/utils/src/*"
+      ],
+      "@list-page": [
+        "./node_modules/@hl/ui/src/list-page"
+      ]
+    }
+  },
+  "include": [
+    "**/*",
+    "public/polyfill.min.js",
+    "../packages/auth.js"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}

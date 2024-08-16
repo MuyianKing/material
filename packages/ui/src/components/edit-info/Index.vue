@@ -1,6 +1,5 @@
 <script setup>
 import { ElInput } from 'element-plus'
-import 'element-plus/es/components/input/style/css'
 import { useDebounceFn } from '@vueuse/core'
 import { nextTick, reactive, ref } from 'vue'
 

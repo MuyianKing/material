@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@hl/hooks": "^0.4.20",
-    "@hl/ui": "^0.4.20",
+    "@hl/ui": "^0.5.1",
     "@hl/utils": "^0.4.20",
     "element-plus": "^2.7.8"
   }

@@ -1,5 +1,4 @@
 import { ElCheckbox } from 'element-plus'
-import 'element-plus/es/components/checkbox/style/css'
 
 import { computed, inject, watch } from 'vue'
 

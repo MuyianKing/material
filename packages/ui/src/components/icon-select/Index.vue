@@ -5,9 +5,6 @@ import { useDebounceFn } from '@vueuse/core'
 import IconComp from '../icon/Index.vue'
 import InputComp from '../input/Index.vue'
 
-import 'element-plus/es/components/popover/style/css'
-import 'element-plus/es/components/loading/style/css'
-
 defineProps({
   placholder: {
     type: String,

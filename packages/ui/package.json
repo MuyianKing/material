@@ -1,12 +1,13 @@
 {
   "name": "@hl/ui",
   "type": "module",
-  "version": "0.4.30",
+  "version": "0.5.4",
   "scripts": {
     "dev": "vite",
     "build": "vite build"
   },
   "dependencies": {
+    "@hl/theme-chalk": "workspace:*",
     "@hl/utils": "^0.4.20",
     "@iconify/vue": "^4.1.2",
     "@multiavatar/multiavatar": "^1.0.7",

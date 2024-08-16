@@ -9,10 +9,10 @@ import 'element-plus/es/components/input/style/css'
 import 'element-plus/es/components/checkbox/style/css'
 import 'element-plus/es/components/button/style/css'
 
-import '@hl/ui/src/components/dialog/Index.css'
-import '@hl/ui/src/components/icon/Index.css'
-import '@hl/ui/src/components/nodata/Index.css'
-import '@hl/ui/src/components/reset-button/Index.css'
+import '@hl/theme-chalk/dialog.scss'
+import '@hl/theme-chalk/icon.scss'
+import '@hl/theme-chalk/nodata.scss'
+import '@hl/theme-chalk/reset-button.scss'
 
 const props = defineProps({
   modelValue: {

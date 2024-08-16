@@ -2,8 +2,6 @@
 import { ref } from 'vue'
 import HlUpload from '@ui/upload/Index.vue'
 import HlFormItem from '@ui/form-item/Index.vue'
-import '@hl/ui/theme-chalk/upload.scss'
-import '@hl/ui/theme-chalk/form-item.scss'
 
 const image = ref(
   {

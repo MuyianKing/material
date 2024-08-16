@@ -1,7 +1,5 @@
 <script setup>
 import { ElInput, ElPopover } from 'element-plus'
-import 'element-plus/es/components/input/style/css'
-import 'element-plus/es/components/popover/style/css'
 import { computed, getCurrentInstance, ref } from 'vue'
 
 const props = defineProps({

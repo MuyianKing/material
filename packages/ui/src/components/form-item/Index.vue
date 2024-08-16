@@ -1,7 +1,6 @@
 <script setup name="HlFormItem">
 import * as v from '@hl/utils/es/validator'
 import { ElFormItem } from 'element-plus'
-import 'element-plus/es/components/form-item/style/css'
 import { computed, getCurrentInstance, onMounted, ref } from 'vue'
 
 const props = defineProps({

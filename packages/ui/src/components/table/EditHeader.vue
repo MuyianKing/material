@@ -4,8 +4,6 @@ import { computed, inject, ref } from 'vue'
 import { ElCheckbox, ElCheckboxGroup } from 'element-plus'
 import DialogComp from '../dialog/Index.vue'
 import ButtonComp from '../button/Index.vue'
-import 'element-plus/es/components/checkbox/style/css'
-import 'element-plus/es/components/checkbox-group/style/css'
 
 defineProps({
   show: {
