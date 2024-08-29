@@ -25,6 +25,14 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  readonly: {
+    type: Boolean,
+    default: false,
+  },
+  disabled: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 const emits = defineEmits(['update:modelValue', 'change'])
@@ -48,7 +56,7 @@ function click(item) {
 </script>
 
 <template>
-  <el-radio-group :model-value="modelValue" :class="{ 'hl-radio-line-item': line }" @change="change">
+  <el-radio-group :model-value="modelValue" :class="{ 'hl-radio-line-item': line, 'hl-radio-readonly-group': readonly }" :disabled="disabled || readonly" @change="change">
     <el-radio v-for="item in options" :key="item.value" :value="item.value" @click="click(item)">
       {{ item.label }}
     </el-radio>

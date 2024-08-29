@@ -22,3 +22,24 @@
     }
   }
 }
+
+.hl-checkbox-readonly-group {
+
+  .el-checkbox {
+    display: none;
+    cursor: inherit;
+
+    &.is-checked {
+      display: inline-flex;
+    }
+
+    .el-checkbox__input {
+      display: none;
+    }
+
+    .el-checkbox__label {
+      color: inherit !important;
+      cursor: inherit !important;
+    }
+  }
+}

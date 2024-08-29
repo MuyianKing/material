@@ -4,3 +4,11 @@
 
 - window.hl 下必须挂载项目的request实例对象(目前是axios实例对象)，对象名为http
 - 人员选择展开优化下拉加载更多
+
+### V0.5.3
+
+#### 2024-08-28
+
+- PersonSelectPanel组件增加默认选中单位属性
+- organization/components/plugin组件增加默认选中属性
+- PersonSelect组件增加只读属性，针对只读默认优化展示方式

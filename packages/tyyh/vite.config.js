@@ -1,9 +1,11 @@
 import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import libCss from 'vite-plugin-libcss'
 
 export default defineConfig({
   build: {
+    outDir: './base-project/dist/hl/tyyh',
     cssCodeSplit: true,
     rollupOptions: {
       preserveEntrySignatures: 'strict',
@@ -26,6 +28,7 @@ export default defineConfig({
           assetFileNames: '[name][extname]',
         },
       ],
+      treeshake: false,
     },
     lib: {
       entry: resolve(__dirname, './index.js'),
@@ -33,5 +36,6 @@ export default defineConfig({
   },
   plugins: [
     vue(),
+    libCss(),
   ],
 })

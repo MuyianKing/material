@@ -18,33 +18,6 @@
   }
 }
 
-// 表格
-.hl-table-header {
-  border-color: var(--color-primary) !important;
-
-  .hl-table-tr {
-    background-color: var(--color-primary);
-
-    .hl-table-th {
-      color: white;
-    }
-  }
-
-  th {
-    border-bottom: var(--color-primary) !important;
-  }
-
-  th:last-child {
-    border-right-color: var(--color-primary) !important;
-  }
-}
-
-
-.hl-table-body {
-  .hl-table-td {
-    color: #666;
-  }
-}
 
 .home-admin-container {
   width: 100%;

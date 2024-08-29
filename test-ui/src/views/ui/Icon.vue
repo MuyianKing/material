@@ -1,5 +1,5 @@
 <script setup>
-import { HlIconSelect } from '@ui'
+import HlIconSelect from '@hl/ui/src/components/icon-select/index'
 </script>
 
 <template>

@@ -109,9 +109,9 @@ watch(() => route.query, (query) => {
                   </el-input>
                 </el-form-item>
               </el-form>
-              <!-- <el-button class="login-btn" @click="submitForm">
+              <el-button class="login-btn" @click="submitForm">
                 登录
-              </el-button> -->
+              </el-button>
             </div>
           </div>
         </div>

@@ -8,6 +8,14 @@ import 'element-plus/es/components/loading/style/css'
 import 'element-plus/es/components/tree/style/css'
 import 'element-plus/es/components/button/style/css'
 
+const props = defineProps({
+  // 默认选中单位Id
+  defaultOrgId: {
+    type: String,
+    default: '',
+  },
+})
+
 const emits = defineEmits(['change'])
 
 const _defaultProps = {
@@ -23,20 +31,20 @@ const tree_data = ref([])
 const loading = ref(false)
 const default_expanded_keys = ref([])
 
-function getData() {
+async function getData() {
   loading.value = true
-  getList(query).then((data) => {
+  try {
+    const data = await getList(query)
     default_expanded_keys.value = []
     if (data.data && data.data.length > 0) {
       default_expanded_keys.value.push(data.data[0].organization_id)
     }
-
     tree_data.value = data.data
-  }).catch((e) => {
+  } catch (e) {
     hl.message.error(e, '获取职务出错')
-  }).finally(() => {
+  } finally {
     loading.value = false
-  })
+  }
 }
 
 const search = useDebounceFn(() => {
@@ -90,8 +98,23 @@ function switchNode(code = '320402000000') {
   }
 }
 
-onMounted(() => {
-  getData()
+function setDefaultOrg() {
+  console.log(props.defaultOrgId)
+
+  if (props.defaultOrgId) {
+    console.log(tree_data.value)
+
+    const node = treeRef.value.getNode(props.defaultOrgId)
+    console.log('node', node)
+
+    node && handleClick({ organization_id: props.defaultOrgId }, node)
+  }
+}
+
+onMounted(async () => {
+  await getData()
+  await nextTick()
+  setDefaultOrg()
 })
 
 defineExpose({

@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
 
-  :deep(.preview-item) {
+  .preview-item {
     margin-right: 5px;
     margin-bottom: 5px;
 

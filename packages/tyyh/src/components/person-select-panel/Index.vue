@@ -9,11 +9,6 @@ import 'element-plus/es/components/input/style/css'
 import 'element-plus/es/components/checkbox/style/css'
 import 'element-plus/es/components/button/style/css'
 
-import '@hl/theme-chalk/dialog.scss'
-import '@hl/theme-chalk/icon.scss'
-import '@hl/theme-chalk/nodata.scss'
-import '@hl/theme-chalk/reset-button.scss'
-
 const props = defineProps({
   modelValue: {
     type: Array,
@@ -56,6 +51,11 @@ const props = defineProps({
   inputShowAllData: {
     type: Boolean,
     default: true,
+  },
+  // 默认选中单位Id
+  defaultOrgId: {
+    type: String,
+    default: '',
   },
 })
 
@@ -363,7 +363,7 @@ onMounted(() => {
 
     <hl-dialog v-model="show_select" title="选择人员" top="50px" width="92vw">
       <div class="person-index">
-        <organization-tree ref="org_tree" class="left-job-tree" @change="handleTreeChange" />
+        <organization-tree ref="org_tree" class="left-job-tree" :default-org-id @change="handleTreeChange" />
         <div class="table-wrapper">
           <div class="selected-list">
             <div class="tips">

@@ -18,6 +18,14 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  readonly: {
+    type: Boolean,
+    default: false,
+  },
+  disabled: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 const model = defineModel({
@@ -64,7 +72,7 @@ const _list_value_map = computed(() => {
 </script>
 
 <template>
-  <el-checkbox-group class="hl-checkbox" :class="{ 'hl-checkbox-line-item': line }" :model-value="value" @change="handleChange">
+  <el-checkbox-group class="hl-checkbox" :class="{ 'hl-checkbox-line-item': line, 'hl-checkbox-readonly-group': readonly }" :disabled="disabled || readonly" :model-value="value" @change="handleChange">
     <el-checkbox v-for="item in options" :key="item.value" :value="item.value">
       {{ item.label }}
     </el-checkbox>

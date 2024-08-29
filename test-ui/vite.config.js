@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import tailwindcss from 'tailwindcss'
 import { defineConfig, loadEnv } from 'vite'
 import basicSsl from '@vitejs/plugin-basic-ssl'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 import useAlias from './alias.config'
 
 const { alias_map } = useAlias()
@@ -14,8 +15,8 @@ export default ({ mode }) => {
   // 插件
   const plugins = [
     vue(),
+    vueJsx(),
   ]
-
 
   // 服务器配置
   const server = {}

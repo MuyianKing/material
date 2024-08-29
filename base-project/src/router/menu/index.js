@@ -61,92 +61,43 @@ export const menuList = [
   //     },
   //   ],
   // },
-  // {
-  //   path: '/tyyh',
-  //   meta: {
-  //     title: '统一用户',
-  //     icon: 'clarity:users-solid',
-  //   },
-  //   children: [
-  //     {
-  //       path: 'person',
-  //       component: () => import('@views/tyyh/Person.vue'),
-  //       meta: {
-  //         title: '人员选择',
-  //         icon: 'clarity:user-solid',
-  //       },
-  //     },
-  //     {
-  //       path: 'organiztion',
-  //       component: () => import('@views/tyyh/Organization.vue'),
-  //       meta: {
-  //         title: '单位选择',
-  //         icon: 'clarity:organization-solid',
-  //       },
-  //     },
-  //     {
-  //       path: 'other',
-  //       component: () => import('@views/tyyh/OtherComp.vue'),
-  //       meta: {
-  //         title: '其他',
-  //         icon: 'material-symbols:other-admission-rounded',
-  //       },
-  //     },
-  //   ],
-  // },
   {
-    path: '/ui',
+    path: '/tyyh',
     meta: {
-      title: 'UI',
+      title: '统一用户',
       icon: 'clarity:users-solid',
     },
     children: [
       {
-        path: 'table',
-        component: () => import('@views/ui/Table.vue'),
+        path: 'person',
+        component: () => import('@views/tyyh/Person.vue'),
         meta: {
-          title: '表格',
+          title: '人员选择',
           icon: 'clarity:user-solid',
         },
       },
       {
-        path: 'upload',
-        component: () => import('@views/ui/Upload.vue'),
+        path: 'person/panel',
+        component: () => import('@views/tyyh/PersonSelectPanel.vue'),
         meta: {
-          title: '上传',
+          title: '人员选择面板',
           icon: 'clarity:user-solid',
         },
       },
       {
-        path: 'dialog',
-        component: () => import('@views/ui/Dialog.vue'),
+        path: 'organiztion',
+        component: () => import('@views/tyyh/Organization.vue'),
         meta: {
-          title: '弹窗',
-          icon: 'clarity:user-solid',
+          title: '单位选择',
+          icon: 'clarity:organization-solid',
         },
       },
       {
-        path: 'button',
-        component: () => import('@views/ui/Button.vue'),
+        path: 'other',
+        component: () => import('@views/tyyh/OtherComp.vue'),
         meta: {
-          title: '按钮',
-          icon: 'clarity:user-solid',
-        },
-      },
-      {
-        path: 'icon',
-        component: () => import('@views/ui/Icon.vue'),
-        meta: {
-          title: '图标',
-          icon: 'clarity:user-solid',
-        },
-      },
-      {
-        path: 'form',
-        component: () => import('@views/ui/Form.vue'),
-        meta: {
-          title: '表单',
-          icon: 'clarity:user-solid',
+          title: '其他',
+          icon: 'material-symbols:other-admission-rounded',
         },
       },
     ],

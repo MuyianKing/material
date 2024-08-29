@@ -551,7 +551,7 @@ defineExpose({
       </table-body>
 
       <!-- 自定义滚动条 -->
-      <scroll-bar ref="scroll_bar" :table-id="tableId" :active="scroll_bar_active" />
+      <scroll-bar ref="scroll_bar" :table-id="tableId" :active="true" />
 
       <div v-show="data.length === 0 && hasEmptySlot" class="w-full h-full">
         <slot name="empty" />

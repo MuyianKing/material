@@ -11,3 +11,25 @@
     }
   }
 }
+
+
+.hl-radio-readonly-group {
+
+  .el-radio {
+    display: none;
+    cursor: inherit;
+
+    &.is-checked {
+      display: inline-flex;
+    }
+
+    .el-radio__input {
+      display: none;
+    }
+
+    .el-radio__label {
+      color: inherit !important;
+      cursor: inherit !important;
+    }
+  }
+}

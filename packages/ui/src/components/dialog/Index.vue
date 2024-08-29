@@ -1,6 +1,6 @@
 <script name="HlDialog" setup>
 import { ElDialog } from 'element-plus'
-import { computed, defineModel, nextTick, ref, useSlots, watch } from 'vue'
+import { computed, nextTick, ref, useSlots, watch } from 'vue'
 
 const props = defineProps({
   closeOnClickModal: {

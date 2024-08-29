@@ -1,8 +1,4 @@
 import { HlAddButton, HlPage, HlSearchButton, HlSearchPage } from '@hl/ui'
-import '@hl/theme-chalk/search-page.scss'
-import '@hl/theme-chalk/search-button.scss'
-import '@hl/theme-chalk/add-button.scss'
-import '@hl/theme-chalk/page.scss'
 
 export default {
   name: 'HlListPageRender',

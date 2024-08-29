@@ -55,7 +55,7 @@ function scrollBar() {
   if (show_scroll.value) {
     if (!scroll_bar_el) {
       real_scroll_el = table_el.querySelector(`.body-wrapper`)
-      scroll_bar_el = table_el.querySelector('.scroll-bar')
+      scroll_bar_el = table_el.querySelector('.hl-table-scroll-bar')
       scroll_bar_el_height = scroll_bar_el.clientHeight
     }
 

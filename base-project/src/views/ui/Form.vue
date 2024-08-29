@@ -12,7 +12,7 @@ const options = [{
 
 <template>
   <div>
-    <hl-checkbox :options line />
+    <hl-checkbox :options line readonly />
   </div>
 </template>
 
