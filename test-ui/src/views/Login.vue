@@ -1,7 +1,7 @@
 <script name="UserLoginNoAlive" setup>
 import { onMounted, reactive, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { ElForm, ElFormItem, ElInput } from 'element-plus'
+import { ElButton, ElForm, ElFormItem, ElInput } from 'element-plus'
 
 import { clearUserData } from '@hooks/user'
 import { login } from '@server/user'
@@ -83,7 +83,7 @@ watch(() => route.query, (query) => {
 </script>
 
 <template>
-  <div class="login-wrapper  text-center ">
+  <div class="login-wrapper text-center">
     <div class="login-box-wrapper text-[0px]">
       <div class="main-part">
         <div class="left">

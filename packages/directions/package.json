@@ -1,0 +1,9 @@
+{
+  "name": "@hl/directions",
+  "version": "0.5.11",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "main": "./index.js"
+}

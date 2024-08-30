@@ -1,6 +1,6 @@
 <script setup name="HlSelect">
 import { ElOption, ElOptionGroup, ElSelect, vLoading } from 'element-plus'
-
+import { vLoadmore } from '@hl/directions'
 import { computed, getCurrentInstance } from 'vue'
 
 const props = defineProps({
@@ -47,6 +47,10 @@ const props = defineProps({
   },
   // 只读
   readonly: {
+    type: Boolean,
+    default: false,
+  },
+  disabled: {
     type: Boolean,
     default: false,
   },
@@ -98,7 +102,7 @@ const _d_p = computed(() => {
 </script>
 
 <template>
-  <el-select :model-value="modelValue" :placeholder="placeholder_comp" :clearable="clearable" filterable :class="{ 'hl-select-readonly-item': readonly }" @change="change" @blur="blur">
+  <el-select :model-value="modelValue" :disabled="readonly || disabled" :placeholder="placeholder_comp" :clearable="clearable" filterable :class="{ 'hl-select-readonly-item': readonly }" @change="change" @blur="blur">
     <div v-loadmore="handleBottom" class="relative">
       <el-option v-if="all" value="">
         全部

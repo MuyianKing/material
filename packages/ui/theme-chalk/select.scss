@@ -15,5 +15,9 @@
     .el-select__selected-item {
       color: inherit !important;
     }
+
+    .el-select__suffix{
+      display: none;
+    }
   }
 }
