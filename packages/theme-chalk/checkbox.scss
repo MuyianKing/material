@@ -1,4 +1,3 @@
-
 .hl-checkbox {
   .el-checkbox {
     margin-right: 10px;
@@ -24,6 +23,10 @@
 }
 
 .hl-checkbox-readonly-group {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+
 
   .el-checkbox {
     display: none;

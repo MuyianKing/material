@@ -1,6 +1,5 @@
 <script setup>
-import storage from '@hl/utils/es/storage'
-import { guid } from '@hl/utils/es/common'
+import { guid, storage } from '@hl/utils'
 import { getCurrentInstance, h, inject, onMounted, useSlots } from 'vue'
 import TimeParser from '../time/Index.vue'
 import IdCard from '../id-card/Index.vue'

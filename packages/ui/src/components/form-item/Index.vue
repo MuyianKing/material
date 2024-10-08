@@ -1,5 +1,5 @@
 <script setup name="HlFormItem">
-import * as v from '@hl/utils/es/validator'
+import { v_carnum, v_email, v_id_num, v_int, v_ip, v_phone, v_port } from '@hl/utils'
 import { ElFormItem } from 'element-plus'
 import { computed, getCurrentInstance, onMounted, ref } from 'vue'
 
@@ -169,32 +169,32 @@ const rules = computed(() => {
 
   // 身份证
   if (props.idCard) {
-    rules_list.push({ validator: v.v_id_num, trigger })
+    rules_list.push({ validator: v_id_num, trigger })
   }
 
   // 手机号
   if (props.phone) {
-    rules_list.push({ validator: v.v_phone, trigger })
+    rules_list.push({ validator: v_phone, trigger })
   }
 
   // 车牌
   if (props.carNum) {
-    rules_list.push({ validator: v.v_carnum, trigger })
+    rules_list.push({ validator: v_carnum, trigger })
   }
 
   // 整型
   if (props.integer) {
-    rules_list.push({ validator: v.v_int, trigger })
+    rules_list.push({ validator: v_int, trigger })
   }
 
   // IP
   if (props.ip) {
-    rules_list.push({ validator: v.v_ip, trigger })
+    rules_list.push({ validator: v_ip, trigger })
   }
 
   // 端口
   if (props.port) {
-    rules_list.push({ validator: v.v_port, trigger })
+    rules_list.push({ validator: v_port, trigger })
   }
 
   // 最小长度
@@ -214,7 +214,7 @@ const rules = computed(() => {
 
   // 邮箱
   if (props.email) {
-    rules_list.push({ validator: v.v_email, trigger })
+    rules_list.push({ validator: v_email, trigger })
   }
 
   // 文件上传

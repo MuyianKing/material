@@ -1,5 +1,5 @@
 <script setup>
-import { getLabelByVal } from '@hl/utils/es/common'
+import { getLabelByVal } from '@hl/utils'
 import { ElCheckbox, ElCheckboxGroup, ElDropdown, ElDropdownItem, ElDropdownMenu, ElInput, ElScrollbar } from 'element-plus'
 import { computed, nextTick, ref, watch } from 'vue'
 import { HlIcon } from '../icon'

@@ -1,8 +1,7 @@
 <script setup name="SearchPage">
 import { ElForm, vLoading } from 'element-plus'
-import { nextTick, onMounted, ref } from 'vue'
 
-const props = defineProps({
+defineProps({
   formSize: {
     type: String,
     default: 'default',
@@ -20,19 +19,6 @@ const props = defineProps({
     default: false,
   },
 })
-
-const button_wrapper = ref()
-const fixed_btn_style = ref({ width: 0, height: 0 })
-onMounted(() => {
-  nextTick(() => {
-    if (props.fixedButton) {
-      fixed_btn_style.value = {
-        width: `${button_wrapper.value.clientWidth || 0}px`,
-        height: `${button_wrapper.value.clientHeight || 0}px`,
-      }
-    }
-  })
-})
 </script>
 
 <template>
@@ -42,9 +28,7 @@ onMounted(() => {
       <div class="search-area">
         <slot name="header" />
         <div v-if="fixedButton" class="fixed-button">
-          <div ref="button_wrapper" class="button-wrapper">
-            <slot name="button" />
-          </div>
+          <slot name="button" />
         </div>
         <slot v-else name="button" />
       </div>

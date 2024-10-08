@@ -1,6 +1,6 @@
 <script name="HlRadio" setup>
 import { ElCheckbox, ElCheckboxGroup } from 'element-plus'
-import { computed } from 'vue'
+import { computed, ref, watch } from 'vue'
 
 const props = defineProps({
   options: {
@@ -54,25 +54,27 @@ const value = computed(() => {
     _value = model.value.toString().split(',').filter(item => item)
   }
   if (props.multiple) {
-    return _value.map(item => _list_value_map.value[item]) || []
+    return _value.map(item => value_map.value[item]) || []
   } else {
     return _value || []
   }
 })
 
 // 所有待选项的value组成的对象，key为字符串的value
-const _list_value_map = computed(() => {
-  const value_map = {}
+let value_map = ref({})
+watch(() => props.options, () => {
+  value_map.value = {}
   props.options.forEach((item) => {
-    value_map[`${item.value}`] = item.value
+    value_map.value[`${item.value}`] = item.value
   })
-
-  return value_map
+}, {
+  immediate: true,
+  deep: true,
 })
 </script>
 
 <template>
-  <el-checkbox-group class="hl-checkbox" :class="{ 'hl-checkbox-line-item': line, 'hl-checkbox-readonly-group': readonly }" :disabled="disabled || readonly" :model-value="value" @change="handleChange">
+  <el-checkbox-group v-bind="$attrs" class="hl-checkbox" :class="{ 'hl-checkbox-line-item': line, 'hl-checkbox-readonly-group': readonly }" :disabled="disabled || readonly" :model-value="value" @change="handleChange">
     <el-checkbox v-for="item in options" :key="item.value" :value="item.value">
       {{ item.label }}
     </el-checkbox>

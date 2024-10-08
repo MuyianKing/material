@@ -1,6 +1,7 @@
 {
   "name": "@hl/directions",
-  "version": "0.5.11",
+  "type": "module",
+  "version": "0.6.0",
   "description": "",
   "author": "",
   "license": "ISC",

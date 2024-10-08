@@ -19,6 +19,10 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
+  unique: {
+    type: String,
+    default: '',
+  },
 })
 
 const slots = useSlots()

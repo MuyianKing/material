@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { HlFormItem, HlUpload } from '@ui'
+import { HlButton, HlFormItem, HlIcon, HlUpload } from '@ui'
 
 const image = ref(
   {
@@ -57,6 +57,19 @@ const image = ref(
     ],
   },
 )
+
+const upload_ref = ref()
+function handleReUpload(row) {
+  upload_ref.value.handleReupload(row)
+}
+
+function handleDel(row) {
+  upload_ref.value.handleDel(row)
+}
+
+function handleFinish(row) {
+  console.log('handleChange', row)
+}
 </script>
 
 <template>
@@ -82,10 +95,26 @@ const image = ref(
     </hl-form-item>
 
     <hl-form-item label="多选各种文件">
-      <hl-upload v-model="image.f6" multiple type="all" />
+      <hl-upload v-model="image.f6" multiple type="all" suffix="apk" />
+    </hl-form-item>
+
+    <hl-form-item label="自定义触发">
+      <hl-upload no-preview progress @upload-finish="handleFinish">
+        <hl-button>导入</hl-button>
+      </hl-upload>
+    </hl-form-item>
+
+    <hl-form-item label="自定义预览">
+      <hl-upload ref="upload_ref" v-model="image.f8" multiple trigger-type="line">
+        <template #preview="{ files }">
+          <div v-for="file in files" :key="file.id" class="flex items-center">
+            <span @click="handleReUpload(file)">{{ file.name }}</span>
+            <hl-icon icon="ph:trash-bold" @click="handleDel(file)" />
+          </div>
+        </template>
+      </hl-upload>
     </hl-form-item>
   </div>
 </template>
 
-<style lang='scss' scoped>
-</style>
+<style lang='scss' scoped></style>

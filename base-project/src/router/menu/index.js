@@ -1,66 +1,6 @@
 import Layout from '@layout/Main.vue'
 
 export const menuList = [
-  // {
-  //   path: '/home',
-  //   component: () => import('@hl/task/src/views/task/center/Index.vue'),
-  //   meta: {
-  //     title: '首页',
-  //     icon: 'mage:layout-center-fill',
-  //   },
-  // },
-  // {
-  //   path: '/task/cz2',
-  //   component: () => import('@hl/task/src/views/task/common-task-page/Index.vue'),
-  //   meta: {
-  //     title: '差旅管理',
-  //     icon: 'mage:layout-center-fill',
-  //     params: {
-  //       config_uuid: 'GI5AC6CV9P',
-  //     },
-  //   },
-  // },
-  // {
-  //   path: '/form/editor/index',
-  //   component: () => import('@hl/task/src/views/form/editor'),
-  //   meta: {
-  //     title: '表单编辑',
-  //     icon: 'fluent:settings-24-regular',
-  //   },
-  // },
-  // {
-  //   path: '/task',
-  //   meta: {
-  //     title: '自主指令',
-  //     icon: 'clarity:users-solid',
-  //   },
-  //   children: [
-  //     {
-  //       path: 'manage/index',
-  //       component: () => import('@hl/task/src/views/task/manage/Index.vue'),
-  //       meta: {
-  //         title: '任务管理',
-  //         icon: 'clarity:user-solid',
-  //       },
-  //     },
-  //     {
-  //       path: 'mould/index',
-  //       component: () => import('@hl/task/src/views/task/mould/Index.vue'),
-  //       meta: {
-  //         title: '任务模板',
-  //         icon: 'clarity:user-solid',
-  //       },
-  //     },
-  //     {
-  //       path: 'group/index',
-  //       component: () => import('@hl/task/src/views/task/group/Index.vue'),
-  //       meta: {
-  //         title: '任务专题',
-  //         icon: 'clarity:user-solid',
-  //       },
-  //     },
-  //   ],
-  // },
   {
     path: '/tyyh',
     meta: {
@@ -112,30 +52,6 @@ export default [
       title: '登录',
     },
   },
-  // {
-  //   path: '/task/design',
-  //   redirect: '/task/design/base-config',
-  //   component: () => import('@hl/task/src/views/task/design/index'),
-  //   meta: {
-  //     title: '任务编辑',
-  //     icon: 'fluent:settings-24-regular',
-  //   },
-  //   children: [{
-  //     path: 'base-config',
-  //     component: () => import('@hl/task/src/views/task/design/components/base-config/Index.vue'),
-  //     meta: {
-  //       title: '基础配置',
-  //       icon: 'icon-park-outline:log',
-  //     },
-  //   }, {
-  //     path: 'flow',
-  //     component: () => import('@hl/task/src/views/flow/editor'),
-  //     meta: {
-  //       title: '流程配置',
-  //       icon: 'icon-park-outline:log',
-  //     },
-  //   }],
-  // },
   {
     path: '/forbidden',
     component: () => import('@views/403.vue'),

@@ -1,21 +1,26 @@
 <script setup>
 import { ElConfigProvider } from 'element-plus'
-
 import { provide } from 'vue'
 
 const props = defineProps({
-  /**
-   * upload_url: 上传文件接口地址,
-   * icon_serlect_url: 图标选择组件接口地址,
-   * getUserStore：获取用户信息
-   */
   customConfig: {
     type: Object,
     required: true,
   },
 })
 
-provide('GLOBAL_CUSTOM_CONFIG', props.customConfig)
+/**
+ * 提供全局配置
+ * @param {object} customConfig
+ * @param {Function} customConfig.uploadFile: 上传文件方法,
+ * @param {Function} customConfig.downloadFile: 下载文件方法,
+ * @param {Function} customConfig.getIcons：获取图标接口
+ */
+function provideGlobalConfig(customConfig) {
+  provide('GLOBAL_CUSTOM_CONFIG', customConfig)
+}
+
+provideGlobalConfig(props.customConfig)
 </script>
 
 <template>

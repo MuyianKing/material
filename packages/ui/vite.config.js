@@ -5,7 +5,6 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 
 export default defineConfig({
   build: {
-    // cssCodeSplit: true,
     rollupOptions: {
       preserveEntrySignatures: 'strict',
       external: [

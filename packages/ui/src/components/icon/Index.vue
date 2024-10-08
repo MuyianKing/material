@@ -1,6 +1,6 @@
 <script setup name="HlIcon">
 import { Icon } from '@iconify/vue'
-import { getCanUseValue } from '@hl/utils/es/common'
+import { getCanUseValue } from '@hl/utils'
 import { computed } from 'vue'
 
 const props = defineProps({

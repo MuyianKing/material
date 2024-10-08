@@ -1,6 +1,6 @@
 <script setup name="HlChart">
-import echartsUtil from '@hl/utils/es/echarts.util'
-import { guid } from '@hl/utils/es/common'
+import { echartsUtil, guid } from '@hl/utils'
+
 import { nextTick, onActivated, watch } from 'vue'
 
 const props = defineProps({

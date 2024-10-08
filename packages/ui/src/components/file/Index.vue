@@ -1,6 +1,6 @@
 <script setup>
-import { getSuffix, getType } from '@hl/utils/es/file'
-import { closeLoading, error, loading } from '@hl/utils/es/message'
+import { closeLoading, error, getSuffix, getType, loading } from '@hl/utils'
+
 import { computed, inject, nextTick, ref } from 'vue'
 import WavesurferComp from '../wavesurfer/Index.vue'
 import IconComp from '../icon/Index.vue'

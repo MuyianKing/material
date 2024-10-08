@@ -1,5 +1,5 @@
 <script setup>
-import { getType } from '@hl/utils/es/file'
+import { getType } from '@hl/utils'
 import { ref, watch } from 'vue'
 import ImageComp from '../image/Index.vue'
 import VideoComp from '../video/Index.vue'

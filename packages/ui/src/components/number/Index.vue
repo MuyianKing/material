@@ -27,6 +27,7 @@ function handeNum() {
   } else if (num > 10000) {
     suffix.value = '万'
     num = (num / 10000).toFixed(2)
+    console.log(num, num / 10000)
   }
 
   num_format.value = thousands(disZore(num))

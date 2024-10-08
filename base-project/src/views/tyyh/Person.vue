@@ -7,6 +7,8 @@ import { ref } from 'vue'
 import PersonSelect from '@hl/tyyh/src/components/person-select/Index.vue'
 
 const p = ref('320401199210122812')
+
+const p2 = ref(['320401199210122812', '320911198110316311', '320421197210205611'])
 </script>
 
 <template>
@@ -23,14 +25,14 @@ const p = ref('320401199210122812')
           <hl-block-title type="success">
             单选
           </hl-block-title>
-          <person-select v-model="p" class="mt-2" disabled-person="320401199210122812" />
+          <person-select v-model="p" class="mt-2" disabled-person="320401199210122812" label-config="$name - ($job)" />
         </div>
-        <!-- <div class="flex-1 ml-4">
+        <div class="flex-1 ml-4">
           <hl-block-title type="success">
             多选
           </hl-block-title>
-          <person-select v-model="p2" multiple class="mt-2" disabled-person="320401199210122812" />
-        </div> -->
+          <person-select v-model="p2" multiple expand readonly class="mt-2" />
+        </div>
       </div>
     </test-comp-wrapper>
 

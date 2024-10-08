@@ -1,24 +1,23 @@
 <script setup>
-import HlCheckbox from '@hl/ui/src/components/checkbox'
-import HlRadio from '@hl/ui/src/components/radio'
-import HlSelect from '@hl/ui/src/components/select'
+import HlFormItem from '@hl/ui/src/components/form-item'
+import HlInput from '@hl/ui/src/components/input'
+import { ElForm } from 'element-plus'
 
-const options = [{
-  label: '测试',
-  value: 1,
-}, {
-  label: '测试2',
-  value: 2,
-}]
+import { reactive } from 'vue'
+
+const model = reactive({
+  name: '',
+})
 </script>
 
 <template>
-  <div>
-    <hl-checkbox :options line readonly :model-value="1" />
-    <hl-radio :options readonly :model-value="1" />
-    <hl-select :options :model-value="1" readonly />
+  <div class="p-4">
+    <el-form :model="model">
+      <hl-form-item label="姓名" prop="name" required phone>
+        <hl-input v-model="model.name" />
+      </hl-form-item>
+    </el-form>
   </div>
 </template>
 
-<style lang='scss' scoped>
-</style>
+<style lang='scss' scoped></style>

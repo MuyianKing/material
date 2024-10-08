@@ -57,7 +57,7 @@ export function getLabelByVal(array, val, config = {}) {
 export function jsonparse(str, def = {}) {
   try {
     return JSON.parse(str)
-  } catch (error) {
+  } catch {
     return def
   }
 }

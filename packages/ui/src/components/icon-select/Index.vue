@@ -1,7 +1,8 @@
 <script setup>
 import { inject, onMounted, reactive, ref } from 'vue'
-import { ElPopover, vLoading } from 'element-plus'
+import { ElButton, ElPopover, vLoading } from 'element-plus'
 import { useDebounceFn } from '@vueuse/core'
+import { vBottom } from '@hl/directions'
 import IconComp from '../icon/Index.vue'
 import InputComp from '../input/Index.vue'
 
@@ -68,6 +69,11 @@ function handleBottom() {
   })
 }
 
+const popover_ref = ref()
+function handleSubmit() {
+  popover_ref.value?.hide()
+}
+
 onMounted(() => {
   getData()
 })
@@ -75,7 +81,7 @@ onMounted(() => {
 
 <template>
   <div class="hl-icon-select">
-    <el-popover placement="bottom-start" :title="title" :width="440" trigger="click" :teleported="false">
+    <el-popover ref="popover_ref" placement="bottom-start" :title="title" :width="440" trigger="click" :teleported="false">
       <template #reference>
         <div class="flex items-center cursor-pointer">
           <span class="placholder-item">{{ placholder }}</span>
@@ -89,6 +95,14 @@ onMounted(() => {
           <div v-for="item in table_data.data" :key="item" class="icon-item">
             <icon-comp :icon="item" size="22px" @click="handleClick(item)" />
           </div>
+        </div>
+        <div class="btn-wrapper">
+          <el-button type="danger" size="small" @click="model = ''">
+            清除
+          </el-button>
+          <el-button type="primary" size="small" @click="handleSubmit">
+            确定
+          </el-button>
         </div>
       </div>
     </el-popover>

@@ -43,6 +43,10 @@ function change(val) {
 }
 
 function click(item) {
+  if (props.readonly) {
+    return
+  }
+
   if (!props.empty)
     return
 

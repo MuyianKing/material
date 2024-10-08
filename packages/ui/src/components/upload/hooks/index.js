@@ -1,4 +1,4 @@
-import { AUDIO_SUFFIX, FILE_SUFFIX, IMAGE_SUFFIX, VIDEO_SUFFIX, getMimeType } from '@hl/utils/es/file'
+import { AUDIO_SUFFIX, FILE_SUFFIX, IMAGE_SUFFIX, VIDEO_SUFFIX, getMimeType } from '@hl/utils'
 
 const type_map = {
   image: IMAGE_SUFFIX,
@@ -29,7 +29,7 @@ export function getAllType(type, suffix) {
         // 设置类型取两者的交集
         const new_mine_type = []
         suffix.forEach((type) => {
-          if (_type_list.includes(type)) {
+          if (_type_list.length === 0 || _type_list.includes(type)) {
             new_mine_type.push(type)
           }
         })
@@ -53,7 +53,7 @@ export function getAllType(type, suffix) {
  * @param {*} files 新文件
  * @param {Ref} file_list_ref
  */
-export function comp_file_list(files, file_list_ref,previewFileUrl) {
+export function comp_file_list(files, file_list_ref, previewFileUrl) {
   files.forEach((file, index) => {
     const new_file = {
       uuid: file.uuid,

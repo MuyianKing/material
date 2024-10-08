@@ -1,7 +1,6 @@
 <script setup>
-import { AUDIO_SUFFIX, FILE_SUFFIX } from '@hl/utils/es/file'
-import { guid } from '@hl/utils/es/common'
-import { error } from '@hl/utils/es/message'
+import { AUDIO_SUFFIX, FILE_SUFFIX, error, guid } from '@hl/utils'
+
 import { computed, inject, nextTick, provide, ref, useSlots } from 'vue'
 import TriggerComp from './components/Trigger.vue'
 import PreviewComp from './components/Preview.vue'
@@ -29,11 +28,6 @@ const props = defineProps({
     type: Number,
     default: 99,
   },
-  // 最小上传数量
-  minCount: {
-    type: Number,
-    default: 9,
-  },
   // 自动上传
   autoUpload: {
     type: Boolean,
@@ -53,9 +47,9 @@ const props = defineProps({
     default: false,
   },
   // 预览文件
-  preview: {
+  noPreview: {
     type: Boolean,
-    default: true,
+    default: false,
   },
   // 展示方式 card-卡片形式 line-一行 不传自动判断
   listType: {
@@ -93,7 +87,7 @@ const _list_type = computed(() => {
   return 'line'
 })
 
-const { uploadFile } = inject('GLOBAL_CUSTOM_CONFIG')
+const { uploadFile } = inject('GLOBAL_CUSTOM_CONFIG', null)
 
 const slots = useSlots()
 
@@ -215,6 +209,10 @@ const progress_percent = ref(0)
 const show_progress = ref(false)
 
 async function handleUploadFile(file) {
+  if (!uploadFile) {
+    throw new Error('未配置上传接口')
+  }
+
   // 开始上传
   emits('upload-start')
 
@@ -248,10 +246,10 @@ const trigger_config = computed(() => {
     multiple: props.multiple,
     files: files_value.value,
     maxCount: props.maxCount,
-    minCount: props.minCount,
     type: props.type,
     suffix: props.suffix,
     disabled: props.disabled,
+    noPreview: props.noPreview,
   }
 })
 
@@ -266,13 +264,21 @@ const is_only_video_image = computed(() => {
 })
 
 provide('is_only_video_image', is_only_video_image)
+
+defineExpose({
+  // 重新上传
+  handleReupload,
+
+  // 删除
+  handleDel,
+})
 </script>
 
 <template>
   <div v-bind="$attrs" class="hl-upload-wrapper" :class="{ 'hl-upload-flex-style': _list_type === 'card', 'hl-upload-multiple-margin': multiple }">
-    <template v-if="preview">
+    <template v-if="!noPreview">
       <preview-comp v-if="!slots.preview" :file="files_value" :list-type="_list_type" @delete="handleDel" @re-upload="handleReupload" />
-      <slot v-else name="preview" />
+      <slot v-else name="preview" :files="files_value" />
     </template>
 
     <trigger-comp v-if="!readonly" ref="trigger_ref" :config="trigger_config" :trigger-type="_trigger_type" @select-file="handleSelect">

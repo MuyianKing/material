@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "lint": "lint-staged",
-    "build:ui": "vite build  --emptyOutDir --config ./packages/ui/vite.config.js & copy .\\packages\\ui\\package.json .\\base-project\\dist\\hl\\ui & xcopy /E /I .\\packages\\ui\\theme-chalk .\\base-project\\dist\\hl\\theme-chalk",
+    "build:ui": "vite build  --emptyOutDir --config ./packages/ui/vite.config.js & copy .\\packages\\ui\\package.json .\\base-project\\dist\\hl\\ui",
     "build:tyyh": "vite build  --emptyOutDir --config ./packages/tyyh/vite.config.js & copy .\\packages\\tyyh\\package.json .\\base-project\\dist\\hl\\tyyh",
     "build:hooks": "vite build  --emptyOutDir --config ./packages/hooks/vite.config.js & copy .\\packages\\hooks\\package.json .\\base-project\\dist\\hl\\hooks",
     "build:utils": "vite build  --emptyOutDir --config ./packages/utils/vite.config.js & copy .\\packages\\utils\\package.json .\\base-project\\dist\\hl\\utils",
@@ -51,8 +51,7 @@
     "tailwindcss": "^3.4.10",
     "unplugin-auto-import": "^0.18.2",
     "unplugin-vue-components": "^0.27.4",
-    "vite": "^5.4.2",
-    "vite-plugin-libcss": "^1.1.1"
+    "vite": "^5.4.2"
   },
   "config": {
     "commitizen": {

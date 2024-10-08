@@ -1,6 +1,6 @@
 <script name="HlPagination" setup>
 import { ElPagination } from 'element-plus'
-import { pageSize } from '@hl/utils/es/common'
+import { pageSize } from '@hl/utils'
 import { computed } from 'vue'
 
 const props = defineProps({

@@ -1,5 +1,5 @@
 <script name="CascaderSelect" setup>
-import { getLabelByVal } from '@hl/utils/es/common'
+import { getLabelByVal } from '@hl/utils'
 import { cloneDeep } from 'lodash-es'
 import { ElCascaderPanel, ElDropdown, ElInput } from 'element-plus'
 import { computed, nextTick, ref } from 'vue'

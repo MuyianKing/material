@@ -22,11 +22,18 @@ const props = defineProps({
 })
 
 const src = computed(() => props.img || img)
+
+const _style = computed(() => {
+  return {
+    width: props.width,
+    height: props.height,
+  }
+})
 </script>
 
 <template>
   <div class="hl-no-data">
-    <img class="no-data-img" :src="src">
+    <img class="no-data-img" :src="src" :style="_style">
     <div class="no-data-text">
       {{ text }}
     </div>

@@ -16,7 +16,7 @@ const props = defineProps({
     default: null,
   },
   modelValue: {
-    type: [String, Number, Array],
+    type: [String, Number, Array, Boolean],
     default() {
       return ''
     },
@@ -40,7 +40,7 @@ const props = defineProps({
   },
   // 禁用的选项：选项值组成的数组
   disabledOptions: {
-    type: [String, Array],
+    type: [String, Array, Number, Boolean],
     default() {
       return []
     },

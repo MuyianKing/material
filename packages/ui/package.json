@@ -1,5 +1,10 @@
 {
   "name": "@hl/ui",
   "type": "module",
-  "version": "0.5.10"
+  "version": "0.6.1",
+  "dependencies": {
+    "@iconify/vue": "^4.1.2",
+    "echarts": "^5.5.1",
+    "wavesurfer.js": "^7.8.4"
+  }
 }

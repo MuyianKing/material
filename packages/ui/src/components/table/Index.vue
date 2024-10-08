@@ -102,7 +102,7 @@ const props = defineProps({
   },
   tooltopMaxWidth: {
     type: String,
-    default: '90vw',
+    default: '50vw',
   },
   dataChangeToTop: {
     type: Boolean,
@@ -527,24 +527,15 @@ defineExpose({
 </script>
 
 <template>
-  <div :id="tableId" class="hl-table" :class="{ 'hl-table-border': border, 'hl-table-nowrap': nowrap && !refresh_layout }"
-       :style="{ height: data.length === 0 ? '100%' : '' }"
-  >
+  <div :id="tableId" class="hl-table" :class="{ 'hl-table-border': border, 'hl-table-nowrap': nowrap && !refresh_layout }" :style="{ height: data.length === 0 ? '100%' : '' }">
     <!-- 隐藏列: slot里容纳table-column -->
     <div class="hidden-columns">
       <slot />
     </div>
-    <table-head v-if="store.columns.filter((column) => column.label).length > 0" :exclude-checked="excludeChecked"
-                :check-all="checkAll" :select @span-click="handleSpanClick" @change-check-all="changeCheckAll"
-    />
+    <table-head v-if="store.columns.filter((column) => column.label).length > 0" :exclude-checked="excludeChecked" :check-all="checkAll" :select @span-click="handleSpanClick" @change-check-all="changeCheckAll" />
 
-    <div class="body-wrapper" :style="{ maxHeight }" @mouseenter="scroll_bar_active = data.length > 0 && true"
-         @mouseleave="scroll_bar_active = fasle" @scroll="handleScroll"
-    >
-      <table-body v-show="!(data.length === 0 && hasEmptySlot)" v-model:check="check"
-                  v-model:excludeChecked="excludeChecked" :hover="hover" :active-index="activeIndex" :select :row-key="rowKey"
-                  :empty-text="emptyText" :row-class="rowClass" :tooltip-effect="tooltipEffect" @row-click="handleRowClick"
-      >
+    <div class="body-wrapper" :style="{ maxHeight }" @mouseenter="scroll_bar_active = data.length > 0 && true" @mouseleave="scroll_bar_active = fasle" @scroll="handleScroll">
+      <table-body v-show="!(data.length === 0 && hasEmptySlot)" v-model:check="check" v-model:excludeChecked="excludeChecked" :hover :active-index :select :row-key :empty-text :row-class :tooltip-effect :tooltop-max-width @row-click="handleRowClick">
         <template v-if="slots.extend" #extend="{ row }">
           <slot name="extend" :row="row" />
         </template>

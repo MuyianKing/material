@@ -1,5 +1,5 @@
 <script setup>
-import { openFullScreen } from '@hl/utils/es/dom'
+import { openFullScreen } from '@hl/utils'
 import { computed, inject } from 'vue'
 
 const props = defineProps({

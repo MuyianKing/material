@@ -2,6 +2,15 @@ import Layout from '@layout/Main.vue'
 
 export const menuList = [
   {
+    path: '/3d',
+    component: () => import('@views/3d/Index.vue'),
+    meta: {
+      title: '3D',
+      icon: 'clarity:users-solid',
+    },
+  },
+
+  {
     path: '/ui',
     meta: {
       title: 'UI',
@@ -56,6 +65,22 @@ export const menuList = [
           icon: 'clarity:user-solid',
         },
       },
+      {
+        path: 'number',
+        component: () => import('@views/ui/Number.vue'),
+        meta: {
+          title: '数字',
+          icon: 'clarity:user-solid',
+        },
+      },
+      {
+        path: 'search-page',
+        component: () => import('@views/ui/SearchPage.vue'),
+        meta: {
+          title: '查询页',
+          icon: 'clarity:user-solid',
+        },
+      },
     ],
   },
 ]
@@ -71,7 +96,7 @@ export default [
   {
     path: '/',
     component: Layout,
-    redirect: '/home',
+    redirect: '/ui/table',
     name: 'admin',
     children: menuList,
   },

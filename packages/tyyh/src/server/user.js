@@ -1,16 +1,19 @@
 import api from '../api'
 
-export async function getUserList(params, simple = true) {
+export async function getUserList(params, config = {}) {
+  const { simple, label_config } = config
+
   const result = await hl.http.post(api.user, {
     ...params,
     opt: 'user_get_v_0_0_2',
   })
 
-  if (!simple) {
+  if (simple === false) {
+    console.log('config', label_config)
     result.data.forEach((item) => {
       if (item.organization?.length > 0) {
         const org = item.organization[0]
-        item.name = `${item.name}（${org.organization_name} - ${org.job_name}）`
+        item.name = label_config ? label_config.replace('$name', item.name).replace('$org', org.organization_name || '').replace('$job', org.job_name || '') : `${item.name}（${org.organization_name} - ${org.job_name}）`
       }
     })
   }

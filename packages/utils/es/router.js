@@ -5,6 +5,7 @@
  * @param {object} opt.query 参数
  * @param {object} opt.params 参数
  * @param {string} opt.type 跳转方式：_blank--新tab self--当前页
+ * @param {Router} router 路由
  */
 export function jump(opt, router) {
   if (!opt.path || !router) {

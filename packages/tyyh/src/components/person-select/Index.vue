@@ -58,6 +58,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  labelConfig: {
+    type: String,
+    default: '',
+  },
 })
 
 const _options = ref([])
@@ -78,7 +82,12 @@ async function getData() {
         query.limit = 10000
       }
 
-      const { data, count } = await getApi()(query)
+      const config = {
+        label_config: props.labelConfig,
+        simple: false,
+      }
+
+      const { data, count } = await getApi()(query, config)
       if (query.page === 1) {
         _options.value = []
 
@@ -128,7 +137,7 @@ function getApi() {
   if (props.orgJobIdcard) {
     return getUserListWithEachOrgJob
   } else {
-    return params => getUserList(params, false)
+    return getUserList
   }
 }
 

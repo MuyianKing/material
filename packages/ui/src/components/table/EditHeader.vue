@@ -1,5 +1,5 @@
 <script setup name="HlTableEdit">
-import storage from '@hl/utils/es/storage'
+import { storage } from '@hl/utils'
 import { computed, inject, ref } from 'vue'
 import { ElCheckbox, ElCheckboxGroup } from 'element-plus'
 import DialogComp from '../dialog/Index.vue'

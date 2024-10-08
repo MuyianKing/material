@@ -1,5 +1,5 @@
 <script setup>
-import { getType } from '@hl/utils/es/file'
+import { getType } from '@hl/utils'
 import { computed } from 'vue'
 import { vLoading } from 'element-plus'
 import IconComp from '../../icon/Index.vue'

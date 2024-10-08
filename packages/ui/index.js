@@ -1,3 +1,4 @@
+export * from './src/resolver.js'
 export * from './src/components/add-button/index.js'
 export * from './src/components/avatar/index.js'
 export * from './src/components/block-title/index.js'

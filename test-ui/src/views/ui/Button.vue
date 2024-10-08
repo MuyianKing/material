@@ -49,9 +49,6 @@ import TestCompWrapper from '@comp/test-comp-wrapper/Index.vue'
       <hl-del-button />
       <hl-del-button text class="ml-4" />
       <hl-del-button text="自定义文字" class="ml-4" />
-      <hl-del-button text class="ml-4">
-        自定义按钮
-      </hl-del-button>
     </div>
   </div>
 </template>
