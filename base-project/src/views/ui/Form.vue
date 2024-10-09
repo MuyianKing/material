@@ -1,0 +1,20 @@
+<script setup>
+import HlCheckbox from '@hl/ui/src/components/checkbox/Index.vue'
+
+const options = [{
+  label: '测试',
+  value: 1,
+}, {
+  label: '测试2',
+  value: 2,
+}]
+</script>
+
+<template>
+  <div>
+    <hl-checkbox :options line readonly />
+  </div>
+</template>
+
+<style lang='scss' scoped>
+</style>

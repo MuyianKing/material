@@ -1,8 +1,7 @@
-import { isOverflow } from '@hl/utils/es/dom'
+import { isOverflow } from '@hl/utils'
 import { ElCheckbox, ElTooltip } from 'element-plus'
-import 'element-plus/es/components/checkbox/style/css'
-import 'element-plus/es/components/tooltip/style/css'
 import { computed, inject, ref } from 'vue'
+import { useDebounceFn } from '@vueuse/core'
 
 export default {
   name: 'HlTableBody',
@@ -35,7 +34,7 @@ export default {
     },
     tooltopMaxWidth: {
       type: String,
-      default: '30vw',
+      default: '50vw',
     },
     // 开启选择
     select: {
@@ -78,26 +77,32 @@ export default {
     const tip_index = ref(0)
 
     // 设置tip
-    function setTips(e, index, col_index) {
+    const setTips = useDebounceFn((e, index, col_index) => {
       if (columns.value[col_index]?.noTip) {
         return
       }
 
       tip_index.value = index
       const dom = e.target
-      if (isOverflow(dom)) {
+      if (isOverflow(dom) || (dom.children[0] && isOverflow(dom.children[0]))) {
         const { top, left } = dom.getBoundingClientRect()
+
+        let y_offset = 6
+        if (index < 2) {
+          y_offset = 14 + dom.clientHeight / 2
+        }
+
         position.value = DOMRect.fromRect({
           width: 0,
           height: 0,
           x: left + dom.clientWidth / 2,
-          y: top + 8 + (index > 0 ? 0 : dom.clientHeight),
+          y: top + y_offset,
         })
 
         tip_content.value = dom.textContent
         visible.value = true
       }
-    }
+    }, 150)
 
     // 隐藏tip
     function hideTip() {
@@ -195,7 +200,7 @@ export default {
           )}
 
         </tbody>
-        <ElTooltip visible={visible.value} append-to="body" raw-content content={`<div style="max-width:${props.tooltopMaxWidth}">${tip_content.value}</div>`} effect={props.tooltipEffect} placement={tip_index.value > 0 ? 'top' : 'bottom'} virtual-triggering virtual-ref={triggerRef.value} />
+        <ElTooltip visible={visible.value} append-to="body" raw-content content={`<div style="max-width:${props.tooltopMaxWidth}">${tip_content.value}</div>`} effect={props.tooltipEffect} placement={tip_index.value > 1 ? 'top' : 'bottom'} virtual-triggering virtual-ref={triggerRef.value} />
       </table>
     )
   },

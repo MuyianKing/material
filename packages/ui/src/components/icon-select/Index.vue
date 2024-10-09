@@ -1,12 +1,10 @@
 <script setup>
 import { inject, onMounted, reactive, ref } from 'vue'
-import { ElPopover, vLoading } from 'element-plus'
+import { ElButton, ElPopover, vLoading } from 'element-plus'
 import { useDebounceFn } from '@vueuse/core'
+import { vBottom } from '@hl/directions'
 import IconComp from '../icon/Index.vue'
 import InputComp from '../input/Index.vue'
-
-import 'element-plus/es/components/popover/style/css'
-import 'element-plus/es/components/loading/style/css'
 
 defineProps({
   placholder: {
@@ -71,14 +69,19 @@ function handleBottom() {
   })
 }
 
+const popover_ref = ref()
+function handleSubmit() {
+  popover_ref.value?.hide()
+}
+
 onMounted(() => {
   getData()
 })
 </script>
 
 <template>
-  <div>
-    <el-popover placement="bottom-start" :title="title" :width="440" trigger="click" :teleported="false">
+  <div class="hl-icon-select">
+    <el-popover ref="popover_ref" placement="bottom-start" :title="title" :width="440" trigger="click" :teleported="false">
       <template #reference>
         <div class="flex items-center cursor-pointer">
           <span class="placholder-item">{{ placholder }}</span>
@@ -93,59 +96,15 @@ onMounted(() => {
             <icon-comp :icon="item" size="22px" @click="handleClick(item)" />
           </div>
         </div>
+        <div class="btn-wrapper">
+          <el-button type="danger" size="small" @click="model = ''">
+            清除
+          </el-button>
+          <el-button type="primary" size="small" @click="handleSubmit">
+            确定
+          </el-button>
+        </div>
       </div>
     </el-popover>
   </div>
 </template>
-
-<style lang="scss" scoped>
-.icons-wrapper {
-  font-size: 24px;
-  max-height: 400px;
-
-  display: flex;
-  flex-direction: column;
-
-  .icon-content {
-    overflow-y: auto;
-    flex: 1;
-    min-height: 0;
-  }
-
-  $height: 40px;
-
-  .icon-item {
-    width: $height;
-    height: $height;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  svg {
-    margin: 8px;
-    cursor: pointer;
-  }
-}
-
-.placholder-item {
-  color: gray;
-}
-
-/*滚动条整体样式*/
-/*高宽分别对应横竖滚动条的尺寸*/
-.icon-content::-webkit-scrollbar {
-  height: 10px;
-  width: 2px;
-}
-
-/*滚动条里面小方块*/
-.icon-content::-webkit-scrollbar-thumb {
-  border-radius: 2px;
-}
-
-/*滚动条里面轨道*/
-.icon-content::-webkit-scrollbar-track {
-  border-radius: 2px;
-}
-</style>

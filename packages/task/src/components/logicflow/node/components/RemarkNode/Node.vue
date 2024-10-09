@@ -1,9 +1,0 @@
-<script setup>
-import CustomeNode from '../CustomNode.vue'
-</script>
-
-<template>
-  <custome-node type="RemarkNode" />
-</template>
-
-<style lang="scss" scoped></style>

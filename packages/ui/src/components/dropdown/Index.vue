@@ -1,15 +1,8 @@
 <script setup>
-import { getLabelByVal } from '@hl/utils/es/common'
+import { getLabelByVal } from '@hl/utils'
 import { ElCheckbox, ElCheckboxGroup, ElDropdown, ElDropdownItem, ElDropdownMenu, ElInput, ElScrollbar } from 'element-plus'
 import { computed, nextTick, ref, watch } from 'vue'
 import { HlIcon } from '../icon'
-
-import 'element-plus/es/components/checkbox/style/css'
-import 'element-plus/es/components/checkbox-group/style/css'
-import 'element-plus/es/components/dropdown/style/css'
-import 'element-plus/es/components/dropdown-item/style/css'
-import 'element-plus/es/components/dropdown-menu/style/css'
-import 'element-plus/es/components/scrollbar/style/css'
 
 const props = defineProps({
   // 待选项
@@ -150,7 +143,7 @@ const _label = computed(() => {
 </script>
 
 <template>
-  <el-dropdown trigger="click" @visible-change="val => { arrowStatus = val }">
+  <el-dropdown class="hl-dropdown" trigger="click" @visible-change="val => { arrowStatus = val }">
     <div :class="{ 'active-label': activeStatus }" class="flex items-center dropdown-label">
       <span>{{ _label }}</span>
       <hl-icon v-if="!noArrow" :class="{ 'deg-180': arrowStatus }" class="arrow-icon ml-1"
@@ -190,27 +183,3 @@ const _label = computed(() => {
     </template>
   </el-dropdown>
 </template>
-
-<style lang="scss" scoped>
-:deep(.active) {
-  background-color: var(--color-primary);
-  color: white;
-}
-
-.dropdown-label {
-  cursor: pointer;
-  line-height: normal;
-}
-
-.active-label {
-  color: var(--color-primary);
-}
-
-.arrow-icon {
-  transition: all ease 0.5s;
-}
-
-.deg-180 {
-  transform: rotate(180deg);
-}
-</style>

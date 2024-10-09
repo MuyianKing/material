@@ -1,7 +1,6 @@
 <script name="HlDialog" setup>
 import { ElDialog } from 'element-plus'
-import 'element-plus/es/components/dialog/style/css'
-import { computed, defineModel, nextTick, ref, useSlots, watch } from 'vue'
+import { computed, nextTick, ref, useSlots, watch } from 'vue'
 
 const props = defineProps({
   closeOnClickModal: {
@@ -19,6 +18,10 @@ const props = defineProps({
   destroyOnClose: {
     type: Boolean,
     default: true,
+  },
+  unique: {
+    type: String,
+    default: '',
   },
 })
 
@@ -106,47 +109,3 @@ defineExpose({
     </template>
   </el-dialog>
 </template>
-
-<style lang="scss">
-.hl-custome-dialog {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: fit-content;
-  padding: 0;
-
-  .el-dialog__header {
-    padding: 12px 25px !important;
-    background-color: #e8f0ff;
-    margin-right: 0 !important;
-    min-height: 48px;
-
-    .el-dialog__title {
-      font-size: 16px !important;
-      font-weight: bold;
-    }
-
-    .el-dialog__headerbtn {
-      top: 2px;
-      height: 48px;
-      font-size: 24px;
-
-      .el-dialog__close {
-        color: gray;
-      }
-    }
-  }
-
-  .el-dialog__body {
-    overflow-y: auto;
-    padding: 10px 20px !important;
-  }
-
-  .el-dialog__footer {
-    border-top: 1px solid #d2dff4;
-    padding: 20px !important;
-  }
-}
-</style>

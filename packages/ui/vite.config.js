@@ -5,7 +5,6 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 
 export default defineConfig({
   build: {
-    cssCodeSplit: true,
     rollupOptions: {
       preserveEntrySignatures: 'strict',
       external: [
@@ -33,6 +32,7 @@ export default defineConfig({
           assetFileNames: '[name][extname]',
         },
       ],
+      treeshake: false,
     },
     lib: {
       entry: resolve(__dirname, './index.js'),

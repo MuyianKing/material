@@ -1,5 +1,5 @@
 <script setup>
-import { getType } from '@hl/utils/es/file'
+import { getType } from '@hl/utils'
 import { ref, watch } from 'vue'
 import ImageComp from '../image/Index.vue'
 import VideoComp from '../video/Index.vue'
@@ -22,10 +22,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  // 展示方式 auto-自动 card-卡片形式
-  listType: {
-    type: String,
-    default: 'auto',
+  // 是否已卡片形式展示
+  card: {
+    type: Boolean,
+    default: false,
   },
   noDownload: {
     type: Boolean,
@@ -63,19 +63,13 @@ watch(() => props.files, (val) => {
 </script>
 
 <template>
-  <div class="file-preview-wrapper">
+  <div class="hl-preview-wrapper">
     <template v-for="item in _image_video" :key="item.id">
       <image-comp v-if="item.type === 'image'" :height :width :prefix="item.prefix" :src="item.path || item.fileName" fit="cover" class="preview-item" />
       <video-comp v-else :src="item.path" :prefix="item.prefix" :height :width controls :no-preview class="preview-item" />
     </template>
     <template v-for="item in _not_image_video" :key="item.id">
-      <file-comp :file="item" class="preview-item" :card="listType === 'card'" :height :width :no-download />
+      <file-comp :file="item" class="preview-item" :card :height :width :no-download />
     </template>
   </div>
 </template>
-
-<style lang='scss' scoped>
-@import './Index.scss';
-@import '../video/Index.scss';
-@import '../file/Index.scss';
-</style>

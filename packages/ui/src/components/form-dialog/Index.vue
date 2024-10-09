@@ -1,10 +1,8 @@
 <script setup name="HlFormDialog">
 import { ElButton, ElForm } from 'element-plus'
-import { error, success, warning } from '@hl/utils/es/message'
+import { error, success, warning } from '@hl/utils'
 import { ref } from 'vue'
 import DialogComp from '../dialog/Index.vue'
-import 'element-plus/es/components/button/style/css'
-import 'element-plus/es/components/form/style/css'
 
 const props = defineProps({
   // 标题
@@ -106,7 +104,7 @@ defineExpose({
 
 <template>
   <dialog-comp v-model="show" :title :width :top v-bind="$attrs" @close="close">
-    <el-form ref="form_ref" :class="{ 'inline-form': inline }" :model="model" :rules="rules" :label-width="labelWidth" v-bind="$attrs" scroll-to-error>
+    <el-form ref="form_ref" :class="{ 'hl-form-dialog-inline-form': inline }" :model="model" :rules="rules" :label-width="labelWidth" v-bind="$attrs" scroll-to-error>
       <slot />
     </el-form>
     <template #footer>
@@ -118,14 +116,3 @@ defineExpose({
     </template>
   </dialog-comp>
 </template>
-
-<style lang="scss" scoped>
-.inline-form {
-  display: flex;
-  flex-wrap: wrap;
-
-  :deep(.el-form-item) {
-    width: 50%;
-  }
-}
-</style>

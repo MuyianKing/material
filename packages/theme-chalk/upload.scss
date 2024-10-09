@@ -1,0 +1,132 @@
+.hl-upload-wrapper {
+  color: #555;
+}
+
+// -------------触发组件-----------
+.hl-upload-trigger-comp {
+  &.trigger-item {
+    width: 100px !important;
+    height: 100px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+  }
+
+  &.normal-trigger {
+    width: fit-content;
+  }
+
+  .upload-icon {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
+  .upload-icon:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+}
+
+// -------------预览-----------------
+.hl-upload-preview-wrapper {
+  position: relative;
+  border-radius: 5px;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+
+  .file-list-wrapper {
+    padding: 5px 0;
+  }
+
+  .file-list-wrapper:hover {
+    padding: 10px;
+  }
+
+  .delete-wrapper {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    right: 0;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    user-select: none;
+    border-radius: 5px;
+
+    &>svg:hover {
+      cursor: pointer;
+      color: var(--color-primary);
+    }
+  }
+
+  &:hover {
+    .delete-wrapper {
+      display: flex;
+    }
+  }
+
+  img {
+    border-radius: 5px;
+  }
+
+  .hl-preview-video {
+    border-radius: 5px;
+  }
+}
+
+// ---------------------
+.hl-upload-flex-style {
+  display: flex;
+  flex-wrap: wrap;
+
+  .hl-upload-preview-wrapper {
+    margin: 0;
+  }
+
+  .trigger-item {
+    margin: 0;
+  }
+}
+
+.hl-upload-multiple-margin {
+  .hl-upload-preview-wrapper {
+    margin: 0 5px 5px 0;
+  }
+
+  .trigger-item {
+    margin: 0 5px 5px 0;
+  }
+}
+
+.hl-ui-progress-shadow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999999;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  .progress-body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 50%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+  }
+
+  .progress {
+    width: 100%;
+  }
+}

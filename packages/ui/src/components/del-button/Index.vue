@@ -1,6 +1,5 @@
 <script setup>
 import { ElButton, ElPopover } from 'element-plus'
-import 'element-plus/es/components/popover/style/css'
 import { ref } from 'vue'
 import ButtonComp from '../button/Index.vue'
 import useButton from '../../hooks/useButton'
@@ -18,13 +17,13 @@ const props = defineProps({
     type: String,
     default: 'top',
   },
-  text: {
-    type: [Boolean, String],
-    default: false,
-  },
   icon: {
     type: String,
     default: 'icon-park-outline:delete',
+  },
+  text: {
+    type: [Boolean, String],
+    default: false,
   },
 })
 
@@ -64,7 +63,7 @@ const { _text } = useButton(props, '删除')
       </div>
     </div>
     <template #reference>
-      <div class="inline-block">
+      <div class="hl-del-button inline-block">
         <button-comp :button-type="text ? 'text' : 'icon'" type="danger" class="del-icon" :icon :text="_text" v-bind="$attrs" @click="handleClick">
           <slot />
         </button-comp>
@@ -72,10 +71,3 @@ const { _text } = useButton(props, '删除')
     </template>
   </el-popover>
 </template>
-
-<style lang="scss" scoped>
-:deep(.del-icon) {
-  cursor: pointer;
-  color: var(--color-danger);
-}
-</style>

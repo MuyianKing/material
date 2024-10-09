@@ -21,17 +21,11 @@ const parse_time = computed(() => props.time?.split(props.separator).filter(item
 
 <template>
   <div :class="{ 'flex-wrap': !nowrap }" class="flex justify-center">
-    <div class="word-no-wrap">
+    <div class="whitespace-nowrap">
       {{ parse_time[0] || '' }}
     </div>
-    <div v-if="parse_time[1]" class="ml-1 word-no-wrap">
+    <div v-if="parse_time[1]" class="ml-1 whitespace-nowrap">
       {{ parse_time[1] || '' }}
     </div>
   </div>
 </template>
-
-<style lang="scss" scoped>
-.word-no-wrap {
-  white-space: nowrap;
-}
-</style>

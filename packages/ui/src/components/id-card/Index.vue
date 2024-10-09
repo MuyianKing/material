@@ -8,15 +8,9 @@ defineProps({
 </script>
 
 <template>
-  <span class="id-card">
+  <span class="hl-id-card whitespace-nowrap">
     <slot>
       {{ idCard }}
     </slot>
   </span>
 </template>
-
-<style lang="scss" scoped>
-.id-card {
-  white-space: nowrap;
-}
-</style>

@@ -1,7 +1,6 @@
 <script name="HlPagination" setup>
 import { ElPagination } from 'element-plus'
-import { pageSize } from '@hl/utils/es/common'
-import 'element-plus/es/components/pagination/style/css'
+import { pageSize } from '@hl/utils'
 import { computed } from 'vue'
 
 const props = defineProps({
@@ -65,7 +64,7 @@ const layout = computed(() => {
 </script>
 
 <template>
-  <div v-if="count" class="pagination-wrapper">
+  <div v-if="count" class="hl-pagination-wrapper">
     <div v-if="last_num" class="info">
       <span>共</span>
       <span class="num">{{ count }}</span>
@@ -79,22 +78,3 @@ const layout = computed(() => {
     <el-pagination :current-page="_page" :pager-count :layout :page-size="size" :total="count" background hide-on-single-page @update:current-page="handlePageChange" @update:page-size="handleSizeChange" />
   </div>
 </template>
-
-<style lang="scss" scoped>
-.pagination-wrapper {
-  margin-top: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-
-  .info {
-    font-size: 14px;
-    color: #666;
-
-    .num {
-      margin: 0 3px;
-    }
-  }
-}
-</style>

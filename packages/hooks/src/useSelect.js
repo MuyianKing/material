@@ -1,5 +1,5 @@
 import { cloneDeep, concat } from 'lodash-es'
-import { error } from '@hl/utils/es/message'
+import { error } from '@hl/utils'
 import { reactive, ref, watch } from 'vue'
 
 export default function (props, emits, apiSelect, config = {}) {
@@ -118,18 +118,15 @@ export default function (props, emits, apiSelect, config = {}) {
 
   // 搜索
   const search = () => {
-    apiSelect(query)
-      .then((data) => {
-        hasMore = data.count > query.limit * query.page
-
-        dataList.value = concat(
-          dataList.value,
-          filterData(formatData(data.data)),
-        )
-      })
-      .catch((e) => {
-        error(e)
-      })
+    apiSelect(query).then((data) => {
+      hasMore = data.count > query.limit * query.page
+      dataList.value = concat(
+        dataList.value,
+        filterData(formatData(data.data)),
+      )
+    }).catch((e) => {
+      error(e)
+    })
   }
 
   // 搜索

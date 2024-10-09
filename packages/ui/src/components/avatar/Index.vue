@@ -1,7 +1,6 @@
 <script setup>
 import multiavatar from '@multiavatar/multiavatar/esm'
 import { ElAvatar } from 'element-plus'
-import 'element-plus/es/components/avatar/style/css'
 import { computed, ref } from 'vue'
 
 const props = defineProps({
@@ -47,9 +46,3 @@ const _style = computed(() => {
     </slot>
   </el-avatar>
 </template>
-
-<style lang="scss" scoped>
-.hl-ui-zw {
-  color: red;
-}
-</style>

@@ -4,6 +4,7 @@ import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
   build: {
+    outDir: './base-project/dist/hl/tyyh',
     cssCodeSplit: true,
     rollupOptions: {
       preserveEntrySignatures: 'strict',
@@ -26,6 +27,7 @@ export default defineConfig({
           assetFileNames: '[name][extname]',
         },
       ],
+      treeshake: false,
     },
     lib: {
       entry: resolve(__dirname, './index.js'),

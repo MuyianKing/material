@@ -1,7 +1,5 @@
 <script setup name="HlRadio">
 import { ElRadio, ElRadioGroup } from 'element-plus'
-import 'element-plus/es/components/radio/style/css'
-import 'element-plus/es/components/radio-group/style/css'
 
 const props = defineProps({
   options: {
@@ -27,6 +25,14 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  readonly: {
+    type: Boolean,
+    default: false,
+  },
+  disabled: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 const emits = defineEmits(['update:modelValue', 'change'])
@@ -37,6 +43,10 @@ function change(val) {
 }
 
 function click(item) {
+  if (props.readonly) {
+    return
+  }
+
   if (!props.empty)
     return
 
@@ -50,25 +60,9 @@ function click(item) {
 </script>
 
 <template>
-  <el-radio-group :model-value="modelValue" :class="{ 'line-item': line }" @change="change">
+  <el-radio-group :model-value="modelValue" :class="{ 'hl-radio-line-item': line, 'hl-radio-readonly-group': readonly }" :disabled="disabled || readonly" @change="change">
     <el-radio v-for="item in options" :key="item.value" :value="item.value" @click="click(item)">
       {{ item.label }}
     </el-radio>
   </el-radio-group>
 </template>
-
-<style lang="scss" scoped>
-.line-item {
-  width: 100%;
-
-  .el-radio {
-    width: 100%;
-    margin-right: 0;
-
-    .el-radio__label {
-      white-space: break-spaces;
-      line-height: 20px;
-    }
-  }
-}
-</style>

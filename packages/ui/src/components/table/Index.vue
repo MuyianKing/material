@@ -90,15 +90,6 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
-  // 边框颜色
-  borderColor: {
-    type: String,
-    default: '#dfdfdf',
-  },
-  borderWidth: {
-    type: String,
-    default: '1px',
-  },
   rowClass: {
     type: Function,
     default() {
@@ -111,7 +102,7 @@ const props = defineProps({
   },
   tooltopMaxWidth: {
     type: String,
-    default: '90vw',
+    default: '50vw',
   },
   dataChangeToTop: {
     type: Boolean,
@@ -536,31 +527,22 @@ defineExpose({
 </script>
 
 <template>
-  <div :id="tableId" class="hl-table" :class="{ 'hl-table-border': border, 'nowrap': nowrap && !refresh_layout }"
-       :style="{ height: data.length === 0 ? '100%' : '' }"
-  >
+  <div :id="tableId" class="hl-table" :class="{ 'hl-table-border': border, 'hl-table-nowrap': nowrap && !refresh_layout }" :style="{ height: data.length === 0 ? '100%' : '' }">
     <!-- 隐藏列: slot里容纳table-column -->
     <div class="hidden-columns">
       <slot />
     </div>
-    <table-head v-if="store.columns.filter((column) => column.label).length > 0" :exclude-checked="excludeChecked"
-                :check-all="checkAll" :select @span-click="handleSpanClick" @change-check-all="changeCheckAll"
-    />
+    <table-head v-if="store.columns.filter((column) => column.label).length > 0" :exclude-checked="excludeChecked" :check-all="checkAll" :select @span-click="handleSpanClick" @change-check-all="changeCheckAll" />
 
-    <div class="body-wrapper" :style="{ maxHeight }" @mouseenter="scroll_bar_active = data.length > 0 && true"
-         @mouseleave="scroll_bar_active = fasle" @scroll="handleScroll"
-    >
-      <table-body v-show="!(data.length === 0 && hasEmptySlot)" v-model:check="check"
-                  v-model:excludeChecked="excludeChecked" :hover="hover" :active-index="activeIndex" :select :row-key="rowKey"
-                  :empty-text="emptyText" :row-class="rowClass" :tooltip-effect="tooltipEffect" @row-click="handleRowClick"
-      >
+    <div class="body-wrapper" :style="{ maxHeight }" @mouseenter="scroll_bar_active = data.length > 0 && true" @mouseleave="scroll_bar_active = fasle" @scroll="handleScroll">
+      <table-body v-show="!(data.length === 0 && hasEmptySlot)" v-model:check="check" v-model:excludeChecked="excludeChecked" :hover :active-index :select :row-key :empty-text :row-class :tooltip-effect :tooltop-max-width @row-click="handleRowClick">
         <template v-if="slots.extend" #extend="{ row }">
           <slot name="extend" :row="row" />
         </template>
       </table-body>
 
       <!-- 自定义滚动条 -->
-      <scroll-bar ref="scroll_bar" :table-id="tableId" :active="scroll_bar_active" />
+      <scroll-bar ref="scroll_bar" :table-id="tableId" :active="true" />
 
       <div v-show="data.length === 0 && hasEmptySlot" class="w-full h-full">
         <slot name="empty" />
@@ -569,99 +551,3 @@ defineExpose({
     <edit-header v-if="storageKey" :show="editHeader" @submit="editSubmit" @close="closeEditHeader" />
   </div>
 </template>
-
-<style lang="scss" scoped>
-@import './scss/table.scss';
-
-.hl-table {
-  max-height: 100%;
-  overflow-x: auto;
-  height: 100%;
-}
-
-.hidden-columns {
-  visibility: hidden;
-  position: absolute;
-  z-index: -1;
-}
-
-.body-wrapper {
-  overflow-y: auto;
-  overflow-x: hidden;
-  width: fit-content;
-  min-width: 100%;
-  position: relative;
-  scrollbar-width: none;
-  max-height: calc(100% - 41px);
-}
-
-.body-wrapper::-webkit-scrollbar {
-  width: 0px;
-  height: 7px;
-}
-
-.body-wrapper::-webkit-scrollbar-thumb {
-  background: transparent;
-  border-radius: 20px;
-}
-
-.body-wrapper:hover::-webkit-scrollbar-thumb {
-  background: rgba(185, 186, 189, 0.6);
-}
-
-.nowrap {
-  :deep(table) {
-    .hl-table-td {
-      white-space: nowrap;
-    }
-  }
-}
-
-:deep(.hl-table-checkbox) {
-  width: 60px;
-  min-width: 60px;
-  max-width: 60px;
-  text-align: center !important;
-
-  .el-checkbox {
-    height: 14px;
-  }
-}
-
-.hl-table-border {
-  .hl-table-header {
-    border-top: v-bind(borderWidth) solid v-bind(borderColor);
-  }
-
-  :deep(table) {
-    border-left: v-bind(borderWidth) solid v-bind(borderColor);
-
-    tbody td,
-    thead th {
-      border-bottom: v-bind(borderWidth) solid v-bind(borderColor);
-      border-right: v-bind(borderWidth) solid v-bind(borderColor);
-    }
-  }
-
-  .hl-table-no-data {
-    border-bottom: v-bind(borderWidth) solid v-bind(borderColor);
-  }
-}
-
-:deep(.hl-table-body) {
-  .hl-table-tr:hover {
-    td {
-      background-color: #ebeef5 !important;
-    }
-  }
-
-  .hl-table-tr.active {
-    background-color: #ebeef5;
-  }
-}
-
-:deep(.hl-table-td-div) {
-  display: flex;
-  align-items: center;
-}
-</style>

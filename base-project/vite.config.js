@@ -6,13 +6,10 @@ import postcssPresetEnv from 'postcss-preset-env'
 import postcssFlexbugsFixes from 'postcss-flexbugs-fixes'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { visualizer } from 'rollup-plugin-visualizer'
-import ElementPlus from 'unplugin-element-plus/vite'
 import { defineConfig, loadEnv } from 'vite'
 import basicSsl from '@vitejs/plugin-basic-ssl'
 import viteImagemin from 'vite-plugin-imagemin'
 import viteCompression from 'vite-plugin-compression'
-import Components from 'unplugin-vue-components/vite'
-import AutoImport from 'unplugin-auto-import/vite'
 import useAlias from './alias.config'
 
 const { alias_map } = useAlias()
@@ -25,14 +22,6 @@ export default ({ mode }) => {
   const plugins = [
     vue(),
     vueJsx(),
-    ElementPlus(),
-    AutoImport({
-    }),
-    Components({
-      directoryAsNamespace: true,
-      resolvers: [],
-      dts: true,
-    }),
     // 图片压缩
     viteImagemin({
       gifsicle: {

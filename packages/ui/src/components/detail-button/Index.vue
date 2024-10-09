@@ -27,9 +27,3 @@ const { _text } = useButton(props, '查看')
     <slot />
   </button-comp>
 </template>
-
-<style lang="scss" scoped>
-.hl-ui-zw {
-  color: red;
-}
-</style>

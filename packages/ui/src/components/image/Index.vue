@@ -1,7 +1,5 @@
 <script setup name="HlPreviewImg">
 import { ElImage, vLoading } from 'element-plus'
-import 'element-plus/es/components/image/style/css'
-import 'element-plus/es/components/loading/style/css'
 
 import { computed, inject } from 'vue'
 
@@ -74,7 +72,3 @@ const _style = computed(() => {
     <slot />
   </div>
 </template>
-
-<style lang="scss" scoped>
-@use './Index.scss';
-</style>

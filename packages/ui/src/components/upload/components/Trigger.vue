@@ -1,6 +1,5 @@
 <script setup>
-import { getMimeType, getSuffix } from '@hl/utils/es/file'
-import { confirm } from '@hl/utils/es/message'
+import { confirm, getMimeType, getSuffix } from '@hl/utils'
 import { computed, ref, useSlots } from 'vue'
 import { getAcceptType } from '../hooks/index'
 import IconComp from '../../icon/Index.vue'
@@ -34,8 +33,13 @@ const files_comp = computed(() => {
 // 是否显示添加按钮
 const show_add = computed(() => {
   const config = props.config
+
+  if (config.noPreview) {
+    return true
+  }
+
   // 单选已选
-  if (!config.multiple && files_comp.value.length > 0) {
+  if ((!config.multiple && files_comp.value.length > 0)) {
     return false
   }
 
@@ -85,9 +89,7 @@ defineExpose({
 </script>
 
 <template>
-  <div v-if="show_add" v-bind="$attrs" class="cursor-pointer normal-trigger trigger-comp"
-       :class="{ 'trigger-item': triggerType === 'card' && !slots.trigger, 'w-full': triggerType === 'line' }" @click="triggerAdd"
-  >
+  <div v-if="show_add" v-bind="$attrs" class="cursor-pointer normal-trigger hl-upload-trigger-comp" :class="{ 'trigger-item': triggerType === 'card' && !slots.trigger, 'w-full': triggerType === 'line' }" @click="triggerAdd">
     <slot name="trigger" />
 
     <template v-if="!slots.trigger">
@@ -102,7 +104,3 @@ defineExpose({
   </div>
   <input ref="file_input_ref" type="file" :accept="accept_type" style="display:none" @change="selectMedia">
 </template>
-
-<style lang='scss' scoped>
-
-</style>

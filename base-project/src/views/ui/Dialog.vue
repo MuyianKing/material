@@ -1,8 +1,8 @@
 <script setup>
-import { HlButton } from '@ui'
+import HlButton from '@ui/button/Index.vue'
 import { ref } from 'vue'
 
-import HlFormDialog from '@hl/ui/src/components/form-dialog/Index.vue'
+import HlFormDialog from '@ui/form-dialog/Index.vue'
 
 const show = ref(false)
 </script>

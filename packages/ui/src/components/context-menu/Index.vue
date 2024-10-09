@@ -65,46 +65,10 @@ defineExpose({
 </script>
 
 <template>
-  <div v-show="show" class="context-menu" :style="_style" @click.stop>
+  <div v-show="show" class="hl-context-menu" :style="_style" @click.stop>
     <div class="arrow" />
 
     <render-menu-item ref="render_ref" :options="options" @selected="handleSelected" />
     <slot />
   </div>
 </template>
-
-<style lang='scss' scoped>
-$arrow_width: 10px;
-
-.context-menu {
-  width: fit-content;
-  height: 64px;
-  position: fixed;
-  border-radius: 5px;
-  top: 20%;
-  left: 20%;
-  transform: translate(-50%, calc($arrow_width / 2));
-  z-index: 999999;
-}
-
-.arrow {
-  width: $arrow_width;
-  height: $arrow_width;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  z-index: 8;
-}
-
-.arrow::before {
-  content: ' ';
-  position: absolute;
-  width: $arrow_width;
-  height: $arrow_width;
-  border: 1px solid var(--el-border-color-light);
-  border-bottom-color: transparent !important;
-  border-right-color: transparent !important;
-  background-color: #fff;
-  transform: rotate(45deg);
-}
-</style>

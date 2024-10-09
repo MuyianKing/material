@@ -1,6 +1,7 @@
 <script setup>
 import { computed, onMounted, ref, watch, watchEffect } from 'vue'
 import { HlCheckbox, HlRadio, HlSelect } from '@hl/ui'
+import { useDebounceFn } from '@vueuse/core'
 import { getUserList, getUserListWithEachOrgJob } from '../../server/user'
 
 const props = defineProps({
@@ -57,6 +58,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  labelConfig: {
+    type: String,
+    default: '',
+  },
 })
 
 const _options = ref([])
@@ -66,6 +71,7 @@ const query = {
   page: 1,
   limit: 10,
 }
+
 async function getData() {
   try {
     if (props.options) {
@@ -76,7 +82,12 @@ async function getData() {
         query.limit = 10000
       }
 
-      const { data, count } = await getApi()(query)
+      const config = {
+        label_config: props.labelConfig,
+        simple: false,
+      }
+
+      const { data, count } = await getApi()(query, config)
       if (query.page === 1) {
         _options.value = []
 
@@ -109,6 +120,11 @@ async function getData() {
   }
 }
 
+const search = useDebounceFn(() => {
+  query.page = 1
+  getData()
+})
+
 /**
  * 获取请求方法
  * @returns {(function(*): *)|*|(function(*): Promise<*>)} 方法
@@ -121,7 +137,7 @@ function getApi() {
   if (props.orgJobIdcard) {
     return getUserListWithEachOrgJob
   } else {
-    return params => getUserList(params, false)
+    return getUserList
   }
 }
 
@@ -133,12 +149,6 @@ function formatData(data) {
     }
   })
 }
-
-watchEffect(() => {
-  if (props.options || props.server) {
-    getData()
-  }
-})
 
 const value = defineModel()
 
@@ -157,15 +167,13 @@ function filter(val) {
 
   // 设置请求的参数
   query.query = val
-  query.page = 1
-  getData()
+  search()
 }
 
 watch([() => props.organizationId, () => props.hasNext], () => {
   query.organization_id = props.organizationId
   query.sub_organization = props.hasNext ? 1 : 0
-  query.page = 1
-  getData()
+  search()
 })
 
 // 如果组件的单选多选是变化的，那么需要监听
@@ -178,6 +186,12 @@ watchEffect(() => {
   } else if (Array.isArray(value.value)) {
     // 单选但是值为数组
     value.value = ''
+  }
+})
+
+watchEffect(() => {
+  if (props.options || props.server) {
+    search()
   }
 })
 
@@ -195,8 +209,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <hl-radio v-if="expand && !multiple" v-model="value" :options="_options" :empty="!required" v-bind="$attrs" />
-  <hl-checkbox v-else-if="expand && multiple" v-model="value" :options="_options" v-bind="$attrs" />
+  <hl-radio v-if="expand && !multiple" v-model="value" :options="_options" :empty="!required" v-bind="$attrs" :readonly />
+  <hl-checkbox v-else-if="expand && multiple" v-model="value" :options="_options" v-bind="$attrs" :readonly />
   <hl-select v-else v-model="value" :options="_options" v-bind="$attrs" :multiple :loading :remote-method="filter" :readonly remote :disabled-options="_d_p" @bottom="handleMore" />
 </template>
 

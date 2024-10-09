@@ -1,7 +1,7 @@
 <script setup>
 import WaveSurfer from 'wavesurfer.js'
 import Hover from 'wavesurfer.js/dist/plugins/hover.esm.js'
-import { closeLoading, error, loading } from '@hl/utils/es/message'
+import { closeLoading, error, loading } from '@hl/utils'
 import { nextTick, ref, watch } from 'vue'
 import IconComp from '../icon/Index.vue'
 
@@ -77,7 +77,7 @@ function handleClose() {
 </script>
 
 <template>
-  <div v-if="src" class="wavesurfer">
+  <div v-if="src" class="hl-wavesurfer">
     <div class="tips">
       双击暂停，单击播放
     </div>
@@ -85,35 +85,3 @@ function handleClose() {
     <icon-comp icon="carbon:close-outline" class="close-item" @click="handleClose" />
   </div>
 </template>
-
-<style lang='scss' scoped>
-.wavesurfer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.2);
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-
-  .tips {
-    position: absolute;
-    top: calc(50% - 160px);
-    width: 100%;
-    text-align: center;
-    color: var(--color-danger);
-    font-size: 18px;
-  }
-
-  .close-item {
-    position: absolute;
-    top: 100px;
-    right: 10px;
-    font-size: 58px;
-    color: white;
-    cursor: pointer;
-  }
-}
-</style>

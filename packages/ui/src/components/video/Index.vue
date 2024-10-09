@@ -1,5 +1,5 @@
 <script setup>
-import { openFullScreen } from '@hl/utils/es/dom'
+import { openFullScreen } from '@hl/utils'
 import { computed, inject } from 'vue'
 
 const props = defineProps({
@@ -71,14 +71,10 @@ const _style = computed(() => {
 </script>
 
 <template>
-  <div class="hl-preview-video" :style="_style">
+  <div class="hl-video" :style="_style">
     <video v-if="prev_src" class="w-full h-full" :controls="controls && !noPreview" :src="prev_src"
            :style="{ objectFit: fit }" title="单击播放暂停，双击全屏播放" @click="handlePlay" @dblclick="handleFull"
     />
     <slot />
   </div>
 </template>
-
-<style lang="scss" scoped>
-@use './Index.scss';
-</style>

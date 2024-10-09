@@ -19,8 +19,8 @@ const alias_path = [
   ['utils', './src/utils'],
   ['@app', './src/utils/app'],
   ['@tyyh', '@hl/tyyh'],
-  // ['@ui', './dist/hl/ui'],
-  ['@ui', './node_modules/@hl/ui/index.js'],
+  ['@ui', '@hl/ui/src/components'],
+  ['@uies', '@hl/ui/index'],
 ]
 
 export default function useAlias() {

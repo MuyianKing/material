@@ -46,16 +46,8 @@ export function getOffsetToBody(el) {
  * @param {Dom} el
  */
 export function isOverflow(el) {
-  const elComputed = document.defaultView.getComputedStyle(el, '')
-  const padding = Number.parseInt(elComputed.paddingLeft.replace('px', ''), 10)
-    + Number.parseInt(elComputed.paddingRight.replace('px', ''), 10)
-
-  const range = document.createRange()
-  range.setStart(el, 0)
-  range.setEnd(el, el.childNodes.length)
-  const rangeWidth = Number.parseInt(range.getBoundingClientRect().width, 10)
-
-  return rangeWidth + padding > el.offsetWidth || el.scrollWidth > el.offsetWidth
+  return el.clientWidth < el.scrollWidth
+    || el.clientHeight < el.scrollHeight
 }
 
 // 获取图片宽高

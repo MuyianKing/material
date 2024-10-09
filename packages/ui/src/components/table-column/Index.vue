@@ -1,6 +1,5 @@
 <script setup>
-import storage from '@hl/utils/es/storage'
-import { guid } from '@hl/utils/es/common'
+import { guid, storage } from '@hl/utils'
 import { getCurrentInstance, h, inject, onMounted, useSlots } from 'vue'
 import TimeParser from '../time/Index.vue'
 import IdCard from '../id-card/Index.vue'
@@ -178,9 +177,3 @@ onMounted(() => {
 <template>
   <div :id="uuid" />
 </template>
-
-<style lang="scss" scoped>
-.hl-ui-zw {
-  color: red;
-}
-</style>

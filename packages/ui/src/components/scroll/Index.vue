@@ -238,26 +238,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <div ref="outer_ref" v-visible="handleVisible" class="mouse-move">
+  <div ref="outer_ref" v-visible="handleVisible" class="hl-scroll">
     <div ref="inner_ref" class="move-container" :style="_style">
       <slot />
     </div>
   </div>
 </template>
-
-<style lang='scss' scoped>
-.mouse-move {
-  overflow: hidden;
-
-  .move-container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    cursor: move;
-  }
-
-  :deep(.move-container > div) {
-    flex-shrink: 0;
-  }
-}
-</style>

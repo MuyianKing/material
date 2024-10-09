@@ -39,7 +39,6 @@ export function getMimeType(types) {
   return mime_type.filter(item => types.includes(item.suffix)).map(item => item.mime_type)
 }
 
-
 /**
  * 根据文件名获取文件类型
  * @param {string} file_name 文件名
@@ -111,8 +110,7 @@ export function fileToBlob(file, type) {
 
 /**
  * 将blob转为json
- * @param {Blob} blobs blob数据
- * @returns
+ * @param {Blob} blob blob数据
  */
 export function readBlobAsJSON(blob) {
   return new Promise((resolve) => {

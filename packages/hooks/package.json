@@ -1,17 +1,9 @@
 {
   "name": "@hl/hooks",
-  "version": "0.4.20",
+  "version": "0.6.0",
   "description": "",
   "author": "",
   "license": "ISC",
   "keywords": [],
-  "main": "./index.js",
-  "scripts": {
-    "build": "npx vite build"
-  },
-  "dependencies": {
-    "@hl/ui": "^0.4.20",
-    "@hl/utils": "^0.4.20"
-  },
-  "devDependencies": {}
+  "main": "./index.js"
 }

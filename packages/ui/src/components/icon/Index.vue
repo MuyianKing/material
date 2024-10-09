@@ -1,6 +1,6 @@
 <script setup name="HlIcon">
 import { Icon } from '@iconify/vue'
-import { getCanUseValue } from '@hl/utils/es/common'
+import { getCanUseValue } from '@hl/utils'
 import { computed } from 'vue'
 
 const props = defineProps({
@@ -25,9 +25,3 @@ const _style = computed(() => {
 <template>
   <icon class="hl-icon" aria-hidden="false" :style="_style" />
 </template>
-
-<style lang="scss" scoped>
-.hl-ui-zw {
-  color: red;
-}
-</style>

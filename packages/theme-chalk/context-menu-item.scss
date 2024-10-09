@@ -1,0 +1,15 @@
+.hl-context-menu-item{
+  padding: 9px 10px;
+  text-align: center;
+  min-width: max-content;
+  min-width: 80px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.hl-context-menu-item:hover{
+  background-color: var(--el-color-primary-light-9);
+  cursor: pointer;
+  color: var(--color-primary) !important;
+}

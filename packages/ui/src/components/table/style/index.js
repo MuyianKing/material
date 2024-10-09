@@ -1,0 +1,6 @@
+import 'element-plus/es/components/checkbox/style/css'
+import 'element-plus/es/components/checkbox-group/style/css'
+import 'element-plus/es/components/tooltip/style/css'
+import '../../dialog/style/index'
+import '../../button/style/index'
+import '@hl/theme-chalk/table.scss'

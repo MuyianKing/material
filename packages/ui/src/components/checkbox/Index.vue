@@ -1,8 +1,6 @@
 <script name="HlRadio" setup>
 import { ElCheckbox, ElCheckboxGroup } from 'element-plus'
-import 'element-plus/es/components/checkbox/style/css'
-import 'element-plus/es/components/checkbox-group/style/css'
-import { computed } from 'vue'
+import { computed, ref, watch } from 'vue'
 
 const props = defineProps({
   options: {
@@ -17,6 +15,14 @@ const props = defineProps({
   },
   // 每个选项是否一行显示
   line: {
+    type: Boolean,
+    default: false,
+  },
+  readonly: {
+    type: Boolean,
+    default: false,
+  },
+  disabled: {
     type: Boolean,
     default: false,
   },
@@ -48,47 +54,29 @@ const value = computed(() => {
     _value = model.value.toString().split(',').filter(item => item)
   }
   if (props.multiple) {
-    return _value.map(item => _list_value_map.value[item]) || []
+    return _value.map(item => value_map.value[item]) || []
   } else {
     return _value || []
   }
 })
 
 // 所有待选项的value组成的对象，key为字符串的value
-const _list_value_map = computed(() => {
-  const value_map = {}
+let value_map = ref({})
+watch(() => props.options, () => {
+  value_map.value = {}
   props.options.forEach((item) => {
-    value_map[`${item.value}`] = item.value
+    value_map.value[`${item.value}`] = item.value
   })
-
-  return value_map
+}, {
+  immediate: true,
+  deep: true,
 })
 </script>
 
 <template>
-  <el-checkbox-group :class="{ 'line-item': line }" :model-value="value" @change="handleChange">
+  <el-checkbox-group v-bind="$attrs" class="hl-checkbox" :class="{ 'hl-checkbox-line-item': line, 'hl-checkbox-readonly-group': readonly }" :disabled="disabled || readonly" :model-value="value" @change="handleChange">
     <el-checkbox v-for="item in options" :key="item.value" :value="item.value">
       {{ item.label }}
     </el-checkbox>
   </el-checkbox-group>
 </template>
-
-<style lang="scss" scoped>
-:deep(.el-radio) {
-  margin-right: 10px;
-}
-
-.line-item {
-  width: 100%;
-
-  .el-checkbox {
-    width: 100%;
-    margin-right: 0;
-
-    .el-checkbox__label {
-      white-space: break-spaces;
-      line-height: 20px;
-    }
-  }
-}
-</style>

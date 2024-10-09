@@ -1,8 +1,4 @@
 import { HlAddButton, HlPage, HlSearchButton, HlSearchPage } from '@hl/ui'
-import '@hl/ui/src/components/search-page/Index.css'
-import '@hl/ui/src/components/search-button/Index.css'
-import '@hl/ui/src/components/add-button/Index.css'
-import '@hl/ui/src/components/page/Index.css'
 
 export default {
   name: 'HlListPageRender',

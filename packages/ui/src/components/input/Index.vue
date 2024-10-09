@@ -1,7 +1,5 @@
 <script setup>
 import { ElInput, ElPopover } from 'element-plus'
-import 'element-plus/es/components/input/style/css'
-import 'element-plus/es/components/popover/style/css'
 import { computed, getCurrentInstance, ref } from 'vue'
 
 const props = defineProps({
@@ -128,9 +126,3 @@ function handleInput(val) {
     <div v-html="tips_comp" />
   </el-popover>
 </template>
-
-<style lang="scss" scoped>
-.hl-ui-zw {
-  color: red;
-}
-</style>

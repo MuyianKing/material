@@ -1,11 +1,9 @@
 <script setup name="HlTableEdit">
-import storage from '@hl/utils/es/storage'
+import { storage } from '@hl/utils'
 import { computed, inject, ref } from 'vue'
 import { ElCheckbox, ElCheckboxGroup } from 'element-plus'
 import DialogComp from '../dialog/Index.vue'
 import ButtonComp from '../button/Index.vue'
-import 'element-plus/es/components/checkbox/style/css'
-import 'element-plus/es/components/checkbox-group/style/css'
 
 defineProps({
   show: {
@@ -50,7 +48,7 @@ function close() {
 <template>
   <dialog-comp :model-value="show" width="700px" title="自定义表头" @close="close">
     <!-- 自定义表头 -->
-    <div>
+    <div class="hl-table-edit-header">
       <el-checkbox-group v-model="checkList">
         <el-checkbox v-for="item in columns" :key="item.prop" :value="item.prop" :checked="item.show">
           {{ item.label }}
@@ -64,12 +62,3 @@ function close() {
     </template>
   </dialog-comp>
 </template>
-
-<style lang="scss" scoped>
-.dialog-content {
-  :deep(.el-form-item__label) {
-    width: 70px !important;
-    text-align: center;
-  }
-}
-</style>

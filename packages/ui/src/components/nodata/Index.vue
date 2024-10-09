@@ -22,30 +22,21 @@ const props = defineProps({
 })
 
 const src = computed(() => props.img || img)
+
+const _style = computed(() => {
+  return {
+    width: props.width,
+    height: props.height,
+  }
+})
 </script>
 
 <template>
-  <div class="no-data">
-    <img class="no-data-img" :src="src">
+  <div class="hl-no-data">
+    <img class="no-data-img" :src="src" :style="_style">
     <div class="no-data-text">
       {{ text }}
     </div>
     <slot />
   </div>
 </template>
-
-<style lang="scss" scoped>
-.no-data {
-  text-align: center;
-
-  .no-data-img {
-    width: v-bind(width);
-    height: v-bind(height);
-    display: inline-table;
-  }
-
-  .no-data-text {
-    color: #aaa;
-  }
-}
-</style>

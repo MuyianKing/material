@@ -4,7 +4,7 @@ import isMobilePhone from 'validator/es/lib/isMobilePhone'
 import isIP from 'validator/es/lib/isIP'
 import isLatLong from 'validator/es/lib/isLatLong'
 import isEmail from 'validator/es/lib/isEmail'
-import {isTruth} from "./common"
+import { isTruth } from './common'
 
 // 验证表单是整数
 export function v_int(rule, value, callback) {
@@ -230,7 +230,7 @@ export function isJson(str) {
     try {
       JSON.parse(str)
       return true
-    } catch (e) {
+    } catch {
       return false
     }
   }

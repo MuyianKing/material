@@ -2,17 +2,13 @@
 import { computed, onMounted, reactive, ref, watch } from 'vue'
 import { ElButton, ElCheckbox, ElInput, ElTag } from 'element-plus'
 import { HlDialog, HlIcon, HlNodata, HlResetButton } from '@hl/ui'
+import { vBottom } from '@hl/directions'
 import OrganizationTree from '../organization/components/plugin.vue'
 import { getList } from '../../server/person'
 import 'element-plus/es/components/tag/style/css'
 import 'element-plus/es/components/input/style/css'
 import 'element-plus/es/components/checkbox/style/css'
 import 'element-plus/es/components/button/style/css'
-
-import '@hl/ui/src/components/dialog/Index.css'
-import '@hl/ui/src/components/icon/Index.css'
-import '@hl/ui/src/components/nodata/Index.css'
-import '@hl/ui/src/components/reset-button/Index.css'
 
 const props = defineProps({
   modelValue: {
@@ -57,6 +53,11 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
+  // 默认选中单位Id
+  defaultOrgId: {
+    type: String,
+    default: '',
+  },
 })
 
 const emits = defineEmits(['update:modelValue', 'change'])
@@ -66,8 +67,8 @@ const limit = 200
 const draw_end = ref(0)
 
 // 保存全量的人员数据
-let data_list = []
-let data_list_map = {}
+const data_list = []
+const data_list_map = {}
 
 // 保存当前单位的人员数据
 const cur_data_list = ref([])
@@ -101,23 +102,30 @@ function getData() {
     have_fujing: props.personType,
   }).then((res) => {
     const _res = []
-    data_list_map = {}
     res.data = res.data.filter(item => !props.filterValue.includes(item[props.idKey]))
-    data_list = []
 
+    const is_empty = data_list.length === 0
     res.data.forEach((item) => {
       if (props.idKey === 'org_job_id_card') {
         item.organization.forEach((e) => {
           const new_item = createItem(item, `${e.organization_id}/${e.job_id}/${item.id_card}`)
-          data_list_map[new_item[props.idKey]] = new_item
           _res.push(new_item)
-          data_list.push(new_item)
+
+          // 第一次总是请求全量的人员数据
+          if (is_empty) {
+            data_list_map[new_item[props.idKey]] = new_item
+            data_list.push(new_item)
+          }
         })
       } else {
         const new_item = createItem(item, item[props.idKey])
-        data_list_map[new_item[props.idKey]] = new_item
         _res.push(new_item)
-        data_list.push(new_item)
+
+        // 第一次总是请求全量的人员数据
+        if (is_empty) {
+          data_list_map[new_item[props.idKey]] = new_item
+          data_list.push(new_item)
+        }
       }
     })
 
@@ -164,10 +172,10 @@ const query_name = ref('')
 const select_users = ref([])
 
 function handleOpen() {
-  if (props.disabled)
+  if (props.disabled) {
     return
+  }
 
-  resetSelected()
   show_select.value = true
 }
 
@@ -353,7 +361,7 @@ onMounted(() => {
 
         <template v-else>
           <div v-for="(item, index) in select_users_outer_comp" :key="item[idKey]" class="selected-item">
-            <span>{{ item.name }}<template v-if="inputShowAllData">_{{ item.org_job }}</template> </span>
+            <span class="line-clamp-1">{{ item.name }}<template v-if="inputShowAllData">_{{ item.org_job }}</template> </span>
             <hl-icon class="close-icon" icon="material-symbols-light:close-small" @click.stop="delOuterUser(index)" />
           </div>
         </template>
@@ -361,9 +369,9 @@ onMounted(() => {
       <hl-icon class="mr-2 el-input__suffix" icon="ep:arrow-down" style="width:14px" theme="outline" />
     </div>
 
-    <hl-dialog v-model="show_select" title="选择人员" top="50px" width="92vw">
+    <hl-dialog v-model="show_select" title="选择人员" top="50px" width="92vw" :destroy-on-close="false">
       <div class="person-index">
-        <organization-tree ref="org_tree" class="left-job-tree" @change="handleTreeChange" />
+        <organization-tree ref="org_tree" class="left-job-tree" :default-org-id @change="handleTreeChange" />
         <div class="table-wrapper">
           <div class="selected-list">
             <div class="tips">

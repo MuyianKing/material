@@ -1,10 +1,6 @@
 <script setup name="HlSelect">
 import { ElOption, ElOptionGroup, ElSelect, vLoading } from 'element-plus'
-import 'element-plus/es/components/option/style/css'
-import 'element-plus/es/components/option-group/style/css'
-import 'element-plus/es/components/select/style/css'
-import 'element-plus/es/components/loading/style/css'
-
+import { vLoadmore } from '@hl/directions'
 import { computed, getCurrentInstance } from 'vue'
 
 const props = defineProps({
@@ -20,7 +16,7 @@ const props = defineProps({
     default: null,
   },
   modelValue: {
-    type: [String, Number, Array],
+    type: [String, Number, Array, Boolean],
     default() {
       return ''
     },
@@ -44,13 +40,17 @@ const props = defineProps({
   },
   // 禁用的选项：选项值组成的数组
   disabledOptions: {
-    type: [String, Array],
+    type: [String, Array, Number, Boolean],
     default() {
       return []
     },
   },
   // 只读
   readonly: {
+    type: Boolean,
+    default: false,
+  },
+  disabled: {
     type: Boolean,
     default: false,
   },
@@ -102,7 +102,7 @@ const _d_p = computed(() => {
 </script>
 
 <template>
-  <el-select :model-value="modelValue" :placeholder="placeholder_comp" :clearable="clearable" filterable :class="{ 'readonly-item': readonly }" @change="change" @blur="blur">
+  <el-select :model-value="modelValue" :disabled="readonly || disabled" :placeholder="placeholder_comp" :clearable="clearable" filterable :class="{ 'hl-select-readonly-item': readonly }" @change="change" @blur="blur">
     <div v-loadmore="handleBottom" class="relative">
       <el-option v-if="all" value="">
         全部
@@ -119,28 +119,6 @@ const _d_p = computed(() => {
         <el-option v-else :label="item.label" :value="item.value" :disabled="_d_p.includes(item.value)" />
       </template>
     </div>
-    <div v-loading="loading" class="loading-item" />
+    <div v-loading="loading" class="hl-select-loading-item" />
   </el-select>
 </template>
-
-<style lang="scss" scoped>
-.loading-item {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-.readonly-item {
-  :deep(.el-select__wrapper) {
-    background-color: #fff;
-    box-shadow: none;
-    color: inherit !important;
-
-    .el-select__selected-item {
-      color: inherit !important;
-    }
-  }
-}
-</style>

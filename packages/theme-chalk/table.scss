@@ -1,0 +1,170 @@
+.hl-table {
+  max-height: 100%;
+  overflow-x: auto;
+  height: 100%;
+
+
+  table {
+    width: 100%;
+
+    thead,
+    tr {
+      width: 100%;
+    }
+
+    .hl-table-td {
+      box-sizing: border-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      word-break: break-all;
+      line-height: 23px;
+      padding: 8px;
+      font-size: 14px;
+      text-align: left;
+      position: relative;
+    }
+
+    .hl-table-th {
+      white-space: break-spaces;
+    }
+
+    tbody .hl-table-td {
+      line-height: 23px;
+      word-break: break-all;
+    }
+
+    th {
+      color: #909399;
+    }
+
+    td {
+      color: #606266;
+    }
+
+    .extend-td {
+      padding: 0;
+    }
+
+    .hl-table-no-data {
+      text-align: center;
+      line-height: 60px;
+      color: #909399;
+      border-bottom: 1px solid #ebeef5;
+      font-size: 14px;
+      height: 60px;
+      line-height: 60px !important;
+    }
+  }
+
+  .hidden-columns {
+    visibility: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+
+  .body-wrapper {
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: fit-content;
+    min-width: 100%;
+    position: relative;
+    scrollbar-width: none;
+    max-height: calc(100% - 41px);
+  }
+
+  .body-wrapper::-webkit-scrollbar {
+    width: 0px;
+    height: 7px;
+  }
+
+  .body-wrapper::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 20px;
+  }
+
+  .body-wrapper:hover::-webkit-scrollbar-thumb {
+    background: rgba(185, 186, 189, 0.6);
+  }
+
+  .hl-table-body {
+    .hl-table-tr:hover {
+      td {
+        background-color: #ebeef5 !important;
+      }
+    }
+
+    .hl-table-tr.active {
+      background-color: #ebeef5;
+    }
+  }
+
+  .hl-table-td-div {
+    display: flex;
+    align-items: center;
+  }
+
+
+  .hl-table-checkbox {
+    width: 60px;
+    min-width: 60px;
+    max-width: 60px;
+    text-align: center !important;
+
+    .el-checkbox {
+      height: 14px;
+    }
+  }
+}
+
+.hl-table-nowrap {
+  table {
+    .hl-table-td {
+      white-space: nowrap;
+    }
+  }
+}
+
+
+.hl-table-border {
+  .hl-table-header {
+    border-top: 1px solid #dfdfdf;
+  }
+
+  table {
+    border-left: 1px solid #dfdfdf;
+
+    tbody td,
+    thead th {
+      border-bottom: 1px solid #dfdfdf;
+      border-right: 1px solid #dfdfdf;
+    }
+  }
+
+  .hl-table-no-data {
+    border-bottom: 1px solid #dfdfdf;
+  }
+}
+
+
+// 自定义表头
+.hl-table-edit-header {
+  .el-form-item__label {
+    width: 70px !important;
+    text-align: center;
+  }
+}
+
+.hl-table-scroll-bar {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 5px;
+  width: 6px;
+  height: 100px;
+  background-color: rgba(185, 186, 189, 0.6);
+
+  &.active {
+    display: block;
+  }
+}

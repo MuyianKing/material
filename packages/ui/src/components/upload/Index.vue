@@ -1,7 +1,6 @@
 <script setup>
-import { AUDIO_SUFFIX, FILE_SUFFIX } from '@hl/utils/es/file'
-import { guid } from '@hl/utils/es/common'
-import { error } from '@hl/utils/es/message'
+import { AUDIO_SUFFIX, FILE_SUFFIX, error, guid } from '@hl/utils'
+
 import { computed, inject, nextTick, provide, ref, useSlots } from 'vue'
 import TriggerComp from './components/Trigger.vue'
 import PreviewComp from './components/Preview.vue'
@@ -29,11 +28,6 @@ const props = defineProps({
     type: Number,
     default: 99,
   },
-  // 最小上传数量
-  minCount: {
-    type: Number,
-    default: 9,
-  },
   // 自动上传
   autoUpload: {
     type: Boolean,
@@ -53,14 +47,14 @@ const props = defineProps({
     default: false,
   },
   // 预览文件
-  preview: {
+  noPreview: {
     type: Boolean,
-    default: true,
+    default: false,
   },
-  // 展示方式 auto-自动 card-卡片形式
+  // 展示方式 card-卡片形式 line-一行 不传自动判断
   listType: {
     type: String,
-    default: 'auto',
+    default: '',
   },
   // 触发区域样式：card-卡片  line-一行
   triggerType: {
@@ -76,18 +70,24 @@ const _trigger_type = computed(() => {
   if (props.triggerType) {
     return props.triggerType
   }
-
-  const type = Array.isArray(props.type) ? props.type : [props.type]
-
-  // 如果包含文件、音频中的一种 => line
-  if (type.includes('file') || type.includes('audio') || type.includes('all')) {
-    return 'line'
-  }
-
-  return 'card'
+  return _list_type.value
 })
 
-const { uploadFile } = inject('GLOBAL_CUSTOM_CONFIG')
+// 展示形式
+const _list_type = computed(() => {
+  if (props.listType) {
+    return props.listType
+  }
+
+  // 判断当前文件类型是否只包含图片和视频
+  if (is_only_video_image.value) {
+    return 'card'
+  }
+
+  return 'line'
+})
+
+const { uploadFile } = inject('GLOBAL_CUSTOM_CONFIG', null)
 
 const slots = useSlots()
 
@@ -209,6 +209,10 @@ const progress_percent = ref(0)
 const show_progress = ref(false)
 
 async function handleUploadFile(file) {
+  if (!uploadFile) {
+    throw new Error('未配置上传接口')
+  }
+
   // 开始上传
   emits('upload-start')
 
@@ -242,10 +246,10 @@ const trigger_config = computed(() => {
     multiple: props.multiple,
     files: files_value.value,
     maxCount: props.maxCount,
-    minCount: props.minCount,
     type: props.type,
     suffix: props.suffix,
     disabled: props.disabled,
+    noPreview: props.noPreview,
   }
 })
 
@@ -261,14 +265,20 @@ const is_only_video_image = computed(() => {
 
 provide('is_only_video_image', is_only_video_image)
 
-const margin = computed(() => props.multiple ? '5px' : '')
+defineExpose({
+  // 重新上传
+  handleReupload,
+
+  // 删除
+  handleDel,
+})
 </script>
 
 <template>
-  <div v-bind="$attrs" class="upload-wrapper" :class="{ 'flex-style': listType === 'card' || is_only_video_image }">
-    <template v-if="preview">
-      <preview-comp v-if="!slots.preview" :file="files_value" :list-type @delete="handleDel" @re-upload="handleReupload" />
-      <slot v-else name="preview" />
+  <div v-bind="$attrs" class="hl-upload-wrapper" :class="{ 'hl-upload-flex-style': _list_type === 'card', 'hl-upload-multiple-margin': multiple }">
+    <template v-if="!noPreview">
+      <preview-comp v-if="!slots.preview" :file="files_value" :list-type="_list_type" @delete="handleDel" @re-upload="handleReupload" />
+      <slot v-else name="preview" :files="files_value" />
     </template>
 
     <trigger-comp v-if="!readonly" ref="trigger_ref" :config="trigger_config" :trigger-type="_trigger_type" @select-file="handleSelect">
@@ -285,103 +295,3 @@ const margin = computed(() => props.multiple ? '5px' : '')
     </template>
   </upload-progress>
 </template>
-
-<style lang='scss' scoped>
-.upload-wrapper {
-  color: #555;
-}
-
-// -------------触发组件-----------
-:deep(.trigger-comp) {
-  &.trigger-item {
-    width: 100px !important;
-    height: 100px;
-    border: 1px solid #ddd;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-  }
-
-  &.normal-trigger {
-    width: fit-content;
-  }
-
-  .upload-icon {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-  }
-
-  .upload-icon:hover {
-    color: var(--color-primary);
-    text-decoration: underline;
-  }
-}
-
-// -------------预览-----------------
-:deep(.preview-wrapper) {
-  position: relative;
-  border-radius: 5px;
-  width: fit-content;
-  display: flex;
-  align-items: center;
-
-  .file-list-wrapper {
-    padding: 5px 0;
-  }
-
-  .file-list-wrapper:hover {
-    padding: 10px;
-  }
-
-  .delete-wrapper {
-    display: none;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    position: absolute;
-    top: 0;
-    right: 0;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    user-select: none;
-    border-radius: 5px;
-
-    & > svg:hover {
-      cursor: pointer;
-      color: var(--color-primary);
-    }
-  }
-
-  &:hover {
-    .delete-wrapper {
-      display: flex;
-    }
-  }
-
-  img {
-    border-radius: 5px;
-  }
-
-  .hl-preview-video {
-    border-radius: 5px;
-  }
-}
-
-// ---------------------
-.flex-style {
-  display: flex;
-  flex-wrap: wrap;
-
-  :deep(.preview-wrapper) {
-    margin: 0 v-bind(margin) v-bind(margin) 0;
-  }
-
-  :deep(.trigger-item) {
-    margin: 0 v-bind(margin) v-bind(margin) 0;
-  }
-}
-</style>

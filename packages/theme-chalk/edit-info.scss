@@ -1,0 +1,8 @@
+.hl-edit-info {
+  position: relative;
+  min-height: 20px;
+
+  .el-input__inner {
+    text-align: v-bind(align) !important;
+  }
+}

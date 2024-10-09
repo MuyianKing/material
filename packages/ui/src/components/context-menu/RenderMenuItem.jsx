@@ -1,8 +1,6 @@
 import { computed, inject } from 'vue'
 import HlIcon from '../icon/Index.vue'
 
-import './render.menuitem.scss'
-
 export default {
   props: {
     options: {
@@ -28,7 +26,7 @@ export default {
     )
 
     return () => (
-      <div class="context-menu-content">
+      <div class="hl-context-menu-content">
         {list.value.map((render, index) => {
           return (
             <div

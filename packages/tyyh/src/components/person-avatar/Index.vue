@@ -14,7 +14,7 @@ const user = hl.getUserInfo()
   </hl-avatar>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .text-avatar {
   background-color: #0c88e8;
   border-radius: 50%;

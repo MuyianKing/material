@@ -1,8 +1,6 @@
 <script name="HlResetButton" setup>
 import { ElButton, ElPopconfirm } from 'element-plus'
 import IconComp from '../icon/Index.vue'
-import 'element-plus/es/components/button/style/css'
-import 'element-plus/es/components/popconfirm/style/css'
 
 defineProps({
   icon: {
@@ -27,23 +25,17 @@ function confirm() {
 
 <template>
   <el-button v-if="noConfirm" v-bind="$attrs" type="warning" @click="confirm">
-    <icon-comp icon="ri:refresh-line" class="mr-1" style="font-size: 17px;" />
+    <icon-comp icon="ri:refresh-line" class="mr-1" />
     {{ text }}
     <slot />
   </el-button>
-  <el-popconfirm v-else title="确定要重置所有筛选吗?" @confirm="confirm">
+  <el-popconfirm v-else title="确定要重置?" @confirm="confirm">
     <template #reference>
       <el-button v-bind="$attrs" type="warning">
-        <icon-comp icon="ri:refresh-line" class="mr-1" style="font-size: 17px;" />
+        <icon-comp icon="ri:refresh-line" class="mr-1" />
         {{ text }}
         <slot />
       </el-button>
     </template>
   </el-popconfirm>
 </template>
-
-<style lang="scss" scoped>
-.hl-ui-zw {
-  color: red;
-}
-</style>

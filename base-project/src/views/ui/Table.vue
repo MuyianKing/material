@@ -11,7 +11,7 @@ const data = ref([{
 
 <template>
   <div>
-    <hl-table :data select>
+    <hl-table :data select border>
       <hl-table-column label="姓名" prop="name" />
       <hl-table-column label="年龄" prop="age" />
     </hl-table>

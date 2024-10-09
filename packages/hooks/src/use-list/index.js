@@ -1,4 +1,4 @@
-import { pageSize } from '@hl/utils/es/common'
+import { pageSize } from '@hl/utils'
 import { h, nextTick, onMounted, reactive } from 'vue'
 import { useDebounceFn } from '@vueuse/core'
 import useRequest from '../useRequest.js'

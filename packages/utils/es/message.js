@@ -33,7 +33,7 @@ export function loading(message, params = {}) {
  */
 export function error(e, msg) {
   console.log(e)
-  if (e === 'cancel' || e.errno === 401) {
+  if (e === 'cancel' || e?.errno === 401) {
     return
   }
   const error_message = e ? (e.error || e.message || '') : ''
