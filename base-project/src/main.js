@@ -1,7 +1,6 @@
 import { createApp } from 'vue'
 import dayjs from 'dayjs'
 import { addAPIProvider, disableCache, enableCache } from '@iconify/vue'
-
 import variables from '@style/theme.module.scss'
 import * as message from '@utils/message'
 import storage from '@utils/storage'

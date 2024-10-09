@@ -2,3 +2,4 @@ packages:
   - packages/**
   - base-project
   - test-ui
+  - test/**

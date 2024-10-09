@@ -1,0 +1,9 @@
+{
+  "name": "test-utils",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "@hl/utils": "workspace:*"
+  }
+}
