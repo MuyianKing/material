@@ -1,6 +1,10 @@
 import { resolve } from 'node:path'
+
+import { fileURLToPath } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+
+const __dirname = fileURLToPath(import.meta.url)
 
 export default defineConfig({
   build: {
@@ -22,7 +26,7 @@ export default defineConfig({
           exports: 'named',
           preserveModules: true,
           preserveModulesRoot: 'packages/tyyh',
-          dir: './base-project/dist/hl/tyyh',
+          dir: './dist/tyyh',
           entryFileNames: '[name].js',
           assetFileNames: '[name][extname]',
         },
@@ -30,7 +34,7 @@ export default defineConfig({
       treeshake: false,
     },
     lib: {
-      entry: resolve(__dirname, './index.js'),
+      entry: resolve(__dirname, '../index.js'),
     },
   },
   plugins: [

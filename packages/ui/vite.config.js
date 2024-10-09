@@ -1,7 +1,10 @@
 import { resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
+
+const __dirname = fileURLToPath(import.meta.url)
 
 export default defineConfig({
   build: {
@@ -27,7 +30,7 @@ export default defineConfig({
           exports: 'named',
           preserveModules: true,
           preserveModulesRoot: 'packages/ui',
-          dir: './base-project/dist/hl/ui',
+          dir: './dist/ui',
           entryFileNames: '[name].js',
           assetFileNames: '[name][extname]',
         },
@@ -35,7 +38,7 @@ export default defineConfig({
       treeshake: false,
     },
     lib: {
-      entry: resolve(__dirname, './index.js'),
+      entry: resolve(__dirname, '../index.js'),
     },
   },
   plugins: [

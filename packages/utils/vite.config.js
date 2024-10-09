@@ -1,5 +1,8 @@
 import { resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { defineConfig } from 'vite'
+
+const __dirname = fileURLToPath(import.meta.url)
 
 export default defineConfig({
   plugins: [],
@@ -8,7 +11,7 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: resolve(__dirname, './index.js'),
+      entry: resolve(__dirname, '../index.js'),
       formats: ['es'],
     },
     rollupOptions: {
@@ -28,7 +31,7 @@ export default defineConfig({
       output: {
         preserveModules: true,
         entryFileNames: '[name].js',
-        dir: './base-project/dist/hl/utils',
+        dir: './dist/utils',
         exports: 'named',
         format: 'es',
       },

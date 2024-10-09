@@ -1,10 +1,12 @@
 import { resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { defineConfig } from 'vite'
 
+const __dirname = fileURLToPath(import.meta.url)
 export default defineConfig({
   build: {
     lib: {
-      entry: resolve(__dirname, './index.js'),
+      entry: resolve(__dirname, '../index.js'),
       formats: ['es'],
     },
     rollupOptions: {
@@ -17,7 +19,7 @@ export default defineConfig({
         preserveModules: true,
         preserveModulesRoot: 'packages/directions',
         entryFileNames: '[name].js',
-        dir: './base-project/dist/hl/directions',
+        dir: './dist/directions',
         exports: 'named',
         format: 'es',
       },

@@ -1,7 +1,10 @@
 import { resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
+
+const __dirname = fileURLToPath(import.meta.url)
 
 export default defineConfig({
   plugins: [
@@ -10,7 +13,7 @@ export default defineConfig({
   ],
   build: {
     lib: {
-      entry: resolve(__dirname, './index.js'),
+      entry: resolve(__dirname, '../index.js'),
       formats: ['es'],
     },
     rollupOptions: {
@@ -26,7 +29,7 @@ export default defineConfig({
         preserveModules: true,
         preserveModulesRoot: 'packages/hooks',
         entryFileNames: '[name].js',
-        dir: './base-project/dist/hl/hooks',
+        dir: './dist/hooks',
         exports: 'named',
         format: 'es',
       },
