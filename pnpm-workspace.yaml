@@ -1,4 +1,4 @@
 packages:
-  - 'packages/**'
+  - packages/**
   - base-project
   - test-ui
