@@ -55,25 +55,23 @@ const build_config = {
   directions: dir_vite_config,
 }
 
+// 打包单个组件库
 async function buildLib(pck, options) {
   await build(build_config[pck])
   createPackageJson(pck, options)
 }
 
+// 打包
 async function buildPackages() {
   // 清空目录
   clearFolder(path.resolve(__dirname, outputDir))
 
-  const fix_version = false
-
-  const options = fix_version
-    ? {
-        version: '0.6.1',
-      }
-    : null
+  const options = {
+    // 非0需要外部修正版本号
+    version: 0,
+  }
 
   const params = getParams()
-
   if (params.pck) {
     buildLib(params.pck, options)
   } else {
