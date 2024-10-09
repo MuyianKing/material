@@ -13,6 +13,7 @@ import getObjectFromJson from './utils/getObjectFromJson.js'
 
 const __dirname = fileURLToPath(import.meta.url)
 
+// 打包输出路径
 const outputDir = path.resolve(__dirname, '../../dist')
 
 /**
@@ -67,19 +68,19 @@ async function buildPackages() {
   clearFolder(path.resolve(__dirname, outputDir))
 
   const options = {
-    // 非0需要外部修正版本号
+    // 非0：需要外部修正版本号
     version: 0,
   }
 
   const params = getParams()
   if (params.pck) {
+    // 打包指定组件库
     buildLib(params.pck, options)
   } else {
-    buildLib('ui', options)
-    buildLib('tyyh', options)
-    buildLib('utils', options)
-    buildLib('hooks', options)
-    buildLib('directions', options)
+    // 打包所有
+    ['ui', 'tyyh', 'utils', 'hooks', 'directions'].forEach((pck) => {
+      buildLib(pck, options)
+    })
   }
 }
 
