@@ -7,7 +7,7 @@ export const pageSize = 20
 /**
  * 判断字符串是否合法
  * @param {string} str
- * @returns boolean 如果时null、false、''、'false'、'null'、'NULL'、'undefined'返回false，否则返回true
+ * @returns boolean 如果是 0、 null、false、''、'false'、'null'、'NULL'、'undefined'返回false，否则返回true
  */
 export function isTruth(str) {
   return !(!str || str === 'null' || str === 'NULL' || str === 'undefined' || str === 'false')
@@ -136,8 +136,6 @@ export function convertToChinaNum(num) {
   result = result.replace(/亿万/g, '亿')
   // 移除末尾的零
   result = result.replace(/零+$/, '')
-  // 将【零一十】换成【零十】
-  // result = result.replace(/零一十/g, '零十');//貌似正规读法是零一十
   // 将【一十】换成【十】
   result = result.replace(/^一十/g, '十')
   return result

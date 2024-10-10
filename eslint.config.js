@@ -28,7 +28,7 @@ export default antfu({
       multiline: 'beside',
     }],
   },
-  files: ['**/src/**', '**/packages/*/**', 'vite.config.js', '**/script/**'],
+  files: ['**/src/**', '**/packages/*/**', 'vite.config.js', '**/script/**', '**/test/**'],
   languageOptions: {
     globals: {
       BMapGLLib: true,

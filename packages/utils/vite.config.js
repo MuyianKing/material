@@ -10,6 +10,7 @@ export default defineConfig({
     alias: {},
   },
   build: {
+    minify: false,
     lib: {
       entry: resolve(__dirname, '../index.js'),
       formats: ['es'],
