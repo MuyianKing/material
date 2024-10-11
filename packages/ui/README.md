@@ -5,12 +5,11 @@ TODO:
 - 增加远程下拉组件
 - hl-button的button-type为text时，禁止换行，去掉hover时的text-direction
 - 上传组件增加可同时选择多个文件
-- hl-file的宽高取消默认值，卡片布局没有宽高默认100px，hl-preview宽高默认值100px对hl-file非卡片布局有没有影响
 
 ### 0.6.2
 
 - hl-wavesurfer：修复样式文件缺失问题；修复z-index不够导致的覆盖问题
-- hl-preview：no-download属性合并到no-preview
+- hl-preview：no-download属性合并到no-preview(break-change)
 - hl-image：not-preview变更为no-preview(break change)
 
 ### 0.6.1
