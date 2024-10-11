@@ -27,10 +27,6 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  noDownload: {
-    type: Boolean,
-    default: false,
-  },
 })
 
 const _image_video = ref([])
@@ -69,7 +65,7 @@ watch(() => props.files, (val) => {
       <video-comp v-else :src="item.path" :prefix="item.prefix" :height :width controls :no-preview class="preview-item" />
     </template>
     <template v-for="item in _not_image_video" :key="item.id">
-      <file-comp :file="item" class="preview-item" :card :height :width :no-download />
+      <file-comp :file="item" class="preview-item" :card :height :width :no-download="noPreview" />
     </template>
   </div>
 </template>

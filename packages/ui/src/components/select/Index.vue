@@ -10,11 +10,6 @@ const props = defineProps({
       return []
     },
   },
-  // 请求方法：可以不配置options，待选项从方法中获取，配置了该项options将失效
-  apiServer: {
-    type: Function,
-    default: null,
-  },
   modelValue: {
     type: [String, Number, Array, Boolean],
     default() {

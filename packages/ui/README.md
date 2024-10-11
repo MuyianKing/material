@@ -1,6 +1,15 @@
 TODO:
 
 - hl-date：type=range增加校验
+- 为所有inject添加默认值
+- 增加远程下拉组件
+- hl-button的button-type为text时，禁止换行，去掉hover时的text-direction
+- 上传组件增加可同时选择多个文件
+
+### 0.6.2
+
+- hl-wavesurfer：修复样式文件缺失问题；修复z-index不够导致的覆盖问题
+- hl-preview：no-download属性合并到no-preview
 
 ### 0.6.1
 
