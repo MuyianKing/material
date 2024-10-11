@@ -22,11 +22,11 @@ const props = defineProps({
   },
   height: {
     type: String,
-    default: 'auto',
+    default: '100px',
   },
   width: {
     type: String,
-    default: '300px',
+    default: '100px',
   },
 })
 
@@ -58,8 +58,8 @@ function handleDownload() {
 
 const _style = computed(() => {
   return {
-    height: props.height,
-    width: props.width,
+    height: props.height || (props.card ? '100px' : ''),
+    width: props.width || (props.card ? '100px' : ''),
   }
 })
 
