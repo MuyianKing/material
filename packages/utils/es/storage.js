@@ -4,7 +4,7 @@ import { jsonparse } from './common'
 
 export default {
   setKey(key) {
-    key = `${hl.PROJECT_PREFIX}_${key}`
+    key = `${window.hl?.PROJECT_PREFIX || 'HL'}_${key}`
     return key
   },
 
