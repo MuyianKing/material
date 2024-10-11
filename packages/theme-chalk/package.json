@@ -1,11 +1,5 @@
 {
   "name": "@hl/theme-chalk",
   "type": "module",
-  "version": "0.6.1",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build"
-  },
-  "dependencies": {},
-  "devDependencies": {}
+  "version": "0.6.1"
 }

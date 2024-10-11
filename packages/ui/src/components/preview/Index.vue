@@ -27,10 +27,6 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  noDownload: {
-    type: Boolean,
-    default: false,
-  },
 })
 
 const _image_video = ref([])
@@ -65,11 +61,11 @@ watch(() => props.files, (val) => {
 <template>
   <div class="hl-preview-wrapper">
     <template v-for="item in _image_video" :key="item.id">
-      <image-comp v-if="item.type === 'image'" :height :width :prefix="item.prefix" :src="item.path || item.fileName" fit="cover" class="preview-item" />
+      <image-comp v-if="item.type === 'image'" :height :width :prefix="item.prefix" :src="item.path || item.fileName" :no-preview fit="cover" class="preview-item" />
       <video-comp v-else :src="item.path" :prefix="item.prefix" :height :width controls :no-preview class="preview-item" />
     </template>
     <template v-for="item in _not_image_video" :key="item.id">
-      <file-comp :file="item" class="preview-item" :card :height :width :no-download />
+      <file-comp :file="item" class="preview-item" :card :height :width :no-download="noPreview" />
     </template>
   </div>
 </template>

@@ -1,6 +1,5 @@
 <script setup name="HlPreviewImg">
 import { ElImage, vLoading } from 'element-plus'
-
 import { computed, inject } from 'vue'
 
 const props = defineProps({
@@ -18,7 +17,7 @@ const props = defineProps({
       return []
     },
   },
-  notPreview: {
+  noPreview: {
     type: Boolean,
     default: false,
   },
@@ -36,19 +35,19 @@ const props = defineProps({
   },
 })
 
-const { previewFileUrl } = inject('GLOBAL_CUSTOM_CONFIG')
+const { previewFileUrl } = inject('GLOBAL_CUSTOM_CONFIG', null)
 
 // 查看地址
 const prev_src = computed(() => {
   if (props.src) {
-    return previewFileUrl(props.src, props.prefix)
+    return previewFileUrl ? previewFileUrl(props.src, props.prefix) : props.src
   }
   return ''
 })
 
 // 预览地址
 const previewList = computed(() => {
-  if (props.notPreview) {
+  if (props.noPreview) {
     return []
   }
   return props.preview && props.preview.length > 0 ? props.preview : [prev_src.value]
