@@ -9,7 +9,23 @@ export const menuList = [
       icon: 'clarity:users-solid',
     },
   },
-
+  {
+    path: '/hooks',
+    meta: {
+      title: 'Hooks',
+      icon: 'clarity:users-solid',
+    },
+    children: [
+      {
+        path: 'uselist',
+        component: () => import('@views/hooks/UseList.vue'),
+        meta: {
+          title: 'UseList',
+          icon: 'clarity:user-solid',
+        },
+      },
+    ],
+  },
   {
     path: '/ui',
     meta: {

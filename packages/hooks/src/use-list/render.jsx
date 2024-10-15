@@ -15,6 +15,10 @@ export default {
         return {}
       },
     },
+    pageQuery: {
+      type: Object,
+      default: {},
+    },
     _loading: {
       type: Object,
       default() {
@@ -25,13 +29,6 @@ export default {
       type: Object,
       default() {
         return {}
-      },
-    },
-    getData: {
-      type: Function,
-      required: true,
-      default() {
-        return () => { }
       },
     },
     // 隐藏添加按钮
@@ -76,7 +73,7 @@ export default {
     }
 
     // 分页
-    const default_slots = [() => <HlPage modelValue={props.query.page} size={props.query.limit} sizes={props.pageConfig?.sizes} count={props.tableData.count || 0} onUpdate:modelValue={val => emit('updatePage', val)} onUpdate:size={val => emit('updateSize', val)} onChange={props.getData} />]
+    const default_slots = [() => <HlPage modelValue={props.pageQuery.page} size={props.pageQuery.limit} sizes={props.pageConfig?.sizes} count={props.tableData.count || 0} onUpdate:modelValue={val => emit('updatePage', val)} onUpdate:size={val => emit('updateSize', val)} onChange={() => emit('getData')} />]
     if (slots.default) {
       default_slots.push(slots.default)
     }

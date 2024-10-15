@@ -1,6 +1,6 @@
 /**
  * 指令：v-visible
- * 功能：监听DOM元素滚动到底部触发
+ * 功能：监听DOM元素进入或离开可视区域
  * @type {import('vue').Directive}
  * @example
  * <div v-visible="handleVisible">

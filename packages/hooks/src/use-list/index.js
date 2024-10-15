@@ -1,14 +1,8 @@
 import { pageSize } from '@hl/utils'
-import { h, nextTick, onMounted, reactive } from 'vue'
+import { h, nextTick, onMounted, reactive, watch } from 'vue'
 import { useDebounceFn } from '@vueuse/core'
 import useRequest from '../useRequest.js'
 import render from './render.jsx'
-
-// 条件
-const page_query = reactive({
-  page: 1,
-  limit: pageSize,
-})
 
 /**
  * @param {object} params
@@ -17,30 +11,49 @@ const page_query = reactive({
  * @param { Array } params.data_extend_keys 需要额外从接口中获取的字段，默认只取data和count
  * @param {Function} params.onEnd 获取数据结束后执行的方法
  * @param {Function} params.autoSearch mounted后自动请求数据
+ * @param {boolean} params.autoUpdate 参数变化后自动请求数据
  */
-export default function HlListPage({
-  query = {},
-  server = null,
-  data_extend_keys = [],
-  onEnd = null,
-  autoSearch = true,
-  pageConfig = null,
-}) {
-  const query_ref = reactive({
-    ...page_query,
-    ...query,
+export default function HlListPage(params) {
+  const {
+    query = {},
+    server = null,
+    data_extend_keys = [],
+    onEnd = null,
+    autoSearch = true,
+    autoUpdate = true,
+    pageConfig = null,
+  } = params
+
+  // 条件
+  const page_query = reactive({
+    page: query.page || 1,
+    limit: query.limit || pageSize,
   })
+
+  // 删除无用字段
+  delete query.page
+  delete query.limit
+
+  const query_ref = reactive(query)
 
   const { loading, list_data, getList } = useRequest(server)
 
-  // 获取数据
-  async function getData(opt = {}) {
+  /**
+   * 获取数据
+   * @param {object} options
+   * @param {boolean} options.append 是否累加数据
+   * @param {boolean} options.clear 是否清空数据数据
+   */
+  const getData = useDebounceFn(async (options = {}) => {
     try {
-      const append = opt?.append || false
+      const append = options?.append || false
       await nextTick()
-      await getList(query_ref, {
+      await getList({
+        ...query_ref,
+        ...page_query,
+      }, {
         append,
-        clear: append ? false : !!opt.clear,
+        clear: append ? false : !!options.clear,
         data_extend_keys,
       })
     } catch (e) {
@@ -50,39 +63,55 @@ export default function HlListPage({
         onEnd()
       }
     }
-  }
-
-  // 搜索
-  const search = useDebounceFn(() => {
-    query_ref.page = 1
-    getData()
   }, 300)
 
-  onMounted(() => {
-    if (autoSearch)
+  // 搜索
+  const search = () => {
+    page_query.page = 1
+    getData()
+  }
+
+  if (autoUpdate) {
+    // 监听表单参数
+    watch(query_ref, () => {
+      search()
+    }, {
+      deep: true,
+    })
+
+    // 监听分页参数
+    watch(page_query, () => {
       getData()
+    })
+  }
+
+  onMounted(() => {
+    if (autoSearch) {
+      search()
+    }
   })
 
   return {
     // 组件渲染函数
     HlListPage: h(render, {
       _loading: loading,
-      getData,
       query: query_ref,
+      pageQuery: page_query,
       tableData: list_data,
       pageConfig,
       onSearch() {
         search()
       },
       onUpdatePage(page) {
-        query_ref.page = page
+        page_query.page = page
       },
       onUpdateSize(size) {
-        query_ref.limit = size
+        page_query.limit = size
       },
     }),
     // 查询条件
     query: query_ref,
+    page_query,
     // 获取数据的方法
     getData,
     // 搜索方法：添加防抖和每次会将分页置为1
