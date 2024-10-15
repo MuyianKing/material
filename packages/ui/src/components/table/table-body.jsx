@@ -60,7 +60,7 @@ export default {
     },
   },
   setup(props, { emit, slots }) {
-    const store = inject('hlTableStore')
+    const store = inject('hlTableStore', { columns: [] })
     const columns = computed(() => store.value.columns)
     const data = computed(() => store.value.data)
 

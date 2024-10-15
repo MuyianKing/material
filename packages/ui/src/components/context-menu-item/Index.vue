@@ -1,7 +1,7 @@
 <script setup>
 import { inject, nextTick, onMounted, useSlots } from 'vue'
 
-const context_item_renders = inject('context_item_renders')
+const context_item_renders = inject('context_item_renders', [])
 
 // 没有插槽的渲染函数
 function DEFAULT_RENDER_CELL(row) {

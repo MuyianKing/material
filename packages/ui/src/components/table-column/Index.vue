@@ -92,7 +92,7 @@ const DEFAULT_RENDER_CELL = function ({ row, index }) {
 
 // 插槽
 const slots = useSlots()
-const store = inject('hlTableStore')
+const store = inject('hlTableStore', { columns: [] })
 const instance = getCurrentInstance()
 
 // 渲染函数

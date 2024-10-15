@@ -30,14 +30,14 @@ const props = defineProps({
   },
 })
 
-const { previewFileUrl, downloadFile } = inject('GLOBAL_CUSTOM_CONFIG')
+const { previewFileUrl, downloadFile } = inject('GLOBAL_CUSTOM_CONFIG', {})
 
 const wavesurfer_src = ref('')
 
 function handleDownload() {
   if ((getType(props.file.name) || getType(props.file.path)) === 'audio') {
     nextTick(() => {
-      wavesurfer_src.value = previewFileUrl(props.file.path, props.file.prefix)
+      wavesurfer_src.value = previewFileUrl ? previewFileUrl(props.file.path, props.file.prefix) : props.file.path
     })
     return
   }
@@ -48,7 +48,7 @@ function handleDownload() {
 
   try {
     loading('正在打开文件...')
-    downloadFile(props.file)
+    downloadFile && downloadFile(props.file)
   } catch (e) {
     error(e, '打开文件失败')
   } finally {

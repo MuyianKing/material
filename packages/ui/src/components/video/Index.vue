@@ -35,12 +35,12 @@ const props = defineProps({
   },
 })
 
-const { previewFileUrl } = inject('GLOBAL_CUSTOM_CONFIG')
+const { previewFileUrl } = inject('GLOBAL_CUSTOM_CONFIG', null)
 
 // 查看地址
 const prev_src = computed(() => {
   if (props.src) {
-    return previewFileUrl(props.src, props.prefix)
+    return previewFileUrl ? previewFileUrl(props.src, props.prefix) : props.src
   }
   return ''
 })
@@ -72,9 +72,7 @@ const _style = computed(() => {
 
 <template>
   <div class="hl-video" :style="_style">
-    <video v-if="prev_src" class="w-full h-full" :controls="controls && !noPreview" :src="prev_src"
-           :style="{ objectFit: fit }" title="单击播放暂停，双击全屏播放" @click="handlePlay" @dblclick="handleFull"
-    />
+    <video v-if="prev_src" class="w-full h-full" :controls="controls && !noPreview" :src="prev_src" :style="{ objectFit: fit }" title="单击播放暂停，双击全屏播放" @click="handlePlay" @dblclick="handleFull" />
     <slot />
   </div>
 </template>

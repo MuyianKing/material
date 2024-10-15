@@ -22,7 +22,7 @@ export default {
     },
   },
   setup(props, { emit }) {
-    const store = inject('hlTableStore')
+    const store = inject('hlTableStore', { columns: [] })
     const columns = computed(() => store.value.columns)
 
     const align_map = {

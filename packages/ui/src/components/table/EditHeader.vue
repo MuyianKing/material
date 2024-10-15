@@ -14,7 +14,7 @@ defineProps({
 
 const emits = defineEmits(['close', 'submit'])
 
-const store = inject('hlTableStore')
+const store = inject('hlTableStore', { columns: [] })
 
 // 选择的列
 const checkList = ref([])

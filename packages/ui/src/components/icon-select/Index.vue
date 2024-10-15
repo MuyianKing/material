@@ -17,7 +17,7 @@ defineProps({
   },
 })
 
-const { getIcons } = inject('GLOBAL_CUSTOM_CONFIG')
+const { getIcons } = inject('GLOBAL_CUSTOM_CONFIG', null)
 
 const model = defineModel()
 function handleClick(row) {
@@ -37,6 +37,10 @@ const table_data = reactive({
 })
 async function getData(config) {
   try {
+    if (!getIcons) {
+      return
+    }
+
     if (!config?.append) {
       table_data.data = []
     }

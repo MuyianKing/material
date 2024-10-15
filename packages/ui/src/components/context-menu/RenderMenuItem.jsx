@@ -12,7 +12,7 @@ export default {
     HlIcon,
   },
   setup(props, { emit }) {
-    const context_item_renders = inject('context_item_renders')
+    const context_item_renders = inject('context_item_renders', [])
 
     function handelClick(index) {
       emit('selected', index)
