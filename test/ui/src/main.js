@@ -7,6 +7,7 @@ import * as file from '@utils/file'
 import * as common from '@utils/common'
 import api from '@api'
 import useUserStore from '@pinia/useUserStore'
+import * as message from '@hl/utils/es/message'
 import { BASE_URL, ICONIFY_API } from './utils/app'
 import http from './utils/request'
 import pinia from '@/pinia'
@@ -24,6 +25,7 @@ enableCache('session')
 window.dayjs = dayjs
 window.hl = {
   storage,
+  message,
   file,
   common,
   api,

@@ -11,6 +11,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@hl/hooks": "workspace:*",
     "@hl/ui": "workspace:*",
     "@hl/utils": "workspace:*",
     "@iconify/vue": "^4.1.2",
