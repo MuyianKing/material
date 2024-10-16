@@ -7,7 +7,7 @@ export const pageSize = 20
 /**
  * 判断字符串是否合法
  * @param {string} str
- * @returns boolean 如果是 0、 null、false、''、'false'、'null'、'NULL'、'undefined'返回false，否则返回true
+ * @returns boolean 如果是 0、null、false、''、'false'、'null'、'NULL'、'undefined'返回false，否则返回true
  */
 export function isTruth(str) {
   return !(!str || str === 'null' || str === 'NULL' || str === 'undefined' || str === 'false')
@@ -44,9 +44,9 @@ export function guid(len = 16) {
  * @param {Array<object>} array 查询的数组
  * @param {*} val 查询的值
  * @param {object} config
- * @param {object} config.label 返回的对象的key,默认label
- * @param {object} config.value 比较的对象的key，默认value
- * @param {object} config.obj 是否返回对象
+ * @param {string} config.label 返回的对象的key,默认label
+ * @param {any} config.value 比较的对象的key，默认value
+ * @param {boolean} config.obj 是否返回对象
  * @returns {*} 返回查找到的数据
  */
 export function getLabelByVal(array, val, config = {}) {
@@ -81,7 +81,9 @@ export function jsonparse(str, def = {}) {
  * 数组去重
  * @param {Array} arr
  */
-export const arrayUnion = arr => Array.from(new Set(arr))
+export function arrayUnion(arr) {
+  return Array.from(new Set(arr))
+}
 
 /**
  * 首字母大写
