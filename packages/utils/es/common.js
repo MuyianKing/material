@@ -30,10 +30,25 @@ export function someInArray(someArray, arr) {
   return i < len
 }
 
+/**
+ * 生成UUID
+ * @param {number} len uuid长度
+ * @returns {string} uuid
+ */
 export function guid(len = 16) {
   return nanoid(len).replace(/-/g, '_')
 }
 
+/**
+ *
+ * @param {Array<object>} array 查询的数组
+ * @param {*} val 查询的值
+ * @param {object} config
+ * @param {object} config.label 返回的对象的key,默认label
+ * @param {object} config.value 比较的对象的key，默认value
+ * @param {object} config.obj 是否返回对象
+ * @returns {*} 返回查找到的数据
+ */
 export function getLabelByVal(array, val, config = {}) {
   const label = config.label || 'label'
   const value = config.value || 'value'
@@ -73,7 +88,7 @@ export const arrayUnion = arr => Array.from(new Set(arr))
  * @param {string} str
  */
 export function firstUpcase(str) {
-  return str.slice(0, 1).toUpperCase() + str.slice(1).toLowerCase()
+  return str.slice(0, 1).toUpperCase() + str.slice(1)
 }
 
 /**
@@ -84,7 +99,6 @@ export function getCanUseValue(str) {
   if (Number.isNaN(+str)) {
     return str
   }
-
   return `${str}px`
 }
 
@@ -112,9 +126,14 @@ export function evalByFun(code, ctx) {
   return new Function('global', `with(global){return ${code}}`).call(ctx, ctx)
 }
 
+/**
+ * 获取给定数字的中文表达式
+ * @param {number} num
+ * @returns 汉字
+ */
 export function convertToChinaNum(num) {
   const arr1 = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九']
-  const arr2 = ['', '十', '百', '千', '万', '十', '百', '千', '亿', '十', '百', '千', '万', '十', '百', '千', '亿']// 可继续追加更高位转换值
+  const arr2 = ['', '十', '百', '千', '万', '十', '百', '千', '亿', '十', '百', '千', '万', '十', '百', '千', '亿']
   if (!num || Number.isNaN(num)) {
     return '零'
   }

@@ -5,9 +5,14 @@ TODO:
 - hl-button的button-type为text时，禁止换行，去掉hover时的text-direction
 - 上传组件增加可同时选择多个文件
 
+### 0.6.3
+
+- hl-icon-select：修复样式失效问题
+
 ### 0.6.2
 
-- 为所有inject添加默认值(待测)
+- 为所有inject添加默认值
+- hl-icon-select：增加teleported、width、trigger属性
 
 ### 0.6.1
 

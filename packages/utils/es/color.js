@@ -4,7 +4,7 @@
  * @return {Array} rgb
  */
 export function set16ToRgb(str) {
-  const reg = /^#([0-9A-F]{3}|[0-9A-F]{6})$/i
+  const reg = /^#(?:[0-9A-F]{3}|[0-9A-F]{6})$/i
   if (!reg.test(str)) {
     return
   }
@@ -27,10 +27,11 @@ export function set16ToRgb(str) {
 
 /**
  * 判断所给的rgb是不是亮色
- * @param {Array} rgb
+ * @param {Array | string} rgb [255,255,255]
  * @return {boolean}
  */
 export function isLight(rgb = [0, 0, 0]) {
+  rgb = Array.isArray(rgb) ? rgb : set16ToRgb(rgb)
   return 0.213 * rgb[0] + 0.715 * rgb[1] + 0.072 * rgb[2] > 255 / 2
 }
 

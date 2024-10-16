@@ -15,6 +15,18 @@ defineProps({
     type: String,
     default: '',
   },
+  teleported: {
+    type: Boolean,
+    default: true,
+  },
+  width: {
+    type: String,
+    default: '440px',
+  },
+  trigger: {
+    type: String,
+    default: 'click',
+  },
 })
 
 const { getIcons } = inject('GLOBAL_CUSTOM_CONFIG', null)
@@ -85,7 +97,7 @@ onMounted(() => {
 
 <template>
   <div class="hl-icon-select">
-    <el-popover ref="popover_ref" placement="bottom-start" :title="title" :width="440" trigger="click" :teleported="false">
+    <el-popover ref="popover_ref" placement="bottom-start" :title :width :trigger :teleported>
       <template #reference>
         <div class="flex items-center cursor-pointer">
           <span class="placholder-item">{{ placholder }}</span>
@@ -93,7 +105,7 @@ onMounted(() => {
         </div>
       </template>
 
-      <div class="icons-wrapper">
+      <div class="hl-icons-wrapper">
         <input-comp v-model="query.query" placeholder="请输入名称搜索，仅支持英文" @input="search" />
         <div v-loading="loading" v-bottom="handleBottom" class="icon-content">
           <div v-for="item in table_data.data" :key="item" class="icon-item">
