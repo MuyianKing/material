@@ -97,6 +97,15 @@ export const menuList = [
           icon: 'clarity:user-solid',
         },
       },
+      {
+        path: 'descriptions',
+        component: () => import('@views/ui/Descriptions.vue'),
+        meta: {
+          title: '描述列表',
+          icon: 'clarity:user-solid',
+        },
+
+      },
     ],
   },
 ]
