@@ -27,7 +27,7 @@ function clearPerson() {
     <div class="member-image">
       <hl-image v-if="user.image_url" :src="user.image_url" class="img" fit="contain" />
       <div v-else class="img no-image">
-        <div>{{ user.name?.slice(-2) || '名字' }}</div>
+        <div>{{ user.name?.slice(0, 2) || '名字' }}</div>
       </div>
     </div>
     <div class="member-info">

@@ -104,7 +104,14 @@ export const menuList = [
           title: '描述列表',
           icon: 'clarity:user-solid',
         },
-
+      },
+      {
+        path: 'select-remote',
+        component: () => import('@views/ui/SelectRemote.vue'),
+        meta: {
+          title: '远程下拉',
+          icon: 'clarity:user-solid',
+        },
       },
     ],
   },

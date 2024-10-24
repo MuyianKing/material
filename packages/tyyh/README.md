@@ -18,7 +18,7 @@
 #### 2024-08-31
 
 - PersonSelectPanel修复因全量数据会丢失导致的已选项丢失问题
-- PersonSelect 组件增加label-config属性（未测试）
+- PersonSelect 组件增加label-config属性
 
 ### V0.5.3
 
