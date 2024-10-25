@@ -170,6 +170,7 @@ function handleTreeChange(val) {
 
 const query_name = ref('')
 const select_users = ref([])
+const selected_query = ref('')
 
 function handleOpen() {
   if (props.disabled) {
@@ -272,7 +273,13 @@ const person_list_filter = computed(() => {
 const person_list_comp = computed(() => person_list_filter.value.slice(0, draw_end.value))
 
 // 已经选择的人员数据
-const select_users_comp = computed(() => select_users.value.slice(0, selected_draw_end.value))
+const select_users_comp = computed(() => {
+  if (!selected_query.value) {
+    return select_users.value.slice(0, selected_draw_end.value)
+  }
+
+  return select_users.value.filter(item => item.police_id.includes(selected_query.value) || item.name.includes(selected_query.value))
+})
 
 // 全选|全不选
 const all_map = reactive({})
@@ -358,7 +365,6 @@ onMounted(() => {
         <template v-if="select_users_outer.length === 0">
           <span class="placeholder"> {{ placeholder }}</span>
         </template>
-
         <template v-else>
           <div v-for="(item, index) in select_users_outer_comp" :key="item[idKey]" class="selected-item">
             <span class="line-clamp-1">{{ item.name }}<template v-if="inputShowAllData">_{{ item.org_job }}</template> </span>
@@ -374,20 +380,25 @@ onMounted(() => {
         <organization-tree ref="org_tree" class="left-job-tree" :default-org-id @change="handleTreeChange" />
         <div class="table-wrapper">
           <div class="selected-list">
-            <div class="tips">
-              <div class="tip-count">
-                已选择 <span class="count">{{ select_users.length }}</span> 个人员
-              </div>
-              <div class="cursor-pointer select-none" @click="clearAll">
-                清除
+            <div class="flex items-center ">
+              <el-input v-model="selected_query" class="flex-1 min-w-0" placeholder="请输入姓名、警号搜索" />
+              <div class="tips">
+                <el-button type="danger" class="select-none h-[30px]" @click="clearAll">
+                  清空
+                </el-button>
+                <div class="tip-count">
+                  已选择 <span class="count">{{ select_users.length }}</span> 人
+                </div>
               </div>
             </div>
             <div v-bottom="handleSelectedBottom" class="list-wrapper">
-              <el-tag v-for="(user, index) in select_users_comp" :key="user[idKey]" class="selected-tag" closable
-                      size="large" @close="delUser(index)"
-              >
+              <el-tag v-for="(user, index) in select_users_comp" :key="user[idKey]" class="selected-tag" closable size="large" @close="delUser(index)">
                 {{ user.name }} _ {{ user.org_job }}
               </el-tag>
+
+              <div v-if="select_users_comp.length === 0" class="w-full text-center text-gray-400 leading-[50px]">
+                未选择人员
+              </div>
             </div>
           </div>
           <div class="center">
@@ -397,9 +408,7 @@ onMounted(() => {
           <div class="select-options">
             <div v-bottom="handleBottom" class="options">
               <template v-if="person_list_comp.length">
-                <div v-for="person in person_list_comp" :key="person[idKey]" class="person-item"
-                     @click="handleSelect(person)"
-                >
+                <div v-for="person in person_list_comp" :key="person[idKey]" class="person-item" @click="handleSelect(person)">
                   {{ person.name }} _ {{ person.org_job }}
                 </div>
               </template>
@@ -408,7 +417,7 @@ onMounted(() => {
               </template>
             </div>
             <div v-if="multiple" class="select-all">
-              <el-checkbox v-model="check_all" size="large" value="全选" @change="checkAll" />
+              <el-checkbox v-model="check_all" size="large" label="全选" @change="checkAll" />
             </div>
           </div>
           <div class="text-right mt-3">
@@ -497,11 +506,16 @@ onMounted(() => {
     .tips {
       display: flex;
       justify-content: space-between;
-      border-bottom: 1px solid #ddd;
       padding: 0 2px;
 
       .count {
         color: var(--color-danger);
+      }
+
+      .tip-count {
+        display: flex;
+        align-items: center;
+        margin-left: 4px;
       }
     }
 
@@ -512,6 +526,9 @@ onMounted(() => {
       flex-wrap: wrap;
       overflow: auto;
       padding-top: 5px;
+      border-top: 1px solid #ddd;
+      margin-top: 10px;
+      min-height: 50px;
     }
   }
 

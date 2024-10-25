@@ -1,9 +1,13 @@
 TODO:
 
 - hl-date：type=range增加校验
-- 增加远程下拉组件
-- hl-button的button-type为text时，禁止换行，去掉hover时的text-direction
 - 上传组件增加可同时选择多个文件
+- 上传组件增加上传失败处理
+
+### 0.6.4
+
+- 增加远程下拉组件hl-select-remote
+- hl-button的button-type为text时，禁止换行
 
 ### 0.6.3
 
