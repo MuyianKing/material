@@ -3,16 +3,16 @@ import { reactive, ref } from 'vue'
 /**
  * 分页列表查询
  * @param server
- * @returns {{list_data: *, loading}}
+ * @returns {{list_data: Array, loading: boolean}} 列表结构
  */
-export default function useRequest(server) {
+export default function (server) {
   const loading = ref(false)
   const list_data = reactive({
     count: 0,
     data: [],
   })
 
-  async function getList(params, options = { clear: true }) {
+  async function getList(params, options = {}) {
     options = options || {}
 
     // 是否将当前从接口中获取的数据累加到data中
@@ -23,9 +23,6 @@ export default function useRequest(server) {
 
     try {
       loading.value = true
-      if (!append && options.clear) {
-        list_data.data = []
-      }
       const data = await server(params)
 
       // 生成序号
@@ -46,8 +43,9 @@ export default function useRequest(server) {
 
       // 额外字段
       data_extend_keys.forEach((key) => {
-        if (data[key] !== undefined)
+        if (data[key] !== undefined) {
           list_data[key] = data[key]
+        }
       })
 
       list_data.count = data.count

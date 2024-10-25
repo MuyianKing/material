@@ -1,6 +1,6 @@
 <script setup>
-import { ElOption, ElSelect, vLoading } from 'element-plus'
 import { vLoadmore } from '@hl/directions'
+import { ElOption, ElSelect } from 'element-plus'
 import { ref, useAttrs, watch } from 'vue'
 
 defineOptions({
@@ -17,6 +17,15 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  queryConfig: {
+    type: Object,
+    default() {
+      return {
+        id_key: 'id',
+        query_key: 'query',
+      }
+    },
+  },
   dataConfig: {
     type: Object,
     default() {
@@ -30,20 +39,19 @@ const props = defineProps({
 })
 
 const query = {
-  limit: 20,
+  limit: 10,
   page: 1,
-  query: '',
 }
 
 // 自定义搜索
 function filterFun(val) {
   if (is_focus) {
-    is_focus = true
+    is_focus = false
     return
   }
 
   query.page = 1
-  query.query = val
+  query[props.queryConfig?.query_key || 'query'] = val
 
   if (val === '') {
     init()
@@ -54,7 +62,6 @@ function filterFun(val) {
 
 let is_focus = false
 function handleFocus() {
-  console.log('handleFocus')
   is_focus = true
 }
 
@@ -117,12 +124,15 @@ async function getData(options = {}) {
     }
   })
 
+  console.log('count', count)
+
   has_more = count > dataList.value.length
 }
 
 // 加载更多
 function loadmore() {
   if (has_more) {
+    query.page++
     getData({ append: true })
   }
 }
@@ -132,17 +142,21 @@ const $attrs = useAttrs()
 // 初始化
 async function init() {
   // 回显时：如果数据属于第二页数据，不初始化这些数据就回显不出来
+  const filter_ids = Array.isArray($attrs.modelValue) ? $attrs.modelValue : [$attrs.modelValue]
   if ($attrs.modelValue !== '' && $attrs.modelValue !== undefined) {
-    const { data } = await getServerData({
-      id: $attrs.modelValue,
-    })
+    const params = {
+      page: 1,
+      limit: 1000,
+    }
+    params[props.queryConfig?.id_key || 'id'] = filter_ids.join(',')
+    const { data } = await getServerData(params)
 
     dataList.value = data
   }
 
   getData({
     append: true,
-    filter_ids: Array.isArray($attrs.modelValue) ? $attrs.modelValue : [$attrs.modelValue],
+    filter_ids,
   })
 }
 
@@ -160,18 +174,21 @@ watch(() => $attrs.modelValue, () => {
 }, {
   immediate: true,
 })
+
+defineExpose({
+  init,
+  query,
+})
 </script>
 
 <template>
-  <el-select :remote-method="filterFun" filterable remote-show-suffix remote @change="handleChange" @focus="handleFocus">
+  <el-select :remote-method="filterFun" filterable remote-show-suffix remote :loading no-data-text="没有数据" @change="handleChange" @focus="handleFocus">
     <div v-loadmore="loadmore">
       <el-option v-if="all" value="">
         全部
       </el-option>
       <el-option v-for="item in dataList" :key="item.value" :value="item.value" :label="item.label" />
     </div>
-
-    <div v-loading="loading" class="hl-select-loading-item" />
   </el-select>
 </template>
 

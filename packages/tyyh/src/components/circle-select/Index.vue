@@ -1,6 +1,6 @@
 <script setup>
-import { useSelect } from '@hl/hooks'
 import { ElOption, ElSelect } from 'element-plus'
+import useSelect from '../../hooks/useSelect'
 import { getList } from '../../server/circle'
 import 'element-plus/es/components/select/style/css'
 import 'element-plus/es/components/option/style/css'

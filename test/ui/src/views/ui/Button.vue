@@ -1,5 +1,5 @@
 <script setup>
-import { HlAddButton, HlButton, HlDelButton, HlExportButton, HlImportButton } from '@ui'
+import { HlAddButton, HlButton, HlDelButton, HlDetailButton, HlExportButton, HlImportButton } from '@ui'
 import TestCompWrapper from '@comp/test-comp-wrapper/Index.vue'
 </script>
 
@@ -49,6 +49,13 @@ import TestCompWrapper from '@comp/test-comp-wrapper/Index.vue'
       <hl-del-button />
       <hl-del-button text class="ml-4" />
       <hl-del-button text="自定义文字" class="ml-4" />
+    </div>
+
+    <div class="flex items-center mt-4">
+      <!-- 删除按钮 -->
+      <hl-detail-button />
+      <hl-detail-button text class="ml-4" />
+      <hl-detail-button text="自定义文字" class="ml-4" />
     </div>
   </div>
 </template>

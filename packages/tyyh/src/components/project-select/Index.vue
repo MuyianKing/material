@@ -1,6 +1,6 @@
 <script setup name="ProjectSelect">
-import { useSelect } from '@hl/hooks'
 import { ElOption, ElSelect } from 'element-plus'
+import useSelect from '../../hooks/useSelect'
 import { getList } from '../../server/project'
 
 import 'element-plus/es/components/select/style/css'

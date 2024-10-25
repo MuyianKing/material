@@ -1,0 +1,32 @@
+// 水平垂直居中
+.position-center {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+}
+
+// 水平垂直居中
+.relative-center {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.select-none {
+  user-select: none;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-1-0 {
+  min-height: 0;
+  min-width: 0;
+  flex: 1;
+}

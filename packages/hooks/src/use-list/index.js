@@ -1,7 +1,7 @@
 import { pageSize } from '@hl/utils'
-import { h, nextTick, onMounted, reactive, watch } from 'vue'
 import { useDebounceFn } from '@vueuse/core'
-import useRequest from '../useRequest.js'
+import { h, nextTick, onMounted, reactive, watch } from 'vue'
+import useRequest from '../request/useListRequest'
 import render from './render.jsx'
 
 /**

@@ -46,7 +46,7 @@ function handleClick() {
 
 <template>
   <!-- 纯文本 -->
-  <el-link v-if="buttonType === 'text'" class="hl-button" :type v-bind="$attrs" @click="handleClick">
+  <el-link v-if="buttonType === 'text'" class="hl-button whitespace-nowrap" :type v-bind="$attrs" @click="handleClick">
     <slot>
       {{ text }}
     </slot>

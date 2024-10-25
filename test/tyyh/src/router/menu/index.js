@@ -2,45 +2,36 @@ import Layout from '@layout/Main.vue'
 
 export const menuList = [
   {
-    path: '/tyyh',
+    path: 'person',
+    component: () => import('@views/tyyh/Person.vue'),
     meta: {
-      title: '统一用户',
-      icon: 'clarity:users-solid',
+      title: '人员选择',
+      icon: 'fluent-emoji-flat:person',
     },
-    children: [
-      {
-        path: 'person',
-        component: () => import('@views/tyyh/Person.vue'),
-        meta: {
-          title: '人员选择',
-          icon: 'clarity:user-solid',
-        },
-      },
-      {
-        path: 'person/panel',
-        component: () => import('@views/tyyh/PersonSelectPanel.vue'),
-        meta: {
-          title: '人员选择面板',
-          icon: 'clarity:user-solid',
-        },
-      },
-      {
-        path: 'organiztion',
-        component: () => import('@views/tyyh/Organization.vue'),
-        meta: {
-          title: '单位选择',
-          icon: 'clarity:organization-solid',
-        },
-      },
-      {
-        path: 'other',
-        component: () => import('@views/tyyh/OtherComp.vue'),
-        meta: {
-          title: '其他',
-          icon: 'material-symbols:other-admission-rounded',
-        },
-      },
-    ],
+  },
+  {
+    path: 'person/panel',
+    component: () => import('@views/tyyh/PersonSelectPanel.vue'),
+    meta: {
+      title: '人员选择面板',
+      icon: 'fluent-emoji-flat:person-bowing',
+    },
+  },
+  {
+    path: 'organiztion',
+    component: () => import('@views/tyyh/Organization.vue'),
+    meta: {
+      title: '单位选择',
+      icon: 'flat-color-icons:org-unit',
+    },
+  },
+  {
+    path: 'other',
+    component: () => import('@views/tyyh/OtherComp.vue'),
+    meta: {
+      title: '其他',
+      icon: 'fluent-emoji-flat:confetti-ball',
+    },
   },
 ]
 
@@ -63,7 +54,7 @@ export default [
   {
     path: '/',
     component: Layout,
-    redirect: '/home',
+    redirect: '/person',
     name: 'admin',
     children: menuList,
   },
