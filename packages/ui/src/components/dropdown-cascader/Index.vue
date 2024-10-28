@@ -79,6 +79,7 @@ function getFilterFlag(item) {
   if (item[cascaderPropsConfig.label] && item[cascaderPropsConfig.label].includes(searchKey.value)) {
     return true
   }
+
   if (item[cascaderPropsConfig.children] && Array.isArray(item[cascaderPropsConfig.children])) {
     item[cascaderPropsConfig.children] = item[cascaderPropsConfig.children].filter(child => getFilterFlag(child))
     return item[cascaderPropsConfig.children].some(child => getFilterFlag(child))

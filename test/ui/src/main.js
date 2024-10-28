@@ -8,6 +8,7 @@ import * as common from '@utils/common'
 import api from '@api'
 import useUserStore from '@pinia/useUserStore'
 import * as message from '@hl/utils/es/message'
+import useThemeStore from '@pinia/useThemeStore'
 import { BASE_URL, ICONIFY_API } from './utils/app'
 import http from './utils/request'
 import pinia from '@/pinia'
@@ -38,6 +39,8 @@ window.hl = {
 const app = createApp(App)
 
 app.use(pinia)
-
-app.use(router)
+  .use(router)
   .mount('#app')
+
+const theme = useThemeStore()
+theme.initTheme()

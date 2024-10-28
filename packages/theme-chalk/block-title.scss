@@ -2,8 +2,8 @@
   display: flex;
 
   .block {
-    border-radius: 6px;
-    width: 6px;
+    border-radius: 5px;
+    width: 5px;
     height: auto;
     margin-right: 8px;
     padding: 5px 0;
@@ -11,8 +11,6 @@
 
   .title {
     font-weight: bold;
-    color: v-bind(color);
-    font-size: calc(1px * v-bind(fontSize));
   }
 
   .primary {
@@ -25,5 +23,32 @@
 
   .danger {
     background-image: linear-gradient(#f08c85, #d8353a);
+  }
+}
+
+.hl-flat-block-title {
+  display: flex;
+
+  .block {
+    width: 5px;
+    height: auto;
+    margin-right: 8px;
+    padding: 5px 0;
+  }
+
+  .title {
+    font-weight: bold;
+  }
+
+  .primary {
+    background-color: var(--color-primary);
+  }
+
+  .success {
+    background-color: var(--color-success);
+  }
+
+  .danger {
+    background-color: var(--color-danger);
   }
 }

@@ -4,10 +4,17 @@ TODO:
 - 上传组件增加可同时选择多个文件
 - 上传组件增加上传失败处理
 
-### 0.6.4
+- hl-block-title：样式太丑，增加平面样式
+- hl-block-title：color和fonts-size不生效
+
+### 0.7.0
 
 - 增加远程下拉组件hl-select-remote
 - hl-button的button-type为text时，禁止换行
+- hl-context-menu：页面出现滚动条时显示位置不在点击位置
+- hl-dialog：修复margin-bottom导致外部滚动条
+- hl-icon-selecet：修复第二次打开弹框选择卡顿问题
+- hl-page：v-model:page变更为v-model(break-change)
 
 ### 0.6.3
 
@@ -22,7 +29,7 @@ TODO:
 
 - hl-wavesurfer：修复样式文件缺失问题；修复z-index不够导致的覆盖问题
 - hl-preview：no-download属性合并到no-preview(break-change)
-- hl-image：not-preview变更为no-preview(break change)
+- hl-image：not-preview变更为no-preview(break-change)
 - hl-icon-select：增加清除和确定操作
 - 增加自动按需引入配置文件：resolver.js
 - hl-search-page优化fixedButton属性

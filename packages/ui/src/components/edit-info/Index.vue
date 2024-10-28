@@ -1,7 +1,7 @@
 <script setup>
 import { ElInput } from 'element-plus'
 import { useDebounceFn } from '@vueuse/core'
-import { nextTick, reactive, ref } from 'vue'
+import { nextTick, reactive, ref, watch } from 'vue'
 
 const props = defineProps({
   modelValue: {
@@ -74,12 +74,8 @@ const handleBlur = useDebounceFn(() => {
 </script>
 
 <template>
-  <div class="hl-edit-info" :class="{ 'cursor-pointer': editable }" :style="{ width, textAlign: align }"
-       @dblclick="handleDblclick"
-  >
-    <el-input v-if="rowValue.editing" ref="input_ref" v-model="input_val" :placeholder="placeholder" @blur="handleBlur"
-              @change="handleBlur"
-    />
+  <div class="hl-edit-info" :class="{ 'cursor-pointer': editable }" :style="{ width, textAlign: align }" @dblclick="handleDblclick">
+    <el-input v-if="rowValue.editing" ref="input_ref" v-model="input_val" :placeholder="placeholder" @blur="handleBlur" @change="handleBlur" />
     <template v-else>
       <span v-if="modelValue !== ''">{{ modelValue }}</span>
       <span v-else>{{ placeholder }}</span>

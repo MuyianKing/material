@@ -19,10 +19,6 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
-  unique: {
-    type: String,
-    default: '',
-  },
 })
 
 const slots = useSlots()
@@ -44,8 +40,6 @@ function setMaxHeight() {
     const offsetTop = $el.offsetTop
 
     if (props.height) {
-      console.log($el.querySelector('.el-dialog__body').style.height = `calc(${props.height} - ${header + footer}px)`)
-
       $el.querySelector('.el-dialog__body').style.height = `calc(${props.height} - ${header + footer}px)`
     } else {
       $el.querySelector('.el-dialog__body').style.maxHeight = `calc(100vh - ${header + 2 * offsetTop + footer}px)`
@@ -88,6 +82,7 @@ watch(model, (val) => {
 const dialog_style = computed(() => {
   return {
     marginTop: top_comp.value ? 0 : '',
+    marginBottom: top_comp.value ? 0 : '',
     top: top_comp.value,
     height: props.height,
   }

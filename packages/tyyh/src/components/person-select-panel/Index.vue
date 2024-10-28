@@ -387,7 +387,7 @@ onMounted(() => {
                   清空
                 </el-button>
                 <div class="tip-count">
-                  已选择 <span class="count">{{ select_users.length }}</span> 人
+                  已选 <span class="text-red-400 mx-1">{{ select_users.length }}</span> 人
                 </div>
               </div>
             </div>
@@ -395,7 +395,6 @@ onMounted(() => {
               <el-tag v-for="(user, index) in select_users_comp" :key="user[idKey]" class="selected-tag" closable size="large" @close="delUser(index)">
                 {{ user.name }} _ {{ user.org_job }}
               </el-tag>
-
               <div v-if="select_users_comp.length === 0" class="w-full text-center text-gray-400 leading-[50px]">
                 未选择人员
               </div>
@@ -507,10 +506,6 @@ onMounted(() => {
       display: flex;
       justify-content: space-between;
       padding: 0 2px;
-
-      .count {
-        color: var(--color-danger);
-      }
 
       .tip-count {
         display: flex;

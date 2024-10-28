@@ -4,6 +4,10 @@ import { pageSize } from '@hl/utils'
 import { computed } from 'vue'
 
 const props = defineProps({
+  modelValue: {
+    type: Number,
+    default: 1,
+  },
   // 总条数
   count: {
     type: Number,
@@ -18,14 +22,6 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  modelValue: {
-    type: Number,
-    default: 1,
-  },
-  page: {
-    type: Number,
-    default: 1,
-  },
   pagerCount: {
     type: Number,
     default: 7,
@@ -33,11 +29,10 @@ const props = defineProps({
 })
 
 // 当前页
-const emits = defineEmits(['update:modelValue', 'update:size', 'change', 'update:page'])
+const emits = defineEmits(['update:modelValue', 'update:size', 'change'])
 
 function handlePageChange(val) {
   emits('update:modelValue', val)
-  emits('update:page', val)
   emits('change')
 }
 
@@ -46,12 +41,8 @@ function handleSizeChange(val) {
   emits('change')
 }
 
-const _page = computed(() => {
-  return (props.page - 1) === 0 ? props.modelValue : props.page
-})
-
-const first_num = computed(() => props.size * (_page.value - 1) + 1)
-const last_num = computed(() => (props.count > props.size * _page.value ? _page.value * props.size : props.count))
+const first_num = computed(() => props.size * (props.modelValue - 1) + 1)
+const last_num = computed(() => (props.count > props.size * props.modelValue ? props.modelValue * props.size : props.count))
 
 const layout = computed(() => {
   let l = 'prev, pager, next'
@@ -75,6 +66,6 @@ const layout = computed(() => {
       </span>
       <span>条</span>
     </div>
-    <el-pagination :current-page="_page" :pager-count :layout :page-size="size" :total="count" background hide-on-single-page @update:current-page="handlePageChange" @update:page-size="handleSizeChange" />
+    <el-pagination :current-page="modelValue" :pager-count :layout :page-size="size" :total="count" background hide-on-single-page @update:current-page="handlePageChange" @update:page-size="handleSizeChange" />
   </div>
 </template>

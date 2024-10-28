@@ -1,12 +1,16 @@
 <script setup>
 import HlSidebar from '@layout/side-bar/Index.vue'
+import ExitFull from '@layout/ExitFull.vue'
+import HlHeader from '@layout/Header.vue'
 import { onBeforeRouteUpdate, useRoute } from 'vue-router'
-import useTagsStore from '@pinia/useTagsStore.js'
-
+import useTagsStore from '@pinia/useTagsStore'
+import useAppStore from '@pinia/useAppStore'
 import { computed, h, ref, watch } from 'vue'
 
+const appStore = useAppStore()
+
 const tags = useTagsStore()
-const route = useRoute()
+const _route = useRoute()
 const tagsList = computed(() => tags.tagsList)
 
 // 设置标签
@@ -21,7 +25,7 @@ function setTags(tag_toute) {
   }
 }
 
-setTags(route)
+setTags(_route)
 
 const collapse = ref(+hl.storage.get('collapse') === 1)
 watch(collapse, (val) => {
@@ -32,7 +36,7 @@ onBeforeRouteUpdate((to) => {
   setTags(to)
 })
 
-const show = computed(() => route.path !== 'login')
+const show = computed(() => _route.path !== 'login')
 
 // 用来存已经创建的组件
 const components_map = new Map()
@@ -73,8 +77,10 @@ function formatComponentInstance(component, route) {
 
 <template>
   <div v-if="show" class="main-body-wrapper">
+    <exit-full v-if="appStore.full_page" />
     <hl-sidebar v-model="collapse" />
     <div class="bottom-wrapper">
+      <hl-header v-model:collapse="collapse" :class="{ 'hidden-hidden': appStore.full_page }" />
       <div class="content-box" :class="{ 'content-collapse': collapse }">
         <router-view v-if="tags.reload" v-slot="{ Component, route }">
           <transition name="fade">

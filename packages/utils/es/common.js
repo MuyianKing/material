@@ -36,7 +36,7 @@ export function someInArray(someArray, arr) {
  * @returns {string} uuid
  */
 export function guid(len = 16) {
-  return nanoid(len).replace(/-/g, '_')
+  return nanoid(len).replace(/-/g, 'a').replace(/_/g, 'b')
 }
 
 /**

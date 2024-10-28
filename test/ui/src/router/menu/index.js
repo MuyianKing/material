@@ -113,6 +113,30 @@ export const menuList = [
           icon: 'clarity:user-solid',
         },
       },
+      {
+        path: 'context-menu',
+        component: () => import('@views/ui/Contextmenu.vue'),
+        meta: {
+          title: '右击菜单',
+          icon: 'clarity:user-solid',
+        },
+      },
+      {
+        path: 'page',
+        component: () => import('@views/ui/Page.vue'),
+        meta: {
+          title: '分页',
+          icon: 'clarity:user-solid',
+        },
+      },
+      {
+        path: 'block-title',
+        component: () => import('@views/ui/BlockTitle.vue'),
+        meta: {
+          title: '个性标题',
+          icon: 'clarity:user-solid',
+        },
+      },
     ],
   },
 ]

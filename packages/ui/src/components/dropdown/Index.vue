@@ -120,6 +120,7 @@ if (props.multiple) {
     multipleAllValue.value = val === _options.value.length
   }, { immediate: true })
 }
+
 // 值状态
 const activeStatus = computed(() => {
   if (!props.multiple) {

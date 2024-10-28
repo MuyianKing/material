@@ -51,13 +51,9 @@ export default {
 
     // 设置resize事件
     if (params.resize) {
-      useEventListener(
-        window,
-        'resize',
-        useDebounceFn(() => {
-          chart.resize()
-        }, 200),
-      )
+      useEventListener(window, 'resize', useDebounceFn(() => {
+        chart.resize()
+      }, 200))
     }
 
     // 设置容器overflow

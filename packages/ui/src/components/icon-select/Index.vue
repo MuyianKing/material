@@ -90,6 +90,11 @@ function handleSubmit() {
   popover_ref.value?.hide()
 }
 
+function handleClear() {
+  model.value = ''
+  popover_ref.value?.hide()
+}
+
 onMounted(() => {
   getData()
 })
@@ -97,7 +102,7 @@ onMounted(() => {
 
 <template>
   <div class="hl-icon-select">
-    <el-popover ref="popover_ref" placement="bottom-start" :title :width :trigger :teleported>
+    <el-popover ref="popover_ref" placement="bottom-start" :title :width :trigger :teleported @after-leave="search">
       <template #reference>
         <div class="flex items-center cursor-pointer">
           <span class="placholder-item">{{ placholder }}</span>
@@ -113,7 +118,7 @@ onMounted(() => {
           </div>
         </div>
         <div class="btn-wrapper">
-          <el-button type="danger" size="small" @click="model = ''">
+          <el-button type="danger" size="small" @click="handleClear">
             清除
           </el-button>
           <el-button type="primary" size="small" @click="handleSubmit">

@@ -35,10 +35,12 @@ export default {
               style={`color:${render.color}`}
             >
               {render.label
-                ? [
-                    <HlIcon icon={render.icon} />,
-                    <span class="ml-1">{render.label}</span>,
-                  ]
+                ? (render.icon
+                    ? [
+                        <HlIcon icon={render.icon} />,
+                        <span class="ml-1">{render.label}</span>,
+                      ]
+                    : <span>{render.label}</span>)
                 : render(props.options[index])}
             </div>
           )

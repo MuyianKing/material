@@ -8,7 +8,7 @@
 
 ### 0.6.2
 
-- person-select-panel：增加已选择人员筛选
+- person-select-panel：已选择人员增加筛选
 
 ### 0.6.1
 

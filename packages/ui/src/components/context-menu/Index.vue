@@ -15,7 +15,12 @@ const emits = defineEmits(['click'])
 const context_item_renders = ref([])
 provide('context_item_renders', context_item_renders)
 
-const { x, y } = useMouse()
+const { x, y } = useMouse({
+  touch: false,
+  type(event) {
+    return [event.clientX, event.clientY]
+  },
+})
 const _style = ref({
   top: 0,
   left: 0,
