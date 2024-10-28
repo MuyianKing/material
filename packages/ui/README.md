@@ -15,6 +15,7 @@ TODO:
 - hl-dialog：修复margin-bottom导致外部滚动条
 - hl-icon-selecet：修复第二次打开弹框选择卡顿问题
 - hl-page：v-model:page变更为v-model(break-change)
+- hl-del-button：修复幽灵空白节点
 
 ### 0.6.3
 
