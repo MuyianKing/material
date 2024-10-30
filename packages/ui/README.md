@@ -4,9 +4,6 @@ TODO:
 - 上传组件增加可同时选择多个文件
 - 上传组件增加上传失败处理
 
-- hl-block-title：样式太丑，增加平面样式
-- hl-block-title：color和fonts-size不生效
-
 ### 0.7.0
 
 - 增加远程下拉组件hl-select-remote
@@ -16,6 +13,9 @@ TODO:
 - hl-icon-selecet：修复第二次打开弹框选择卡顿问题
 - hl-page：v-model:page变更为v-model(break-change)
 - hl-del-button：修复幽灵空白节点
+- hl-block-title：样式太丑，增加平面样式
+- hl-block-title：color和fonts-size不生效
+- HlUiResolver：引入路径从@hl/ui变更为@hl/ui/resolver(break-change)
 
 ### 0.6.3
 

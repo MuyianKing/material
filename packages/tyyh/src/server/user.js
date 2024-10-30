@@ -9,7 +9,6 @@ export async function getUserList(params, config = {}) {
   })
 
   if (simple === false) {
-    console.log('config', label_config)
     result.data.forEach((item) => {
       if (item.organization?.length > 0) {
         const org = item.organization[0]

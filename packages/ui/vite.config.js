@@ -38,7 +38,10 @@ export default defineConfig({
       treeshake: false,
     },
     lib: {
-      entry: resolve(__dirname, '../index.js'),
+      entry: [
+        resolve(__dirname, '../index.js'),
+        resolve(__dirname, '../resolver.js'),
+      ],
     },
   },
   plugins: [

@@ -170,6 +170,14 @@ function filter(val) {
   search()
 }
 
+// 禁用的人
+const _d_p = computed(() => {
+  if (!props.disabledPerson) {
+    return []
+  }
+  return Array.isArray(props.disabledPerson) ? props.disabledPerson : [props.disabledPerson]
+})
+
 watch([() => props.organizationId, () => props.hasNext], () => {
   query.organization_id = props.organizationId
   query.sub_organization = props.hasNext ? 1 : 0
@@ -193,14 +201,6 @@ watchEffect(() => {
   if (props.options || props.server) {
     search()
   }
-})
-
-// 禁用的人
-const _d_p = computed(() => {
-  if (!props.disabledPerson) {
-    return []
-  }
-  return Array.isArray(props.disabledPerson) ? props.disabledPerson : [props.disabledPerson]
 })
 
 onMounted(() => {
