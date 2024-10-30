@@ -38,10 +38,6 @@ const props = defineProps({
     type: Object,
     default: () => ({}),
   },
-  cascaderAttrs: {
-    type: Object,
-    default: () => ({}),
-  },
 })
 const emits = defineEmits(['change'])
 const cascaderPropsConfig = {
@@ -53,6 +49,7 @@ const cascaderPropsConfig = {
   children: 'children',
   ...props.cascaderProps,
 }
+
 const model = defineModel({
   type: [Array, String, Number],
   default: '',
@@ -121,18 +118,14 @@ const _label = computed(() => {
   <el-dropdown class="hl-dropdown-cascader" trigger="click" @visible-change="val => { arrowStatus = val }">
     <div :class="{ 'active-label': activeStatus }" class="flex items-center dropdown-label">
       <span>{{ _label }}</span>
-      <hl-icon v-if="!noArrow" :class="{ 'deg-180': arrowStatus }" class="arrow-icon ml-1"
-               icon="iconamoon:arrow-down-2-thin"
-      />
+      <hl-icon v-if="!noArrow" :class="{ 'deg-180': arrowStatus }" class="arrow-icon ml-1" icon="iconamoon:arrow-down-2-thin" />
     </div>
     <template #dropdown>
       <div :class="{ 'p-2': hasSearch }" class="flex flex-col">
         <div v-if="hasSearch" class="mb-2">
           <el-input v-model="searchKey" placeholder="请输入关键字快速搜索" />
         </div>
-        <el-cascader-panel ref="cascaderPanelRef" v-model="model" :options="_options" :props="cascaderPropsConfig"
-                           style="width: fit-content" @change="handleChange"
-        />
+        <el-cascader-panel ref="cascaderPanelRef" v-model="model" :options="_options" :props="cascaderPropsConfig" style="width: fit-content" @change="handleChange" />
       </div>
     </template>
   </el-dropdown>

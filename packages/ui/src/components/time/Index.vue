@@ -20,7 +20,7 @@ const parse_time = computed(() => props.time?.split(props.separator).filter(item
 </script>
 
 <template>
-  <div :class="{ 'flex-wrap': !nowrap }" class="flex justify-center">
+  <div :class="{ 'flex-wrap': !nowrap }" class="inline-flex justify-center">
     <div class="whitespace-nowrap">
       {{ parse_time[0] || '' }}
     </div>

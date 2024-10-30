@@ -1,4 +1,4 @@
-.hl-dropdown {
+.hl-dropdown-popover {
   .active {
     background-color: var(--color-primary);
     color: white;
@@ -9,6 +9,9 @@
     line-height: normal;
   }
 
+}
+
+.hl-dropdown {
   .active-label {
     color: var(--color-primary);
   }

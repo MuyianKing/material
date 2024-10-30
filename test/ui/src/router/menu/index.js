@@ -2,14 +2,6 @@ import Layout from '@layout/Main.vue'
 
 export const menuList = [
   {
-    path: '/3d',
-    component: () => import('@views/3d/Index.vue'),
-    meta: {
-      title: '3D',
-      icon: 'clarity:users-solid',
-    },
-  },
-  {
     path: '/hooks',
     meta: {
       title: 'Hooks',
@@ -134,6 +126,30 @@ export const menuList = [
         component: () => import('@views/ui/BlockTitle.vue'),
         meta: {
           title: '个性标题',
+          icon: 'clarity:user-solid',
+        },
+      },
+      {
+        path: 'edit-info',
+        component: () => import('@views/ui/EditInfo.vue'),
+        meta: {
+          title: '可编辑文本',
+          icon: 'clarity:user-solid',
+        },
+      },
+      {
+        path: 'dropdown',
+        component: () => import('@views/ui/Dropdown.vue'),
+        meta: {
+          title: '下拉组件',
+          icon: 'clarity:user-solid',
+        },
+      },
+      {
+        path: 'dropdown-casacader',
+        component: () => import('@views/ui/DropdownCascader.vue'),
+        meta: {
+          title: '级联下拉',
           icon: 'clarity:user-solid',
         },
       },

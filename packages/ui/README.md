@@ -16,6 +16,8 @@ TODO:
 - hl-block-title：样式太丑，增加平面样式
 - hl-block-title：color和fonts-size不生效
 - HlUiResolver：引入路径从@hl/ui变更为@hl/ui/resolver(break-change)
+- hl-edit-info：优化显示，去除无用样式
+- hl-dropdown：解决选中样式无法生效问题
 
 ### 0.6.3
 

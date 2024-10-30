@@ -20,7 +20,7 @@ function handleClick() {
 <template>
   <div class="wrapper">
     <div class="w-[50%] h-[50%]" />
-    <div class="w-[100%] h-[400px] bg-gray-200 flex items-center justify-center text-gray-500" @click.stop="handleClick">
+    <div class="w-[100%] h-[400px] bg-gray-200 flex items-center justify-center text-gray-500" @contextmenu.prevent="handleClick">
       右击区域
     </div>
     <div class="w-[100%] h-[100%]" />

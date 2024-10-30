@@ -2,7 +2,11 @@
   position: relative;
   min-height: 20px;
 
-  .el-input__inner {
-    text-align: v-bind(align) !important;
+  .hl-value-item{
+    color: #666;
+  }
+
+  .hl-trigger-item{
+    color: gray;
   }
 }

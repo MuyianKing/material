@@ -25,7 +25,11 @@ const props = defineProps({
   // 没有值时的提示信息
   placeholder: {
     type: String,
-    default: '',
+    default: '请输入',
+  },
+  triggerInfo: {
+    type: String,
+    default: '双击编辑',
   },
   // 值为0时是否置为空字符串
   zeroToEmpty: {
@@ -50,10 +54,11 @@ watch(() => props.modelValue, (val) => {
 // 双击
 const input_ref = ref()
 function handleDblclick() {
-  if (!props.editable)
+  if (!props.editable) {
     return
+  }
 
-  if (props.zeroToEmpty && input_val.value === 0) {
+  if (props.zeroToEmpty && +input_val.value === 0) {
     input_val.value = ''
   }
   rowValue.editing = true
@@ -77,8 +82,8 @@ const handleBlur = useDebounceFn(() => {
   <div class="hl-edit-info" :class="{ 'cursor-pointer': editable }" :style="{ width, textAlign: align }" @dblclick="handleDblclick">
     <el-input v-if="rowValue.editing" ref="input_ref" v-model="input_val" :placeholder="placeholder" @blur="handleBlur" @change="handleBlur" />
     <template v-else>
-      <span v-if="modelValue !== ''">{{ modelValue }}</span>
-      <span v-else>{{ placeholder }}</span>
+      <span v-if="modelValue !== ''" class="hl-value-item">{{ modelValue }}</span>
+      <span v-else class="hl-trigger-item">{{ triggerInfo }}</span>
     </template>
   </div>
 </template>
