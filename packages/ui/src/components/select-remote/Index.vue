@@ -124,8 +124,6 @@ async function getData(options = {}) {
     }
   })
 
-  console.log('count', count)
-
   has_more = count > dataList.value.length
 }
 
@@ -145,6 +143,7 @@ async function init() {
   const filter_ids = Array.isArray($attrs.modelValue) ? $attrs.modelValue : [$attrs.modelValue]
   if ($attrs.modelValue !== '' && $attrs.modelValue !== undefined) {
     const params = {
+      ...query,
       page: 1,
       limit: 1000,
     }

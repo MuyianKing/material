@@ -6,8 +6,11 @@
 
 ### TODO
 
+- person-select：extend=true是做下拉加载更多
+
 ### 0.6.2
 
+- 去除所有的@hl/hooks下的useSelect
 - person-select-panel：已选择人员增加筛选
 
 ### 0.6.1

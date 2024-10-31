@@ -1,6 +1,7 @@
 <script setup>
 import { useEventListener } from '@vueuse/core'
 import { computed, nextTick, onMounted, ref } from 'vue'
+import { vVisible } from '@hl/directions'
 
 const props = defineProps({
   // 是否开启自动滚动
@@ -153,7 +154,7 @@ function initAutoEvent() {
   if (props.hoverStop) {
     // 鼠标进入停止动画
     useEventListener(outer_ref.value, 'mouseenter', () => switchAnimation(false))
-    // 鼠标离开停止动画
+    // 鼠标离开开始动画
     useEventListener(outer_ref.value, 'mouseleave', () => switchAnimation(true))
   }
 }

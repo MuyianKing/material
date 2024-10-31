@@ -12,6 +12,8 @@ export * from './src/components/project-select'
 export * from './src/directions/resources'
 
 export {
+  // 更新密码
   updatePassword,
+  // 更新用户信息
   updateUserInfo,
 }

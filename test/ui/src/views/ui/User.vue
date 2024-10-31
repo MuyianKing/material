@@ -1,5 +1,5 @@
 <script setup>
-import { HlButton, HlFormDialog } from '@ui'
+import { HlButton, HlFormDialog } from '@hl/ui'
 import { ref } from 'vue'
 
 const show = ref(false)

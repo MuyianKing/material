@@ -1,5 +1,5 @@
 <script setup>
-import { HlNumber } from '@ui'
+import { HlNumber } from '@hl/ui'
 </script>
 
 <template>

@@ -12,7 +12,6 @@ const alias_path = [
   ['@img', './src/assets/img'],
   ['@pinia', './src/pinia/modules'],
   ['@layout', './src/layout'],
-  ['@ui', '@hl/ui/'],
   ['@utils', '@hl/utils/es'],
   ['@app', './src/utils/app'],
   ['@style', './src/assets/style'],

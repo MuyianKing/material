@@ -9,7 +9,6 @@
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "@hl/utils": "workspace:*"
   },
   "devDependencies": {
     "@vitest/coverage-v8": "2.1.2",

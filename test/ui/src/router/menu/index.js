@@ -90,14 +90,6 @@ export const menuList = [
         },
       },
       {
-        path: 'descriptions',
-        component: () => import('@views/ui/Descriptions.vue'),
-        meta: {
-          title: '描述列表',
-          icon: 'clarity:user-solid',
-        },
-      },
-      {
         path: 'select-remote',
         component: () => import('@views/ui/SelectRemote.vue'),
         meta: {
@@ -150,6 +142,14 @@ export const menuList = [
         component: () => import('@views/ui/DropdownCascader.vue'),
         meta: {
           title: '级联下拉',
+          icon: 'clarity:user-solid',
+        },
+      },
+      {
+        path: 'scroll',
+        component: () => import('@views/ui/Scroll.vue'),
+        meta: {
+          title: '无限滚动',
           icon: 'clarity:user-solid',
         },
       },

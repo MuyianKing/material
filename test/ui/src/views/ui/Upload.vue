@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { HlButton, HlFormItem, HlIcon, HlUpload } from '@ui'
+import { HlButton, HlFormItem, HlIcon, HlUpload } from '@hl/ui'
 
 const image = ref(
   {

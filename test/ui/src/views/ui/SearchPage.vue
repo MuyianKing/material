@@ -1,5 +1,5 @@
 <script setup>
-import { HlSearchPage } from '@ui'
+import { HlSearchPage } from '@hl/ui'
 import { ElButton, ElFormItem, ElInput } from 'element-plus'
 </script>
 
