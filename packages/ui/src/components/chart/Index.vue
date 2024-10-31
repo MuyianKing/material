@@ -22,7 +22,7 @@ const props = defineProps({
 
 const emits = defineEmits(['ready'])
 
-const id = guid
+const id = guid()
 
 // echart实例对象
 let echart_instance = null

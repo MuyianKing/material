@@ -145,14 +145,6 @@ export const menuList = [
           icon: 'clarity:user-solid',
         },
       },
-      {
-        path: 'scroll',
-        component: () => import('@views/ui/Scroll.vue'),
-        meta: {
-          title: '无限滚动',
-          icon: 'clarity:user-solid',
-        },
-      },
     ],
   },
 ]
