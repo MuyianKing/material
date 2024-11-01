@@ -152,6 +152,36 @@ const end_comp = computed(() => {
   return props.end || model_value.value?.split('_')[1] || ''
 })
 
+// 限制结束时间
+function endDisableFun(val) {
+  if (props.type !== 'date') {
+    return false
+  }
+
+  if (!start_comp.value) {
+    return true
+  }
+
+  if (dayjs(val).valueOf() <= dayjs(start_comp.value).valueOf()) {
+    return true
+  }
+
+  return false
+}
+
+// 限制开始时间
+function startDisableFun(val) {
+  if (props.type !== 'date') {
+    return false
+  }
+
+  if (end_comp.value && dayjs(val).valueOf() >= dayjs(end_comp.value).valueOf()) {
+    return true
+  }
+
+  return false
+}
+
 watch(model_value, () => {
   nextTick(() => {
     const date = model_value.value.split('_').filter(d => d)
@@ -170,14 +200,14 @@ watch(model_value, () => {
   <div class="flex items-center">
     <!-- 开始时间 -->
     <el-date-picker v-bind="$attrs" :model-value="start_comp" :type :placeholder="startPlaceholder || '请选择开始时间'"
-                    :format="format_comp" :value-format="start_value_format_comp" :style="el_date_style_comp"
+                    :format="format_comp" :value-format="start_value_format_comp" :style="el_date_style_comp" :disabled-date="startDisableFun"
                     @update:model-value="handleStartChange"
     />
     <span class="mx-2 text-gray-400 separator">{{ separator }}</span>
     <!-- 结束时间 -->
     <el-date-picker v-bind="$attrs" :model-value="end_comp" :type :placeholder="endPlaceholder || '请选择结束时间'"
                     :format="format_comp" :value-format="end_value_format_comp" :style="el_date_style_comp"
-                    @update:model-value="handleEndChange"
+                    :disabled-date="endDisableFun" @update:model-value="handleEndChange"
     />
   </div>
 </template>

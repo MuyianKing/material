@@ -74,6 +74,14 @@ export const menuList = [
         },
       },
       {
+        path: 'date',
+        component: () => import('@views/ui/Date.vue'),
+        meta: {
+          title: '日期时间',
+          icon: 'clarity:user-solid',
+        },
+      },
+      {
         path: 'number',
         component: () => import('@views/ui/Number.vue'),
         meta: {
@@ -142,6 +150,14 @@ export const menuList = [
         component: () => import('@views/ui/DropdownCascader.vue'),
         meta: {
           title: '级联下拉',
+          icon: 'clarity:user-solid',
+        },
+      },
+      {
+        path: 'grid',
+        component: () => import('@views/ui/Grid.vue'),
+        meta: {
+          title: 'Grid布局',
           icon: 'clarity:user-solid',
         },
       },

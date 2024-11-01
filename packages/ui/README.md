@@ -1,8 +1,12 @@
 TODO:
 
-- hl-date：type=range增加校验
 - 上传组件增加可同时选择多个文件
 - 上传组件增加上传失败处理
+
+### 0.7.2
+
+- hl-scroll：由于功能设计不单一故删除该组件(break-change)
+- hl-date：type=range并且date-type=date时增加开始时间和结束时间的范围限制(break-change)
 
 ### 0.7.1
 
