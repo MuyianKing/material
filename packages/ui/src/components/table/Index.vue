@@ -108,6 +108,10 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
+  scrollbarAlwaysOn: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 const emits = defineEmits(['update:edit-header', 'row-click', 'span-click', 'update:lightLine'])
@@ -542,7 +546,7 @@ defineExpose({
       </table-body>
 
       <!-- 自定义滚动条 -->
-      <scroll-bar ref="scroll_bar" :table-id="tableId" :active="true" />
+      <scroll-bar ref="scroll_bar" :table-id="tableId" :active="scrollbarAlwaysOn || scroll_bar_active" />
 
       <div v-show="data.length === 0 && hasEmptySlot" class="w-full h-full">
         <slot name="empty" />

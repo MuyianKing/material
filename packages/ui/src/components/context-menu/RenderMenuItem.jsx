@@ -5,7 +5,7 @@ export default {
   props: {
     options: {
       type: Array,
-      requred: true,
+      required: true,
     },
   },
   components: {
@@ -22,7 +22,7 @@ export default {
     const list = computed(() =>
       context_item_renders.value.length > 0
         ? context_item_renders.value
-        : props.options,
+        : props.options || [],
     )
 
     return () => (

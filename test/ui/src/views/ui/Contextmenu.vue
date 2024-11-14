@@ -1,5 +1,5 @@
 <script setup>
-import { HlContextMenu } from '@hl/ui'
+import { HlContextMenu, HlContextMenuItem } from '@hl/ui'
 import { ref } from 'vue'
 
 const options = [
@@ -15,6 +15,10 @@ const context_menu_ref = ref()
 function handleClick() {
   context_menu_ref.value.toggle()
 }
+
+function handleSelected(row) {
+  console.log(row)
+}
 </script>
 
 <template>
@@ -24,7 +28,14 @@ function handleClick() {
       右击区域
     </div>
     <div class="w-[100%] h-[100%]" />
-    <hl-context-menu ref="context_menu_ref" :options />
+    <hl-context-menu ref="context_menu_ref" :options @click="handleSelected">
+      <hl-context-menu-item v-slot="row">
+        test{{ row }}
+      </hl-context-menu-item>
+      <hl-context-menu-item v-slot="row">
+        test{{ row }}
+      </hl-context-menu-item>
+    </hl-context-menu>
   </div>
 </template>
 

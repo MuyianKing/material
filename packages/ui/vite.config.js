@@ -41,6 +41,8 @@ export default defineConfig({
       entry: [
         resolve(__dirname, '../index.js'),
         resolve(__dirname, '../resolver.js'),
+        resolve(__dirname, '../utils.js'),
+        resolve(__dirname, '../check.update.js'),
       ],
     },
   },

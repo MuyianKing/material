@@ -21,6 +21,7 @@ const { x, y } = useMouse({
     return [event.clientX, event.clientY]
   },
 })
+
 const _style = ref({
   top: 0,
   left: 0,
@@ -73,7 +74,7 @@ defineExpose({
   <div v-show="show" class="hl-context-menu" :style="_style" @click.stop>
     <div class="arrow" />
 
-    <render-menu-item ref="render_ref" :options="options" @selected="handleSelected" />
+    <render-menu-item ref="render_ref" :options @selected="handleSelected" />
     <slot />
   </div>
 </template>

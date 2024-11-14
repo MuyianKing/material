@@ -1,7 +1,7 @@
 <script setup name="HlFormDialog">
 import { ElButton, ElForm } from 'element-plus'
-import { error, success, warning } from '@hl/utils'
 import { ref } from 'vue'
+import { error, success, warning } from '../../utils/message'
 import DialogComp from '../dialog/Index.vue'
 
 const props = defineProps({

@@ -1,8 +1,8 @@
 <script setup>
 import WaveSurfer from 'wavesurfer.js'
 import Hover from 'wavesurfer.js/dist/plugins/hover.esm.js'
-import { closeLoading, error, loading } from '@hl/utils'
 import { nextTick, ref, watch } from 'vue'
+import { closeLoading, error, loading } from '../../utils/message'
 import IconComp from '../icon/Index.vue'
 
 const src = defineModel({

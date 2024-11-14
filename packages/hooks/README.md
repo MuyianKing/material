@@ -3,6 +3,8 @@
 TODO:
 
 - useList：增加配置：不渲染分页
+- 移除useList，由@hl/ui维护
+- usePageRequest待商讨
 
 ### 0.7.0
 

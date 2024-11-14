@@ -1,7 +1,8 @@
 <script setup>
-import { AUDIO_SUFFIX, FILE_SUFFIX, error, guid } from '@hl/utils'
-
+import { AUDIO_SUFFIX, FILE_SUFFIX, guid } from '@hl/utils'
 import { computed, inject, nextTick, provide, ref, useSlots } from 'vue'
+import { error } from '../../utils/message'
+
 import TriggerComp from './components/Trigger.vue'
 import PreviewComp from './components/Preview.vue'
 import UploadProgress from './components/Progress.vue'

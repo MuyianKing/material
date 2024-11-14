@@ -7,6 +7,7 @@ TODO:
 
 - hl-scroll：由于功能设计不单一故删除该组件(break-change)
 - hl-date：type=range并且date-type=date时增加开始时间和结束时间的范围限制(break-change)
+- 增加check.update模块和utils/message模块
 
 ### 0.7.1
 

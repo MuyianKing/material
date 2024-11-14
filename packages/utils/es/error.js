@@ -1,5 +1,3 @@
-import { ElMessage } from 'element-plus'
-
 function getCompPath(instance) {
   const type = instance.type || instance.$?.type
   const path = type?.name || type?.__file || type?.__name
@@ -31,37 +29,31 @@ function getCompPath(instance) {
 /**
  * 全局异常处理
  */
-export default function (app) {
+export default function (app, callback) {
+  callback = callback && typeof callback === 'function' ? callback : null
+
   app.config.errorHandler = (err, instance) => {
     const path = getCompPath(instance)
 
-    ElMessage({
-      type: 'error',
-      dangerouslyUseHTMLString: true,
-      duration: 5000,
-      message: `
+    if (callback) {
+      callback(`
       <div style="font-size:22px;margin-bottom:5px">未知错误</div>
       <div style="line-height:22px">当前路由: ${location.hash || location.href}</div>
       <div style="line-height:22px">组件路径: ${path.join('=>')}</div>
       <div style="line-height:22px">错误信息: ${err.message}</div>
-      `,
-    })
+      `)
+    }
   }
 
   // 未捕获的异步异常
   window.onerror = function (message, source, lineno, colno, error) {
-    if (error && source) {
-      ElMessage({
-        type: 'error',
-        dangerouslyUseHTMLString: true,
-        duration: 5000,
-        message: `
+    if (error && source && callback) {
+      callback(`
         <div style="font-size:22px;margin-bottom:5px">未知错误</div>
          <div style="line-height:22px">当前路由: ${location.hash || location.href}</div>
         <div style="line-height:22px">错误位置: ${source || ''}</div>
         <div style="line-height:22px">错误信息: ${error?.message}</div>
-        `,
-      })
+        `)
     }
 
     // 阻止向上抛出

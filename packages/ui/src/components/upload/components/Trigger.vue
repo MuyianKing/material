@@ -1,6 +1,7 @@
 <script setup>
-import { confirm, getMimeType, getSuffix } from '@hl/utils'
+import { getMimeType, getSuffix } from '@hl/utils'
 import { computed, ref, useSlots } from 'vue'
+import { confirm } from '../../../utils/message'
 import { getAcceptType } from '../hooks/index'
 import IconComp from '../../icon/Index.vue'
 
