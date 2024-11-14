@@ -45,6 +45,10 @@ export default {
       type: Object,
       default: null,
     },
+    noPage: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup(props, { slots, emit }) {
     // 列表页头部搜索区域
@@ -72,8 +76,14 @@ export default {
       button.push(slots.button)
     }
 
+    const default_slots = []
+
     // 分页
-    const default_slots = [() => <HlPage modelValue={props.pageQuery.page} size={props.pageQuery.limit} sizes={props.pageConfig?.sizes} count={props.tableData.count || 0} onUpdate:modelValue={val => emit('updatePage', val)} onUpdate:size={val => emit('updateSize', val)} onChange={() => emit('getData')} />]
+    if (!props.noPage) {
+      default_slots.push(() => <HlPage modelValue={props.pageQuery.page} size={props.pageQuery.limit} sizes={props.pageConfig?.sizes} count={props.tableData.count || 0} onUpdate:modelValue={val => emit('updatePage', val)} onUpdate:size={val => emit('updateSize', val)} onChange={() => emit('getData')} />)
+    }
+
+    // 默认插槽
     if (slots.default) {
       default_slots.push(slots.default)
     }

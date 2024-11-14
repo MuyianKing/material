@@ -12,6 +12,7 @@ import render from './render.jsx'
  * @param {Function} params.onEnd 获取数据结束后执行的方法
  * @param {Function} params.autoSearch mounted后自动请求数据
  * @param {boolean} params.autoUpdate 参数变化后自动请求数据
+ * @param {boolean} params.noPage 参数变化后自动请求数据
  */
 export default function HlListPage(params) {
   const {
@@ -22,6 +23,7 @@ export default function HlListPage(params) {
     autoSearch = true,
     autoUpdate = true,
     pageConfig = null,
+    noPage = false,
   } = params
 
   // 条件
@@ -30,7 +32,7 @@ export default function HlListPage(params) {
     limit: query.limit || pageSize,
   })
 
-  // 删除无用字段
+  // 删除分页字段
   delete query.page
   delete query.limit
 
@@ -95,6 +97,7 @@ export default function HlListPage(params) {
     // 组件渲染函数
     HlListPage: h(render, {
       _loading: loading,
+      noPage,
       query: query_ref,
       pageQuery: page_query,
       tableData: list_data,
@@ -104,6 +107,11 @@ export default function HlListPage(params) {
       },
       onUpdatePage(page) {
         page_query.page = page
+
+        // 没有自动变化则需要手动触发查询
+        if (!autoUpdate) {
+          getData()
+        }
       },
       onUpdateSize(size) {
         page_query.limit = size

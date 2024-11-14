@@ -1,26 +1,19 @@
 <script setup>
-import { useList, usePageRequest, useRequest } from '@hl/hooks'
+import { useList } from '@hl/hooks'
 import { HlFormItem, HlInput, HlTable, HlTableColumn } from '@hl/ui'
-
-async function server() {
-
-}
-
-usePageRequest(server)
-useRequest(server)
 
 const {
   HlListPage,
   query,
-  getData,
   table_data,
 } = useList({
   query: {
     keyword: '',
   },
   server() {
+    console.log('server')
     return {
-      count: 0,
+      count: 100,
       data: [],
     }
   },
@@ -35,7 +28,7 @@ function handleEdit() {
   <hl-list-page @add="handleEdit">
     <template #search>
       <hl-form-item label="关键字">
-        <hl-input v-model="query.keyword" @change="getData" />
+        <hl-input v-model="query.keyword" />
       </hl-form-item>
     </template>
 

@@ -1,10 +1,11 @@
-# utils
+# hooks
 
 TODO:
 
+### 0.7.1
+
+- useList：修复autoUpdate为false时手动触发分页不会查询问题
 - useList：增加配置：不渲染分页
-- 移除useList，由@hl/ui维护
-- usePageRequest待商讨
 
 ### 0.7.0
 

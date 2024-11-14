@@ -1,5 +1,5 @@
-import { error } from '@hl/utils'
 import { onMounted, ref } from 'vue'
+import { error } from '@hl/ui/utils'
 import useRequest from './useRequest'
 
 /**
