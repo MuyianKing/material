@@ -35,14 +35,10 @@ export async function uploadFile(files, params = {}) {
  *上传
  * @param {FormData} data
  * @param {object} params
- * @returns
  */
 function upload(data, params = {}) {
   if (!data) {
-    return Promise.reject(new Error({
-      errno: 999,
-      error: '文件不合法',
-    }))
+    return Promise.reject(new Error('文件不合法'))
   }
 
   const config = {

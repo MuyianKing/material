@@ -1,5 +1,5 @@
 import { cloneDeep, concat } from 'lodash-es'
-import { error } from '@hl/utils'
+import { error } from '@hl/ui/utils'
 import { reactive, ref, watch } from 'vue'
 
 export default function (props, emits, apiSelect, config = {}) {

@@ -1,10 +1,7 @@
-import isInt from 'validator/es/lib/isInt'
-import isPort from 'validator/es/lib/isPort'
-import isMobilePhone from 'validator/es/lib/isMobilePhone'
-import isIP from 'validator/es/lib/isIP'
-import isLatLong from 'validator/es/lib/isLatLong'
-import isEmail from 'validator/es/lib/isEmail'
+import validator from 'validator'
 import { isTruth } from './common'
+
+const { isInt, isPort, isMobilePhone, isIP, isLatLong, isEmail } = validator
 
 // 验证表单是整数
 export function v_int(rule, value, callback) {

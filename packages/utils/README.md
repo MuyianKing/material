@@ -1,3 +1,7 @@
+#### 0.7.1
+
+- validator.js改为全量引入
+
 #### 0.7.0
 
 - 移除message模块，由项目(@hl/ui、@hl/h5)自己维护(`break-change`)

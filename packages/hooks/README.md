@@ -2,7 +2,7 @@
 
 TODO:
 
-### 0.7.1
+### 0.7.2
 
 - useList：修复autoUpdate为false时手动触发分页不会查询问题
 - useList：增加配置：不渲染分页

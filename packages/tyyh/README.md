@@ -8,6 +8,10 @@
 
 - person-select：extend=true是做下拉加载更多
 
+### 0.7.0
+
+- 依赖更新到0.7.x
+
 ### 0.6.2
 
 - 去除所有的@hl/hooks下的useSelect

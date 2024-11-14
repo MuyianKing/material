@@ -36,9 +36,6 @@
       ],
       "@utils/*": [
         "./node_modules/@hl/utils/src/*"
-      ],
-      "@list-page": [
-        "./node_modules/@hl/ui/src/list-page"
       ]
     }
   },
