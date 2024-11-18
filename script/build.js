@@ -46,11 +46,30 @@ function createPackageJson(name, options) {
       'utf-8',
     )
   }
+
+  return {
+    name,
+    version: _config.version,
+  }
 }
 
+// 拷贝README.md
 function copyREADME(name) {
   const package_path = path.resolve(__dirname, `../../packages/${name}/README.md`)
   copyFileSync(package_path, path.resolve(outputDir, `${name}/README.md`), constants.COPYFILE_EXCL)
+}
+
+// 打包主题包
+async function buildThemeChalk(version) {
+  const pck = 'theme-chalk'
+  const package_path = path.resolve(__dirname, `../../packages/${pck}`)
+  const output_path = path.resolve(outputDir, pck)
+
+  await promises.cp(package_path, output_path, {
+    force: true, // 存在则强制覆盖
+    recursive: true, // 递归文件夹拷贝，如果为false，里面有文件夹则报错
+  })
+  createPackageJson(pck, { version })
 }
 
 // 所有组件的打包配置
@@ -65,8 +84,12 @@ const build_config = {
 // 打包单个组件库
 async function buildLib(pck, options) {
   await build(build_config[pck])
-  createPackageJson(pck, options)
+  const { version } = createPackageJson(pck, options)
   copyREADME(pck)
+
+  if (pck === 'ui') {
+    buildThemeChalk(version)
+  }
 }
 
 // 打包
