@@ -1,6 +1,7 @@
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import process from 'node:process'
+import { constants, copyFileSync, promises } from 'node:fs'
 import { build } from 'vite'
 import fsExtra from 'fs-extra'
 import ui_vite_config from '../packages/ui/vite.config.js'
@@ -47,6 +48,11 @@ function createPackageJson(name, options) {
   }
 }
 
+function copyREADME(name) {
+  const package_path = path.resolve(__dirname, `../../packages/${name}/README.md`)
+  copyFileSync(package_path, path.resolve(outputDir, `${name}/README.md`), constants.COPYFILE_EXCL)
+}
+
 // 所有组件的打包配置
 const build_config = {
   ui: ui_vite_config,
@@ -60,19 +66,28 @@ const build_config = {
 async function buildLib(pck, options) {
   await build(build_config[pck])
   createPackageJson(pck, options)
+  copyREADME(pck)
 }
 
 // 打包
 async function buildPackages() {
-  // 清空目录
-  clearFolder(path.resolve(__dirname, outputDir))
-
-  const options = {
-    // 非0：需要外部修正版本号
-    version: 0,
+  // 判断有没有dist目录，没有创建
+  try {
+    await promises.stat(outputDir)
+    // 清空目录
+    clearFolder(outputDir)
+  } catch {
+    // 不存在文件夹，直接创建 {recursive: true} 这个配置项是配置自动创建多个文件夹
+    await promises.mkdir(outputDir, { recursive: true })
   }
 
   const params = getParams()
+
+  const options = {
+    // 非0：需要外部修正版本号
+    version: params.v || 0,
+  }
+
   if (params.pck) {
     // 打包指定组件库
     buildLib(params.pck, options)

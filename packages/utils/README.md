@@ -8,6 +8,26 @@
 - 移除check.update模块，由@hl/ui维护(`break-change`)
 - handleErrorr模块不在显示异常，转由回调方法处理(`break-change`)
 
+```js
+import handleError from '@hl/utils/error'
+import { ElMessage } from 'element-plus'
+
+const app = createApp(App)
+
+// 全局异常捕获
+handleError(app)
+
+// 变更为=>
+handleError((msg) => {
+  ElMessage({
+    type: 'error',
+    dangerouslyUseHTMLString: true,
+    duration: 5000,
+    message: msg,
+  })
+})
+```
+
 #### 0.6.2
 
 - 优化es/error
