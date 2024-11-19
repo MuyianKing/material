@@ -62,14 +62,16 @@ function copyREADME(name) {
 // 打包主题包
 async function buildThemeChalk(version) {
   const pck = 'theme-chalk'
+
+  createPackageJson(pck, { version })
+
   const package_path = path.resolve(__dirname, `../../packages/${pck}`)
-  const output_path = path.resolve(outputDir, pck)
+  const output_path = path.resolve(`${outputDir}/ui`, pck)
 
   await promises.cp(package_path, output_path, {
     force: true, // 存在则强制覆盖
     recursive: true, // 递归文件夹拷贝，如果为false，里面有文件夹则报错
   })
-  createPackageJson(pck, { version })
 }
 
 // 所有组件的打包配置

@@ -1,6 +1,5 @@
 <script setup>
 import { useList } from '@hl/hooks'
-import { HlFormItem, HlInput, HlTable, HlTableColumn } from '@hl/ui'
 
 const {
   HlListPage,

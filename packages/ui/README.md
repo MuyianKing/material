@@ -3,11 +3,15 @@ TODO:
 - 上传组件增加可同时选择多个文件
 - 上传组件增加上传失败处理
 
+### 0.7.3
+
+- theme-chalk变更为@hl/ui一部分，不再作为单独的包发布
+
 ### 0.7.2
 
 - hl-scroll：由于功能设计不单一故删除该组件(break-change)
 - hl-date：type=range并且date-type=date时增加开始时间和结束时间的范围限制(break-change)
-- 增加check.update模块和utils/message模块
+- 增加utils/check.update模块和utils/message模块
 
 ### 0.7.1
 

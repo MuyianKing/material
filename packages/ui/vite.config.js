@@ -4,6 +4,19 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 
+function HlUIAlias() {
+  return {
+    name: 'my-plugin',
+    enforce: 'pre',
+    transform(code, id) {
+      if (!id.endsWith('style/index.js'))
+        return
+
+      return code.replace(/@hl\/theme-chalk/g, '@hl/ui/theme-chalk')
+    },
+  }
+}
+
 const __dirname = fileURLToPath(import.meta.url)
 
 export default defineConfig({
@@ -47,6 +60,7 @@ export default defineConfig({
     },
   },
   plugins: [
+    HlUIAlias(),
     vue(),
     vueJsx(),
   ],

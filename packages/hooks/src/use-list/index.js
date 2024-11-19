@@ -1,18 +1,21 @@
 import { pageSize } from '@hl/utils'
 import { useDebounceFn } from '@vueuse/core'
 import { h, nextTick, onMounted, reactive, watch } from 'vue'
+import { error } from '@hl/ui/src/utils/message'
 import useRequest from '../request/useListRequest'
 import render from './render.jsx'
 
 /**
  * @param {object} params
  * @param {object} params.query 查询需要的参数
- * @param { Function } params.server 请求后台的方法
+ * @param {Function} params.server 请求后台的方法
  * @param { Array } params.data_extend_keys 需要额外从接口中获取的字段，默认只取data和count
  * @param {Function} params.onEnd 获取数据结束后执行的方法
  * @param {Function} params.autoSearch mounted后自动请求数据
  * @param {boolean} params.autoUpdate 参数变化后自动请求数据
- * @param {boolean} params.noPage 参数变化后自动请求数据
+ * @param {boolean} params.noPage 是否不渲染分页
+ * @param {Function} params.oneServer 更新一行数据接口，如果是null则取server
+ * @param {Function} params.oneServerKey 更新一行数据接口参数key，默认id
  */
 export default function HlListPage(params) {
   const {
@@ -24,7 +27,13 @@ export default function HlListPage(params) {
     autoUpdate = true,
     pageConfig = null,
     noPage = false,
+    oneServerKey = 'id',
   } = params
+
+  let oneServer = params.oneServer || server
+  if (typeof oneServer !== 'function') {
+    oneServer = null
+  }
 
   // 条件
   const page_query = reactive({
@@ -59,13 +68,46 @@ export default function HlListPage(params) {
         data_extend_keys,
       })
     } catch (e) {
-      hl.message.error(e, '获取数据出错')
+      error(e, '获取数据出错')
     } finally {
       if (onEnd && typeof onEnd === 'function') {
         onEnd()
       }
     }
   }, 300)
+
+  // 更新一行数据
+  function updateOne(row, callback) {
+    if (!oneServer) {
+      return
+    }
+
+    const params = {}
+    params[oneServerKey] = row[oneServerKey]
+
+    oneServer(params).then((data) => {
+      if (data?.data) {
+        data = Array.isArray(data.data[0]) ? data.data[0] : data.data
+      }
+
+      if (!data) {
+        error(null, '未获取到更新数据')
+        return
+      }
+
+      // 更新数据
+      for (const key in row) {
+        row[key] = data[key]
+      }
+
+      // 回调
+      if (callback && typeof callback === 'function') {
+        callback(row)
+      }
+    }).catch((e) => {
+      error(e, '更新数据出错')
+    })
+  }
 
   // 搜索
   const search = () => {
@@ -124,6 +166,7 @@ export default function HlListPage(params) {
     getData,
     // 搜索方法：添加防抖和每次会将分页置为1
     search,
+    updateOne,
     // 获取到的数据{data:"列表数据",count:"数据量"}
     table_data: list_data,
     loading,

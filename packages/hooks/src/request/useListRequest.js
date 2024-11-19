@@ -3,7 +3,7 @@ import { reactive, ref } from 'vue'
 /**
  * 分页列表查询
  * @param server
- * @returns {{list_data: Array, loading: boolean}} 列表结构
+ * @returns {{list_data: reactive, loading: boolean}} 列表结构
  */
 export default function (server) {
   const loading = ref(false)
