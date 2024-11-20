@@ -32,11 +32,14 @@ function createPackageJson(name, options) {
 
   _config.version = version || _config.version
   const fileStr = JSON.stringify(_config, '', '\t')
-  fsExtra.outputFile(
-    path.resolve(outputDir, `${name}/package.json`),
-    fileStr,
-    'utf-8',
-  )
+
+  if (name !== 'theme-chalk') {
+    fsExtra.outputFile(
+      path.resolve(outputDir, `${name}/package.json`),
+      fileStr,
+      'utf-8',
+    )
+  }
 
   // 如果指定的version，需要回写到组件库的package.json
   if (version) {
@@ -63,7 +66,10 @@ function copyREADME(name) {
 async function buildThemeChalk(version) {
   const pck = 'theme-chalk'
 
-  createPackageJson(pck, { version })
+  // 更新版本
+  createPackageJson(pck, {
+    version,
+  })
 
   const package_path = path.resolve(__dirname, `../../packages/${pck}`)
   const output_path = path.resolve(`${outputDir}/ui`, pck)

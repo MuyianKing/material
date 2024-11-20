@@ -1,20 +1,13 @@
 export function HlUIAlias() {
-  const themeChalk = 'theme-chalk'
-  const sourceThemeChalk = `@hl/${themeChalk}`
-  const bundleThemeChalk = `@hl/ui/${themeChalk}`
-
   return {
-    name: 'hl-ui-alias-plugin',
-    resolveId(id) {
-      if (!id.startsWith(sourceThemeChalk))
+    name: 'my-plugin',
+    enforce: 'pre',
+    transform(code, id) {
+      if (!id.endsWith('style/index.js')) {
         return
-
-      console.log('id', id)
-
-      return {
-        id: id.replaceAll(sourceThemeChalk, bundleThemeChalk),
-        external: 'absolute',
       }
+
+      return code.replace(/@hl\/theme-chalk/g, '@hl/ui/theme-chalk')
     },
   }
 }

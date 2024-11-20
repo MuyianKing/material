@@ -3,19 +3,7 @@ import { fileURLToPath } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
-
-function HlUIAlias() {
-  return {
-    name: 'my-plugin',
-    enforce: 'pre',
-    transform(code, id) {
-      if (!id.endsWith('style/index.js'))
-        return
-
-      return code.replace(/@hl\/theme-chalk/g, '@hl/ui/theme-chalk')
-    },
-  }
-}
+import { HlUIAlias } from './plugins/alias.js'
 
 const __dirname = fileURLToPath(import.meta.url)
 
