@@ -5,6 +5,7 @@ import HlTableColumn from '@hl/ui/src/components/table-column'
 import HlFormItem from '@hl/ui/src/components/form-item'
 import HlInput from '@hl/ui/src/components/input'
 import { HlEditButton } from '@hl/ui'
+import { getList } from '@server/user'
 
 const {
   HlListPage,
@@ -15,28 +16,7 @@ const {
   query: {
     keyword: '',
   },
-  server: async (params) => {
-    if (params.id) {
-      return {
-        id: params.id,
-        name: 'update muyianking',
-      }
-    }
-
-    const data = []
-
-    for (let i = 0; i < 20; i++) {
-      data.push({
-        id: i + 1,
-        name: `muyian${i + 1}`,
-      })
-    }
-
-    return {
-      data,
-      count: 100,
-    }
-  },
+  server: getList,
 })
 </script>
 

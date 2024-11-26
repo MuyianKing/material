@@ -1,8 +1,8 @@
 {
-  "name": "@hl/hooks",
-  "type": "module",
-  "version": "0.7.3",
-  "license": "ISC",
-  "keywords": [],
-  "main": "./index.js"
+	"name": "@hl/hooks",
+	"type": "module",
+	"version": "0.7.4",
+	"license": "ISC",
+	"keywords": [],
+	"main": "./index.js"
 }

@@ -6,5 +6,6 @@ export default {
   urls: {
     login: '/login',
     logout: '/logout',
+    user: '/user',
   },
 }

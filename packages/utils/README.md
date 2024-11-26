@@ -1,3 +1,13 @@
+#### 0.7.3
+
+- @hl/utils/validator：身份证校验默认大陆、港、澳、台均为合法
+- 提供单独的台湾、港澳身份证校验方法
+- @hl/utils/validator：校验回调不传默认为vant
+
+#### 0.7.2
+
+- 调整@hl/utils/validator，支持vant按照element-plus方式书写校验规则
+
 #### 0.7.1
 
 - validator.js改为全量引入

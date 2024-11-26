@@ -99,8 +99,6 @@ function switchNode(code = '320402000000') {
 }
 
 function setDefaultOrg() {
-  console.log(props.defaultOrgId)
-
   if (props.defaultOrgId) {
     console.log(tree_data.value)
 

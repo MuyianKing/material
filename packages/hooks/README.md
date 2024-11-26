@@ -1,5 +1,9 @@
 # hooks
 
+### 0.7.4
+
+- useList：修复updateOne数据解析错误问题
+
 ### 0.7.3
 
 - useList：增加配置oneServer —— 更新一条数据方法，不配置默认取server，参数为id；返回updateOne方法用于手动更新一条数据

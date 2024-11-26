@@ -30,3 +30,12 @@ export async function logout(router) {
     window.location.href = url
   }
 }
+
+export async function getList(params) {
+  const result = await http.post(hl.api.tyyh.user, {
+    opt: 'user_get_v_0_0_2',
+    ...params,
+  })
+
+  return result
+}

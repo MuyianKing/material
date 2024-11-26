@@ -87,14 +87,13 @@ export default function HlListPage(params) {
 
     oneServer(params).then((data) => {
       if (data?.data) {
-        data = Array.isArray(data.data[0]) ? data.data[0] : data.data
+        data = Array.isArray(data.data) ? data.data[0] : data.data
       }
 
       if (!data) {
         error(null, '未获取到更新数据')
         return
       }
-
       // 更新数据
       for (const key in row) {
         row[key] = data[key]

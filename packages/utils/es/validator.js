@@ -1,151 +1,102 @@
-import validator from 'validator'
+import { isEmail, isIP, isInt, isLatLong, isMobilePhone, isPort } from 'validator'
 import { isTruth } from './common'
 
-const { isInt, isPort, isMobilePhone, isIP, isLatLong, isEmail } = validator
+// vant-ui的校验回调
+function vantCallback(data) {
+  if (data instanceof Error) {
+    return data.message
+  }
+
+  return data || ''
+}
+
+/**
+ * 表单校验方法生成器
+ * @param {object|null} rule 目前为element-plus校验中的校验规则，其他传null
+ * @param {*} value 校验的值
+ * @param {*} validateFun 校验的方法
+ * @param {Function} callback 校验回调
+ * @param {string} errorMsg 错误提示
+ * @returns {Function} 校验方法
+ */
+export function validateService(rule, value, validateFun, callback, errorMsg) {
+  callback = callback || vantCallback
+
+  value = getValue(rule, value, callback)
+  if (!isTruth(value)) {
+    return callback()
+  }
+
+  if (validateFun(`${value}`)) {
+    return callback()
+  } else {
+    return callback(new Error(errorMsg))
+  }
+}
+
+// 获取值
+function getValue(rule, value, callback) {
+  // vant-ui取第二个参数
+  if (callback === vantCallback) {
+    value = rule
+  }
+
+  return value
+}
 
 // 验证表单是整数
 export function v_int(rule, value, callback) {
-  if (!isTruth(value)) {
-    callback()
-    return
-  }
-  if (isInt(`${value}`)) {
-    callback()
-  } else {
-    callback(new Error('只能是整数'))
-  }
+  return validateService(rule, value, isInt, callback, '只能是整数')
 }
 
 // 验证表单是车牌
 export function v_carnum(rule, value, callback) {
-  if (!isTruth(value)) {
-    callback()
-    return
-  }
-  const car_num_reg = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z][A-Z][A-Z0-9]{4,5}[A-Z0-9挂学警港澳]$/
-  if (car_num_reg.test(value)) {
-    callback()
-  } else {
-    callback(new Error('车牌格式错误'))
-  }
+  return validateService(rule, value, () => {
+    const car_num_reg = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z][A-Z][A-Z0-9]{4,5}[A-Z0-9挂学警港澳]$/
+    return car_num_reg.test(value)
+  }, callback, '车牌格式错误')
 }
 
 // 验证表单是端口号
 export function v_port(rule, value, callback) {
-  if (!isTruth(value)) {
-    callback()
-    return
-  }
-  if (isPort(`${value}`)) {
-    callback()
-  } else {
-    callback(new Error('端口号格式错误'))
-  }
+  return validateService(rule, value, isPort, callback, '端口号格式错误')
 }
 
 // 验证表单是邮箱
 export function v_email(rule, value, callback) {
-  if (!isTruth(value)) {
-    callback()
-    return
-  }
-  if (isEmail(`${value}`)) {
-    callback()
-  } else {
-    callback(new Error('邮箱地址格式错误'))
-  }
+  return validateService(rule, value, isEmail, callback, '邮箱地址格式错误')
 }
 
 // 验证表单手机号
 export function v_phone(rule, value, callback) {
-  if (!isTruth(value)) {
-    callback()
-    return
-  }
-
-  if (isMobilePhone(value, 'zh-CN')) {
-    callback()
-  } else {
-    callback(new Error('手机号码格式错误'))
-  }
+  return validateService(rule, value, isMobilePhone, callback, '手机号码格式错误')
 }
 
 // 验证座机
 export function v_tel(rule, value, callback) {
-  if (!isTruth(value)) {
-    callback()
-    return
-  }
-  const testFixedPhone = /^\d{5,}$/
-  if (testFixedPhone.test(value)) {
-    callback()
-  } else {
-    callback(new Error('电话号码格式错误'))
-  }
+  return validateService(rule, value, isTelphone, callback, '电话号码格式错误')
 }
 
 // 验证表单IP
 export function v_ip(rule, value, callback) {
-  if (!isTruth(value)) {
-    callback()
-    return
-  }
-  if (isIP(value)) {
-    callback()
-  } else {
-    callback(new Error('IP格式错误'))
-  }
+  return validateService(rule, value, isIP, callback, 'IP格式错误')
 }
 
 // 验证表单经纬度
 export function v_latlong(lat, lon, callback) {
-  if (!isTruth(lat) && !isTruth(lon)) {
-    callback()
-    return
-  }
-
-  if (isLatLong(`${lat},${lon}`)) {
-    callback()
-  } else {
-    callback(new Error('经纬度格式错误'))
-  }
+  return validateService(null, `${lat},${lon}`, isLatLong, callback, '经纬度格式错误')
 }
 
 // 验证表单身份证
 export function v_id_num(rule, value, callback) {
-  if (!isTruth(value)) {
-    callback()
-    return
-  }
-  if (isIdNum(value)) {
-    callback()
-  } else {
-    callback(new Error('身份证格式错误'))
-  }
+  return validateService(rule, value, isIdcardAll, callback, '身份证格式错误')
 }
 
 // 验证手机号和座机号
 export function v_phoneOrTel(rule, value, callback) {
-  const testFixedPhone = /^0\d{2,3}-?\d{7,8}(-\d{1,6})?$/
-  const testMobilePhone = /^1[3-9]\d{9}$/
-  if (testFixedPhone.test(value) || testMobilePhone.test(value) || value === '') {
-    callback()
-  } else {
-    callback(new Error('电话号码格式错误'))
-  }
-}
-
-// 验证大陆身份证号或者港澳台身份证号或者护照
-export function v_id_numOrPassport(rule, value, callback) {
-  // 港澳身份证 /^([A-Z]\d{6,10}(\(\w{1}\))?)$/
-  const testHongKong = /^([A-Z]\d{6,10}(\(\w\))?)$/
-  // 护照 /^([a-zA-z]|[0-9]){5,17}$/
-  const testPassport = /^[A-Z0-9]{5,17}$/i
-  if (testHongKong.test(value) || testPassport.test(value) || isIdNum(value) || value === '') {
-    callback()
-  } else {
-    callback(new Error('身份证格式错误'))
-  }
+  return validateService(rule, value, (val) => {
+    return isMobilePhone(val) || isTelphone(val)
+  }, callback, '电话号码格式错误')
 }
 
 // 判断身份证号是否合法
@@ -188,7 +139,7 @@ export function isIdNum(code) {
     91: '国外 ',
   }
   let pass = true
-  if (!code || !/^\d{6}(18|19|20)?\d{2}(0[1-9]|1[120])(0[1-9]|[12]\d|3[01])\d{3}(\d|X)$/i.test(code)) {
+  if (!code || !/^\d{6}(?:18|19|20)?\d{2}(?:0[1-9]|1[120])(?:0[1-9]|[12]\d|3[01])\d{3}(?:\d|X)$/i.test(code)) {
     pass = false
   } else if (!city[code.substr(0, 2)]) {
     pass = false
@@ -212,6 +163,7 @@ export function isIdNum(code) {
   return pass
 }
 
+// 判断对象给定的字段是否存在空值、null、undefined、0
 export function isObjectEmpty(obj, keys) {
   for (let i = 0; i < keys.length; i++) {
     if (!obj[keys[i]]) {
@@ -231,4 +183,35 @@ export function isJson(str) {
       return false
     }
   }
+}
+
+// 校验是否是电话号码
+export function isTelphone(val) {
+  const testFixedPhone = /^\d{5,}$/
+  return testFixedPhone.test(val)
+}
+
+// 验证大陆身份证号或者港澳台身份证号或者护照
+export function isIdcardAll(value) {
+  return isGangAo(value) || isTaiwan(value) || isIdNum(value) || value === ''
+}
+
+/**
+ * 校验是否为合法港澳身份证
+ * @param {string} value
+ * @returns {boolean} true|false
+ */
+export function isGangAo(value) {
+  const testHongKong = /^[A-Z]\d{6,10}(?:\(\w\))?$/
+  return testHongKong.test(value)
+}
+
+/**
+ * 校验是否为合法台湾身份证
+ * @param {string} value
+ * @returns {boolean} true|false
+ */
+export function isTaiwan(value) {
+  const testTaiwan = /^[A-Z]{1,2}\d{8}(?:\d{2})?$/
+  return testTaiwan.test(value)
 }
