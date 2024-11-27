@@ -20,8 +20,8 @@ const customConfig = {
 </template>
 
 <style lang="scss">
-@import '@style/index.css';
-@import '@style/custome.scss';
-@import '@style/main.scss';
-@import '@style/utils.scss';
+@use '@style/index.css';
+@use '@style/custome.scss';
+@use '@style/main.scss';
+@use '@style/utils.scss';
 </style>

@@ -204,6 +204,10 @@ $url: '@img/login/';
   }
 }
 
+:deep(.el-form-item__label) {
+  width: 100%;
+}
+
 @media screen and (max-width: 1000px) {
   .left {
     display: none;

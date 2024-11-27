@@ -18,6 +18,15 @@ const {
   },
   server: getList,
 })
+
+const edit_data = ref(null)
+function handleEdit(row) {
+  edit_data.value = row
+}
+
+function handleRefresh() {
+  updateOne(edit_data)
+}
 </script>
 
 <template>
@@ -34,11 +43,13 @@ const {
         <hl-table-column label="姓名" prop="name" />
         <hl-table-column label="操作">
           <template #default="{ row }">
-            <hl-edit-button @click="updateOne(row)" />
+            <hl-edit-button @click="handleEdit(row)" />
           </template>
         </hl-table-column>
       </hl-table>
     </template>
+
+    <edit-comp @refresh="handleRefresh" />
   </hl-list-page>
 </template>
 

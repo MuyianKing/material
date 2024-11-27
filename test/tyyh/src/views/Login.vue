@@ -99,7 +99,7 @@ watch(() => route.query, (query) => {
           <div class="login-container">
             <img class="max-w-full mx-auto mb-5" src="@img/login/title.png">
             <div class="login-form">
-              <el-form ref="login_ref" :model="form" :rules="rules" label-position="top" size="large">
+              <el-form ref="login_ref" :model="form" :rules="rules" size="large">
                 <el-form-item label="账号" prop="username">
                   <el-input v-model="form.username" placeholder="请输入账号">
                     <template #prefix>
@@ -198,11 +198,7 @@ $url: '@img/login/';
     width: 100%;
     height: 40px;
     line-height: 40px;
-    background-image: linear-gradient(
-      to right,
-      rgb(31, 104, 242),
-      rgb(65, 159, 252)
-    );
+    background-image: linear-gradient(to right, rgb(31, 104, 242), rgb(65, 159, 252));
     text-align: center;
     color: white;
     margin-top: 20px;
