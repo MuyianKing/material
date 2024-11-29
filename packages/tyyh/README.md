@@ -8,6 +8,14 @@
 
 - person-select：extend=true是做下拉加载更多
 
+### 0.7.2
+
+- 增加getUserInfoByToken根据token获取用户信息
+
+### 0.7.1
+
+- 增加getResourcesByLabel、login、logout
+
 ### 0.7.0
 
 - 依赖更新到0.7.x

@@ -4,6 +4,10 @@ TODO:
 - 上传组件增加上传失败处理
 - hl-dialog增加header插槽
 
+### 0.7.4
+
+- hl-form-dialog：提交成功触发的refresh事件增加回调参数 - 表单数据
+
 ### 0.7.3
 
 - theme-chalk变更为@hl/ui一部分，不再作为单独的包发布

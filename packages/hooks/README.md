@@ -1,5 +1,9 @@
 # hooks
 
+### 0.7.5
+
+- useList：优化updateOne使用体验
+
 ### 0.7.4
 
 - useList：修复updateOne数据解析错误问题

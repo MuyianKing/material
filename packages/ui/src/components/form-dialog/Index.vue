@@ -73,7 +73,7 @@ function submit() {
         fun(props.model).then((data) => {
           success('保存成功')
           emits('success', data)
-          emits('refresh')
+          emits('refresh', props.model)
           close()
         }).catch((e) => {
           error(e, '保存失败')

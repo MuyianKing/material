@@ -1,4 +1,4 @@
-import api from '../api'
+import http from '@http'
 
 /**
  * 获取指定标签资源
@@ -6,7 +6,7 @@ import api from '../api'
  * @returns {Array} 资源
  */
 export async function getResourcesByLabel(label) {
-  const result = await hl.http.post(api.resource, {
+  const result = await http.post(hl.api.tyyh.resource, {
     opt: 'resources_menu_ry',
     label,
   })

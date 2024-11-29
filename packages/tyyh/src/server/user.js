@@ -78,3 +78,25 @@ export async function updateUserInfo(params) {
     ...params,
   })
 }
+
+/**
+ * 登录
+ * @param {*} params
+ */
+export function login(params) {
+  return hl.http.post(api.login, params)
+}
+
+/**
+ * 退出登录
+ */
+export function logout() {
+  return hl.http.post(api.logout)
+}
+
+/**
+ * 根据token获取用户信息
+ */
+export function getUserInfoByToken() {
+  return hl.http.post(api.token)
+}

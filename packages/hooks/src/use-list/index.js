@@ -1,7 +1,7 @@
+import { error } from '@hl/ui/src/utils/message'
 import { pageSize } from '@hl/utils'
 import { useDebounceFn } from '@vueuse/core'
 import { h, nextTick, onMounted, reactive, watch } from 'vue'
-import { error } from '@hl/ui/src/utils/message'
 import useRequest from '../request/useListRequest'
 import render from './render.jsx'
 
@@ -82,6 +82,12 @@ export default function HlListPage(params) {
       return
     }
 
+    // 没有主键代表新增：刷新所有数据
+    if (!row[oneServerKey]) {
+      getData()
+      return
+    }
+
     const params = {}
     params[oneServerKey] = row[oneServerKey]
 
@@ -94,6 +100,10 @@ export default function HlListPage(params) {
         error(null, '未获取到更新数据')
         return
       }
+
+      // 根据主键找到需要更新的数据项
+      row = list_data.data.find(item => item[oneServerKey] === row[oneServerKey])
+
       // 更新数据
       for (const key in row) {
         row[key] = data[key]

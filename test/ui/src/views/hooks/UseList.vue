@@ -1,10 +1,10 @@
 <script setup>
 import { useList } from '@hl/hooks'
-import HlTable from '@hl/ui/src/components/table'
-import HlTableColumn from '@hl/ui/src/components/table-column'
+import { HlEditButton } from '@hl/ui'
 import HlFormItem from '@hl/ui/src/components/form-item'
 import HlInput from '@hl/ui/src/components/input'
-import { HlEditButton } from '@hl/ui'
+import HlTable from '@hl/ui/src/components/table'
+import HlTableColumn from '@hl/ui/src/components/table-column'
 import { getList } from '@server/user'
 
 const {
@@ -18,15 +18,6 @@ const {
   },
   server: getList,
 })
-
-const edit_data = ref(null)
-function handleEdit(row) {
-  edit_data.value = row
-}
-
-function handleRefresh() {
-  updateOne(edit_data)
-}
 </script>
 
 <template>
@@ -43,13 +34,11 @@ function handleRefresh() {
         <hl-table-column label="姓名" prop="name" />
         <hl-table-column label="操作">
           <template #default="{ row }">
-            <hl-edit-button @click="handleEdit(row)" />
+            <hl-edit-button @click="updateOne(row)" />
           </template>
         </hl-table-column>
       </hl-table>
     </template>
-
-    <edit-comp @refresh="handleRefresh" />
   </hl-list-page>
 </template>
 

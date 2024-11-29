@@ -7,9 +7,10 @@ export default addPrefixToUrls('/tyyh/api', {
   auth: '/gw_auth',
   auth_random: '/gw_random',
   login: '/login',
-  logout: '/logout',
+  logout: '/logoff',
   job: '/job_rk',
   circle: '/circle',
   resource: '/resources',
   project: '/project',
+  token: '/token',
 })
