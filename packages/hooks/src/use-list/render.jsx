@@ -49,6 +49,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    advancedText: {
+      type: String,
+      default: '高级搜索',
+    },
   },
   setup(props, { slots, emit }) {
     // 列表页头部搜索区域
@@ -76,6 +80,12 @@ export default {
       button.push(slots.button)
     }
 
+    // 高级搜索
+    const advanced = []
+    if (slots.advanced) {
+      advanced.push(slots.advanced)
+    }
+
     const default_slots = []
 
     // 分页
@@ -89,10 +99,11 @@ export default {
     }
 
     return () => (
-      <HlSearchPage class="list-page" loading={props._loading?.value}>
+      <HlSearchPage class="list-page" loading={props._loading?.value} advancedText={advanced.length === 0 ? '' : props.advancedText}>
         {{
           header: () => header.map(slot => (typeof slot === 'function' ? slot() : slot)),
           button: () => button.map(slot => (typeof slot === 'function' ? slot() : slot)),
+          advanced: () => advanced.map(slot => (typeof slot === 'function' ? slot() : slot)),
           table: () => (slots.table ? slots.table() : ''),
           default: () => default_slots.map(slot => (typeof slot === 'function' ? slot() : slot)),
         }}

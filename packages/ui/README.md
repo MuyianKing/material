@@ -4,6 +4,11 @@ TODO:
 - 上传组件增加上传失败处理
 - hl-dialog增加header插槽
 
+### 0.7.5
+
+- hl-dialog：默认可拖动
+- hl-search-area：增加高级搜索插槽
+
 ### 0.7.4
 
 - hl-form-dialog：提交成功触发的refresh事件增加回调参数 - 表单数据

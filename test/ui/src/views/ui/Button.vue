@@ -1,6 +1,6 @@
 <script setup>
-import { HlAddButton, HlButton, HlDelButton, HlDetailButton, HlExportButton, HlImportButton } from '@hl/ui'
 import TestCompWrapper from '@comp/test-comp-wrapper/Index.vue'
+import { HlAddButton, HlButton, HlDelButton, HlDetailButton, HlExportButton, HlImportButton } from '@hl/ui'
 </script>
 
 <template>

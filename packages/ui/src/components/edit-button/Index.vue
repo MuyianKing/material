@@ -1,6 +1,6 @@
 <script setup>
-import ButtonComp from '../button/Index.vue'
 import useButton from '../../hooks/useButton'
+import ButtonComp from '../button/Index.vue'
 
 const props = defineProps({
   icon: {

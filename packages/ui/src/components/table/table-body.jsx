@@ -1,7 +1,7 @@
 import { isOverflow } from '@hl/utils'
+import { useDebounceFn } from '@vueuse/core'
 import { ElCheckbox, ElTooltip } from 'element-plus'
 import { computed, inject, ref } from 'vue'
-import { useDebounceFn } from '@vueuse/core'
 
 export default {
   name: 'HlTableBody',

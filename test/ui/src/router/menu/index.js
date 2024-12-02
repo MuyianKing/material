@@ -58,6 +58,14 @@ export const menuList = [
         },
       },
       {
+        path: 'button-form',
+        component: () => import('@views/ui/ButtonForm.vue'),
+        meta: {
+          title: '表单按钮',
+          icon: 'clarity:user-solid',
+        },
+      },
+      {
         path: 'icon',
         component: () => import('@views/ui/Icon.vue'),
         meta: {

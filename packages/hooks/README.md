@@ -1,5 +1,13 @@
 # hooks
 
+### 0.7.8
+
+- useList：修复没有advanced插槽依然显示高级搜索问题
+
+### 0.7.7
+
+- useList：增加高级搜索
+
 ### 0.7.5
 
 - useList：优化updateOne使用体验

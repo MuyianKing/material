@@ -21,12 +21,18 @@ const {
 </script>
 
 <template>
-  <hl-list-page>
+  <hl-list-page advanced-text="更多条件">
     <template #search>
       <hl-form-item label="关键字">
         <hl-input v-model="query.keyword" />
       </hl-form-item>
     </template>
+    <!--
+    <template #advanced>
+      <div class="h-[300px]">
+        testsssAaaa
+      </div>
+    </template> -->
 
     <template #table>
       <hl-table :data="table_data.data">

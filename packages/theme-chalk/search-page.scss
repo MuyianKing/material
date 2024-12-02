@@ -39,4 +39,15 @@
     flex-grow: 1;
     text-align: right;
   }
+
+  .advanced-area{
+    transition: all linear 0.3s;
+    height: 0;
+    overflow-y: hidden;
+    margin: 0;
+  }
+
+  .advanced-btn{
+    user-select: none;
+  }
 }

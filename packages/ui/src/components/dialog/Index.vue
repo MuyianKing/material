@@ -19,6 +19,10 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
+  draggable: {
+    type: Boolean,
+    default: true,
+  },
 })
 
 const slots = useSlots()
@@ -94,7 +98,7 @@ defineExpose({
 </script>
 
 <template>
-  <el-dialog ref="dialog_ref" v-model="model" :close-on-click-modal="closeOnClickModal" :destroy-on-close="destroyOnClose"
+  <el-dialog ref="dialog_ref" v-model="model" :close-on-click-modal="closeOnClickModal" :destroy-on-close="destroyOnClose" :draggable
              :style="dialog_style" append-to-body class="hl-custome-dialog"
   >
     <slot />
