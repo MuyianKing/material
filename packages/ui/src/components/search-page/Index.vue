@@ -1,7 +1,8 @@
 <script setup name="SearchPage">
 import { ElForm, vLoading } from 'element-plus'
-import { nextTick, ref } from 'vue'
+import { ref } from 'vue'
 import { HlButton } from '../button'
+import HlIcon from '../icon'
 
 defineProps({
   formSize: {
@@ -30,18 +31,6 @@ const show_advaced = ref(false)
 const advance_ref = ref()
 function toggleAdvanced() {
   show_advaced.value = !show_advaced.value
-
-  if (!show_advaced.value) {
-    return
-  }
-
-  nextTick(() => {
-    const clientHeight = advance_ref.value.clientHeight
-    advance_ref.value.style.height = 0
-    setTimeout(() => {
-      advance_ref.value.style.height = `${clientHeight}px`
-    }, 0)
-  })
 }
 </script>
 
@@ -49,19 +38,18 @@ function toggleAdvanced() {
   <div class="flex flex-col h-full hl-search-page">
     <!-- 列表页代码结构组件 -->
     <el-form :size="formSize" :label-width="labelWidth">
-      <div class="search-area">
+      <div ref="advance_ref" class="search-area">
         <slot name="header" />
+        <slot v-if="show_advaced" name="advanced" />
         <div v-if="fixedButton" class="fixed-button">
           <slot name="button" />
         </div>
         <slot v-else name="button" />
         <template v-if="$slots.advanced && advancedText">
           <hl-button button-type="text" class="advanced-btn" @click="toggleAdvanced">
+            <hl-icon class="hl-search-page-arrow" icon="ep:arrow-down" :class="{ 'up-arrow': show_advaced }" />
             {{ advancedText }}
           </hl-button>
-          <div ref="advance_ref" class="w-full advanced-area" :style="{ height: show_advaced ? 'auto' : '0px' }">
-            <slot name="advanced" />
-          </div>
         </template>
       </div>
     </el-form>

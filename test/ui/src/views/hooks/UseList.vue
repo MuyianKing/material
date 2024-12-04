@@ -26,13 +26,37 @@ const {
       <hl-form-item label="关键字">
         <hl-input v-model="query.keyword" />
       </hl-form-item>
+      <hl-form-item label="关键字">
+        <hl-input v-model="query.keyword" />
+      </hl-form-item>
+      <hl-form-item label="关键字">
+        <hl-input v-model="query.keyword" />
+      </hl-form-item>
+      <hl-form-item label="关键字">
+        <hl-input v-model="query.keyword" />
+      </hl-form-item>
+      <hl-form-item label="关键字">
+        <hl-input v-model="query.keyword" />
+      </hl-form-item>
     </template>
-    <!--
+
     <template #advanced>
-      <div class="h-[300px]">
-        testsssAaaa
-      </div>
-    </template> -->
+      <hl-form-item label="关键字">
+        <hl-input v-model="query.keyword" />
+      </hl-form-item>
+      <hl-form-item label="关键字">
+        <hl-input v-model="query.keyword" />
+      </hl-form-item>
+      <hl-form-item label="关键字">
+        <hl-input v-model="query.keyword" />
+      </hl-form-item>
+      <hl-form-item label="关键字">
+        <hl-input v-model="query.keyword" />
+      </hl-form-item>
+      <hl-form-item label="关键字">
+        <hl-input v-model="query.keyword" />
+      </hl-form-item>
+    </template>
 
     <template #table>
       <hl-table :data="table_data.data">

@@ -17,7 +17,7 @@ const props = defineProps({
   },
   text: {
     type: String,
-    default: '没有数据',
+    default: '暂无数据',
   },
 })
 

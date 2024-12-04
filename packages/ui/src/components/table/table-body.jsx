@@ -20,7 +20,7 @@ export default {
     },
     emptyText: {
       type: String,
-      default: '没有数据',
+      default: '暂无数据',
     },
     rowClass: {
       type: Function,
@@ -194,7 +194,7 @@ export default {
           {data.value.length === 0 && (
             <tr>
               <td class="hl-table-td hl-table-no-data" colspan={columns.value.length}>
-                没有数据
+                暂无数据
               </td>
             </tr>
           )}

@@ -1,7 +1,6 @@
 <script setup name="HlDateRange">
-import { ElDatePicker } from 'element-plus'
-
 import dayjs from 'dayjs'
+import { ElDatePicker } from 'element-plus'
 import { computed, nextTick, watch } from 'vue'
 
 const props = defineProps({
@@ -135,6 +134,7 @@ const el_date_style_comp = computed(() => {
   if (props.width === 'auto') {
     return {
       flex: 1,
+      width: 'auto',
     }
   }
 

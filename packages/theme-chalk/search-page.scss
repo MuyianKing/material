@@ -15,6 +15,14 @@
     &>* {
       margin: 5px;
     }
+
+    .hl-search-page-arrow{
+      transition: all linear 0.2s;
+    }
+
+    .up-arrow{
+      transform: rotate(180deg);
+    }
   }
 
   .bottom {

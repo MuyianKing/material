@@ -4,6 +4,14 @@ TODO:
 - 上传组件增加上传失败处理
 - hl-dialog增加header插槽
 
+### 0.7.7
+
+- hl-date：修复width='auto'时实际宽度为220px问题
+
+### 0.7.6
+
+- hl-search-list：修复没有advanced插槽依然显示高级搜索问题
+
 ### 0.7.5
 
 - hl-dialog：默认可拖动

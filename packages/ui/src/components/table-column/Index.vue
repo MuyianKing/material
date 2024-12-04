@@ -1,10 +1,10 @@
 <script setup>
 import { guid, storage } from '@hl/utils'
 import { getCurrentInstance, h, inject, onMounted, useSlots } from 'vue'
-import TimeParser from '../time/Index.vue'
 import IdCard from '../id-card/Index.vue'
-import TelParser from '../tel/Index.vue'
 import PreviewComp from '../preview/Index.vue'
+import TelParser from '../tel/Index.vue'
+import TimeParser from '../time/Index.vue'
 
 defineOptions({
   name: 'HlTableColumn',

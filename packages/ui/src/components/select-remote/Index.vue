@@ -181,7 +181,7 @@ defineExpose({
 </script>
 
 <template>
-  <el-select :remote-method="filterFun" filterable remote-show-suffix remote :loading no-data-text="没有数据" @change="handleChange" @focus="handleFocus">
+  <el-select :remote-method="filterFun" filterable remote-show-suffix remote :loading no-data-text="暂无数据" @change="handleChange" @focus="handleFocus">
     <div v-loadmore="loadmore">
       <el-option v-if="all" value="">
         全部

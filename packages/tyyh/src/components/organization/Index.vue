@@ -1,8 +1,8 @@
 <script setup>
+import { HlDropdownCascader } from '@hl/ui'
+import { ElCascader, ElTreeSelect } from 'element-plus'
 import { cloneDeep } from 'lodash-es'
 import { computed, onMounted, ref, watch } from 'vue'
-import { ElCascader, ElTreeSelect } from 'element-plus'
-import { HlDropdownCascader } from '@hl/ui'
 import { getOrgInfo, getTreeList } from '../../server/organization'
 import 'element-plus/es/components/cascader/style/css'
 import 'element-plus/es/components/tree-select/style/css'
@@ -254,15 +254,9 @@ onMounted(() => {
 
 <template>
   <template v-if="!readonly">
-    <el-cascader v-if="comp === 'cascader'" v-bind="$attrs" ref="cascader_ref" :model-value="modelValue" clearable
-                 :options="data_list" :props="_props" :filterable @change="handleChange"
-    />
-    <hl-dropdown-cascader v-else-if="comp === 'dropdown'" v-bind="$attrs" :cascader-props="_props"
-                          :has-search="filterable" :options="data_list"
-    />
-    <el-tree-select v-else v-bind="$attrs" ref="cascader_ref" :model-value="modelValue" check-strictly clearable
-                    :data="data_list" :multiple="_props.multiple" :props="_props" :filterable @change="handleChange"
-    />
+    <el-cascader v-if="comp === 'cascader'" v-bind="$attrs" ref="cascader_ref" :model-value="modelValue" clearable :options="data_list" :props="_props" :filterable @change="handleChange" />
+    <hl-dropdown-cascader v-else-if="comp === 'dropdown'" v-bind="$attrs" :cascader-props="_props" :has-search="filterable" :options="data_list" />
+    <el-tree-select v-else v-bind="$attrs" ref="cascader_ref" :model-value="modelValue" check-strictly clearable :data="data_list" :multiple="_props.multiple" :props="_props" :filterable @change="handleChange" />
   </template>
   <div v-else v-bind="$attrs">
     <span v-for="item in orgs" :key="item.id" class="m-2">{{ item.organization_nick }}</span>
