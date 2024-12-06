@@ -1,8 +1,12 @@
 <script setup>
 import TestCompWrapper from '@comp/test-comp-wrapper/Index.vue'
+import { Organization } from '@hl/tyyh'
 import { HlBlockTitle } from '@hl/ui'
-// eslint-disable-next-line antfu/no-import-node-modules-by-path
-import Organization from '../../../node_modules/@hl/tyyh/src/components/organization/Index.vue'
+
+import { ref } from 'vue'
+
+const tree_sigal_value = ref('')
+const tree_mul_value = ref([])
 </script>
 
 <template>
@@ -47,13 +51,13 @@ import Organization from '../../../node_modules/@hl/tyyh/src/components/organiza
           <hl-block-title type="success">
             单选
           </hl-block-title>
-          <organization comp="tree" class="mt-2 w-full" />
+          <organization v-model="tree_sigal_value" comp="tree" class="mt-2 w-full" />
         </div>
         <div class="flex-1 ml-4">
           <hl-block-title type="success">
             多选
           </hl-block-title>
-          <organization comp="tree" multiple class="mt-2 w-full" />
+          <organization v-model="tree_mul_value" comp="tree" multiple class="mt-2 w-full" />
         </div>
       </div>
     </test-comp-wrapper>

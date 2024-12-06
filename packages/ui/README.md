@@ -4,6 +4,14 @@ TODO:
 - 上传组件增加上传失败处理
 - hl-dialog增加header插槽
 
+### 0.7.10
+
+- hl-search-page：增加no-search属性配置隐藏搜索区域（有问题下个版本修复）
+
+### 0.7.9
+
+- hl-date：修复外部start和end属性变化不会引起组件内部el-date的value变化问题
+
 ### 0.7.8
 
 - 增加描述列表组件：hl-descriptipons和hl-descriptions-item

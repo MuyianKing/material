@@ -4,6 +4,7 @@
  * @param {string} opt.path 地址
  * @param {object} opt.query 参数
  * @param {object} opt.params 参数
+ * @param {object} opt.target 目标窗口，同一个业务对象应该只能打开一个tab
  * @param {string} opt.type 跳转方式：_blank--新tab self--当前页
  * @param {Router} router 路由
  */

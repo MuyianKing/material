@@ -25,6 +25,11 @@ defineProps({
     type: String,
     default: '高级搜索',
   },
+  // 不需要搜索区域
+  noSearch: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 const show_advaced = ref(false)
@@ -37,7 +42,7 @@ function toggleAdvanced() {
 <template>
   <div class="flex flex-col h-full hl-search-page">
     <!-- 列表页代码结构组件 -->
-    <el-form :size="formSize" :label-width="labelWidth">
+    <el-form v-if="!noSearch" :size="formSize" :label-width="labelWidth">
       <div ref="advance_ref" class="search-area">
         <slot name="header" />
         <slot v-if="show_advaced" name="advanced" />

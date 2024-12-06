@@ -1,19 +1,19 @@
-import { createApp } from 'vue'
-import dayjs from 'dayjs'
-import { addAPIProvider, disableCache, enableCache } from '@iconify/vue'
-
-import storage from '@utils/storage'
-import * as file from '@utils/file'
-import * as common from '@utils/common'
-import api from '@api'
-import useUserStore from '@pinia/useUserStore'
-import * as message from '@hl/ui/src/utils/message'
-import useThemeStore from '@pinia/useThemeStore'
-import { BASE_URL, ICONIFY_API } from './utils/app'
-import http from './utils/request'
+import App from '@/App.vue'
 import pinia from '@/pinia'
 import router from '@/router'
-import App from '@/App.vue'
+
+import api from '@api'
+import * as message from '@hl/ui/src/utils/message'
+import { addAPIProvider, disableCache, enableCache } from '@iconify/vue'
+import useThemeStore from '@pinia/useThemeStore'
+import useUserStore from '@pinia/useUserStore'
+import * as common from '@utils/common'
+import * as file from '@utils/file'
+import storage from '@utils/storage'
+import dayjs from 'dayjs'
+import { createApp } from 'vue'
+import { BASE_URL, ICONIFY_API } from './utils/app'
+import http from './utils/request'
 
 addAPIProvider('', {
   resources: [BASE_URL + ICONIFY_API],

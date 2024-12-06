@@ -76,28 +76,25 @@ const model_value = defineModel({
 function handleStartChange(val) {
   val = val || props.emptyValue
   emits('update:start', val)
-  nextTick(() => {
-    const date = model_value.value.split('_')
-    model_value.value = `${val}_${date[1] || ''}`
-    handleChange(val)
-  })
 }
 
 // 结束世间update事件
 function handleEndChange(val) {
   val = val || props.emptyValue
   emits('update:end', val)
-  nextTick(() => {
-    const date = model_value.value.split('_')
-    model_value.value = `${date[0] || ''}_${val}`
-    handleChange(val)
-  })
 }
 
 // change事件
 function handleChange(val) {
   emits('change', val)
 }
+
+watch([() => props.start, () => props.end], () => {
+  model_value.value = `${props.start}_${props.end}`
+  handleChange(model_value.value)
+}, {
+  immediate: true,
+})
 
 // 显示时间格式
 const format_comp = computed(() => {
@@ -182,6 +179,7 @@ function startDisableFun(val) {
   return false
 }
 
+// model_value属于被动变化，但是需要初始化一次
 watch(model_value, () => {
   nextTick(() => {
     const date = model_value.value.split('_').filter(d => d)
@@ -199,15 +197,9 @@ watch(model_value, () => {
 <template>
   <div class="flex items-center">
     <!-- 开始时间 -->
-    <el-date-picker v-bind="$attrs" :model-value="start_comp" :type :placeholder="startPlaceholder || '请选择开始时间'"
-                    :format="format_comp" :value-format="start_value_format_comp" :style="el_date_style_comp" :disabled-date="startDisableFun"
-                    @update:model-value="handleStartChange"
-    />
+    <el-date-picker v-bind="$attrs" :model-value="start_comp" :type :placeholder="startPlaceholder || '请选择开始时间'" :format="format_comp" :value-format="start_value_format_comp" :style="el_date_style_comp" :disabled-date="startDisableFun" @update:model-value="handleStartChange" />
     <span class="mx-2 text-gray-400 separator">{{ separator }}</span>
     <!-- 结束时间 -->
-    <el-date-picker v-bind="$attrs" :model-value="end_comp" :type :placeholder="endPlaceholder || '请选择结束时间'"
-                    :format="format_comp" :value-format="end_value_format_comp" :style="el_date_style_comp"
-                    :disabled-date="endDisableFun" @update:model-value="handleEndChange"
-    />
+    <el-date-picker v-bind="$attrs" :model-value="end_comp" :type :placeholder="endPlaceholder || '请选择结束时间'" :format="format_comp" :value-format="end_value_format_comp" :style="el_date_style_comp" :disabled-date="endDisableFun" @update:model-value="handleEndChange" />
   </div>
 </template>

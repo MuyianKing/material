@@ -11,15 +11,11 @@ const alias_path = [
   ['@hooks', './src/hooks'],
   ['@img', './src/assets/img'],
   ['@pinia', './src/pinia/modules'],
-  ['@style', './src/assets/style'],
   ['@layout', './src/layout'],
-  ['@directions', './src/directions'],
   ['@utils', '@hl/utils/es'],
-  ['utils', './src/utils'],
   ['@app', './src/utils/app'],
-  ['@tyyh', '@hl/tyyh'],
-  ['@hl/ui', '@hl/ui/src/components'],
-  ['@uies', '@hl/ui/index'],
+  ['@style', './src/assets/style'],
+  ['utils', './src/utils'],
 ]
 
 export default function useAlias() {

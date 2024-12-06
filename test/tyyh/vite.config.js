@@ -1,15 +1,11 @@
 import process from 'node:process'
-import vue from '@vitejs/plugin-vue'
-import legacy from 'vite-plugin-legacy-swc'
-import tailwindcss from 'tailwindcss'
-import postcssPresetEnv from 'postcss-preset-env'
-import postcssFlexbugsFixes from 'postcss-flexbugs-fixes'
-import vueJsx from '@vitejs/plugin-vue-jsx'
-import { visualizer } from 'rollup-plugin-visualizer'
-import { defineConfig, loadEnv } from 'vite'
 import basicSsl from '@vitejs/plugin-basic-ssl'
-import viteImagemin from 'vite-plugin-imagemin'
-import viteCompression from 'vite-plugin-compression'
+import vue from '@vitejs/plugin-vue'
+import vueJsx from '@vitejs/plugin-vue-jsx'
+import postcssFlexbugsFixes from 'postcss-flexbugs-fixes'
+import postcssPresetEnv from 'postcss-preset-env'
+import tailwindcss from 'tailwindcss'
+import { defineConfig, loadEnv } from 'vite'
 import useAlias from './alias.config'
 
 const { alias_map } = useAlias()
@@ -22,47 +18,8 @@ export default ({ mode }) => {
   const plugins = [
     vue(),
     vueJsx(),
-    // 图片压缩
-    viteImagemin({
-      gifsicle: {
-        optimizationLevel: 7,
-        interlaced: false,
-      },
-      optipng: {
-        optimizationLevel: 7,
-      },
-      mozjpeg: {
-        quality: 90,
-      },
-      pngquant: {
-        quality: [0.8, 0.9],
-        speed: 4,
-      },
-    }),
-    visualizer({
-      emitFile: false,
-      file: 'stats.html',
-      open: false,
-    }),
+
   ]
-
-  // 是否需要兼容老版本浏览器
-  if (env.VITE_POLYFILL_OLD_BROSWER === '1') {
-    plugins.push(
-      legacy({
-        targets: ['chrome < 60', 'not IE 11'],
-      }),
-    )
-  }
-
-  // 是否开启gzip
-  if (env.VITE_GZIP === '1') {
-    plugins.push(
-      viteCompression({
-        threshold: 2000,
-      }),
-    )
-  }
 
   // 服务器配置
   const server = {}
@@ -71,20 +28,6 @@ export default ({ mode }) => {
   if (env.VITE_HTTPS === '1') {
     plugins.push(basicSsl())
     server.https = true
-  }
-
-  // 开启跨域
-  if (env.VITE_CORS === '1') {
-    server.proxy = {
-      '/api': {
-        target: env.VITE_BASE_URL,
-        changeOrigin: true,
-        rewrite: (path) => {
-          path = path.replace(/^\/api/, '')
-          return path
-        },
-      },
-    }
   }
 
   return defineConfig({

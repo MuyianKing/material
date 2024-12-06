@@ -1,10 +1,9 @@
 <script setup>
-import { PersonAvatar } from '@tyyh'
 import TestCompWrapper from '@comp/test-comp-wrapper/Index.vue'
+import { PersonAvatar, PersonSelect } from '@hl/tyyh'
 import { HlBlockTitle } from '@hl/ui'
-import { ref } from 'vue'
 
-import PersonSelect from '@hl/tyyh/src/components/person-select/Index.vue'
+import { ref } from 'vue'
 
 const p = ref('320401199210122812')
 
@@ -35,40 +34,6 @@ const p2 = ref(['320401199210122812', '320911198110316311', '320421197210205611'
         </div>
       </div>
     </test-comp-wrapper>
-
-    <!-- <test-comp-wrapper title="人员面板选择">
-      <div class="flex mt-2">
-        <div class="flex-1 ml-4">
-          <hl-block-title type="success">
-            展开
-          </hl-block-title>
-          <person-select-panel expand class="mt-2" />
-        </div>
-        <div class="flex-1 ml-4">
-          <hl-block-title type="success">
-            多选展开
-          </hl-block-title>
-          <person-select-panel expand multiple class="mt-2" />
-        </div>
-      </div>
-    </test-comp-wrapper> -->
-
-    <!-- <test-comp-wrapper title="人员选择">
-      <div class="flex mt-2 h-[300px] overflow-y-auto">
-        <div class="flex-1 ml-4">
-          <hl-block-title type="success">
-            展开
-          </hl-block-title>
-          <person-select expand class="mt-2" />
-        </div>
-        <div class="flex-1 ml-4">
-          <hl-block-title type="success">
-            多选展开
-          </hl-block-title>
-          <person-select expand multiple class="mt-2" />
-        </div>
-      </div>
-    </test-comp-wrapper> -->
   </div>
 </template>
 

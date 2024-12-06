@@ -1,13 +1,13 @@
 import vBottom from './src/bottom'
-import vVisible from './src/visible'
-import vTop from './src/top'
-import vLoadmore from './src/loadmore'
 import vDisplay from './src/display'
+import vLoadmore from './src/loadmore'
+import vTop from './src/top'
+import vVisible from './src/visible'
 
 export {
   vBottom,
-  vVisible,
-  vTop,
-  vLoadmore,
   vDisplay,
+  vLoadmore,
+  vTop,
+  vVisible,
 }

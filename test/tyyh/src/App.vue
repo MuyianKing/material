@@ -1,9 +1,9 @@
 <script setup>
-import zhCn from 'element-plus/es/locale/lang/zh-cn'
-import { uploadFile } from '@server/file'
-import { downloadFile, previewFileUrl } from 'utils/file'
-import { getIcons } from '@server/icon'
 import { HlConfigProvider } from '@hl/ui'
+import { uploadFile } from '@server/file'
+import { getIcons } from '@server/icon'
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
+import { downloadFile, previewFileUrl } from 'utils/file'
 
 const customConfig = {
   uploadFile,
