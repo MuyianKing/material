@@ -5,7 +5,7 @@ export const menuList = [
     path: '/hooks',
     meta: {
       title: 'Hooks',
-      icon: 'clarity:users-solid',
+      icon: 'fluent:window-dev-tools-16-filled',
     },
     children: [
       {
@@ -13,7 +13,7 @@ export const menuList = [
         component: () => import('@views/hooks/UseList.vue'),
         meta: {
           title: 'UseList',
-          icon: 'clarity:user-solid',
+          icon: 'gg:view-list',
         },
       },
     ],
@@ -22,7 +22,7 @@ export const menuList = [
     path: '/ui',
     meta: {
       title: 'UI',
-      icon: 'clarity:users-solid',
+      icon: 'material-symbols-light:design-services',
     },
     children: [
       {
@@ -30,7 +30,7 @@ export const menuList = [
         component: () => import('@views/ui/Table.vue'),
         meta: {
           title: '表格',
-          icon: 'clarity:user-solid',
+          icon: 'bx:table',
         },
       },
       {
@@ -38,7 +38,7 @@ export const menuList = [
         component: () => import('@views/ui/Upload.vue'),
         meta: {
           title: '上传',
-          icon: 'clarity:user-solid',
+          icon: 'ant-design:cloud-upload-outlined',
         },
       },
       {
@@ -46,7 +46,7 @@ export const menuList = [
         component: () => import('@views/ui/Dialog.vue'),
         meta: {
           title: '弹窗',
-          icon: 'clarity:user-solid',
+          icon: 'material-symbols:dialogs-outline-rounded',
         },
       },
       {
@@ -54,15 +54,7 @@ export const menuList = [
         component: () => import('@views/ui/Button.vue'),
         meta: {
           title: '按钮',
-          icon: 'clarity:user-solid',
-        },
-      },
-      {
-        path: 'button-form',
-        component: () => import('@views/ui/ButtonForm.vue'),
-        meta: {
-          title: '表单按钮',
-          icon: 'clarity:user-solid',
+          icon: 'iconoir:mouse-button-right',
         },
       },
       {
@@ -70,7 +62,7 @@ export const menuList = [
         component: () => import('@views/ui/Icon.vue'),
         meta: {
           title: '图标',
-          icon: 'clarity:user-solid',
+          icon: 'mdi:emoticon-kiss-outline',
         },
       },
       {
@@ -78,7 +70,7 @@ export const menuList = [
         component: () => import('@views/ui/Form.vue'),
         meta: {
           title: '表单',
-          icon: 'clarity:user-solid',
+          icon: 'fa6-brands:wpforms',
         },
       },
       {
@@ -86,7 +78,7 @@ export const menuList = [
         component: () => import('@views/ui/Date.vue'),
         meta: {
           title: '日期时间',
-          icon: 'clarity:user-solid',
+          icon: 'fluent-mdl2:event-date',
         },
       },
       {
@@ -94,7 +86,7 @@ export const menuList = [
         component: () => import('@views/ui/Number.vue'),
         meta: {
           title: '数字',
-          icon: 'clarity:user-solid',
+          icon: 'fluent-mdl2:number-field',
         },
       },
       {
@@ -102,7 +94,7 @@ export const menuList = [
         component: () => import('@views/ui/SearchPage.vue'),
         meta: {
           title: '查询页',
-          icon: 'clarity:user-solid',
+          icon: 'ant-design:file-search-outlined',
         },
       },
       {
@@ -110,7 +102,7 @@ export const menuList = [
         component: () => import('@views/ui/SelectRemote.vue'),
         meta: {
           title: '远程下拉',
-          icon: 'clarity:user-solid',
+          icon: 'radix-icons:dropdown-menu',
         },
       },
       {
@@ -118,7 +110,7 @@ export const menuList = [
         component: () => import('@views/ui/Contextmenu.vue'),
         meta: {
           title: '右击菜单',
-          icon: 'clarity:user-solid',
+          icon: 'material-symbols-light:bottom-right-click-sharp',
         },
       },
       {
@@ -126,7 +118,7 @@ export const menuList = [
         component: () => import('@views/ui/Page.vue'),
         meta: {
           title: '分页',
-          icon: 'clarity:user-solid',
+          icon: 'carbon:page-break',
         },
       },
       {
@@ -134,7 +126,7 @@ export const menuList = [
         component: () => import('@views/ui/BlockTitle.vue'),
         meta: {
           title: '个性标题',
-          icon: 'clarity:user-solid',
+          icon: 'ph:subtitles-bold',
         },
       },
       {
@@ -142,7 +134,7 @@ export const menuList = [
         component: () => import('@views/ui/EditInfo.vue'),
         meta: {
           title: '可编辑文本',
-          icon: 'clarity:user-solid',
+          icon: 'akar-icons:edit',
         },
       },
       {
@@ -150,7 +142,7 @@ export const menuList = [
         component: () => import('@views/ui/Dropdown.vue'),
         meta: {
           title: '下拉组件',
-          icon: 'clarity:user-solid',
+          icon: 'fluent-mdl2:dropdown',
         },
       },
       {
@@ -158,7 +150,7 @@ export const menuList = [
         component: () => import('@views/ui/DropdownCascader.vue'),
         meta: {
           title: '级联下拉',
-          icon: 'clarity:user-solid',
+          icon: 'carbon:ibm-cloud-direct-link-1-dedicated',
         },
       },
       {
@@ -166,7 +158,7 @@ export const menuList = [
         component: () => import('@views/ui/Grid.vue'),
         meta: {
           title: 'Grid布局',
-          icon: 'clarity:user-solid',
+          icon: 'f7:square-grid-4x3-fill',
         },
       },
       {
@@ -174,7 +166,7 @@ export const menuList = [
         component: () => import('@views/ui/Descriptions.vue'),
         meta: {
           title: '描述列表',
-          icon: 'clarity:user-solid',
+          icon: 'fluent:slide-text-24-regular',
         },
       },
     ],
