@@ -4,6 +4,10 @@ TODO:
 - 上传组件增加上传失败处理
 - hl-dialog增加header插槽
 
+### 0.7.8
+
+- 增加描述列表组件：hl-descriptipons和hl-descriptions-item
+
 ### 0.7.7
 
 - hl-date：修复width='auto'时实际宽度为220px问题

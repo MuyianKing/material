@@ -1,8 +1,8 @@
 <script setup>
 import { ElButton, ElPopover } from 'element-plus'
 import { ref } from 'vue'
-import ButtonComp from '../button/Index.vue'
 import useButton from '../../hooks/useButton'
+import ButtonComp from '../button/Index.vue'
 
 const props = defineProps({
   message: {

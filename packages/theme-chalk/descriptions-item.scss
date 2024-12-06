@@ -1,0 +1,27 @@
+$border: 1px solid var(--el-border-color-lighter);
+
+.hl-descriptions-item {
+  display: flex;
+  border-bottom: $border;
+  border-right: $border;
+  width: 25%;
+
+  & > div {
+    padding: 8px 11px;
+  }
+
+  .hl-descriptions-item-label {
+    border-right: $border;
+    width: 80px;
+    flex-shrink: 0;
+    background-color: #f5f7fa;
+    color: #606266;
+    font-weight: bold;
+  }
+
+  .hl-descriptions-item-content {
+    flex: 1;
+    min-width: 0;
+    color: var(--el-text-color-primary);
+  }
+}

@@ -1,0 +1,7 @@
+$border: 1px solid var(--el-border-color-lighter);
+
+.hl-descriptions {
+  @apply flex flex-wrap w-full;
+  border-top: $border;
+  border-left: $border;
+}
