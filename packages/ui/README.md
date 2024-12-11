@@ -4,9 +4,17 @@ TODO:
 - 上传组件增加上传失败处理
 - hl-dialog增加header插槽
 
+### 0.7.12
+
+- hl-date：type增加el-range，使用el-date的范围选择
+
+### 0.7.11
+
+- 修复hl-del-button disabled=true 样式缺失问题
+
 ### 0.7.10
 
-- hl-search-page：增加no-search属性配置隐藏搜索区域（有问题下个版本修复）
+- hl-search-page：增加no-search属性配置隐藏搜索区域
 
 ### 0.7.9
 

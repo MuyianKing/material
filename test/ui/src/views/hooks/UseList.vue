@@ -21,7 +21,7 @@ const {
 </script>
 
 <template>
-  <hl-list-page advanced-text="更多条件">
+  <hl-list-page advanced-text="更多条件" no-search-area>
     <template #search>
       <hl-form-item label="关键字">
         <hl-input v-model="query.keyword" />

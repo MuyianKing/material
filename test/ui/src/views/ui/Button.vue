@@ -47,18 +47,17 @@ import { HlAddButton, HlButton, HlDelButton, HlDetailButton, HlExportButton, HlI
     <div class="flex items-center mt-4">
       <!-- 删除按钮 -->
       <hl-del-button />
-      <hl-del-button text class="ml-4" />
+      <hl-del-button text class="ml-4" disabled />
       <hl-del-button text="自定义文字" class="ml-4" />
     </div>
 
     <div class="flex items-center mt-4">
-      <!-- 删除按钮 -->
+      <!-- 查看按钮 -->
       <hl-detail-button />
-      <hl-detail-button text class="ml-4" />
+      <hl-detail-button text class="ml-4" disabled />
       <hl-detail-button text="自定义文字" class="ml-4" />
     </div>
   </div>
 </template>
 
-<style lang='scss' scoped>
-</style>
+<style lang='scss' scoped></style>

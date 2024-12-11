@@ -64,7 +64,7 @@ const { _text } = useButton(props, '删除')
     </div>
     <template #reference>
       <div class="hl-del-button inline-block">
-        <button-comp :button-type="text ? 'text' : 'icon'" type="danger" class="del-icon" :icon :text="_text" v-bind="$attrs" @click="handleClick">
+        <button-comp :button-type="text ? 'text' : 'icon'" type="danger" :icon :text="_text" v-bind="$attrs" @click="handleClick">
           <slot />
         </button-comp>
       </div>

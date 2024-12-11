@@ -53,6 +53,10 @@ export default {
       type: String,
       default: '高级搜索',
     },
+    noSearchArea: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup(props, { slots, emit }) {
     // 列表页头部搜索区域
@@ -99,7 +103,7 @@ export default {
     }
 
     return () => (
-      <HlSearchPage class="list-page" loading={props._loading?.value} advancedText={advanced.length === 0 ? '' : props.advancedText}>
+      <HlSearchPage class="list-page" loading={props._loading?.value} advancedText={advanced.length === 0 ? '' : props.advancedText} noSearch={props.noSearchArea}>
         {{
           header: () => header.map(slot => (typeof slot === 'function' ? slot() : slot)),
           button: () => button.map(slot => (typeof slot === 'function' ? slot() : slot)),

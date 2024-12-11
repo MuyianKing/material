@@ -1,5 +1,9 @@
 # hooks
 
+### 0.7.10
+
+- useList：HlListPage 增加noSearchArea用于配置hl-search-page的no-search属性
+
 ### 0.7.8
 
 - useList：修复没有advanced插槽依然显示高级搜索问题
