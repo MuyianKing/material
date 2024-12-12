@@ -4,6 +4,14 @@ TODO:
 - 上传组件增加上传失败处理
 - hl-dialog增加header插槽
 
+### 0.7.15
+
+- hl-date：修复无法清除问题
+
+### 0.7.14
+
+- hl-date：DateElRange增加startPlaceholder和endPlaceholder属性
+
 ### 0.7.12
 
 - hl-date：type增加el-range，使用el-date的范围选择

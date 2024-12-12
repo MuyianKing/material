@@ -91,6 +91,7 @@ const end = defineModel('end')
 const start = defineModel('start')
 const model = defineModel()
 function handleChange(val) {
+  val = val || []
   start.value = val[0] ? dayjs(val[0]).format(start_value_format_comp.value) : props.emptyValue
   end.value = val[1] ? dayjs(val[1]).format(end_value_format_comp.value) : props.emptyValue
 

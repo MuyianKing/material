@@ -1,6 +1,6 @@
 {
 	"name": "@hl/ui",
 	"type": "module",
-	"version": "0.7.12",
+	"version": "0.7.15",
 	"main": "./index.js"
 }
