@@ -32,7 +32,7 @@ export function set16ToRgb(str) {
  */
 export function isLight(rgb = [0, 0, 0]) {
   rgb = Array.isArray(rgb) ? rgb : set16ToRgb(rgb)
-  return 0.213 * rgb[0] + 0.715 * rgb[1] + 0.072 * rgb[2] > 255 / 2
+  return rgb[0] * 0.299 + rgb[1] * 0.587 + rgb[2] * 0.114 > 192
 }
 
 /**

@@ -1,10 +1,10 @@
 <script setup name="SearchPage">
 import { ElForm, vLoading } from 'element-plus'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { HlButton } from '../button'
 import HlIcon from '../icon'
 
-defineProps({
+const props = defineProps({
   formSize: {
     type: String,
     default: 'default',
@@ -30,6 +30,20 @@ defineProps({
     type: Boolean,
     default: false,
   },
+  // 表格区域的style
+  tableStyle: {
+    type: String,
+    default: '',
+  },
+  // 表格区域的class
+  tableClass: {
+    type: String,
+    default: '',
+  },
+  bottomClass: {
+    type: String,
+    default: '',
+  },
 })
 
 const show_advaced = ref(false)
@@ -37,6 +51,15 @@ const advance_ref = ref()
 function toggleAdvanced() {
   show_advaced.value = !show_advaced.value
 }
+
+const _bottomClass = computed(() => {
+  const _class = {}
+  props.bottomClass.split(' ').forEach((item) => {
+    _class[item] = true
+  })
+
+  return _class
+})
 </script>
 
 <template>
@@ -58,8 +81,8 @@ function toggleAdvanced() {
         </template>
       </div>
     </el-form>
-    <div class="flex-1 bottom">
-      <div v-loading="loading" class="table-body">
+    <div class="flex-1 bottom" :class="{ 'mt-0': noSearch, ..._bottomClass }">
+      <div v-loading="loading" class="table-body" :style="tableStyle" :class="tableClass">
         <slot name="table" />
       </div>
       <div class="flex-shrink-0">

@@ -1,5 +1,5 @@
-import { nanoid } from 'nanoid'
 import { useUrlSearchParams } from '@vueuse/core'
+import { nanoid } from 'nanoid'
 
 // 默认分页大小
 export const pageSize = 20

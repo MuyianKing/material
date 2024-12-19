@@ -1,6 +1,6 @@
 <script setup name="HlIcon">
-import { Icon } from '@iconify/vue'
 import { getCanUseValue } from '@hl/utils'
+import { Icon } from '@iconify/vue'
 import { computed } from 'vue'
 
 const props = defineProps({
@@ -12,12 +12,16 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  type: {
+    type: String,
+    default: '',
+  },
 })
 
 const _style = computed(() => {
   return {
     'font-size': getCanUseValue(props.size),
-    'color': props.color,
+    'color': props.color || (props.type ? `var(--el-color-${props.type})` : ''),
   }
 })
 </script>

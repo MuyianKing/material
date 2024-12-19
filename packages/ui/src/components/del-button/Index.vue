@@ -50,24 +50,26 @@ const { _text } = useButton(props, '删除')
 </script>
 
 <template>
-  <el-popover :placement="placement" :visible="visible">
-    <div>
-      <p>{{ message }}</p>
-      <div class="text-center mt-2">
-        <el-button size="small" type="danger" @click="visible = false">
-          取消
-        </el-button>
-        <el-button size="small" type="primary" @click="submit">
-          确定
-        </el-button>
+  <span class="hl-del-button inline-flex">
+    <el-popover :placement="placement" :visible="visible" aria-hidden="false">
+      <div>
+        <p>{{ message }}</p>
+        <div class="text-center mt-2">
+          <el-button size="small" type="danger" @click="visible = false">
+            取消
+          </el-button>
+          <el-button size="small" type="primary" @click="submit">
+            确定
+          </el-button>
+        </div>
       </div>
-    </div>
-    <template #reference>
-      <div class="hl-del-button inline-block">
-        <button-comp :button-type="text ? 'text' : 'icon'" type="danger" :icon :text="_text" v-bind="$attrs" @click="handleClick">
-          <slot />
-        </button-comp>
-      </div>
-    </template>
-  </el-popover>
+      <template #reference>
+        <div class="inline-flex">
+          <button-comp :button-type="text ? 'text' : 'icon'" type="danger" :icon :text="_text" @click="handleClick">
+            <slot />
+          </button-comp>
+        </div>
+      </template>
+    </el-popover>
+  </span>
 </template>

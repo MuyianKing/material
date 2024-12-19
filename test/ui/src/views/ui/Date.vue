@@ -30,6 +30,8 @@ function handleClick() {
     <div>
       <hl-date v-model="value" v-model:start="date_obj.start" v-model:end="date_obj.end" end-value-format="YYYY-MM-DD 23:59:59" type="el-range" date-type="datetime" />
     </div>
+
+    <hl-date />
   </div>
 </template>
 

@@ -1,5 +1,5 @@
-import { expect, it } from 'vitest'
 import { guid } from '@hl/utils'
+import { expect, it } from 'vitest'
 
 expect.extend({
   toLength: (received, expected) => {

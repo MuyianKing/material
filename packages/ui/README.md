@@ -4,6 +4,24 @@ TODO:
 - 上传组件增加上传失败处理
 - hl-dialog增加header插槽
 
+### 0.7.19
+
+- hl-date：修复显示异常
+
+### 0.7.18
+
+- hl-search-page：增加bottomClass用于设置下半部分的class
+
+### 0.7.17
+
+- hl-search-page：增加tableStyle属性设置表格区域的style，增加tableClass属性设置表格区域的class
+- hl-search-page：属性noSearch为true是默认表格区域的margin-top为0
+
+### 0.7.16
+
+- hl-icon：增加type属性
+- hl-del-button：最外层变更为用span包裹，用inline-flex解决幽灵节点问题
+
 ### 0.7.15
 
 - hl-date：修复无法清除问题

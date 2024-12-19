@@ -1,5 +1,5 @@
-import * as echarts from 'echarts/core'
 import { useDebounceFn, useEventListener } from '@vueuse/core'
+import * as echarts from 'echarts/core'
 
 export default {
   // 默认配置

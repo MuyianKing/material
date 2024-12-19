@@ -18,6 +18,6 @@ defineProps({
 
 <template>
   <date-comp v-if="type === 'date'" :type="dateType" v-bind="$attrs" />
-  <date-el-range v-if="type === 'el-range'" :type="dateType" v-bind="$attrs" />
+  <date-el-range v-else-if="type === 'el-range'" :type="dateType" v-bind="$attrs" />
   <date-range v-else :type="dateType" v-bind="$attrs" />
 </template>

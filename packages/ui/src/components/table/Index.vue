@@ -5,9 +5,9 @@ import { computed, nextTick, onActivated, onMounted, onUnmounted, provide, ref, 
 import EditHeader from './EditHeader.vue'
 import ScrollBar from './ScrollBar.vue'
 
-import TableStore from './table-store'
-import TableHead from './table-head'
 import TableBody from './table-body'
+import TableHead from './table-head'
+import TableStore from './table-store'
 
 defineOptions({
   name: 'HlTable',
@@ -539,7 +539,7 @@ defineExpose({
     <table-head v-if="store.columns.filter((column) => column.label).length > 0" :exclude-checked="excludeChecked" :check-all="checkAll" :select @span-click="handleSpanClick" @change-check-all="changeCheckAll" />
 
     <div class="body-wrapper" :style="{ maxHeight }" @mouseenter="scroll_bar_active = data.length > 0 && true" @mouseleave="scroll_bar_active = fasle" @scroll="handleScroll">
-      <table-body v-show="!(data.length === 0 && hasEmptySlot)" v-model:check="check" v-model:excludeChecked="excludeChecked" :hover :active-index :select :row-key :empty-text :row-class :tooltip-effect :tooltop-max-width @row-click="handleRowClick">
+      <table-body v-show="!(data.length === 0 && hasEmptySlot)" v-model:check="check" v-model:exclude-checked="excludeChecked" :hover :active-index :select :row-key :empty-text :row-class :tooltip-effect :tooltop-max-width @row-click="handleRowClick">
         <template v-if="slots.extend" #extend="{ row }">
           <slot name="extend" :row="row" />
         </template>

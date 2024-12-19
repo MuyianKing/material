@@ -1,5 +1,5 @@
-import { expect, it } from 'vitest'
 import { arrayUnion } from '@hl/utils'
+import { expect, it } from 'vitest'
 
 it('arrayUnion', () => {
   expect(arrayUnion([1, 2, 3, 3])).toStrictEqual([1, 2, 3])

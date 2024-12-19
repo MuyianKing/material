@@ -62,9 +62,9 @@ function handleClick() {
 
   <!-- 图标带提示 -->
   <el-tooltip v-else-if="text" :content="text" effect="light" :placement="placement">
-    <hl-icon v-bind="$attrs" :icon :size theme="outline" class="hl-button cursor-pointer" @click="handleClick" />
+    <hl-icon v-bind="$attrs" :type :icon :size theme="outline" class="hl-button cursor-pointer" @click="handleClick" />
   </el-tooltip>
 
   <!-- 图标无提示 -->
-  <hl-icon v-else v-bind="$attrs" :icon :size theme="outline" class="hl-button cursor-pointer" @click="handleClick" />
+  <hl-icon v-else v-bind="$attrs" :type :icon :size theme="outline" class="hl-button cursor-pointer" @click="handleClick" />
 </template>
