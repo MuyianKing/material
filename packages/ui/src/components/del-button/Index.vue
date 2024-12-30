@@ -1,6 +1,6 @@
 <script setup>
 import { ElButton, ElPopover } from 'element-plus'
-import { ref } from 'vue'
+import { inject, ref } from 'vue'
 import useButton from '../../hooks/useButton'
 import ButtonComp from '../button/Index.vue'
 
@@ -22,8 +22,8 @@ const props = defineProps({
     default: 'icon-park-outline:delete',
   },
   text: {
-    type: [Boolean, String],
-    default: false,
+    type: [Boolean, String, undefined],
+    default: undefined,
   },
 })
 
@@ -46,7 +46,8 @@ function handleClick() {
   }
 }
 
-const { _text } = useButton(props, '删除')
+const { tableIcon } = inject('GLOBAL_CUSTOM_CONFIG', { tableIcon: 'icon' })
+const { _text, buttonType } = useButton(props, '删除', tableIcon)
 </script>
 
 <template>
@@ -65,7 +66,7 @@ const { _text } = useButton(props, '删除')
       </div>
       <template #reference>
         <div class="inline-flex">
-          <button-comp :button-type="text ? 'text' : 'icon'" type="danger" :icon :text="_text" @click="handleClick">
+          <button-comp :button-type type="danger" :icon :text="_text" @click="handleClick">
             <slot />
           </button-comp>
         </div>

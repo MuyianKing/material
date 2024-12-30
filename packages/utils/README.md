@@ -1,3 +1,7 @@
+TODO:
+
+- file：文件类型包含所有文件
+
 #### 0.7.4
 
 - color.js：调整isLight算法，更准确

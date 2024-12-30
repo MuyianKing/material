@@ -98,9 +98,7 @@ defineExpose({
 </script>
 
 <template>
-  <el-dialog ref="dialog_ref" v-model="model" :close-on-click-modal="closeOnClickModal" :destroy-on-close="destroyOnClose" :draggable
-             :style="dialog_style" append-to-body class="hl-custome-dialog"
-  >
+  <el-dialog ref="dialog_ref" v-model="model" :close-on-click-modal :destroy-on-close :draggable :style="dialog_style" append-to-body class="hl-custome-dialog">
     <slot />
 
     <template v-if="slots.footer" #footer>

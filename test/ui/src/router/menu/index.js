@@ -19,6 +19,23 @@ export const menuList = [
     ],
   },
   {
+    path: '/utils',
+    meta: {
+      title: 'utils',
+      icon: 'jam:tools-f',
+    },
+    children: [
+      {
+        path: 'uselist',
+        component: () => import('@views/utils/CustomRef.vue'),
+        meta: {
+          title: 'CustomRef',
+          icon: 'mingcute:vue-fill',
+        },
+      },
+    ],
+  },
+  {
     path: '/ui',
     meta: {
       title: 'UI',

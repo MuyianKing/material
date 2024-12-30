@@ -1,4 +1,4 @@
-import { AUDIO_SUFFIX, FILE_SUFFIX, IMAGE_SUFFIX, VIDEO_SUFFIX, getMimeType } from '@hl/utils'
+import { AUDIO_SUFFIX, FILE_SUFFIX, getMimeType, IMAGE_SUFFIX, VIDEO_SUFFIX } from '@hl/utils'
 
 const type_map = {
   image: IMAGE_SUFFIX,

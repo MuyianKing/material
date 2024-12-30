@@ -1,4 +1,4 @@
-import { isEmail, isIP, isInt, isLatLong, isMobilePhone, isPort } from 'validator'
+import { isEmail, isInt, isIP, isLatLong, isMobilePhone, isPort } from 'validator'
 import { isTruth } from './common'
 
 // vant-ui的校验回调

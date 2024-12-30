@@ -10,10 +10,14 @@ const show = ref(false)
     <hl-button @click="show = true">
       测试
     </hl-button>
-    <hl-dialog v-model="show" top="10px" width="700px">
+    <hl-dialog v-model="show" top="10px" width="700px" style="--padding: 0;">
       <div style="height: 200vh;">
         test
       </div>
+
+      <template #footer>
+        <hl-button>提交</hl-button>
+      </template>
     </hl-dialog>
   </div>
 </template>

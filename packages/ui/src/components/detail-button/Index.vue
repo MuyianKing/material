@@ -1,4 +1,5 @@
 <script setup>
+import { inject } from 'vue'
 import useButton from '../../hooks/useButton'
 import ButtonComp from '../button/Index.vue'
 
@@ -8,8 +9,8 @@ const props = defineProps({
     default: 'icon-park-outline:find',
   },
   text: {
-    type: [Boolean, String],
-    default: false,
+    type: [Boolean, String, undefined],
+    default: undefined,
   },
 })
 
@@ -19,11 +20,12 @@ function handleClick() {
   emits('click')
 }
 
-const { _text } = useButton(props, '查看')
+const { tableIcon } = inject('GLOBAL_CUSTOM_CONFIG', { tableIcon: 'icon' })
+const { _text, buttonType } = useButton(props, '查看', tableIcon)
 </script>
 
 <template>
-  <button-comp :button-type="text ? 'text' : 'icon'" type="primary" :icon :text="_text" @click="handleClick">
+  <button-comp :button-type type="primary" :icon :text="_text" @click="handleClick">
     <slot />
   </button-comp>
 </template>

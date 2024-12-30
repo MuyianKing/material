@@ -1,6 +1,6 @@
 <script setup>
 import TestCompWrapper from '@comp/test-comp-wrapper/Index.vue'
-import { HlAddButton, HlButton, HlDelButton, HlDetailButton, HlExportButton, HlImportButton } from '@hl/ui'
+import { HlAddButton, HlButton, HlDelButton, HlDetailButton, HlEditButton, HlExportButton, HlImportButton, HlSearchButton } from '@hl/ui'
 </script>
 
 <template>
@@ -22,41 +22,57 @@ import { HlAddButton, HlButton, HlDelButton, HlDetailButton, HlExportButton, HlI
       </div>
     </test-comp-wrapper>
 
-    <div class="flex items-center mt-4">
-      <!-- 添加按钮 -->
-      <hl-add-button />
-      <hl-add-button>创建</hl-add-button>
-    </div>
+    <test-comp-wrapper class="mt-4" title="预设按钮">
+      <div class="flex items-center">
+        <!-- 查询按钮 -->
+        <hl-search-button />
+        <hl-search-button>搜索</hl-search-button>
+      </div>
 
-    <div class="flex items-center mt-4">
-      <!-- 导出按钮 -->
-      <hl-export-button />
-      <hl-export-button text class="ml-4">
-        点击导出
-      </hl-export-button>
-    </div>
+      <div class="flex items-center mt-4">
+        <!-- 添加按钮 -->
+        <hl-add-button />
+        <hl-add-button>创建</hl-add-button>
+      </div>
 
-    <div class="flex items-center mt-4">
-      <!-- 导入按钮 -->
-      <hl-import-button />
-      <hl-import-button text class="ml-4">
-        点击导入
-      </hl-import-button>
-    </div>
+      <div class="flex items-center mt-4">
+        <!-- 导出按钮 -->
+        <hl-export-button />
+        <hl-export-button text class="ml-4">
+          点击导出
+        </hl-export-button>
+      </div>
 
-    <div class="flex items-center mt-4">
-      <!-- 删除按钮 -->
-      <hl-del-button />
-      <hl-del-button text class="ml-4" disabled />
-      <hl-del-button text="自定义文字" class="ml-4" />
-    </div>
+      <div class="flex items-center mt-4">
+        <!-- 导入按钮 -->
+        <hl-import-button />
+        <hl-import-button text class="ml-4">
+          点击导入
+        </hl-import-button>
+      </div>
+    </test-comp-wrapper>
+    <test-comp-wrapper class="mt-4" title="表格按钮">
+      <div class="flex items-center">
+        <!-- 删除按钮 -->
+        <hl-del-button />
+        <hl-del-button text class="ml-4" disabled />
+        <hl-del-button text="自定义文字" class="ml-4" />
+      </div>
 
-    <div class="flex items-center mt-4">
-      <!-- 查看按钮 -->
-      <hl-detail-button />
-      <hl-detail-button text class="ml-4" disabled />
-      <hl-detail-button text="自定义文字" class="ml-4" />
-    </div>
+      <div class="flex items-center mt-4">
+        <!-- 查看按钮 -->
+        <hl-edit-button />
+        <hl-edit-button text class="ml-4" disabled />
+        <hl-edit-button text="自定义文字" class="ml-4" />
+      </div>
+
+      <div class="flex items-center mt-4">
+        <!-- 查看按钮 -->
+        <hl-detail-button />
+        <hl-detail-button text class="ml-4" disabled />
+        <hl-detail-button text="自定义文字" class="ml-4" />
+      </div>
+    </test-comp-wrapper>
   </div>
 </template>
 

@@ -4,6 +4,13 @@ TODO:
 - 上传组件增加上传失败处理
 - hl-dialog增加header插槽
 
+### 0.7.20
+
+- 增加@hl/ui/utils/custom.ref：自定义Ref
+- @hl/ui/utils/custom.ref：增加debounceRef-带防抖的Ref
+- hl-dialog：增加css变量--padding用于设置body部分的padding
+- hl-config-provider：增加tableIcon、buttonIcon配置
+
 ### 0.7.19
 
 - hl-date：修复显示异常

@@ -1,7 +1,3 @@
-// 上传文件最大大小
-export const UPLOAD_FILE_MAX_SIZE = 10
-// 上传视频最大大小
-export const UPLOAD_VIDEO_MAX_SIZE = 500
 // 附件格式
 export const FILE_SUFFIX = ['doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'pdf']
 // 视频格式

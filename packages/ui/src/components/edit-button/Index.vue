@@ -1,4 +1,5 @@
 <script setup>
+import { inject } from 'vue'
 import useButton from '../../hooks/useButton'
 import ButtonComp from '../button/Index.vue'
 
@@ -8,8 +9,8 @@ const props = defineProps({
     default: 'uil:edit',
   },
   text: {
-    type: [Boolean, String],
-    default: false,
+    type: [Boolean, String, undefined],
+    default: undefined,
   },
 })
 
@@ -19,11 +20,13 @@ function handleClick() {
   emits('click')
 }
 
-const { _text } = useButton(props, '编辑')
+const { tableIcon } = inject('GLOBAL_CUSTOM_CONFIG', { tableIcon: 'icon' })
+
+const { _text, buttonType } = useButton(props, '编辑', tableIcon)
 </script>
 
 <template>
-  <button-comp :button-type="text ? 'text' : 'icon'" type="primary" :icon :text="_text" @click="handleClick">
+  <button-comp :button-type type="primary" :icon :text="_text" @click="handleClick">
     <slot />
   </button-comp>
 </template>

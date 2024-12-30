@@ -1,9 +1,9 @@
 <script setup>
-import { computed, inject, nextTick, ref } from 'vue'
 import { getSuffix, getType } from '@hl/utils'
+import { computed, inject, nextTick, ref } from 'vue'
 import { closeLoading, error, loading } from '../../utils/message'
-import WavesurferComp from '../wavesurfer/Index.vue'
 import IconComp from '../icon/Index.vue'
+import WavesurferComp from '../wavesurfer/Index.vue'
 
 const props = defineProps({
   file: {
