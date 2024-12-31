@@ -16,16 +16,12 @@ const props = defineProps({
 
 const emits = defineEmits(['click'])
 
-function handleClick() {
-  emits('click')
-}
-
 const { tableIcon } = inject('GLOBAL_CUSTOM_CONFIG', { tableIcon: 'icon' })
 const { _text, buttonType } = useButton(props, '查看', tableIcon)
 </script>
 
 <template>
-  <button-comp :button-type type="primary" :icon :text="_text" @click="handleClick">
+  <button-comp :button-type type="primary" :icon :text="_text" @click="emits('click')">
     <slot />
   </button-comp>
 </template>

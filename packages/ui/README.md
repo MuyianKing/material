@@ -10,6 +10,7 @@ TODO:
 - @hl/ui/utils/custom.ref：增加debounceRef-带防抖的Ref
 - hl-dialog：增加css变量--padding用于设置body部分的padding
 - hl-config-provider：增加tableIcon、buttonIcon配置
+- hl-button：优化tooltip的体验、增加user-select:none
 
 ### 0.7.19
 
