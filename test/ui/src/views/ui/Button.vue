@@ -1,6 +1,6 @@
 <script setup>
 import TestCompWrapper from '@comp/test-comp-wrapper/Index.vue'
-import { HlAddButton, HlButton, HlDelButton, HlDetailButton, HlEditButton, HlExportButton, HlImportButton, HlSearchButton } from '@hl/ui'
+import { HlAddButton, HlButton, HlDelButton, HlDetailButton, HlEditButton, HlExportButton, HlImportButton, HlResetButton, HlSearchButton } from '@hl/ui'
 
 function handleClick() {
   console.log('handleClick')
@@ -37,6 +37,12 @@ function handleClick() {
         <!-- 添加按钮 -->
         <hl-add-button />
         <hl-add-button>创建</hl-add-button>
+      </div>
+
+      <div class="flex items-center mt-4">
+        <!-- 重置按钮 -->
+        <hl-reset-button />
+        <hl-reset-button>恢复</hl-reset-button>
       </div>
 
       <div class="flex items-center mt-4">

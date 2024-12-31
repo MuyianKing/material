@@ -1,6 +1,6 @@
 {
-  "name": "@hl/ui",
-  "type": "module",
-  "version": "0.7.19",
-  "main": "./index.js"
+	"name": "@hl/ui",
+	"type": "module",
+	"version": "0.7.20",
+	"main": "./index.js"
 }
