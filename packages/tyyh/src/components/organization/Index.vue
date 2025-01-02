@@ -2,7 +2,7 @@
 import { HlDropdownCascader } from '@hl/ui'
 import { ElCascader, ElTreeSelect } from 'element-plus'
 import { cloneDeep } from 'lodash-es'
-import { computed, onMounted, ref, watch } from 'vue'
+import { computed, onMounted, ref, useAttrs, watch } from 'vue'
 import { getOrgInfo, getTreeList } from '../../server/organization'
 import 'element-plus/es/components/cascader/style/css'
 import 'element-plus/es/components/tree-select/style/css'
@@ -232,9 +232,23 @@ const _props = computed(() => {
 
 const cascader_ref = ref()
 
+const $attrs = useAttrs()
 function handleChange(val) {
   if (!val) {
     val = props.multiple ? [] : ''
+  }
+
+  // 2025-01-02：可能是element-plus的bug，当show-checkbox为true时，val是事件对象，不是预期的选中的值
+  if (val instanceof Event) {
+    const nodes = cascader_ref.value.getCheckedNodes()
+
+    // 父子组件互不关联：获取所有选中节点的值
+    if (props.checkStrictly) {
+      val = nodes.map(item => item.organization_id)
+    } else {
+      // 关联只获取最后一层
+      val = nodes.filter(item => !item.sub_organization?.length > 0).map(item => item.organization_id)
+    }
   }
 
   emits('update:modelValue', val)
@@ -256,7 +270,7 @@ onMounted(() => {
   <template v-if="!readonly">
     <el-cascader v-if="comp === 'cascader'" v-bind="$attrs" ref="cascader_ref" :model-value="modelValue" clearable :options="data_list" :props="_props" :filterable @change="handleChange" />
     <hl-dropdown-cascader v-else-if="comp === 'dropdown'" v-bind="$attrs" :cascader-props="_props" :has-search="filterable" :options="data_list" />
-    <el-tree-select v-else v-bind="$attrs" ref="cascader_ref" :model-value="modelValue" check-strictly clearable :data="data_list" :multiple="_props.multiple" :props="_props" :filterable @change="handleChange" />
+    <el-tree-select v-else v-bind="$attrs" ref="cascader_ref" :model-value="modelValue" :check-strictly clearable :data="data_list" :multiple="_props.multiple" :props="_props" :filterable @change="handleChange" />
   </template>
   <div v-else v-bind="$attrs">
     <span v-for="item in orgs" :key="item.id" class="m-2">{{ item.organization_nick }}</span>

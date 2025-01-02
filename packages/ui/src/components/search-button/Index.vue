@@ -14,8 +14,6 @@ defineProps({
 })
 
 const { buttonIcon } = inject('GLOBAL_CUSTOM_CONFIG', { buttonIcon: true })
-
-console.log('buttonIcon', buttonIcon)
 </script>
 
 <template>

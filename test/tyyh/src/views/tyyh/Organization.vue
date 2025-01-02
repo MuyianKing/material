@@ -57,7 +57,7 @@ const tree_mul_value = ref([])
           <hl-block-title type="success">
             多选
           </hl-block-title>
-          <organization v-model="tree_mul_value" comp="tree" multiple class="mt-2 w-full" />
+          <organization v-model="tree_mul_value" remove-when-only-self multiple :check-strictly="false" collapse-tags class="w-full" show-checkbox comp="tree" />
         </div>
       </div>
     </test-comp-wrapper>

@@ -1,6 +1,6 @@
 {
-  "name": "@hl/tyyh",
-  "type": "module",
-  "version": "0.7.1",
-  "main": "./index.js"
+	"name": "@hl/tyyh",
+	"type": "module",
+	"version": "0.7.4",
+	"main": "./index.js"
 }

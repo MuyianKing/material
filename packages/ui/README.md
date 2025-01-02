@@ -4,6 +4,10 @@ TODO:
 - 上传组件增加上传失败处理
 - hl-dialog增加header插槽
 
+### 0.7.21
+
+- hl-reset-button：修复图标显示与其他按钮不一致问题
+
 ### 0.7.20
 
 - 增加@hl/ui/utils/custom.ref：自定义Ref

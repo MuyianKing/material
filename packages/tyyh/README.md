@@ -8,6 +8,14 @@
 
 - person-select：extend=true是做下拉加载更多
 
+#### 0.7.4
+
+- organization：当show-checkbox为true时，val是事件对象，不是预期的选中的值
+
+### 0.7.3
+
+- organization：修复comp为tree时，checkStrictly不生效问题
+
 ### 0.7.2
 
 - 增加getUserInfoByToken根据token获取用户信息
