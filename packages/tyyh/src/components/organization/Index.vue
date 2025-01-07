@@ -241,14 +241,7 @@ function handleChange(val) {
   // 2025-01-02：可能是element-plus的bug，当show-checkbox为true时，val是事件对象，不是预期的选中的值
   if (val instanceof Event) {
     const nodes = cascader_ref.value.getCheckedNodes()
-
-    // 父子组件互不关联：获取所有选中节点的值
-    if (props.checkStrictly) {
-      val = nodes.map(item => item.organization_id)
-    } else {
-      // 关联只获取最后一层
-      val = nodes.filter(item => !item.sub_organization?.length > 0).map(item => item.organization_id)
-    }
+    val = nodes.map(item => item.organization_id)
   }
 
   emits('update:modelValue', val)

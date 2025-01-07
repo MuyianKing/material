@@ -1,6 +1,6 @@
 import Select from './Index.vue'
 import './style/index'
 
-export const HlSelectRemopte = Select
+export const HlSelectRemote = Select
 
-export default HlSelectRemopte
+export default HlSelectRemote

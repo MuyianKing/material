@@ -1,6 +1,5 @@
 <script setup>
 import { vLoadmore } from '@hl/directions'
-import { ElOption, ElSelect } from 'element-plus'
 import { ref, useAttrs, watch } from 'vue'
 
 defineOptions({
@@ -16,6 +15,10 @@ const props = defineProps({
   all: {
     type: Boolean,
     default: false,
+  },
+  params: {
+    type: Object,
+    default: () => ({}),
   },
   queryConfig: {
     type: Object,
@@ -41,6 +44,7 @@ const props = defineProps({
 const query = {
   limit: 10,
   page: 1,
+  ...props.params,
 }
 
 // 自定义搜索
@@ -61,6 +65,7 @@ function filterFun(val) {
 }
 
 let is_focus = false
+
 function handleFocus() {
   is_focus = true
 }
@@ -90,6 +95,7 @@ function formatData(data) {
 }
 
 const loading = ref(false)
+
 // 用给定的方法获取数据
 async function getServerData(params) {
   if (!props.server) {
@@ -140,8 +146,8 @@ const $attrs = useAttrs()
 // 初始化
 async function init() {
   // 回显时：如果数据属于第二页数据，不初始化这些数据就回显不出来
-  const filter_ids = Array.isArray($attrs.modelValue) ? $attrs.modelValue : [$attrs.modelValue]
-  if ($attrs.modelValue !== '' && $attrs.modelValue !== undefined) {
+  let filter_ids = Array.isArray($attrs.modelValue) ? $attrs.modelValue : [$attrs.modelValue]
+  if ($attrs.modelValue !== '' && $attrs.modelValue !== undefined && (Array.isArray($attrs.modelValue) && $attrs.modelValue.length > 0)) {
     const params = {
       ...query,
       page: 1,
@@ -149,8 +155,10 @@ async function init() {
     }
     params[props.queryConfig?.id_key || 'id'] = filter_ids.join(',')
     const { data } = await getServerData(params)
-
+    filter_ids = data.map(item => item.value)
     dataList.value = data
+  } else {
+    dataList.value = []
   }
 
   getData({
@@ -160,6 +168,7 @@ async function init() {
 }
 
 let update_by_self = false
+
 function handleChange() {
   update_by_self = true
 }
@@ -177,16 +186,17 @@ watch(() => $attrs.modelValue, () => {
 defineExpose({
   init,
   query,
+  getDataList: () => dataList.value,
 })
 </script>
 
 <template>
-  <el-select :remote-method="filterFun" filterable remote-show-suffix remote :loading no-data-text="暂无数据" @change="handleChange" @focus="handleFocus">
+  <el-select :loading :remote-method="filterFun" filterable no-data-text="没有数据" remote remote-show-suffix @change="handleChange" @focus="handleFocus">
     <div v-loadmore="loadmore">
       <el-option v-if="all" value="">
         全部
       </el-option>
-      <el-option v-for="item in dataList" :key="item.value" :value="item.value" :label="item.label" />
+      <el-option v-for="item in dataList" :key="item.value" :label="item.label" :value="item.value" />
     </div>
   </el-select>
 </template>
