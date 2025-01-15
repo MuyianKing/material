@@ -1,5 +1,6 @@
 <script setup>
 import { vLoadmore } from '@hl/directions'
+import { ElOption, ElSelect } from 'element-plus'
 import { ref, useAttrs, watch } from 'vue'
 
 defineOptions({
@@ -200,5 +201,3 @@ defineExpose({
     </div>
   </el-select>
 </template>
-
-<style lang='scss' scoped></style>

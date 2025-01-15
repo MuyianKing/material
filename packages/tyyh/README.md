@@ -6,7 +6,20 @@
 
 ### TODO:
 
-- person-select：extend=true是做下拉加载更多
+- person-select：extend=true时做下拉加载更多
+-
+
+#### 0.7.9
+
+person-select：修复根据主键获取的数据与列表数据不一致问题
+
+#### 0.7.8
+
+person-select：暴露所有人员数据
+
+#### 0.7.7
+
+- person-select：修复person-select的organizationId属性初始化不生效问题
 
 #### 0.7.4
 

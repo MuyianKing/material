@@ -1,7 +1,7 @@
 <script setup>
-import { computed, onMounted, ref, watch, watchEffect } from 'vue'
 import { HlCheckbox, HlRadio, HlSelect } from '@hl/ui'
 import { useDebounceFn } from '@vueuse/core'
+import { computed, onMounted, ref, watch, watchEffect } from 'vue'
 import { getUserList, getUserListWithEachOrgJob } from '../../server/user'
 
 const props = defineProps({
@@ -98,7 +98,7 @@ async function getData() {
             id_card,
             limit: 100000,
             page: 1,
-          })
+          }, config)
 
           formatData(init_data.data).forEach((item) => {
             _options.value.push(item)
@@ -112,6 +112,7 @@ async function getData() {
           _options.value.push(item)
         }
       })
+
       has_more = _options.value.length < count
       loading.value = false
     }
@@ -122,6 +123,8 @@ async function getData() {
 
 const search = useDebounceFn(() => {
   query.page = 1
+  query.organization_id = props.organizationId
+  query.sub_organization = props.hasNext ? 1 : 0
   getData()
 })
 
@@ -179,9 +182,9 @@ const _d_p = computed(() => {
 })
 
 watch([() => props.organizationId, () => props.hasNext], () => {
-  query.organization_id = props.organizationId
-  query.sub_organization = props.hasNext ? 1 : 0
   search()
+}, {
+  immediate: true,
 })
 
 // 如果组件的单选多选是变化的，那么需要监听
@@ -204,7 +207,11 @@ watchEffect(() => {
 })
 
 onMounted(() => {
-  getData()
+  search()
+})
+
+defineExpose({
+  options: _options,
 })
 </script>
 

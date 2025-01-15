@@ -5,7 +5,7 @@ import { HlBlockTitle } from '@hl/ui'
 
 import { ref } from 'vue'
 
-const p = ref('320401199210122812')
+const p = ref('055206')
 
 const p2 = ref(['320401199210122812', '320911198110316311', '320421197210205611', '340323199711294237'])
 </script>

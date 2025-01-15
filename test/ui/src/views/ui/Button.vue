@@ -82,6 +82,18 @@ function handleClick() {
         <hl-detail-button text class="ml-4" />
         <hl-detail-button text="自定义文字" class="ml-4" />
       </div>
+
+      <div class="mt-4">
+        <hl-edit-button text @click="handleClick" />
+        <hl-del-button text />
+        <hl-detail-button text @click="handleClick" />
+      </div>
+
+      <div class="mt-4">
+        <hl-edit-button @click="handleClick" />
+        <hl-del-button />
+        <hl-detail-button @click="handleClick" />
+      </div>
     </test-comp-wrapper>
   </div>
 </template>
