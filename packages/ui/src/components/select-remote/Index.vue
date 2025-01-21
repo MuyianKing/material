@@ -148,7 +148,7 @@ const $attrs = useAttrs()
 async function init() {
   // 回显时：如果数据属于第二页数据，不初始化这些数据就回显不出来
   let filter_ids = Array.isArray($attrs.modelValue) ? $attrs.modelValue : [$attrs.modelValue]
-  if ($attrs.modelValue !== '' && $attrs.modelValue !== undefined && (Array.isArray($attrs.modelValue) && $attrs.modelValue.length > 0)) {
+  if ($attrs.modelValue !== '' && $attrs.modelValue !== undefined || (Array.isArray($attrs.modelValue) && $attrs.modelValue.length > 0)) {
     const params = {
       ...query,
       page: 1,
