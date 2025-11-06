@@ -6,7 +6,7 @@ TODO:
 
 ### 0.7.25
 
-- hl-select-remote：修复单选模式下为初始化问题
+- hl-select-remote：修复单选模式下未初始化问题
 
 ### 0.7.24
 
